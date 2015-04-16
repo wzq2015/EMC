@@ -1,0 +1,17 @@
+##
+## 页面的尾部处理模板(js)
+##
+/**
+ * 弹出窗口处理方法
+ */
+function openPopWindow(popFormEname, fieldId) {
+	var href = "DispatchAction.do?efFormEname=" + popFormEname + "&fieldId=" + fieldId;
+	var win = window.open(href);
+	window[win] = fieldId;
+}
+
+/**
+ * 弹出窗口返回的处理方法
+ */
+function setValueCallback(rowData, win) {
+}

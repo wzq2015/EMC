@@ -1,0 +1,159 @@
+package $beanPackName;
+
+import com.baosight.iplat4j.core.ei.EiColumn;
+import com.baosight.iplat4j.ep.DaoEPBase;
+import java.util.HashMap;
+import java.util.Map;
+#set($flag=1)
+#set($tag=1)
+#set($btag=1)
+#foreach( $key in $list )
+#if ($key.DataType=="C")
+#set($flag=$flag+1)
+#end
+#if($key.DataType=="N")
+#if($key.dataType=="BigDecimal")
+#set($btag=$btag+1)
+#end
+#set($tag=$tag+1)
+#end
+#end
+#if($flag!=1)
+import com.baosight.iplat4j.util.StringUtils;
+#end
+#if($tag!=1)
+import com.baosight.iplat4j.util.NumberUtils;
+#end
+#if($btag!=1)
+import java.math.BigDecimal;
+#end
+
+/**
+ * $beanName
+ */
+public class $beanName extends DaoEPBase {
+
+#foreach( $key in $list )
+#if ($key.DataType=="C")
+      private String $key.Name="";#if($key.DisplayName.trim()!="")
+  /*  $key.DisplayName  */
+#end
+#end
+#if($key.DataType=="N")
+      private $key.dataType $key.Name;#if($key.DisplayName.trim()!="")
+  /*  $key.DisplayName  */
+#end
+#end
+
+#end
+
+   /**
+    * initialize the metadata 
+    */
+	public void initMetaData() {
+	          EiColumn eiColumn;
+#foreach($key in $list)		
+              eiColumn = new EiColumn("$key.Name");
+#if($key.PrimaryKey=="True")
+              eiColumn.setPrimaryKey(true);
+#else
+              eiColumn.setPrimaryKey(false);
+#end
+#if($key.Precision.trim() != "")
+              eiColumn.setScaleLength($key.Precision);
+#end
+#if($key.MaxLength.trim() != "")
+              eiColumn.setFieldLength($key.MaxLength);	
+              eiColumn.setMaxLength($key.MaxLength);
+#end              
+#if($key.DisplayName.trim() != "")
+              eiColumn.setDescName("$key.DisplayName");
+#end
+#if($key.DataType.trim() != "")
+              eiColumn.setType("$key.DataType");
+#end
+#if($key.Format.trim() != "")
+              eiColumn.setDateFormat("$key.Format");
+#end
+#if($key.DisplayMemberPath.trim() != "")
+              eiColumn.setValueProperty("$key.DisplayMemberPath");
+#end
+#if($key.EditStyle.trim() != "")
+              eiColumn.setEditor("$key.EditStyle");
+#end
+#if($key.IsReadonly.toLowerCase().trim() == "true")
+              eiColumn.setReadonly(true);
+#else
+              eiColumn.setReadonly(false);
+#end
+#if($key.IsVisible.toLowerCase().trim() == "true" )
+              eiColumn.setVisible(true);
+#else
+              eiColumn.setVisible(false);
+#end
+#if($key.MinLength.trim()!="")
+              eiColumn.setMinLength("$key.MinLength");
+#end
+#if($key.ValueMemberPath.trim() !="" )
+              eiColumn.setLabelProperty("$key.ValueMemberPath");
+#end
+              eiMetadata.addMeta(eiColumn);
+#end
+	}
+   /**
+    * the constructor
+    */
+	public $beanName() {
+		initMetaData();
+	}
+	
+#foreach($key in $list)
+   /**
+    *get the $key.Name #if($key.DisplayName!="") - $key.DisplayName
+#end
+    *@return the $key.Name
+    */
+	 public $key.dataType get${key.tempName}(){
+	      return this.${key.Name};
+	 }
+   /**
+    *set the $key.Name #if($key.DisplayName!="") - $key.DisplayName
+#end
+    */
+	 public void set${key.tempName}($key.dataType ${key.Name}){
+	      this.$key.Name=$key.Name;
+	 }
+#end
+   /**
+    * get the value from Map
+    */
+	public void fromMap(Map map) {
+#foreach($key in $list)
+#if($key.dataType=="Long")
+          set${key.tempName}(NumberUtils.toLong(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end#if($key.dataType=="Integer")
+          set${key.tempName}(NumberUtils.toInteger(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end#if($key.dataType=="Float")
+          set${key.tempName}(NumberUtils.toFloat(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end#if($key.dataType=="Double")
+          set${key.tempName}(NumberUtils.toDouble(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end#if($key.dataType=="BigDecimal")
+          set${key.tempName}(NumberUtils.toBigDecimal(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end#if($key.dataType=="String")
+          set${key.tempName}(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("$key.Name")), $key.Name));
+#end
+#end		
+	}
+	
+   /**
+    * set the value to Map
+    */
+	public Map toMap() {
+        Map map = new HashMap();
+#foreach($key in $list)
+	    map.put("${key.Name}",StringUtils.toString(${key.Name}, eiMetadata.getMeta("${key.Name}")));
+#end				
+		return map;
+	
+	}
+}

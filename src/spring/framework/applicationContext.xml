@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架spring配置，使用中可直接SpringApplicationContext.getBean("beanName")得到bean -->
+
+    <bean id="springApplicationContext"
+        class="com.baosight.iplat4j.core.spring.SpringApplicationContext">
+        <constructor-arg>
+            <list>
+                <value>classpath*:spring/**/applicationContext.xml</value>
+                <value>classpath*:spring/**/applicationContext*.xml</value>
+            </list>
+        </constructor-arg>
+				<!--  定义spring配置文件的检查周期(ms) ,默认为5 min. 如果配置文件发生了变化，会重新加载配置 -->
+				<constructor-arg type="long" value="300000"/>
+    </bean>
+    
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+        	<list>
+            	<value>classpath:jdbc.properties</value>
+            	<!-- <value>classpath:dexpt.client.properties</value> -->
+            	<value>classpath:dexpt.properties</value>
+            	<value>classpath:project.properties</value>
+            	<value>classpath:vfjcore.properties</value>
+            </list>
+        </property>
+    </bean> 
+
+</beans>

@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+.fbLayoutGrid {
+	width: 100%;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.fbLayoutCell {
+	height: 35px;
+	/*min-width: 241px;*/
+}
+
+.fbTH {
+	position: relative;
+	height: 20px;
+    border:1px solid;
+    padding:3px;
+    border-color:#cfcfcf;
+    background-color:#E7F3FD;
+}
+.fbTD {
+	position: relative;
+	height: 20px;
+    border:1px solid;
+    padding:3px;
+    border-color:#cfcfcf;
+    background-color:#transparent;
+}

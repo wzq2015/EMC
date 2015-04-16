@@ -1,0 +1,78 @@
+#if( ${control.LayoutType} == 'Grid' )
+
+<Grid Name="$control.Name" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="$control.Width" Height="$control.Height"
+EF:EFDataField.IsFieldGroup="true" 
+#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+Grid.Row="${RowIndex}"
+#end
+
+#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+Grid.Column="${ColumnIndex}"
+#end
+
+#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+Grid.RowSpan="${control.RowSpan}"
+#end
+
+#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end
+>
+	<Grid.ColumnDefinitions>
+    #set( $columnlist = $control.ColumnWidth.split( " " ) )
+    #foreach( ${columnWidth} in $columnlist )
+	<ColumnDefinition Width="${columnWidth}" />
+	#end
+    </Grid.ColumnDefinitions>
+    
+    <Grid.RowDefinitions>
+    #set( $rowlist = $control.RowHeight.split( " " ) )
+    #foreach( ${rowHeight} in $rowlist )
+	<RowDefinition Height="${rowHeight}" />
+	#end
+    </Grid.RowDefinitions>
+    
+#else
+
+
+<StackPanel Name="$control.Name" HorizontalAlignment="Stretch" Orientation="${control.LayoutType}"  
+Width="$control.Width" Height="$control.Height"
+EF:EFDataField.IsFieldGroup="true" 
+#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+Grid.Row="${RowIndex}"
+#end
+
+#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+Grid.Column="${ColumnIndex}"
+#end
+
+#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+Grid.RowSpan="${control.RowSpan}"
+#end
+
+#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end
+>
+
+#end
+
+#set( $nestRegionControls = $control.SubControls )
+#foreach($control in $nestRegionControls)
+#set( $regionPath = './resources/igtemplate/' + ${control.Type} + 'Form.vm' )
+#parse("$regionPath")
+#end
+
+#if( ${control.LayoutType} == 'Grid' )
+</Grid>
+#else
+</StackPanel>
+#end

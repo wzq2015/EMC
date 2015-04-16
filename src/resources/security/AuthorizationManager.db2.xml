@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Authorization">
+
+	<typeAlias alias="Authorization"
+		type="com.baosight.platform.core.security.authorization.Authorization" />
+	<typeAlias alias="Resource2"
+		type="com.baosight.platform.core.security.resource.Resource" />
+	<typeAlias alias="User2"
+		type="com.baosight.platform.core.security.user.User" />
+	<typeAlias alias="PermissionPath"
+		type="com.baosight.platform.core.security.base.PermissionPath" />
+
+	<resultMap id="QueryResult" class="Authorization">
+		<result property="SubjectName" column="subject_name" />
+		<result property="SubjectType" column="subject_type" />
+		<result property="ObjectName" column="object_name" />
+		<result property="ObjectType" column="object_type" />
+		<result property="Operation" column="opt" />
+	</resultMap>
+	<resultMap id="ResourceListResult" class="Resource2">
+		<result property="Name" column="object_name" />
+		<result property="ResourceType" column="object_type" />
+	</resultMap>
+	<resultMap id="PathListResult" class="PermissionPath">
+		<result property="SubjectName" column="subject_name" />
+		<result property="SubjectType" column="subject_type" />
+		<result property="PathSubjectName" column="path_subject_name" />
+		<result property="PathSubjectType" column="path_subject_type" />
+		<result property="PathObjectName" column="path_object_name" />
+		<result property="PathObjectType" column="path_object_type" />
+		<result property="ObjectName" column="object_name" />
+		<result property="ObjectType" column="object_type" />
+		<result property="Operation" column="opt" />
+	</resultMap>
+	<resultMap id="UserListResult" class="User2" extends="User.QueryResult" />
+
+	<sql id="condition">
+		where 1=1
+		<dynamic prepend=" AND ">
+			<isNotNull property="SubjectName">
+				subject_name = #SubjectName#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="SubjectType">
+				subject_type = #SubjectType#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="ObjectName">
+				object_name = #ObjectName#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="ObjectType">
+				object_type = #ObjectType#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="Operation">
+				opt = #Operation#
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<insert id="Insert" parameterClass="Authorization">
+		insert into
+		${platSchema}.t_es_authorization(subject_name,subject_type,object_name,object_type,opt)
+		values(#SubjectName#, #SubjectType#, #ObjectName#, #ObjectType#,
+		#Operation#)
+	</insert>
+
+	<select id="IsGrant" parameterClass="Authorization"
+		resultClass="int">
+		select 1 from ${platSchema}.t_es_authorization
+		<include refid="condition" />
+	</select>
+
+	<select id="HasPermission" parameterClass="Authorization"
+		resultClass="int">
+		with subject(subject_name, subject_type, depth)
+		as ( select cast(#SubjectName# as varchar(256)), cast(#SubjectType# as varchar(8)), 0 
+		from sysibm.sysdummy1 union all select a.set_name as
+		subject_name, cast(#UsersetTypeName# as varchar(8)) as subject_type ,depth+1 as
+		depth from ${platSchema}.t_es_userset_member a, subject b where
+		a.member_name = b.subject_name and a.member_type =
+		b.subject_type and b.depth
+		<![CDATA[<]]>
+		5 ), object(object_name, object_type, depth) as ( select
+		cast(#ObjectName# as varchar(256)), cast(#ObjectType# as varchar(8)), 0 
+		from sysibm.sysdummy1 union all select a.set_name as object_name,
+		cast(#ResourcesetTypeName# as varchar(8)) as object_type ,depth+1 as depth from
+		${platSchema}.t_es_resourceset_member a, object b where a.member_name =
+		b.object_name and a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		5 )
+		select 1 from ${platSchema}.t_es_authorization a, subject b,
+		object c where a.subject_name = b.subject_name and
+		a.subject_type = b.subject_type and a.object_name =
+		c.object_name and a.object_type = c.object_type and a.opt =
+		#Operation# 
+	</select>
+
+	<sql id="SelectUserPermissions">
+		with subject(subject_name, subject_type, depth) as ( select
+		cast(#SubjectName# as varchar(256)), cast(#UserTypeName# as varchar(8)), 0 from sysibm.sysdummy1 
+		union all select a.set_name,
+		cast(#UsersetTypeName# as varchar(8)), depth+1 from ${platSchema}.t_es_userset_member a,  
+		subject b where a.member_name = b.subject_name and
+		a.member_type = b.subject_type and b.depth
+		<![CDATA[<]]>
+		5 ), object(object_name, object_type, depth) as ( select
+		distinct object_name, object_type, 0 from ${platSchema}.t_es_authorization a,
+		subject b where a.subject_name = b.subject_name and
+		a.subject_type = b.subject_type and a.opt = #Operation# union
+		all select c.member_name as object_name, c.member_type as
+		object_type ,depth+1 as depth from ${platSchema}.t_es_resourceset_member c,
+		object d where c.set_name = d.object_name and
+		d.object_type = cast(#ResourcesetTypeName# as varchar(8)) and d.depth
+		<![CDATA[<]]>
+		5 )
+	</sql>
+
+	<select id="UserPermissionCount" parameterClass="Authorization"
+		resultClass="int">
+		<include refid="SelectUserPermissions" />
+		select count(1) from ( select distinct aa.object_name,
+		aa.object_type from object aa where aa.object_type
+		<![CDATA[<>]]>
+		#ResourcesetTypeName# ) a
+	</select>
+
+	<select id="UserPermissions" parameterClass="Authorization"
+		resultMap="ResourceListResult">
+		<include refid="SelectUserPermissions" />
+		select distinct aa.object_name, aa.object_type from object aa
+		where aa.object_type
+		<![CDATA[<>]]>
+		#ResourcesetTypeName# order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="Name">
+				object_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Type">
+				object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="Name">
+				object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="Type">
+				object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<sql id="SelectResourcePermissions">
+		with
+		object(object_name, object_type, depth) as ( select cast(#ObjectName# as varchar(256)), 
+		cast(#ObjectType# as varchar(8)) as object_type, 0 from sysibm.sysdummy1 union
+		all select a.set_name as object_name, cast(#ResourcesetTypeName# as varchar(8)) as
+		object_type ,depth+1 as depth from ${platSchema}.t_es_resourceset_member a,
+		object b where a.member_name = b.object_name and
+		a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		5 ), subject(subject_name, subject_type, depth) as ( select
+		distinct subject_name, subject_type, 0 from ${platSchema}.t_es_authorization
+		a, object b where a.object_name = b.object_name and
+		a.object_type = b.object_type and a.opt = #Operation# union all
+		select c.member_name as subject_name, c.member_type as
+		subject_type ,depth+1 as depth from ${platSchema}.t_es_userset_member c,
+		subject d where c.set_name = d.subject_name and d.subject_type
+		= cast(#UsersetTypeName# as varchar(8)) and d.depth
+		<![CDATA[<]]>
+		5 )
+	</sql>
+
+	<select id="ResourcePermissionCount" parameterClass="Authorization"
+		resultClass="int">
+		<include refid="SelectResourcePermissions" />
+		select count(1) from ( select distinct aa.subject_name from subject aa
+		where aa.subject_type = #UserTypeName# ) a
+	</select>
+
+	<select id="ResourcePermissions" parameterClass="Authorization"
+		resultMap="UserListResult">
+		<include refid="SelectResourcePermissions" />
+		select distinct a.* from ${platSchema}.t_es_user a, subject aa where a.name =
+		aa.subject_name and aa.subject_type = #UserTypeName# order by
+     <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+           name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+           display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastName">
+          last_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FirstName">
+          first_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MiddleName">
+          middle_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="NickName">
+          nick_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Title">
+          title
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Initials">
+          initials
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FullName">
+          full_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Prof">
+          prof
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Position">
+          position
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Dept">
+          dept
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Account">
+          account
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IDNumber">
+          id_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WorkNumber">
+          work_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Gender">
+          gender
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Birthday">
+          birthday
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Country">
+          country
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Province">
+          province
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="City">
+          city
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Street">
+          street
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Addr">
+          addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomeAddr">
+          home_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficeAddr">
+          office_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessAddr">
+          business_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherAddr">
+          other_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostalCode">
+          postal_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostBox">
+          post_box
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WebSite">
+          web_site
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Email">
+          email
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IM">
+          im
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Domain">
+          domain
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MainPhone">
+          main_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomePhone">
+          home_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MobilePhone">
+          mobile_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficePhone">
+          office_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessPhone">
+          business_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherPhone">
+          other_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Fax">
+          fax
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserType">
+          user_type
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserCode">
+          user_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OrgCode">
+          org_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="CreateDate">
+          create_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ExpireDate">
+          expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdExpireDate">
+          pwd_expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UpdateDate">
+          property_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdUpdateDate">
+          pwd_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastLoginDate">
+          last_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ErrorLoginDate">
+          error_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Valid">
+          valid
+        </isEqual>
+		<isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+            $OrderValue$,
+          </isNotEqual>
+      </dynamic>
+		sort_index DESC
+		<dynamic prepend=" ">
+			<isNotEqual property="OrderKey" compareValue="Name">
+				,name ASC
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="PermissionPathCount" parameterClass="Authorization"
+		resultClass="int">
+		with subject(subject_name, subject_type, depth)
+		as ( select cast(#SubjectName# as varchar(256)), cast(#SubjectType# as varchar(8)), 0 
+		from sysibm.sysdummy1 
+		union all select
+		a.set_name, cast(#UsersetTypeName# as varchar(8)), depth+1 from ${platSchema}.t_es_userset_member
+		a, subject b where a.member_name = b.subject_name and
+		a.member_type = b.subject_type and b.depth
+		<![CDATA[<]]>
+		5 ), object(object_name, object_type, depth) as ( select
+		cast(#ObjectName# as varchar(256)), cast(#ObjectType# as varchar(8)), 0 
+		from sysibm.sysdummy1 union all select a.set_name,
+		cast(#ResourcesetTypeName# as varchar(8)), depth+1 from ${platSchema}.t_es_resourceset_member a,
+		object b where a.member_name = b.object_name and
+		a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		5 ) select count(1) from ${platSchema}.t_es_authorization a, subject b,
+		object c where a.subject_name = b.subject_name and
+		a.subject_type = b.subject_type and a.object_name =
+		c.object_name and a.object_type = c.object_type and a.opt =
+		#Operation#
+	</select>
+
+	<select id="PermissionPaths" parameterClass="Authorization"
+		resultMap="PathListResult">
+		with subject(subject_name, subject_type,
+		p_subject_name, p_subject_type, depth) as ( select
+		cast(#SubjectName# as varchar(256)), cast(#SubjectType# as varchar(8)),
+		cast(#SubjectName# as varchar(256)), cast(#SubjectType# as varchar(8)), 0
+		from sysibm.sysdummy1 union all 
+		select cast(#SubjectName# as varchar(256)), cast(#SubjectType# as varchar(8)), a.set_name,
+		cast(#UsersetTypeName# as varchar(8)), depth+1 from ${platSchema}.t_es_userset_member a,
+		subject b where a.member_name = b.p_subject_name and
+		a.member_type = b.p_subject_type and b.depth
+		<![CDATA[<]]>
+		5 ), object(object_name, object_type, p_object_name,
+		p_object_type, depth) as ( select cast(#ObjectName# as varchar(256)), 
+		cast(#ObjectType# as varchar(8)),
+		cast(#ObjectName# as varchar(256)), cast(#ObjectType# as varchar(8)), 0 
+		from sysibm.sysdummy1 union all select cast(#ObjectName# as varchar(256)),
+		cast(#ObjectType# as varchar(8)), a.set_name, cast(#ResourcesetTypeName# as varchar(8)), depth+1 from
+		${platSchema}.t_es_resourceset_member a, object b where a.member_name =
+		b.p_object_name and a.member_type = b.p_object_type and b.depth
+		<![CDATA[<]]>
+		5 ) select b.subject_name, b.subject_type, a.subject_name
+		as path_subject_name, a.subject_type as path_subject_type,
+		a.opt, a.object_name as path_object_name, a.object_type as
+		path_object_type, c.object_name, c.object_type from
+		${platSchema}.t_es_authorization a, subject b, object c where a.subject_name =
+		b.p_subject_name and a.subject_type = b.p_subject_type and
+		a.object_name = c.p_object_name and a.object_type =
+		c.p_object_type and a.opt = #Operation# order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectName">
+				a.subject_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectType">
+				a.subject_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				a.object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				a.object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectName">
+				a.subject_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectType">
+				a.subject_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				a.object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				a.object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<sql id="SelectUserPermissionPaths">
+		with subject(p_subject_name, p_subject_type, depth) as ( select
+		cast(#SubjectName# as varchar(256)), cast(#UserTypeName# as varchar(8)), 0 
+		from sysibm.sysdummy1 union all select a.set_name,
+		cast(#UsersetTypeName# as varchar(8)), depth+1 from ${platSchema}.t_es_userset_member a,
+		subject b where a.member_name = b.p_subject_name and
+		a.member_type = b.p_subject_type and b.depth
+		<![CDATA[<]]>
+		5 ), object(p_subject_name, p_subject_type, p_object_name,
+		p_object_type, object_name, object_type, depth) as ( select
+		distinct b.p_subject_name, b.p_subject_type, a.object_name,
+		a.object_type, a.object_name, a.object_type, 0 from
+		${platSchema}.t_es_authorization a, subject b where a.subject_name =
+		b.p_subject_name and a.subject_type = b.p_subject_type and a.opt
+		= #Operation# union all select b.p_subject_name,
+		b.p_subject_type, b.p_object_name, b.p_object_type,
+		a.member_name as object_name, a.member_type as object_type,
+		depth+1 as depth from ${platSchema}.t_es_resourceset_member a, 
+		object b where a.set_name = b.object_name and b.object_type =
+		#ResourcesetTypeName# and b.depth
+		<![CDATA[<]]>
+		5 )
+	</sql>
+
+	<select id="UserPermissionPathCount" parameterClass="Authorization"
+		resultClass="int">
+		<include refid="SelectUserPermissionPaths" />
+		select count(1) from ( select distinct p_subject_name,
+		p_subject_type,p_object_name, p_object_type, object_name,
+		object_type from object where object_type
+		<![CDATA[<>]]>
+		#ResourcesetTypeName#) a
+	</select>
+
+	<select id="UserPermissionPaths" parameterClass="Authorization"
+		resultMap="PathListResult">
+		<include refid="SelectUserPermissionPaths" />
+		select distinct cast(#SubjectName# as varchar(256)) as subject_name,
+		cast(#UserTypeName# as varchar(8)) as
+		subject_type, p_subject_name as path_subject_name,
+		p_subject_type as path_subject_type, cast(#Operation# as varchar(8)) as opt,
+		p_object_name as path_object_name, p_object_type as
+		path_object_type, object_name, object_type from object where
+		object_type
+		<![CDATA[<>]]>
+		#ResourcesetTypeName# order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectName">
+				p_subject_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectType">
+				p_subject_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectName">
+				object_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectType">
+				object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectName">
+				p_subject_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectType">
+				p_subject_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectName">
+				object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectType">
+				object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<sql id="SelectResourcePermissionPaths">
+		with object(p_object_name, p_object_type, depth) as ( select
+		cast(#ObjectName# as varchar(256)), cast(#ObjectType# as varchar(8)), 0 as depth 
+		from sysibm.sysdummy1 union all select
+		a.set_name, cast(#ResourcesetTypeName# as varchar(8)), depth+1 from
+		${platSchema}.t_es_resourceset_member a, object b where a.member_name =
+		b.p_object_name and a.member_type = b.p_object_type and b.depth
+		<![CDATA[<]]>
+		5 ), subject(subject_name, subject_type, p_subject_name,
+		p_subject_type, p_object_name, p_object_type, depth) as ( select
+		distinct a.subject_name, a.subject_type, a.subject_name,
+		a.subject_type, b.p_object_name, b.p_object_type, 0 from
+		${platSchema}.t_es_authorization a, object b where a.object_name =
+		b.p_object_name and a.object_type = b.p_object_type and a.opt =
+		#Operation# union all select a.member_name as subject_name,
+		a.member_type as subject_type, b.p_subject_name,
+		b.p_subject_type, b.p_object_name, b.p_object_type, depth+1 from
+		${platSchema}.t_es_userset_member a, subject b where a.set_name =
+		b.subject_name and #UsersetTypeName# = b.subject_type and
+		b.depth
+		<![CDATA[<]]>
+		5 )
+	</sql>
+
+	<select id="ResourcePermissionPathCount"
+		parameterClass="Authorization" resultClass="int">
+		<include refid="SelectResourcePermissionPaths" />
+		select count(1) from ( select distinct subject_name,
+		subject_type, p_subject_name as path_subject_name,
+		p_subject_type as path_subject_type, cast(#Operation# as varchar(8)) as opt,
+		p_object_name as path_object_name, p_object_type as
+		path_object_type, cast(#ObjectName# as varchar(256)) as object_name,
+		cast(#ObjectType# as varchar(8)) as
+		object_type from subject where subject_type = #UserTypeName#) a
+	</select>
+
+	<select id="ResourcePermissionPaths" parameterClass="Authorization"
+		resultMap="PathListResult">
+		<include refid="SelectResourcePermissionPaths" />
+		select distinct subject_name, subject_type, p_subject_name as
+		path_subject_name, p_subject_type as path_subject_type,
+		cast(#Operation# as varchar(8)) as opt, p_object_name as path_object_name,
+		p_object_type as path_object_type, cast(#ObjectName# as varchar(256)) as object_name,
+		cast(#ObjectType# as varchar(8)) as object_type from subject where subject_type =
+		#UserTypeName# order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="ObjectName">
+				subject_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectType">
+				subject_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectName">
+				p_subject_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathSubjectType">
+				p_subject_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="SubjectName">
+				subject_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="SubjectType">
+				subject_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectName">
+				p_subject_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathSubjectType">
+				p_subject_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="Count" parameterClass="Authorization"
+		resultClass="int">
+		select count(1) from ${platSchema}.t_es_authorization
+		<include refid="condition" />
+	</select>
+
+	<select id="Query" parameterClass="Authorization"
+		resultMap="QueryResult">
+		select subject_name, subject_type, object_name, object_type, opt
+		from ${platSchema}.t_es_authorization
+		<include refid="condition" />
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="SubjectName">
+				subject_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="SubjectType">
+				subject_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectName">
+				object_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectType">
+				object_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Operation">
+				opt
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="SubjectName">
+				subject_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="SubjectType">
+				subject_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectName">
+				object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectType">
+				object_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="Operation">
+				opt
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<delete id="Delete" parameterClass="Authorization">
+		delete from ${platSchema}.t_es_authorization
+		<include refid="condition" />
+	</delete>
+
+</sqlMap>

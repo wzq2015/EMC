@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-30 13:39:40
+   		Version :  1.0.1.V20070717
+		tableName :.t_devicepara 
+		 f_devicepara_id  INTEGER   NOT NULL   primarykey, 
+		 f_device_id  INTEGER   NOT NULL, 
+		 f_devicepara_name  VARCHAR, 
+		 f_devicepara_desc  VARCHAR, 
+		 f_devicepara_tagname  VARCHAR
+	-->
+<sqlMap namespace="tDevicepara">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevicepara">
+		SELECT
+				f_devicepara_id	as "f_deviceparaId",  
+				f_device_id	as "f_deviceId",  
+				f_devicepara_name	as "f_deviceparaName",  
+				f_devicepara_desc	as "f_deviceparaDesc",  
+				f_devicepara_tagname	as "f_deviceparaTagname" 
+		FROM .t_devicepara WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceparaId">
+			f_devicepara_id = #f_deviceparaId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaName">
+			f_devicepara_name = #f_deviceparaName#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_devicepara_id asc
+		</isEmpty>
+  		</dynamic>
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_devicepara WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceparaId">
+			f_devicepara_id = #f_deviceparaId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_deviceparaId">
+			f_devicepara_id = #f_deviceparaId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaName">
+			f_devicepara_name = #f_deviceparaName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaDesc">
+			f_devicepara_desc = #f_deviceparaDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaTagname">
+			f_devicepara_tagname = #f_deviceparaTagname#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_devicepara (f_devicepara_id,
+										f_device_id,
+										f_devicepara_name,
+										f_devicepara_desc,
+										f_devicepara_tagname
+										)		 
+	    VALUES (#f_deviceparaId#, #f_deviceId#, #f_deviceparaName#, #f_deviceparaDesc#, #f_deviceparaTagname#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_devicepara WHERE 
+			f_devicepara_id = #f_deviceparaId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_devicepara 
+		SET 
+					f_devicepara_name	= #f_deviceparaName#,   
+					f_devicepara_desc	= #f_deviceparaDesc#,   
+					f_devicepara_tagname	= #f_deviceparaTagname#  
+			WHERE 	
+			f_devicepara_id = #f_deviceparaId#
+	</update>
+  
+</sqlMap>

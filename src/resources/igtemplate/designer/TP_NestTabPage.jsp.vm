@@ -1,0 +1,6 @@
+## 带有Tab子页面的jsp模板
+#parse("${meta.templateHome}_page_header.jsp.vm")
+
+#parse("${meta.templateHome}_page_region_tab.jsp.vm")
+
+#parse("${meta.templateHome}_page_footer.jsp.vm")

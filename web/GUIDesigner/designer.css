@@ -1,0 +1,129 @@
+input.flatInput
+{
+	borderColor:#7f9db9;
+	borderWidth:1px;
+	borderStyle:solid;
+	width:70px;
+}
+
+
+.spliter{
+	cursor: pointer;
+	border-width: 1px;
+	border-color: gray ; 
+	background-color: #66CCCC;
+	width:4px;
+}
+
+.buttonItem 
+{
+	cursor: pointer;
+	border-style:solid;
+	border-width:1px; 
+	border-color:#ccc; 
+	height:20px;
+	margin:2px;
+	float:left;
+	text-align:center;
+}
+
+.barItem
+{
+	border-style:solid;
+	border-width:1px; 
+	border-color:#ccc; 
+	height:25px;
+	text-align:center;
+
+	background-image: url(img/tools_bg.png);
+	vertical-align: middle;
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-size: 14px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.tabItem{
+	font-size: 13px;
+	float: left;
+	text-align:center;
+	font-family: "Î¢ÈíÑÅºÚ";
+	border-style:solid;
+	margin:0px 0px 0px 1px;
+	border-width: thin;
+	border-color: lightGray;
+	cursor: pointer;
+}
+
+.control
+{
+	border-style:solid;
+	border-color:lightGray;
+	border-width:1px;
+	overflow:hidden;
+	box-shadow:1px 1px 3px #292929;
+	z-index:1;
+}
+
+.controlItem 
+{
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	cursor: pointer;
+	border-style:solid;
+	border-width:1px; 
+	border-color:#ccc;
+	height:30px;
+}
+
+.horizontalLine
+{
+	cursor: pointer;
+	background:lightgray;
+	height:20px;
+	font-weight: bold;
+}
+
+.treeStyle
+{
+	border: 1px solid #CACACA;
+	background:#fff;
+}
+
+.treeBox
+{
+	border: 1px solid #CACACA;
+  background:#fff;
+  width:100%;
+}
+
+.drag { position: relative; }
+
+.monkey { 
+	background: #FF0000; /* red background */
+	width: 56px;
+	height: 32px;
+	position: absolute; /* we want to set an absolute position so the div can be moved in reference to the screen */
+	top: 50px; /* this sets the positioning of the element in reference to the top left of your window. it will space it 50 pixels from the top */ 
+	left: 50px; /* this will set the position of the element 50 pixels to right of the top left of your window. */
+	z-index: 5; /* this will position it above anything with a lower z-index, sort of like layers. So you could layer these divs using z-index and have them stack 		on each other. */ 
+}
+
+.controlSurface
+{
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	cursor: pointer;
+	border-style:solid;
+	border-width:1px; 
+	border-color:#ccc;
+	height:30px;
+	position:absolute;
+	width:178px;
+	height:45px;
+	z-index:100;
+	float:left;
+	position:absolute;
+	margin:-17px 0px 0px 0px;
+	filter:alpha(opacity=0);
+}

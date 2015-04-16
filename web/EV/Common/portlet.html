@@ -1,0 +1,120 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; 
+	charset=UTF-8" />
+	<title>
+	</title>
+
+	
+	<link href="./efportlet.css" rel="stylesheet" type="text/css"/>
+	<link href="../../EF/EF.css" rel="stylesheet" type="text/css"/>	
+	<script type="text/javascript">
+	CONTEXT_PATH = "../..";
+	</script>
+	<script type="text/javascript" src="../../EF/jQuery/jquery.js"></script>
+	<script type="text/javascript" src="../../EF/EF.js"></script>
+	<script type="text/javascript" src="./EFPortlet.js"></script>
+	<script type="text/javascript" src="./EFPortal.js"></script>
+
+	
+</head>
+<body >
+
+
+
+
+<script type="text/javascript" >
+	var block = new EiBlock("result");
+	var blockMeta = new EiBlockMeta("result");
+	meta = new EiColumn("tabName");
+	meta.pos =1;
+	blockMeta.addMeta(meta);
+	meta = new EiColumn("tabUrl");
+	meta.pos =2;
+	blockMeta.addMeta(meta);
+	block.setBlockMeta(blockMeta);
+	block.addRow({"1":"测试Google","2":"http://www.google.com"});
+	block.addRow({"1":"有趣测试","2":"E:\\Project\\iPlat4j\\Source\\iPlat4j3\\web\\EV\\Common\\portlet.html"});
+	//block.addRow({"1":"测试百度","2":"http://www.baidu.com"});
+	//block.addRow({"1":"测试QQ","2":"http://www.qq.com"});
+	
+
+
+	var portlet = new efportlet("myPortlet");
+	portlet.init({"sequence":"0","bgcolor":"#00FF00","height":"100","width":"300","expandHeight":"500"});
+	portlet.beforeCloseCallBack = function(str){
+		
+	}
+	
+	var portlet1 = new efportlet("myPortlet1");
+	portlet1.init({"blockData":block,"portletPosition":"1","bgcolor":"#AAAAAA","height":"auto","width":"300","expandHeight":"500",
+		"expandWidth":"600"});
+	
+	var portlet2 = new efportlet("myPortlet2");
+	portlet2.init({"blockData":block,"portletPosition":"2","bgcolor":"#999999","height":"auto","width":"300","expandHeight":"500"});
+	
+	var portlet3 = new efportlet("myPortlet3");
+	portlet3.init({"blockData":block,"portletPosition":"3","bgcolor":"#654321","height":"auto","width":"300","expandHeight":"500"});
+
+	var portlet4 = new efportlet("myPortlet4");
+	portlet4.setPortletContent = function (){
+		return "测试";
+	}
+	portlet4.init({"blockData":block,"portletPosition":"4","bgcolor":"#FF00FF","height":"auto","width":"0","expandHeight":"500"});
+
+	var portlet5 = new efportlet("myPortlet5");
+	portlet5.setPortletContent = function (){
+		return " ";
+	}
+	portlet5.init({"blockData":null,"portletPosition":"5","hasLogoImg":false,"hasExpandImg":false,"hasEditImg":false,
+			"hasMinMaxImg":false,"hasCloseImg":false,"height":"auto","width":"0","expandHeight":"500"});
+	
+	
+	var portal = new efportal("myPortalTest");
+	portal.init({"style":"30%:50%:20%","model":"columnModel"});
+
+
+
+</script>
+
+
+<script type="text/javascript">
+//eval('eftab.show("myPortlet_content_info")');
+//eval('eftab.show("myPortlet1_content_info")');
+//eval('eftab.show("myPortlet2_content_info")');
+//eval('eftab.show("myPortlet3_content_info")');
+//eval('eftab.show("myPortlet4_content_info")');
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

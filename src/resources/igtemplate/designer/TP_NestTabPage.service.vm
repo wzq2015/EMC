@@ -1,0 +1,23 @@
+## 带有Tab子页面的service模板
+/**
+ * Generate time : $meta.date
+ */
+package ${meta.package}.service;
+import org.apache.log4j.Logger;
+import com.baosight.iplat4j.core.ei.EiInfo;
+import com.baosight.iplat4j.ep.ServiceEPBase;
+
+public class Service$meta.formEname extends ServiceEPBase {
+
+	private static final Logger logger = Logger.getLogger(Service${meta.formEname}.class);
+
+	/**
+	 * 页面初始化
+	 * @param EiInfo
+	 * @return EiInfo
+	 */
+	public EiInfo initLoad(EiInfo inInfo) {		
+		return inInfo;
+	}
+
+}

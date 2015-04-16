@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"               
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Resourceset">
+
+	<typeAlias alias="Resourceset"
+		type="com.baosight.platform.core.security.resourceset.Resourceset" />
+	<typeAlias alias="Resource"
+		type="com.baosight.platform.core.security.resource.Resource" />
+
+	<resultMap id="QueryResult" class="Resourceset">
+		<result property="Name" column="name" />
+		<result property="DisplayName" column="display_name" />
+		<result property="Desc" column="desc_info" />
+		<result property="Index" column="sort_index" />
+		<result property="Attribute" column="attribute" />
+        <result property="Property" column="property" />
+        <result property="Ext1" column="ext1" />
+        <result property="Ext2" column="ext2" />
+        <result property="Ext3" column="ext3" />
+	</resultMap>
+	<resultMap id="MemberResult" class="Member"
+		extends="Userset.MemberResult" />
+	<resultMap id="ResourceResult" class="Resource">
+		<result property="Name" column="member_name" />
+		<result property="ResourceType" column="member_type" />
+	</resultMap>
+
+	<insert id="Insert" parameterClass="Resourceset">
+		insert into
+		t_es_resourceset(name,display_name,desc_info,sort_index,attribute,property,ext1,ext2,ext3)
+		values(#Name:VARCHAR#, #DisplayName:VARCHAR#, #Desc:VARCHAR#, #Index#,#Attribute:VARCHAR#,#Property:VARCHAR#,#Ext1:VARCHAR#,#Ext2:VARCHAR#,#Ext3:VARCHAR#)
+	</insert>
+
+	<update id="Update" parameterClass="Resourceset">
+		update t_es_resourceset set 
+		display_name = #DisplayName#,
+		desc_info = #Desc:VARCHAR#, 
+		sort_index = #Index#, 
+		attribute = #Attribute:VARCHAR#, 
+		property = #Property:VARCHAR#, 
+		ext1 = #Ext1:VARCHAR#, 
+		ext2 = #Ext2:VARCHAR#, 
+		ext3 = #Ext3:VARCHAR# 
+		where name = #Name#
+	</update>
+
+	<select id="Query" parameterClass="Resourceset"
+		resultMap="QueryResult">
+		select * from
+		t_es_resourceset where 1=1
+		<dynamic prepend=" AND ">
+			<isNotNull property="Name">name = #Name#</isNotNull>
+		</dynamic>
+	</select>
+
+	<sql id="SelectResourceset">
+		from t_es_resourceset where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="DisplayName">
+				display_name LIKE '%'||#DisplayName#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Desc">
+				desc_info LIKE '%'||#Desc#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Index">
+				sort_index LIKE '%'||#Index#||'%'
+			</isNotEmpty>
+		</dynamic>
+		      <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+	</sql>
+
+	<sql id="QueryResourcesetWithCondition">
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="DisplayName">
+				display_name LIKE '%'||#DisplayName#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Desc">
+				desc_info LIKE '%'||#Desc#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Index">
+				sort_index LIKE '%'||#Index#||'%'
+			</isNotEmpty>
+		</dynamic>
+		      <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+	</sql>
+
+	<sql id="SortResourcesetWithCondition">
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="Name">
+				name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="DisplayName">
+				display_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Desc">
+				desc
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Attribute">
+          		attribute
+        	</isEqual>
+        	<isEqual property="OrderKey" compareValue="Property">
+          		property
+        	</isEqual>
+        	<isEqual property="OrderKey" compareValue="Ext1">
+          		ext1
+        	</isEqual>
+        	<isEqual property="OrderKey" compareValue="Ext2">
+          		ext2
+        	</isEqual>
+        	<isEqual property="OrderKey" compareValue="Ext3">
+          		ext3
+        	</isEqual>
+			<isNotEqual property="OrderValue" compareValue="NotSet">
+				$OrderValue$,
+			</isNotEqual>
+		</dynamic>
+		sort_index DESC
+		<dynamic prepend=" ">
+			<isNotEqual property="OrderKey" compareValue="Name">
+				,name ASC
+			</isNotEqual>
+		</dynamic>
+	</sql>
+
+	<select id="QueryList" parameterClass="Map"
+		resultMap="QueryResult">
+		select *
+		<include refid="SelectResourceset" />
+		<include refid="SortResourcesetWithCondition" />
+	</select>
+
+	<delete id="Delete" parameterClass="Resourceset">
+		delete from t_es_resourceset where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">name = #Name#</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="Count" resultClass="int">
+		select count(1)
+		<include refid="SelectResourceset" />
+	</select>
+
+	<sql id="SelectMember">
+		from t_es_resourceset_member where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="SetName">
+				set_name = #SetName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberName">
+				member_name = #MemberName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberType">
+				member_type = #MemberType#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="AddMember" parameterClass="Member">
+		insert into
+		t_es_resourceset_member(set_name,member_name,member_type)
+		values(#SetName:VARCHAR#, #MemberName:VARCHAR#, #MemberType:VARCHAR#)
+	</insert>
+
+	<delete id="RemoveMember" parameterClass="Map">
+		delete
+		<include refid="SelectMember" />
+	</delete>
+
+	<select id="MemberCount" resultClass="int">
+		select count(1)
+		<include refid="SelectMember" />
+		<include refid="QueryResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryResourceList" parameterClass="Map"
+		resultMap="ResourceResult">
+		select member_name, member_type from t_es_resourceset_member
+		where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="SetName">
+				set_name = #SetName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				member_name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Type">
+				member_type LIKE '%'||#Type#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="NotSetType">
+				member_type != #NotSetType#
+			</isNotEmpty>
+		</dynamic>
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="Name">
+				member_name $OrderValue$
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Type">
+				member_type $OrderValue$,member_name ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="NotSet">
+				member_name ASC
+			</isEqual>
+		</dynamic>
+	</select>
+
+	<select id="QueryResourceCount" resultClass="int">
+		select count(1) from t_es_resourceset_member where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="SetName">
+				set_name = #SetName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				member_name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Type">
+				member_type LIKE '%'||#Type#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="NotSetType">
+				member_type != #NotSetType#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<sql id="SelectRecursiveMember">
+		with temp(set_name, member_name, member_type, depth) as 
+		(select root.set_name,
+		root.member_name, root.member_type, 1 from
+		t_es_resourceset_member root where set_name = #SetName#
+		union all select sub.set_name, sub.member_name, sub.member_type,
+		depth+1 from t_es_resourceset_member sub, temp super where
+		sub.set_name = super.member_name and super.member_type=#NotSetType# and depth
+		<![CDATA[<]]>
+		5)
+	</sql>
+
+	<sql id="SelectRecursiveResourceset">
+		with temp(set_name, member_name, member_type, depth) as 
+		(select root.set_name,
+		root.member_name, root.member_type, 1 from
+		t_es_resourceset_member root where set_name = #SetName#
+		union all select sub.set_name, sub.member_name, sub.member_type,
+		depth+1 from t_es_resourceset_member sub, temp super where
+		sub.set_name = super.member_name 
+		and super.member_type = #NotSetType#
+		and depth
+		<![CDATA[<]]>
+		5)
+	</sql>
+
+
+	<select id="RecursiveMemberCount" resultClass="int">
+		<include refid="SelectRecursiveMember" />
+		select count(1) from temp where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberName">
+				member_name = #MemberName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberType">
+				member_type = #MemberType#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="RecursiveResourcesetCount" resultClass="int">
+		<include refid="SelectRecursiveResourceset" />
+		select count(1) from temp where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberName">
+				member_name = #MemberName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberType">
+				member_type = #MemberType#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="QueryRecursiveResourceList" parameterClass="Map"
+		resultMap="ResourceResult">
+		<include refid="SelectRecursiveMember" />
+		select distinct member_name, member_type from temp where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				member_name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Type">
+				member_type LIKE '%'||#Type#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="NotSetType">
+				member_type != #NotSetType#
+			</isNotEmpty>
+		</dynamic>
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="Name">
+				member_name $OrderValue$
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Type">
+				member_type $OrderValue$,member_name ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="NotSet">
+				member_name ASC
+			</isEqual>
+		</dynamic>
+	</select>
+
+	<select id="QueryRecursiveResourceCount" resultClass="int">
+		<include refid="SelectRecursiveMember" />
+		select count(1) from (select distinct member_name, member_type
+		from temp where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Name">
+				member_name LIKE '%'||#Name#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="Type">
+				member_type LIKE '%'||#Type#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="NotSetType">
+				member_type != #NotSetType#
+			</isNotEmpty>
+		</dynamic>
+		) a
+	</select>
+
+	<select id="QueryResourcesetList" parameterClass="Map"
+		resultMap="QueryResult">
+		select * from t_es_resourceset where name in (select member_name
+		<include refid="SelectMember" />
+		)
+		<include refid="QueryResourcesetWithCondition" />
+		<include refid="SortResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryResourcesetCount" resultClass="int">
+		select count(1) from t_es_resourceset where name in (select
+		member_name
+		<include refid="SelectMember" />
+		)
+		<include refid="QueryResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryRecursiveResourcesetList" parameterClass="Map"
+		resultMap="QueryResult">
+		<include refid="SelectRecursiveResourceset" />
+		select * from t_es_resourceset where name in (select member_name
+		from temp where temp.member_type=#NotSetType#)
+		<include refid="QueryResourcesetWithCondition" />
+		<include refid="SortResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryRecursiveResourcesetCount" resultClass="int">
+		<include refid="SelectRecursiveResourceset" />
+		select count(1) from t_es_resourceset where name in (select
+		member_name from temp where temp.member_type=#NotSetType#)
+		<include refid="QueryResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryParentResourcesetList" parameterClass="Map"
+		resultMap="QueryResult">
+		select * from t_es_resourceset where name in (select set_name
+		<include refid="SelectMember" />
+		)
+		<include refid="QueryResourcesetWithCondition" />
+		<include refid="SortResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryParentResourcesetCount" resultClass="int">
+		select count(1) from t_es_resourceset where name in (select
+		set_name
+		<include refid="SelectMember" />
+		)
+		<include refid="QueryResourcesetWithCondition" />
+	</select>
+
+	<sql id="SelectRecursiveParent">
+		with temp(set_name,
+		member_name, member_type, depth) as (select sub.set_name,
+		sub.member_name, sub.member_type, 1 from t_es_resourceset_member
+		sub where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberName">
+				member_name = #MemberName#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MemberType">
+				member_type = #MemberType#
+			</isNotEmpty>
+		</dynamic>
+		union all select parent.set_name, parent.member_name,
+		parent.member_type, depth+1 from t_es_resourceset_member parent,
+		temp super where parent.member_name = super.set_name 
+		and parent.member_type=#NotSetType# and depth
+		<![CDATA[<]]>
+		5)
+	</sql>
+
+	<select id="QueryRecursiveParentList" parameterClass="Map"
+		resultMap="QueryResult">
+		<include refid="SelectRecursiveParent" />
+		select * from t_es_resourceset where name in (select set_name
+		from temp)
+		<include refid="QueryResourcesetWithCondition" />
+		<include refid="SortResourcesetWithCondition" />
+	</select>
+
+	<select id="QueryRecursiveParentCount" resultClass="int">
+		<include refid="SelectRecursiveParent" />
+		select count(1) from t_es_resourceset where name in (select
+		set_name from temp)
+		<include refid="QueryResourcesetWithCondition" />
+	</select>
+</sqlMap>

@@ -1,0 +1,7 @@
+#if($item.fieldContent.trim()=="")
+#if($item.tableAlias.trim() == "")
+#set($table_alias = $item.tableName)
+#else
+#set($table_alias = $item.tableAlias)
+#end
+${table_alias}.$item.fieldName as "$item.fieldColumnName"#else $item.fieldContent as "$item.fieldColumnName"#end

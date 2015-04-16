@@ -1,0 +1,152 @@
+
+.funcarray{
+	font-size:18px;
+	font-weight:bold;
+	text-align:left;
+	position:relative;
+	left:3%;
+	height:30px;
+	}
+.toTable{
+	width:100%;
+	border-collapse:collapse;
+	}
+
+.tableRow {
+	background-color: #f1f1f1;
+	font-size: 15px;
+	color: #505050;
+	line-height: 150%;
+	rowHeight:22px;
+	font-style:italic;
+	text-align:center;
+	padding-top:20px;
+	background-color:expression((this.sectionRowIndex%2==0)?"#f1f1f1":"#e7e7e7");
+	onmouseover: expression(onmouseover=function (){this.style.backgroundColor ='#d8bfd8'});
+	onmouseout: expression(onmouseout=function (){this.style.backgroundColor =''});
+
+}
+
+.naviText {
+	height:50px;
+	font-size: 18px;
+	font-weight: bold;
+	color:blue;
+	padding-left: 4px;
+	padding-top: 10px;
+}
+
+.paramText {
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 4px;
+	padding-top: 20px;
+	text-align:center;
+	color:red;
+}
+
+.seperator{
+	 border:1px dashed #334455 ;
+	}
+
+
+.funSepDiv{
+	padding-top: 15px;
+	width:100%;
+	align:center;
+
+	}
+ .funcShow{
+   padding-top: 50px;
+   padding-left:100px;
+   align:center;
+   width:80%;
+ }
+
+.aStyle
+{
+	onmouseover: expression(onmouseover=function (){this.style.color ='blue'});
+	onmouseout: expression(onmouseout=function (){this.style.color ='black'});
+}
+.childNode{
+	font-size:150%;
+	color: #000000;
+	table-layout:fixed;
+	word-break:break-all;
+	}
+.pageTable{
+	height:10%;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #c5cacd;
+	border-right-color: #c5cacd;
+	border-bottom-color: #c5cacd;
+	background-image: url(Images/indexReal2-bg.jpg);
+	background-repeat: repeat;
+
+	}
+.sortType{
+	font-size: 180%;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	word-spacing: 0px;
+	background-color: #26acc9;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #3880a1;
+	border-right-color: #3880a1;
+	border-bottom-color: #3880a1;
+	border-left-color: #3880a1;
+	}
+
+.mainDiv{
+	width:70%;
+	position:relative;
+	left:10%;
+	top:5%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	}
+.tableDiv{
+   padding-top: 1%;
+   padding-left: 50px;
+   align:left;
+   width:80%;
+	}
+.aSortStyle
+{
+	width:1%;
+	onmouseover: expression(onmouseover=function (){this.style.color ='blue'});
+	onmouseout: expression(onmouseout=function (){this.style.color ='#FFFFFF'});
+}
+.linkStyle{
+    onmouseover: expression(onmouseover=function (){this.style.color ='blue'});
+	onmouseout: expression(onmouseout=function (){this.style.color ='black'});
+}
+.contentStyle{
+   background-image: url(Images/indexReal2-pic.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	font-size: 12px;
+	background-color: #FFF;font-size: 18px;
+}
+.blacktext {
+	font-size: 18px;
+	color: #000000;
+	text-decoration: none;
+}
+.blank{
+  height:1%;
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="fckdialog.css" rel="stylesheet" type="text/css"/>
+    
+    <script type="text/javascript"">
+     var CONTEXT_PATH = "../..";
+    </script>
+    <script type="text/javascript" src="../../EF/jQuery/jquery.js"></script>
+    <script type="text/javascript" src="../../EF/EF.js"></script>
+	
+   <script type="text/javascript">
+     function setTitle(){
+       //alert( window.frameElement );
+       var tl = frameElement.wizard.title();       
+       $("#WizardTitle").text(tl);  
+       //alert( "WizardTitle" );     
+     }
+     
+     function setProperty(key, val){
+       var wd = frameElement.wizard;
+       wd.prop()[key] = val;
+     }
+     
+     function properties(key, val){
+       var wd = frameElement.wizard;
+       return wd.prop();
+     }
+     
+     function clearProperties()
+     {
+     	var _properties = frameElement.wizard.prop();
+     	for ( var key in _properties ) 
+     		delete _properties[key];
+     }
+     
+     function showPage(pg){
+       if( pg == undefined ){
+         pg = frameElement.wizard.page();
+       }
+       $("#frmMain").attr("src", pg);
+       //alert( "shwoPage" );       
+     }
+     
+     function curPage(){
+       return $("#frmMain").get(0).contentWindow;
+     }     
+ 
+     function disableNext(v){
+       $("#btnNext").get(0).disabled = v;
+     }
+     
+     function disableCancel(v){
+       $("#btnCancel").get(0).disabled = v;
+     }
+     
+     function disableFinish(v){
+       $("#btnFinish").get(0).disabled = v;
+     }
+     
+   </script>	
+		
+  <script type="text/javascript">		
+   
+   var domRender = {	
+      GetViewPaneSize : function( win ){
+        var oSizeSource ;
+        var oDoc = win.document.documentElement ;
+        if ( oDoc && oDoc.clientWidth )				// IE6 Strict Mode
+      oSizeSource = oDoc ;
+    else
+      oSizeSource = win.document.body ;		// Other IEs
+
+    if ( oSizeSource )
+      return { Width : oSizeSource.clientWidth, Height : oSizeSource.clientHeight } ;
+    else
+      return { Width : 0, Height : 0 } ;
+  },
+  
+  SetOpacity : function( element, opacity ){
+    
+      opacity = Math.round( opacity * 100 ) ;
+      element.style.filter = ( opacity > 100 ? '' : 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + opacity + ')' ) ;
+    
+  },		
+	
+  SetElementStyles : function( element, styleDict ){
+    var style = element.style ;
+    for ( var styleName in styleDict )
+      style[ styleName ] = styleDict[ styleName ] ;
+  }	
+};
+   
+    (function()
+    {	
+	  var fixSizes = window.DoResizeFixes = function(){
+		var fckDlg = window.document.body ;
+		for ( var i = 0 ; i < fckDlg.childNodes.length ; i++ )
+		{
+			var child = fckDlg.childNodes[i] ;
+			switch ( child.className )
+			{
+			  case 'contents' :
+					child.style.width = Math.max( 0, fckDlg.offsetWidth - 16 - 16 ) ;	// -left -right
+					child.style.height = Math.max( 0, fckDlg.clientHeight - 20 - 2 ) ;	// -bottom -top
+					break ;
+
+				case 'blocker' :
+				case 'cover' :
+					child.style.width = Math.max( 0, fckDlg.offsetWidth - 16 - 16 + 4 ) ;	// -left -right + 4
+					child.style.height = Math.max( 0, fckDlg.clientHeight - 20 - 2 + 4 ) ;	// -bottom -top + 4
+					break ;
+
+				case 'tr' :
+					child.style.left = Math.max( 0, fckDlg.clientWidth - 16 ) ;
+					break ;
+
+				case 'tc' :
+					child.style.width = Math.max( 0, fckDlg.clientWidth - 16 - 16 ) ;
+					break ;
+
+				case 'ml' :
+					child.style.height = Math.max( 0, fckDlg.clientHeight - 16 - 51 ) ;
+					break ;
+
+				case 'mr' :
+					child.style.left = Math.max( 0, fckDlg.clientWidth - 16 ) ;
+					child.style.height = Math.max( 0, fckDlg.clientHeight - 16 - 51 ) ;
+					break ;
+
+				case 'bl' :
+					child.style.top = Math.max( 0, fckDlg.clientHeight - 51 ) ;
+					break ;
+
+				case 'br' :
+					child.style.left = Math.max( 0, fckDlg.clientWidth - 30 ) ;
+					child.style.top = Math.max( 0, fckDlg.clientHeight - 51 ) ;
+					break ;
+
+				case 'bc' :
+					child.style.width = Math.max( 0, fckDlg.clientWidth - 30 - 30 ) ;
+					child.style.top = Math.max( 0, fckDlg.clientHeight - 51 ) ;
+					break ;
+			  }
+		  }
+	   }
+
+	   var closeButtonOver = function(){
+		 this.style.backgroundPosition = '-16px -687px' ;
+	   } ;
+
+	   var closeButtonOut = function(){
+		 this.style.backgroundPosition = '-16px -651px' ;
+	   } ;
+
+	   
+	   var onLoad = function()
+	   {
+		  fixSizes() ;
+		  
+		  window.attachEvent( 'onresize', fixSizes ) ;
+		  window.detachEvent( 'onload', onLoad ) ;
+	    }
+
+	    //window.attachEvent( 'onload', onLoad ) ;
+     })() ;
+
+
+// #######################################
+// Resize related functions.
+// #######################################
+
+function SkinSizer( bAutoSize ) {
+  this._autosize = bAutoSize;  
+}
+
+SkinSizer.prototype.sizeContainer = function(){
+  var frmMain = document.getElementById( 'frmMain' ) ;
+  if ( frmMain ) {
+    var height = document.getElementById( 'contents' ).offsetHeight ;
+    height -= document.getElementById( 'TitleArea' ).offsetHeight ;
+    height -= document.getElementById( 'TabsRow' ).offsetHeight ;
+    height -= document.getElementById( 'PopupButtons' ).offsetHeight ;
+    frmMain.style.height = Math.max( height, 0 ) + 'px' ;
+  }
+}
+
+SkinSizer.prototype.refresh = function(){
+  if ( this._autosize ){
+  
+    var frmMain = document.getElementById( 'frmMain' ) ;
+    
+    var innerDoc = frmMain.contentWindow.document ;
+    var isStrict = false;    
+
+    var innerWidth = isStrict ? innerDoc.documentElement.scrollWidth : innerDoc.body.scrollWidth ;
+    var innerHeight	= isStrict ? innerDoc.documentElement.scrollHeight : innerDoc.body.scrollHeight ;
+
+    var frameSize = domRender.GetViewPaneSize( frmMain.contentWindow ) ;
+    
+    var deltaWidth	= innerWidth - frameSize.Width ;
+    var deltaHeight	= innerHeight - frameSize.Height ;
+    
+   // If the contents fits the current size.
+   if ( deltaWidth <= 0 && deltaHeight <= 0 )
+     return ;   
+   
+    var dialogWidth	 = frameElement.offsetWidth + Math.max( deltaWidth, 0 ) ;
+    var dialogHeight = frameElement.offsetHeight + Math.max( deltaHeight, 0 ) ;
+    
+    
+    
+    domRender.SetElementStyles( window.frameElement,
+					{
+						'width' : dialogWidth + 'px',
+						'height' : dialogHeight + 'px'
+					} ) ;
+
+    
+    
+	window.DoResizeFixes() ;	
+	
+  }
+  this.sizeContainer() ;
+  
+}
+
+
+var mySizer = new SkinSizer(true);
+
+window.InnerDialogLoaded = function()
+{
+  
+  var frmMain = document.getElementById('frmMain') ;		
+  frmMain.style.visibility = '' ;
+  mySizer.sizeContainer();
+  
+  mySizer.refresh();
+
+};
+
+
+function initWindow(){   
+  //alert( "initWindows" );
+  setTitle();  
+  showPage();
+  
+};
+
+function prev(){
+  var wd = curPage();
+  var prevPage = wd.onPrev();
+  if ( prevPage !== false )
+    showPage(prevPage);
+};
+
+function next(){
+  var wd = curPage();
+  if ( typeof(wd.validate) == "function" ){
+    var errs = wd.validate();
+    if ( errs.length > 0 ){
+      var msg = "在执行[下一步]前,请改正以下错误:";
+      for( var id=0; id<errs.length;id++ ){
+        msg = msg + " \n -" + errs[id];
+      }
+      alert(msg);
+      return;
+    }
+  } 
+  
+  var nextPage = wd.onNext();
+  if ( nextPage !== null )
+    showPage(nextPage);  
+}
+
+function finish(){  
+  var wd = curPage();
+  if( typeof( wd.validate ) == "function" )
+  {
+  	var errors = wd.validate();
+  	if( errors.length > 0 )
+  	{
+  		var msg = "在执行[确定]前，请改正以下错误:";
+  		for( var id = 0; id < errors.length; id++ )
+  		{
+  			msg = msg + " \n - " + errors[id];
+  		}
+  		alert( msg );
+  		return;
+  	} 
+  } 
+  
+  wd.onFinish();
+  //showPage();
+}
+
+function cancel(){
+  clearProperties();
+  showPage();
+}
+
+		</script>
+	</head>
+	<body onload="initWindow();" class="PopupBody">	    
+		<div id="contents" style="height: 550px">
+			
+			<div id="header">
+				<div id="TitleArea" class="PopupTitle PopupTitleBorder">
+					<div id="WizardTitle">Wizard Title</div>
+				</div>
+				<div id="TabsRow" class="PopupTabArea" style="display: none">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tr id="Tabs">
+							<td class="PopupTabEmptyArea">&nbsp;</td>
+							<td class="PopupTabEmptyArea" width="100%">&nbsp;</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="innerContents" style='height:550px;'>
+			  <iframe id="frmMain" name="frmMain" frameborder="0" width="100%" height="100%" scrolling="auto" style="visibility: ;" allowtransparency="true"></iframe>
+			</div>
+			
+			<div id="PopupButtons" class="PopupButtons">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="100%">&nbsp;</td>
+						<td nowrap="nowrap">							
+							<input id="btnNext" type="button" value="&nbsp;下一步&nbsp;" class="Button" onclick="next();" />
+							&nbsp;
+							<input id="btnFinish" type="button" value="&nbsp;确定&nbsp;" class="Button" onclick="finish();" />
+							&nbsp;
+							<input id="btnCancel" type="button" value="&nbsp;取消&nbsp;" class="Button" onclick="cancel();"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+
+		
+		<div class="cover" id="cover" style="display:none"></div>
+		<div id="throbberBlock" style="position: absolute; visibility: hidden"></div>
+		
+	</body>
+</html>

@@ -1,0 +1,53 @@
+## 主明细表页面模板
+#parse("${meta.templateHome}_page_header.jsp.vm")
+
+#set($_region_id = "ef_region_inqu")
+#set($_region_default_title = "查询条件")
+#set($_block_id = "inqu_status")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#set($_layout=$meta.getBlock(".func$ef_region_result").get("layout"))
+#if($_layout == "h")
+## 水平布局
+#set($_region_id = "ef_region_result")
+#set($_region_default_title = "记录集")
+#set($_grid_id = "ef_grid_result")
+#set($_region_default_style = "overflow:scroll;float:left;width:49%;")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#set($_region_id = "ef_region_slave")
+#set($_region_default_title = "从表区")
+#set($_grid_id = "ef_grid_slave")
+#set($_region_default_style = "overflow:scroll;float:right;width:49%;")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#else
+## 垂直布局
+#set($_region_id = "ef_region_result")
+#set($_region_default_title = "记录集")
+#set($_grid_id = "ef_grid_result")
+#set($_region_default_style = "overflow:scroll;")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#set($_region_id = "ef_region_slave")
+#set($_region_default_title = "从表区")
+#set($_grid_id = "ef_grid_slave")
+#set($_region_default_style = "overflow:scroll;")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#end
+
+#set($_slaveKeyName = $meta.getBlock(".func$ef_region_slave").get("slaveKeyName"))
+<EF:EFInput blockId="slave_inqu_status" ename="$_slaveKeyName" row="0" type="hidden"/>
+
+<EF:EFRegion/>
+
+#set($_region_id = "ef_region_result")
+#set($_block_id = "result")
+#parse("${meta.templateHome}_page_region_multi_p2.jsp.vm")
+
+#set($_region_id = "ef_region_slave")
+#set($_block_id = "slave")
+#parse("${meta.templateHome}_page_region_multi_p2.jsp.vm")
+
+#parse("${meta.templateHome}_page_footer.jsp.vm")

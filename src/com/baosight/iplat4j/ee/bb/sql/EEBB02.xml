@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEBB02">
+
+	<select id="query" parameterClass="java.util.HashMap" resultClass="com.baosight.iplat4j.ee.bb.domain.EEBB02">
+		SELECT
+			FDATE as "fdate" , <!--  日期  -->
+			COMPANY as "company" , <!--  公司  -->
+			PRODUCT as "product" , <!--  产品  -->
+			PROD_QUANTITY as "prodQuantity" , <!--  产品产量  -->
+			INCOME as "income" , <!--  营业收入  -->
+			PLAN_INCOME as "planIncome" , <!--  计划营业收入  -->
+			SUM(INCOME) as "sumIncome"  <!--  计划营业收入  -->
+		FROM IT_FCT_PRODUCT WHERE 1=1
+		<isNotEmpty prepend=" AND " property="product">
+			PRODUCT = #product#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+			<isEmpty property="orderBy">
+PRODUCT asc
+			</isEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM IT_FCT_PRODUCT WHERE 1=1
+		<isNotEmpty prepend=" AND " property="product">
+			PRODUCT = #product#
+		</isNotEmpty>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO IT_FCT_PRODUCT (
+			FDATE , <!--  日期  -->
+			COMPANY , <!--  公司  -->
+			PRODUCT , <!--  产品  -->
+			PROD_QUANTITY , <!--  产品产量  -->
+			INCOME , <!--  营业收入  -->
+			PLAN_INCOME , <!--  计划营业收入  -->
+		)
+		VALUES (
+			#fdate:VARCHAR#,
+			#company:VARCHAR#,
+			#product:VARCHAR#,
+			#prodQuantity:NUMERIC#,
+			#income:NUMERIC#,
+			#planIncome:NUMERIC#
+		)
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM IT_FCT_PRODUCT WHERE 
+			PRODUCT = #product#
+	</delete>
+
+	<update id="update">
+		UPDATE IT_FCT_PRODUCT
+		SET
+			FDATE = #fdate# ,			<!--  公司  -->
+			COMPANY = #company# ,			<!--  产品  -->
+			PRODUCT = #product# ,			<!--  产品产量  -->
+			PROD_QUANTITY = #prodQuantity# ,			<!--  营业收入  -->
+			INCOME = #income# ,			<!--  计划营业收入  -->
+			PLAN_INCOME = #planIncome# 
+		WHERE 
+			PRODUCT = #product#
+	</update>
+
+</sqlMap>

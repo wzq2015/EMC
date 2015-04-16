@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<digester-rules>
+   <object-create-rule pattern="Vocabulary" classname="com.baosight.eqrd.brl.vocabulary.Vocabulary" />
+     <set-properties-rule pattern="Vocabulary">
+       <alias attr-name="displayName" prop-name="displayName" />
+       <alias attr-name="uuid" prop-name="uuid" />       
+     </set-properties-rule>
+
+    <pattern value="*/BOM">
+     <object-create-rule classname="com.baosight.eqrd.brl.vocabulary.BOM" />
+     <set-properties-rule>
+       <alias attr-name="displayName" prop-name="displayName" />
+       <alias attr-name="uuid" prop-name="uuid" />
+       <alias attr-name="valueType" prop-name="valueType" />
+       <alias attr-name="bomType" prop-name="bomType" />
+       <alias attr-name="shortClassName" prop-name="shortClassName" />       
+     </set-properties-rule>    
+     <set-next-rule methodname="addChildElement" />
+   </pattern>    
+   
+   <pattern value="*/BOMPhrase">
+     <object-create-rule classname="com.baosight.eqrd.brl.vocabulary.BOMPhrase" />
+     <set-properties-rule>
+       <alias attr-name="displayName" prop-name="displayName" />
+       <alias attr-name="uuid" prop-name="uuid" />
+       <alias attr-name="memberName" prop-name="memberName" />
+       <alias attr-name="attributeLabel" prop-name="attributeLabel" />
+       <alias attr-name="phraseType" prop-name="phraseType" />       
+       <alias attr-name="memberType" prop-name="memberType" />
+       <alias attr-name="valueType" prop-name="valueType" />
+       <alias attr-name="valueTypeGroup" prop-name="valueTypeGroup" />     
+       <alias attr-name="shortMemberName" prop-name="shortMemberName" />      
+     </set-properties-rule>    
+     <set-next-rule methodname="addChildElement" />
+   </pattern>   
+   
+    <pattern value="*/PhraseParam">
+     <object-create-rule classname="com.baosight.eqrd.brl.vocabulary.PhraseParam" />
+     <set-properties-rule>
+       <alias attr-name="sequence" prop-name="sequence" />
+       <alias attr-name="typeName" prop-name="typeName" />
+       <alias attr-name="valueTypeGroup" prop-name="valueTypeGroup" /> 
+       <alias attr-name="paramName" prop-name="paramName" />
+       <alias attr-name="defaultValue" prop-name="defaultValue" />      
+     </set-properties-rule>    
+       <set-next-rule methodname="addParam" />
+   </pattern>  
+   
+    <pattern value="*/EnumDomain">
+     <object-create-rule classname="com.baosight.eqrd.brl.vocabulary.EnumDomain" />
+     <set-properties-rule>
+       <alias attr-name="displayName" prop-name="displayName" />
+       <alias attr-name="uuid" prop-name="uuid" />
+       <alias attr-name="label" prop-name="label" />
+       <alias attr-name="valueType" prop-name="valueType" />     
+     </set-properties-rule>    
+     <set-next-rule methodname="addChildElement" />
+   </pattern>    
+   
+   <pattern value="*/EnumConstant">
+     <object-create-rule classname="com.baosight.eqrd.brl.vocabulary.EnumConstant" />
+     <set-properties-rule>
+       <alias attr-name="displayName" prop-name="displayName" />
+       <alias attr-name="uuid" prop-name="uuid" />
+       <alias attr-name="label" prop-name="label" />
+       <alias attr-name="value" prop-name="value" />         
+     </set-properties-rule>    
+     <set-next-rule methodname="addChildElement" />
+   </pattern>   
+    
+</digester-rules>

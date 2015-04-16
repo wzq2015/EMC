@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_system_log 
+		 f_system_log_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_system_log_time  VARCHAR   NOT NULL, 
+		 f_system_log_level  INTEGER   NOT NULL, 
+		 f_system_log_content  VARCHAR
+	-->
+<sqlMap namespace="tSystemLog">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TSystemLog">
+		SELECT
+				f_system_log_id	as "f_systemLogId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_system_log_time	as "f_systemLogTime",  
+				f_system_log_level	as "f_systemLogLevel",  
+				f_system_log_content	as "f_systemLogContent" 
+		FROM .t_system_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_systemLogId">
+			f_system_log_id = #f_systemLogId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_system_log_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="queryByProjectId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TSystemLog">
+		SELECT
+				f_system_log_id	as "f_systemLogId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_system_log_time	as "f_systemLogTime",  
+				f_system_log_level	as "f_systemLogLevel",  
+				f_system_log_content	as "f_systemLogContent" 
+		FROM .t_system_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_system_log_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_system_log_time &lt;= #endTime#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_system_log_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_system_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_systemLogId">
+			f_system_log_id = #f_systemLogId#
+		</isNotEmpty>
+	</select>
+	
+	<select id="countByProjectId" resultClass="int">
+		SELECT COUNT(*) FROM .t_system_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_operation_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_operation_time &lt;= #endTime#
+		</isNotEmpty>
+	</select>
+	
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_systemLogId">
+			f_system_log_id = #f_systemLogId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_systemLogTime">
+			f_system_log_time = #f_systemLogTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_systemLogLevel">
+			f_system_log_level = #f_systemLogLevel#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_systemLogContent">
+			f_system_log_content = #f_systemLogContent#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_system_log (f_system_log_id,
+										f_emcproject_id,
+										f_system_log_time,
+										f_system_log_level,
+										f_system_log_content
+										)		 
+	    VALUES (#f_systemLogId#, #f_emcprojectId#, #f_systemLogTime#, #f_systemLogLevel#, #f_systemLogContent#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_system_log WHERE 
+			f_system_log_id = #f_systemLogId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_system_log 
+		SET 
+					f_emcproject_id	= #f_emcprojectId#,   
+					f_system_log_time	= #f_systemLogTime#,   
+					f_system_log_level	= #f_systemLogLevel#,   
+					f_system_log_content	= #f_systemLogContent#  
+			WHERE 	
+			f_system_log_id = #f_systemLogId#
+	</update>
+  
+</sqlMap>

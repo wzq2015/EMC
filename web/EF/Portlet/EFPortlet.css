@@ -1,0 +1,38 @@
+.PortletContainer {height:100%;width:100%;}
+.PortletArea {background-color:#AAD4FF;border:1px solid #FFFFFF;}
+.PortletAreaCGap{float:left;cursor:col-resize;}
+.PortletAreaRGap{float:left;cursor:s-resize;font-size:0;}
+.PortletAreaRow { border-color:#FFFFFF;overflow:hidden;}
+.PortletColumns {height:100%;}
+.PortletColumn {float:left;}
+
+.PortletColumnGripper{
+	float:left;
+	cursor:e-resize;
+	width:5;
+    height:20;
+}
+
+.dragBlank
+{
+    border:2px dashed #000000;
+    background-color:#FFFFFF;
+	filter: alpha(opacity=30);
+	padding:1px;
+	margin:5 2 5 2;
+}	
+
+.portletFilterColor{
+ filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='red', endColorStr='#ffffff', gradientType='0')
+			
+}
+
+.vTab_body{width:500px;margin:0px;padding:0px;margin-bottom:15px; overflow:hidden;}
+.vTab_body_border{border:1px solid #95C9E1;}
+.vTab_body_head {line-height:28px;position:relative; float:left; width:200px; height:600px;border-right:1px solid #95C9E1;}
+
+.vTab_body_head ul{margin:0px;padding:0px;list-style:none; position:absolute; top:20px; left:38px; margin-left:10px; height:25px;text-align:center;}
+.vTab_body_head li{display:block;cursor:pointer;width:150px;color:#949694;font-weight:bold; margin-bottom:5px;height:25px;line-height:25px; background-color:#E4F2FD}
+.vTab_body_head li.hover{padding:0px;background:#fff;width:152px;border:1px solid #95C9E1; border-right:0;
+color:#739242;height:25px;line-height:25px;}
+.vTab_body_content{margin-top:0px; border-top:none;padding:20px; border-left:0; margin-left:130px;}

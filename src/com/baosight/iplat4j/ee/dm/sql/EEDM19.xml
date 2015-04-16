@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="EEDM19">
+
+	<insert id="insert">
+	  INSERT INTO ${platSchema}.TEE05 (FID, FPRODUCT, FSPEC, FCOMPANY, FAMOUNT) VALUES (#contractID#, #product#, #spec#, #company#, #amount#)
+    </insert>
+  	
+	<select id="query" resultClass="java.util.HashMap">
+		SELECT FID       as "contractID",
+		       FPRODUCT  as "product", 
+		       FSPEC     as "spec", 
+		       FCOMPANY  as "company", 
+		       FAMOUNT   as "amount"		       
+		       FROM ${platSchema}.TEE05 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="product">
+			FPRODUCT = #product# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="company">
+			FCOMPANY = #company# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="spec">
+			FSPEC = #spec# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="amount">
+			FAMOUNT &gt;= #amount# 
+		</isNotEmpty>
+	</select>
+	
+	<select id="count" resultClass="int">
+		SELECT count(*) FROM ${platSchema}.TEE05 where 1=1
+		<isNotEmpty prepend=" AND " property="product">
+			FPRODUCT = #product# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="company">
+			FCOMPANY = #company# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="spec">
+			FSPEC = #spec# 
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="amount">
+			FAMOUNT &gt;= #amount# 
+		</isNotEmpty>
+ 	</select>
+ 	
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEE05 WHERE FID = #contractID# AND FPRODUCT = #product# AND FSPEC = #spec# AND FCOMPANY = #company# AND FAMOUNT = #amount#
+	</delete>
+	
+    <update id="update">
+      UPDATE ${platSchema}.TEE05 SET 
+        FPRODUCT  = #product#, 
+        FSPEC     = #spec#, 
+        FCOMPANY  = #company#, 
+        FAMOUNT   = #amount#
+      WHERE FID = #contractID# AND FCOMPANY = #company#
+    </update>
+	
+</sqlMap>

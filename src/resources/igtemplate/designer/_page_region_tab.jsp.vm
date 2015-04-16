@@ -1,0 +1,69 @@
+##
+## 渲染多Tab区域的通用模板
+##
+<%
+#set($_block_tab = $meta.getBlock(".func$ef_region_tab"))
+#set($_tab_keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"])
+#foreach( $_tab_key in $_tab_keys)
+#set($_tab_ename = $_block_tab.get("tabEname$_tab_key"))
+#set($_tab_cname = $_block_tab.get("tabCname$_tab_key"))
+#set($_tab_form_ename = $_block_tab.get("tabFormEname$_tab_key"))
+#if($_tab_ename && $_tab_ename.trim() != "")
+	String path$_tab_key = request.getContextPath() + "/DispatchAction.do?efFormEname=$_tab_form_ename";
+#end
+#end
+%>
+<div id="ef_tab_y"  lastRange="98.5%" eftabWidth="100%">
+#foreach( $_tab_key in $_tab_keys)
+#set($_tab_ename = $_block_tab.get("tabEname$_tab_key"))
+#set($_tab_cname = $_block_tab.get("tabCname$_tab_key"))
+#if($_tab_ename && $_tab_ename.trim() != "")
+	<div id="$_tab_ename" title="$_tab_cname" eftabSrc="about:blank" eftabHeight="600px" efRemember="yes">
+	</div>
+#end
+#end  
+</div>
+<EF:EFTab tabId="y" action="onTabChange" />
+
+<script type="text/javascript">
+var hideSubPageHead = true;
+var path = [];
+#foreach( $_tab_key in $_tab_keys)
+#set($_tab_ename = $_block_tab.get("tabEname$_tab_key"))
+#set($_tab_cname = $_block_tab.get("tabCname$_tab_key"))
+#set($_tab_form_ename = $_block_tab.get("tabFormEname$_tab_key"))
+#if($_tab_ename && $_tab_ename.trim() != "")
+path.push("<%=path$_tab_key%>");
+#end
+#end
+var frames = $("#ef_tab_y iframe");
+$("#ef_tab_y > br").filter(":first").css("display", "none");
+if(window.parent != window && window.parent.hideSubPageHead == true) {
+	$("#ef_tab_y").css("padding-top", "8px").css("padding-left", "4px");
+}
+onSubPageLoad = function(wnd) {
+	for(var i=0; i<frames.length; i++) {
+		if (frames[i].contentWindow == wnd) {
+			onTabPageLoad(wnd, i);
+			adjustFrameHeight(frames[i]);
+			break;
+		}
+	}
+}
+adjustFrameHeight = function(frame) {
+	var oldHeight = $(frame).height();
+	var height = frame.contentWindow.document.body.scrollHeight;
+	if (height > oldHeight) {
+		$(frame).css("height", height);
+	}
+	if(window.parent != window && window.parent.hideSubPageHead == true) {
+		var pFrames = window.parent.frames;
+		for(var i=0; i<pFrames.length; i++) {
+			if (pFrames[i].contentWindow == window) {
+				window.parent.adjustFrameHeight(pFrames[i]);
+				break;
+			}
+		}
+	}
+}
+</script>

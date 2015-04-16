@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEMD17">
+
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM JXGL_B_APPLY t
+		WHERE 1=1
+		AND t.JXGLAPPLY_ID = #jxglapplyId#
+	</delete>
+
+	<!-- 新增 -->
+	<insert id="insert">
+		INSERT INTO JXGL_B_APPLY (
+		TRUST_ID,
+		PROJECT_NAME,
+		REP_TYPE,
+		JXGLAPPLY_ID,
+		CREATE_DATE
+		)
+		VALUES (
+		#trustId: VARCHAR#,
+		#projectName: VARCHAR#,
+		#repType: VARCHAR#,
+		#jxglapplyId: NUMERIC#,
+		#createDate: VARCHAR#
+		)
+	</insert>
+
+	<!-- 查询 -->
+	<select id="query" parameterClass="java.util.HashMap"
+		resultClass="java.util.HashMap">
+		SELECT
+		t.TRUST_ID as "trustId",
+		t.PROJECT_NAME as "projectName",
+		t.REP_TYPE as "repType",
+		t.JXGLAPPLY_ID as "jxglapplyId",
+		t.CREATE_DATE as "createDate"
+		FROM JXGL_B_APPLY t
+		WHERE 1=1
+		<isNotEmpty prepend=" AND " property="jxglapplyId">
+			t.JXGLAPPLY_ID =
+			#jxglapplyId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="trustId">
+			t.TRUST_ID = #trustId#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<!-- 修改 -->
+	<update id="update">
+		UPDATE JXGL_B_APPLY t
+		SET
+		TRUST_ID = #trustId#,
+		PROJECT_NAME = #projectName#,
+		REP_TYPE = #repType#,
+		CREATE_DATE = #createDate#
+		WHERE 1=1
+		AND t.JXGLAPPLY_ID = #jxglapplyId#
+	</update>
+
+
+</sqlMap>

@@ -1,0 +1,138 @@
+##
+## domain代码生成的模板
+##
+/**
+ * Generate time : $meta.date
+ */
+package $meta.package;
+import com.baosight.iplat4j.core.ei.EiColumn;
+import com.baosight.iplat4j.ep.DaoEPBase;
+import java.util.HashMap;
+import java.util.Map;
+#set($_flag=1)
+#set($_tag=1)
+#set($_btag=1)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if ($_data_field.fieldType == "C")
+#set($_flag=$_flag+1)
+#end
+#if($_data_field.fieldType == "N")
+#if($_data_field.dataType=="BigDecimal")
+#set($_btag=$_btag+1)
+#end
+#set($_tag=$_tag+1)
+#end
+#end
+#if($_flag!=1)
+import com.baosight.iplat4j.util.StringUtils;
+#end
+#if($_tag!=1)
+import com.baosight.iplat4j.util.NumberUtils;
+#end
+#if($_btag!=1)
+import java.math.BigDecimal;
+#end
+
+/**
+ * $meta.modelEname
+ */
+public class $meta.modelEname extends DaoEPBase {
+
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldType == "C")
+	private String $_data_field.fieldName = " ";#if($_data_field.fieldCname.trim() != "") /*  $_data_field.fieldCname  */#end
+
+#end
+#if($_data_field.fieldType == "N")
+	private $_data_field.dataType $_data_field.fieldName = new ${_data_field.dataType}(0);#if($_data_field.fieldCname.trim() != "") /*  $_data_field.fieldCname  */#end
+
+#end
+#end
+	/**
+	 * initialize the metadata 
+	 */
+	public void initMetaData() {
+		EiColumn eiColumn;
+#foreach($_data_field in $meta.getBlock(".crud$data").getRows())		
+		eiColumn = new EiColumn("$_data_field.fieldName");
+#if($_data_field.isPrimaryKey == "1")
+		eiColumn.setPrimaryKey(true);
+#end
+#if($_data_field.fieldType == "N")
+		eiColumn.setType("N");
+#end
+#if($_data_field.fieldLen.indexOf(",")>=0)
+#set($_length_args = $meta.utility.splitLength($_data_field.fieldLen))
+#set($_data_field.scale = $_length_args.scale)
+		eiColumn.setScaleLength($_data_field.scale);
+#set($_data_field.fieldLen = $_length_args.length)
+#end
+#if($_data_field.fieldLen.trim()!="")
+		eiColumn.setFieldLength($_data_field.fieldLen);	
+#end		  
+#if($_data_field.fieldCname.trim()!="")
+		eiColumn.setDescName("$_data_field.fieldCname");
+#end
+		eiMetadata.addMeta(eiColumn);
+
+#end
+	}
+
+	/**
+	 * the constructor
+	 */
+	public ${meta.modelEname}() {
+		initMetaData();
+	}
+
+#foreach($_data_field in $meta.getBlock(".crud$data").getRows())
+	/**
+	 * get the $_data_field.fieldName #if($_data_field.fieldCname.trim()!="")  -${_data_field.fieldCname}
+#end
+	 * @return the $_data_field.fieldName
+	 */
+	public $_data_field.dataType get${_data_field.fieldMethodName}(){
+		return this.${_data_field.fieldName};
+	}
+
+	/**
+	 * set the $_data_field.fieldName #if($_data_field.fieldCname.trim()!="") -${_data_field.fieldCname}
+#end
+	 */
+	public void set${_data_field.fieldMethodName}($_data_field.dataType ${_data_field.fieldName}){
+		this.$_data_field.fieldName=$_data_field.fieldName;
+	}
+
+#end
+	/**
+	 * get the value from Map
+	 */
+	public void fromMap(Map map) {
+#foreach($_data_field in $meta.getBlock(".crud$data").getRows())
+#if($_data_field.dataType == "Long")
+		set${_data_field.fieldMethodName}(NumberUtils.toLong(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#elseif($_data_field.dataType=="Integer")
+		set${_data_field.fieldMethodName}(NumberUtils.toInteger(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#elseif($_data_field.dataType=="Float")
+		set${_data_field.fieldMethodName}(NumberUtils.toFloat(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#elseif($_data_field.dataType=="Double")
+		set${_data_field.fieldMethodName}(NumberUtils.toDouble(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#elseif($_data_field.dataType=="BigDecimal")
+		set${_data_field.fieldMethodName}(NumberUtils.toBigDecimal(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#else
+		set${_data_field.fieldMethodName}(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("$_data_field.fieldName")), $_data_field.fieldName));
+#end
+#end		
+	}
+
+	/**
+	 * set the value to Map
+	 */
+	public Map toMap() {
+		Map map = new HashMap();
+#foreach($_data_field in $meta.getBlock(".crud$data").getRows())
+		map.put("${_data_field.fieldName}", StringUtils.toString(${_data_field.fieldName}, eiMetadata.getMeta("${_data_field.fieldName}")));
+#end				
+		return map;
+	}
+}

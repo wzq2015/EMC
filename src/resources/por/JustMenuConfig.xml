@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MenuItem项 必须设置唯一的label属性-->
+<Menu>
+	<MenuItem label="C" name="系统配置中心" url="/ecop/ecoppro/sc/NetParamConfig.html" license="1">
+		<MenuItem label="CS" name="运行环境配置" url="" license="1">
+			<MenuItem label="CSN" name="网络参数配置" url="/ecop/ecoppro/sc/NetParamConfig.html" license="1"></MenuItem>
+			<MenuItem label="CSC" name="控制代理配置" url="/ecop/ecoppro/sc/ControlAgentManage.html" license="1"></MenuItem>
+			<!-- <MenuItem label="CSD" name="DHCP配置" url="/ecop/ecoppro/sc/DhcpMonitorManage.html" license="1"></MenuItem>-->
+			<MenuItem label="CSA" name="扫描代理配置" url="/ecop/ecoppro/sc/ScanAgentManage.html" license="1"></MenuItem>
+			<MenuItem label="CSG" name="管理范围配置" url="/ecop/ecoppro/sc/IPscopeManage.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="CO" name="用户机构配置" url="" license="1">
+			<MenuItem label="COU" name="个人信息" url="/ecop/ecoppro/sc/UserIndividInfo.html" license="1"></MenuItem>
+			<MenuItem label="COU" name="用户管理" url="/ecop/ecoppro/sc/UserManage.html" license="1"></MenuItem>
+			<MenuItem label="COO" name="组织机构建设" url="/ecop/ecoppro/sc/OrganizeManage.html" license="1"></MenuItem>
+			<MenuItem label="COG" name="群组管理" url="/ecop/ecoppro/sc/GroupManage.html" license="1"></MenuItem>
+		</MenuItem>
+		
+		<MenuItem label="CW" name="管理权限维护" url="/ecop/ecoppro/sc/AuthorizeManage.html" license="1">
+		</MenuItem>
+		<MenuItem label="CI" name="IT资产配置" url="" license="1">
+			<MenuItem label="CAD" name="设备类型维护" url="/ecop/ecoppro/sc/DeviceTypeManage.html" license="1"></MenuItem>
+		</MenuItem>
+<!-->
+		<MenuItem label="CN" name="终端接入配置" url="" license="1">
+			<MenuItem label="CNC" name="接入参数配置" url="/ecop/ecoppro/cn/CnParamConfig.html" license="1"></MenuItem>
+			<MenuItem label="CNU" name="接入策略模板" url="/ecop/ecoppro/cn/CnTemplateManagement.html" license="1"></MenuItem>
+			<MenuItem label="CNO" name="接入策略配置" url="/ecop/ecoppro/cn/CnPolicyConfig.html" license="1"></MenuItem>
+			<MenuItem label="CNM" name="特权MAC配置" url="/ecop/ecoppro/cn/CnPrerogativeMac.html" license="1"></MenuItem>
+			<MenuItem label="CNP" name="特权端口配置" url="/ecop/ecoppro/cn/CnPrerogativePort.html" license="1"></MenuItem>			
+		</MenuItem>
+		<MenuItem label="CR" name="终端运行配置" url="" license="1">
+			<MenuItem label="CRM" name="客户端通用配置" url="" license="1"></MenuItem>
+			<MenuItem label="CRC" name="运行策略管理" url="/ecop/ecoppro/cl/policyconfig/PolicyConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRF" name="外设监控配置" url="/ecop/ecoppro/cl/outdevice/OutDeviceConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRU" name="USB存储认证配置" url="/ecop/ecoppro/cl/usbmanagement/USBMonitorConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRH" name="硬件变更配置" url="/ecop/ecoppro/cl/hardwarechange/HardwareChangeConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRI" name="非法外联配置" url="/ecop/ecoppro/cl/exlinkmonitor/ExLinkMonitorConf.html" license="1"></MenuItem>
+			<MenuItem label="CRP" name="进程监控配置" url="/ecop/ecoppro/cl/processmanagement/ProcessMonitorConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRS" name="软件监控配置" url="/ecop/ecoppro/cl/softwaremonitor/SoftwareMonitorConfig.html" license="1"></MenuItem>
+			<MenuItem label="CRD" name="更新管理配置" url="" license="1"></MenuItem>
+			<MenuItem label="CRV" name="病毒库管理配置" url="/ecop/ecoppro/cl/antivirus/AntiVirusMonitorConf.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="CL" name="远程管理配置" url="" license="1">
+				<MenuItem label="CLS" name="定时截屏配置" url="" license="1"></MenuItem>
+		</MenuItem>
+<!-->
+		<MenuItem label="CA" name="审计中心配置" url="" license="1">
+			<MenuItem label="CAT" name="审计类型维护" url="/ecop/ecoppro/sc/AuditTypeManage.html" license="1"></MenuItem>	
+			<MenuItem label="CAA" name="报警方案配置" url="/ecop/ecoppro/sc/AlarmPolicyManage.html" license="1"></MenuItem>
+		</MenuItem>
+	</MenuItem>
+	<MenuItem label="I" name="IT资产管理" url="/ecop/ecoppro/am/AMLedgerManage.html" license="1">
+		<MenuItem label="IL" name="底帐管理" url="/ecop/ecoppro/am/AMLedgerManage.html" license="1"></MenuItem>
+	</MenuItem>
+	<MenuItem label="N" name="终端接入管理" url="/ecop/ecoppro/cn/CnNodeList.html" license="1">
+		<MenuItem label="NC" name="接入参数配置" url="/ecop/ecoppro/cn/CnParamConfig.html" license="1"></MenuItem>
+		<MenuItem label="NU" name="接入策略模板" url="/ecop/ecoppro/cn/CnTemplateManagement.html" license="1"></MenuItem>		
+		<MenuItem label="NO" name="接入策略配置" url="/ecop/ecoppro/cn/CnPolicyConfig.html" license="1"></MenuItem>
+		<MenuItem label="NM" name="特权MAC配置" url="/ecop/ecoppro/cn/CnPrerogativeMac.html" license="1"></MenuItem>
+		<MenuItem label="NP" name="特权端口配置" url="/ecop/ecoppro/cn/CnPrerogativePort.html" license="1"></MenuItem>
+		<MenuItem label="NS" name="交换机列表" url="/ecop/ecoppro/cn/CnSwitchList.html" license="1"></MenuItem>
+		<MenuItem label="NONLINE" name="接入节点列表" url="/ecop/ecoppro/cn/CnNodeList.html" license="1"></MenuItem>
+		<MenuItem label="NOFFLINE" name="阻断节点列表" url="/ecop/ecoppro/cn/CnNodeInterdictedList.html" license="1"></MenuItem>
+		<MenuItem label="NJ" name="接入审计信息" url="/ecop/ecoppro/cn/CnAuditList.html" license="1"></MenuItem>
+		<MenuItem label="NA" name="接入报警记录" url="/ecop/ecoppro/cn/CnAlarmList.html" license="1"></MenuItem>
+	</MenuItem>
+	<MenuItem label="R" name="终端运行监控" url="/ecop/ecoppro/cl/clientlist/ClientList.html" license="1">
+		<MenuItem label="RM" name="客户端通用配置" url="/ecop/ecoppro/cl/parameterconfig/ClientCommonConfig.html" license="1"></MenuItem>
+		<MenuItem label="RY" name="运行策略管理" url="/ecop/ecoppro/cl/policyconfig/PolicyConfig.html" license="1"></MenuItem>
+		<MenuItem label="RA" name="客户端列表管理" url="" license="1">
+			<MenuItem label="RAL" name="客户端列表" url="/ecop/ecoppro/cl/clientlist/ClientList.html" license="1"></MenuItem>
+			<MenuItem label="RAI" name="阻断恢复列表" url="/ecop/ecoppro/cl/resumeinterdiction/ResumeInterdictionList.html" license="1"></MenuItem>
+			<MenuItem label="RAQ" name="综合查询" url="/ecop/ecoppro/cl/generalquery/GeneralQuery.html" license="1"></MenuItem>
+			<MenuItem label="RAG" name="客户端诊断记录" url="/ecop/ecoppro/cl/clientdiagnose/ClientDiagnoseRecord.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RL" name="外联监控" url="" license="1">
+			<MenuItem label="RLC" name="通用配置" url="/ecop/ecoppro/cl/exlinkmonitor/ExLinkMonitorConf.html" license="1"></MenuItem>
+			<MenuItem label="RLS" name="特殊配置" url="/ecop/ecoppro/cl/exlinkmonitor/ExlinkMonitorSpecialConfig.html" license="1"></MenuItem>
+			<MenuItem label="RLJ" name="审计信息" url="/ecop/ecoppro/cl/exlinkmonitor/ExLinkMonitorAudit.html" license="1"></MenuItem>
+			<MenuItem label="RLA" name="报警记录" url="/ecop/ecoppro/cl/exlinkmonitor/ExLinkMonitorAlarm.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RF" name="外设监控" url="" license="1">
+			<MenuItem label="RFC" name="通用配置" url="/ecop/ecoppro/cl/outdevice/OutDeviceConfig.html" license="1"></MenuItem>
+			<MenuItem label="RFS" name="特殊配置" url="/ecop/ecoppro/cl/outdevice/OutDeviceSpecialConfig.html" license="1"></MenuItem>
+			<MenuItem label="RFJ" name="审计信息" url="/ecop/ecoppro/cl/outdevice/OutDeviceAudit.html" license="1"></MenuItem>
+			<MenuItem label="RFA" name="报警记录" url="/ecop/ecoppro/cl/outdevice/OutDeviceAlarm.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RB" name="USB存储认证" url="" license="1">
+			<MenuItem label="RBC" name="通用配置" url="/ecop/ecoppro/cl/usbmanagement/USBMonitorConfig.html" license="1"></MenuItem>
+			<MenuItem label="RBS" name="特殊配置" url="/ecop/ecoppro/cl/usbmanagement/USBMonitorSpecialConfig.html" license="1"></MenuItem>
+			<MenuItem label="RBJ" name="审计信息" url="/ecop/ecoppro/cl/usbmanagement/USBMonitorAuditInfo.html" license="1"></MenuItem>
+			<MenuItem label="RBA" name="报警记录" url="/ecop/ecoppro/cl/usbmanagement/USBMonitorAlarmInfo.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RH" name="硬件变更监控" url="" license="1">
+			<MenuItem label="RHC" name="通用配置" url="/ecop/ecoppro/cl/hardwarechange/HardwareChangeConfig.html" license="1"></MenuItem>
+			<MenuItem label="RHS" name="特殊配置" url="/ecop/ecoppro/cl/hardwarechange/HardwareChangeSpecialConfig.html" license="1">	</MenuItem>
+			<MenuItem label="RHJ" name="审计信息" url="/ecop/ecoppro/cl/hardwarechange/HardwareChangeAudit.html" license="1"></MenuItem>
+			<MenuItem label="RHA" name="报警记录" url="/ecop/ecoppro/cl/hardwarechange/HardwareChangeAlarm.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RS" name="软件监控" url="" license="1">
+			<MenuItem label="RSC" name="通用配置" url="/ecop/ecoppro/cl/softwaremonitor/SoftwareMonitorConfig.html" license="1"></MenuItem>
+			<MenuItem label="RSS" name="特殊配置" url="/ecop/ecoppro/cl/softwaremonitor/SoftwareMonitorSpecialConfig.html" license="1"></MenuItem>
+			<MenuItem label="RSJ" name="审计信息" url="/ecop/ecoppro/cl/softwaremonitor/SoftwareMonitorAudit.html" license="1"></MenuItem>
+			<MenuItem label="RSA" name="报警记录" url="/ecop/ecoppro/cl/softwaremonitor/SoftwareMonitorAlarm.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="RP" name="进程监控" url="" license="1">
+			<MenuItem label="RPC" name="通用配置" url="/ecop/ecoppro/cl/processmanagement/ProcessMonitorConfig.html" license="1"></MenuItem>			
+			<MenuItem label="RPS" name="特殊配置" url="/ecop/ecoppro/cl/processmanagement/ProcessSpecialConfig.html" license="1"></MenuItem>			
+			<MenuItem label="RPJ" name="审计信息" url="/ecop/ecoppro/cl/processmanagement/ProcessMonitorAuditInfo.html" license="1"></MenuItem>			
+			<MenuItem label="RPA" name="报警记录" url="/ecop/ecoppro/cl/processmanagement/ProcessMonitorAlarmInfo.html" license="1"></MenuItem>			
+		</MenuItem>
+		<MenuItem label="RU" name="更新管理" url="" license="1">
+			<MenuItem label="RUL" name="更新列表" url="/ecop/ecoppro/cl/updatemonitor/UpdateMonitorList.html" license="1"></MenuItem>		
+			<MenuItem label="RUC" name="通用配置" url="/ecop/ecoppro/cl/updatemonitor/UpdateMonitorGenerateConfig.html" license="1"></MenuItem>		
+			<MenuItem label="RUS" name="特殊配置" url="/ecop/ecoppro/cl/updatemonitor/UpdateMonitorSpecialConfig.html" license="1"></MenuItem>		
+			<MenuItem label="RUJ" name="审计信息" url="/ecop/ecoppro/cl/updatemonitor/UpdateMonitorAudit.html" license="1"></MenuItem>		
+			<MenuItem label="RUA" name="报警记录" url="/ecop/ecoppro/cl/updatemonitor/UpdateMonitorAlarmRecord.html" license="1"></MenuItem>		
+		</MenuItem>
+		<MenuItem label="RV" name="病毒库监控" url="" license="1">
+			<MenuItem label="RVL" name="病毒库列表" url="/ecop/ecoppro/cl/antivirus/AntiVirusList.html" license="1"></MenuItem>
+			<MenuItem label="RVC" name="通用配置" url="/ecop/ecoppro/cl/antivirus/AntiVirusMonitorConf.html" license="1"></MenuItem>
+			<MenuItem label="RVS" name="特殊配置" url="/ecop/ecoppro/cl/antivirus/AntiVirusMonitorSpecialConfig.html" license="1"></MenuItem>
+			<MenuItem label="RVJ" name="审计信息" url="/ecop/ecoppro/cl/antivirus/AntiVirusMonitorAuditInf.html" license="1"></MenuItem>
+			<MenuItem label="RVA" name="报警记录" url="/ecop/ecoppro/cl/antivirus/AntiVirusMonitorAlarmRecord.html" license="1"></MenuItem>
+		</MenuItem>
+	</MenuItem>
+	<MenuItem label="L" name="终端远程管理" url="/ecop/ecoppro/rm/interceptscreen/InterceptScreenConfig.html" license="1">
+		<MenuItem label="LS" name="定期截屏" url="" license="1">
+			<MenuItem label="12" name="通用配置" url="/ecop/ecoppro/rm/interceptscreen/InterceptScreenConfig.html" license="1"></MenuItem>
+			<MenuItem label="13" name="特殊配置" url="/ecop/ecoppro/rm/interceptscreen/InterceptScreenSpeConfig.html" license="1"></MenuItem>
+			<MenuItem label="14" name="截屏画面查看" url="/ecop/ecoppro/rm/interceptscreen/InterceptScreenDisplay.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="LU" name="卸载管理" url="" license="1">
+			<MenuItem label="12" name="卸载许可证列表" url="/ecop/ecoppro/rm/uninstall/UninstallLicenseListBaseInfo.html" license="1"></MenuItem>
+			<MenuItem label="13" name="卸载记录" url="/ecop/ecoppro/rm/uninstall/UninstallRecordExamine.html" license="1"></MenuItem>
+		</MenuItem>
+	</MenuItem>
+	<MenuItem label="A" name="安全审计中心" url="/ecop/ecoppro/ac/AcOperateLogList.html" license="1">
+		<MenuItem label="AL" name="日志管理" url="" license="1">
+<!-- 		<MenuItem label="ALS" name="系统日志" url="/ecop/ecoppro/ac/AcSyslogList.html" license="1"></MenuItem>  -->
+			<MenuItem label="ALO" name="操作日志" url="/ecop/ecoppro/ac/AcOperateLogList.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="AA" name="审计信息维护" url="" license="1">
+			<MenuItem label="AAN" name="终端接入审计" url="/ecop/ecoppro/ac/AcAccessAuditList.html" license="1"></MenuItem>
+			<MenuItem label="AAR" name="终端运行审计" url="/ecop/ecoppro/ac/AcClientAuditList.html" license="1"></MenuItem>
+			<MenuItem label="AAD" name="管理设备审计" url="/ecop/ecoppro/ac/AcDeviceAuditList.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="AT" name="报警记录管理" url="" license="1">
+			<MenuItem label="ATN" name="终端接入报警" url="/ecop/ecoppro/ac/AcAccessAlarmList.html" license="1"></MenuItem>
+			<MenuItem label="ATR" name="终端运行报警" url="/ecop/ecoppro/ac/AcClientAlarmList.html" license="1"></MenuItem>
+			<MenuItem label="ATD" name="管理设备报警" url="/ecop/ecoppro/ac/AcDeviceAlarmList.html" license="1"></MenuItem>
+		</MenuItem>
+	</MenuItem>
+	<MenuItem label="M" name="系统维护中心" url="/ecop/ecoppro/sc/NetParamConfig.html" license="1">
+		<MenuItem label="MC" name="网络参数配置" url="/ecop/ecoppro/sc/NetParamConfig.html" license="1">
+		</MenuItem>
+		<MenuItem label="MT" name="相关工具下载" url="/ecop/ecoppro/mc/McAssociateToolsDownload.html" license="1">
+		</MenuItem>
+		<MenuItem label="MB" name="系统备份与升级" url="/ecop/ecoppro/mc/upgradeAndBackup.html" license="1">
+		</MenuItem>
+	</MenuItem>
+</Menu>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-11-21 16:26:04
+   		Version :  1.0.1.V20070717
+		tableName :.t_report_fixedperiod_generated 
+		 f_report_fixedperiod_generated_id  INTEGER   NOT NULL   primarykey, 
+		 f_report_template_id  INTEGER, 
+		 f_report_fixedperiod_generated_year  VARCHAR, 
+		 f_report_fixedperiod_generated_index  INTEGER, 
+		 f_report_fixedperiod_generated_cycleindex  INTEGER, 
+		 f_report_fixedperiod_generated_content  BLOB
+	-->
+<sqlMap namespace="tReportFixedperiodGenerated">
+	<resultMap class="com.baosight.fpserver.cm.im.domain.TReportFixedperiodGenerated" id="TReportFixedperiodGenerated">        
+		<result column="f_reportFixedperiodGeneratedId" property="f_reportFixedperiodGeneratedId" />
+		<result column="f_reportTemplateId" property="f_reportTemplateId" />
+		<result column="f_reportFixedperiodGeneratedYear" property="f_reportFixedperiodGeneratedYear" />
+		<result column="f_reportFixedperiodGeneratedIndex" property="f_reportFixedperiodGeneratedIndex" />
+		<result column="f_reportFixedperiodGeneratedCycleindex" property="f_reportFixedperiodGeneratedCycleindex" />
+		<result column="f_reportFixedperiodGeneratedContent" property="f_reportFixedperiodGeneratedContent" jdbcType="BLOB"/>
+	</resultMap>
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultMap="TReportFixedperiodGenerated">
+		SELECT
+				f_report_fixedperiod_generated_id	as "f_reportFixedperiodGeneratedId",  
+				f_report_template_id	as "f_reportTemplateId",  
+				f_report_fixedperiod_generated_year	as "f_reportFixedperiodGeneratedYear",  
+				f_report_fixedperiod_generated_index	as "f_reportFixedperiodGeneratedIndex",  
+				f_report_fixedperiod_generated_cycleindex	as "f_reportFixedperiodGeneratedCycleindex",  
+				f_report_fixedperiod_generated_content	as "f_reportFixedperiodGeneratedContent" 
+		FROM .t_report_fixedperiod_generated WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedId">
+			f_report_fixedperiod_generated_id = #f_reportFixedperiodGeneratedId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedCycleindex">
+			f_report_fixedperiod_generated_cycleindex = #f_reportFixedperiodGeneratedCycleindex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedYear">
+			f_report_fixedperiod_generated_year = #f_reportFixedperiodGeneratedYear#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedIndex">
+			f_report_fixedperiod_generated_index = #f_reportFixedperiodGeneratedIndex#
+		</isNotEmpty>
+		
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_report_fixedperiod_generated_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_report_fixedperiod_generated WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedId">
+			f_report_fixedperiod_generated_id = #f_reportFixedperiodGeneratedId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedId">
+			f_report_fixedperiod_generated_id = #f_reportFixedperiodGeneratedId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedYear">
+			f_report_fixedperiod_generated_year = #f_reportFixedperiodGeneratedYear#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedIndex">
+			f_report_fixedperiod_generated_index = #f_reportFixedperiodGeneratedIndex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedCycleindex">
+			f_report_fixedperiod_generated_cycleindex = #f_reportFixedperiodGeneratedCycleindex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportFixedperiodGeneratedContent">
+			f_report_fixedperiod_generated_content = #f_reportFixedperiodGeneratedContent#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert" parameterClass="com.baosight.fpserver.cm.im.domain.TReportFixedperiodGenerated">
+		INSERT INTO .t_report_fixedperiod_generated (f_report_fixedperiod_generated_id,
+										f_report_template_id,
+										f_report_fixedperiod_generated_year,
+										f_report_fixedperiod_generated_index,
+										f_report_fixedperiod_generated_cycleindex,
+										f_report_fixedperiod_generated_content
+										)		 
+	    VALUES (#f_reportFixedperiodGeneratedId#, #f_reportTemplateId#, #f_reportFixedperiodGeneratedYear#, #f_reportFixedperiodGeneratedIndex#, #f_reportFixedperiodGeneratedCycleindex#, #f_reportFixedperiodGeneratedContent#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_report_fixedperiod_generated WHERE 
+			f_report_fixedperiod_generated_id = #f_reportFixedperiodGeneratedId#
+	</delete>
+
+	<update id="update" parameterClass="com.baosight.fpserver.cm.im.domain.TReportFixedperiodGenerated">
+		UPDATE .t_report_fixedperiod_generated 
+		SET   
+					f_report_fixedperiod_generated_content	= #f_reportFixedperiodGeneratedContent#  
+			WHERE 	
+			f_report_fixedperiod_generated_id = #f_reportFixedperiodGeneratedId#
+	</update>
+	
+	
+</sqlMap>

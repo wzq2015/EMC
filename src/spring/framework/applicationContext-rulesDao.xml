@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+	<bean id="rulesDao" class="com.baosight.eqrd.dao.EqrdSqlMapDao">
+		<property name="autoLimit" value="true" />
+		<property name="autoCount" value="true" />
+		<property name="sqlMapClient" ref="rulesSqlMap" />
+	</bean>
+		
+	<!-- iBatis SqlMap Client -->
+	<bean id="rulesSqlMap" class="com.baosight.eqrd.dao.iplat4j.EqrdSqlMapClientFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation">
+			<value>resources/ibatis/sqlmap-config.xml</value>
+		</property>
+	</bean>
+
+	 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+	 </bean>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="EE04">
+
+	<select id="queryList" resultClass="java.util.HashMap">
+    Select Count(*) as "BUTTON_NUM",t0.FORM_ENAME As "FORM_ENAME" 
+    	From ${platSchema}.tedfa00 t0,${platSchema}.tedfa01 t1 
+    Where 
+    	t0.FORM_ENAME  =t1.FORM_ENAME 
+    	Group By t0.FORM_ENAME 
+    	Order By BUTTON_NUM Desc
+	</select>
+</sqlMap>

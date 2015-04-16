@@ -1,0 +1,628 @@
+/*总体样式*/
+BODY {
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: #505050;
+    background-color: #eeeeee;
+}
+TR,TD {
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: #505050;
+}
+/* 头部样式 */
+.headerBG{
+	background:url(images/headerbg.png) repeat-x;
+	height:87px;
+	width:100%;
+}
+.logo{
+	background:url(images/logo.png) no-repeat;
+	height:87px;
+	width:80%;
+	float: left;
+}
+/* 菜单处的分隔线 */
+.line {
+	height: 4px;
+	background-image: url(images/linebg.png);
+	background-repeat: repeat-x;
+}
+/************************************tab区域样式************************************/
+#main_nav {
+	list-style-type:none; 
+	margin:0 0 0 0px; 
+	position:relative; 
+	height:35px;
+}
+#main_nav li {
+	float:left; 
+	font-weight:bold; 
+	height:30px; 
+	color:#eee;
+	background:#6ae url(images/tab_bg.png) repeat-x; 
+	padding:4px 8px; 
+	margin:0 3px; 
+	cursor:pointer; 
+}
+#main_nav li.on {
+	color:#09f; 
+	background:url(images/tabon.png) repeat-x;
+}	
+#main_nav li.hover {
+	color:000000; 
+	background:url(images/tabon.png) repeat-x;
+}
+/*删除个人门户按钮*/
+.deletePersonalPortal{
+	cursor:pointer;
+	background: url(images/deletepersonal.png);
+	no-repeat;
+	border:0;
+	width:19px;
+	height:19px;
+	margin-top:3px;
+	margin-left:3px;
+}
+/*新增个人门户按钮*/
+.addPersonalPortal{
+	cursor:pointer;
+	background: url(images/addpersonal.png);
+	no-repeat;
+	border:0;
+	width:19px;
+	height:19px;
+	margin-top:3px;
+	margin-left:3px;
+}
+/*tab滑动样式*/
+.ev_benma_ui_tab {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    position: relative;
+    top: 0px;
+    line-height: 22px;
+    width: 20000px;
+    padding-top: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.ev_scroll-left{
+	float:left;
+	position:relative;
+	background:url(images/scroll_left.png) no-repeat;
+	width:15px;
+	height:25px;
+	cursor:pointer;
+	z-index:5;
+	margin:3 3px;
+	}
+.ev_scroll-right{
+	float:left;
+	position:relative;
+	background:url(images/scroll_right.png) no-repeat;
+	width:15px;
+	height:25px;
+	cursor:pointer;
+	z-index:500;
+	margin:3 3px;
+	}
+/******************************************config区域样式************************************/
+/*配置区域主按钮*/
+.config a{
+	float: right;
+	cursor:hand;
+	background-image: url(images/windowsetting_b.png);
+	background-repeat: no-repeat;
+}
+.config a:hover{
+	background-image: url(images/windowsetting_y.png);
+}
+.config_td{
+	color:#000000;
+}
+.config_td_hl{
+	background-color:#6aE;
+	color:#ffffff;
+}
+
+/*主题对应tr样式*/
+.themaTr{
+	cursor:hand;
+	display:none;
+}
+
+.themaTd{
+	width:24px;
+	height:20px;
+	margin-top:5px;
+	margin-left:6px;
+	background-image:url(images/pzmb_b.png);
+	background-repeat: no-repeat;
+}
+
+/*布局对应tr样式*/
+.layoutTr{
+	cursor:hand;
+	display:none;
+}
+.layoutTd{
+	width:24px;
+	height:20px;
+	margin-top:5px;
+	margin-left:6px;
+	background-image:url(images/pzbj_b.png);
+	background-repeat: no-repeat;
+}
+
+/*菜单对应tr样式*/
+.menuTr{
+	cursor:hand;
+	display:none;
+}
+.menuTd{
+	width:24px;
+	height:20px;
+	margin-top:5px;
+	margin-left:6px;
+	background-image:url(images/menu_b.png);
+	background-repeat: no-repeat;
+}
+
+/*portlet对应tr样式*/
+.portletTr{
+	cursor:hand;
+	display:none;
+}
+.portletTd{
+	width:24px;
+	height:20px;
+	margin-top:5px;
+	margin-left:6px;
+	background-image:url(images/pznr_b.png);
+	background-repeat: no-repeat;
+}
+/*节点对应tr样式*/
+.nodeTr{
+	cursor:hand;
+	display:none;
+}
+.nodeTd{
+	width:24px;
+	height:20px;
+	margin-top:5px;
+	margin-left:6px;
+	background-image:url(images/mhjd_b.png);
+	background-repeat: no-repeat;
+}
+/* 右侧顶部浮动菜单样式 */
+.menu_topleft {
+	width: 13px;
+	height:31px;
+	background-image: url(images/menu_topleft.png);
+	float:left;
+}
+.menu_topbg {
+	background-image: url(images/menu_topbg.png);
+	height:31px;
+	width:86px;
+	float:left;
+	background-repeat: repeat-x;
+}
+.menu_topright {
+	background-image: url(images/menu_topright.png);
+    height:31px;
+    float:left;
+	width: 40px;
+}
+.menu_leftbg{
+    background-image: url(images/menu_leftbg.png);
+	float:left;
+	width: 13px;
+	background-repeat: repeat-y;
+	height:108px;
+	float:left;
+}
+.menubg{
+	float:left;
+	height:102px;
+	background-color:FFFFFF;
+}
+.menubox {
+	font-family: "微软雅黑";
+	font-size: 12px;
+	margin-top:6px; 
+	width: 112px;
+}
+.menu_rightbg{
+    background-image: url(images/menu_rightbg.png);
+	width: 14px;
+	background-repeat: repeat-y;
+	height:108px;
+	float:left;
+	}
+.menu_bottom {
+	clear:both;
+	width:139px;
+}
+.menu_bottomleft{
+	background-image: url(images/menu_bottomleft.png);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 13px;
+    float:left;
+}
+.menu_bottombg{
+	background-image: url(images/menu_bottombg.png);
+	background-repeat: repeat-x;
+	height: 17px;
+	width:112px;
+	float:left;
+}
+.menu_bottomright{
+	background-image: url(images/menu_bottomright.png);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 14px;
+	float:right;
+}
+/******************************************portlet区域样式************************************/
+.table_header{
+	background-image: url(images/table_topbg.png);
+	background-repeat: repeat-x;
+	height: 28px;
+	width:100%;
+}
+.table_header_noFrame{
+	background-image: url(images/table_topbg1.png);
+	background-repeat: repeat-x;
+	height: 28px;
+	width:100%;
+}
+/* 表头样式 */
+.headsun{
+	cursor:move;
+	position:relative;
+	margin-right:-5px;
+}
+.table_headerleft{
+	width:9px;
+	background-image: url(images/table_topleft.png);
+	background-repeat: no-repeat;
+	height: 28px;
+	float:left;
+}
+.table_headerright{
+	width:9px;
+	background-image: url(images/table_topright.png);
+	background-repeat: no-repeat;
+	height: 28px;
+	float:right;
+}
+/*标题文字样式*/
+.tabletitle{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	float:left;	
+	line-height:28px;
+}
+/*图标样式*/
+.iconstyle {
+	margin-top:7px; 
+	background-repeat: no-repeat;
+	width: 20px;
+	float:left;
+	background-image: url(images/default_icon.png);
+}
+/*操作图标栏样式*/
+.iconbox {
+	margin-top:9px; 
+	margin-bottom:0px; 
+	float: right;
+	width:155px;
+	cursor:default;
+	display:none;
+}
+/* portlet内容显示区域样式 */
+.table_contentleft{
+	width:9px;
+	background-image: url(images/table_middleleft.png);
+	background-repeat:  repeat-y;
+	float:left;
+	display:inline;
+}
+.table_contentright{
+	width:9px;
+	background-image: url(images/table_middleright.png);
+	background-repeat:  repeat-y;
+	float:right;
+	display:inline;
+}
+.table_content{
+	float:left;
+}
+/* 表格底部样式 */
+.table_bottomleft{
+	width:9px;
+	background-image: url(images/table_bottomleft.png);
+	background-repeat:  no-repeat;
+	float:left;
+}
+.table_bottomright{
+	width:9px;
+	background-image: url(images/table_bottomright.png);
+	background-repeat:  no-repeat;
+	float:right;
+}
+.table_bottombg{
+	background-image: url(images/table_bottombg.png);
+	background-repeat:  repeat-x;
+	height: 9px;
+	width: 100%;
+	clear:both
+}
+
+/*操作按钮区域*/
+.head_charParameter a{
+	float:left;
+	position:absolute;
+	top:9px;
+	right:69px;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/setting_w.png);
+	background-repeat: no-repeat;
+}
+.head_charParameter a:hover{
+	background-image: url(images/setting_y.png);
+}
+.head_editImage a{
+	float:left;
+	position:absolute;
+	top:9px;
+	right:54px;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/edit_w.png);
+	background-repeat: no-repeat;
+}
+.head_editImage a:hover{
+	background-image: url(images/edit_y.png);
+}
+.head_minImage a{
+	position:absolute;
+	top:9px;
+	right:39px;
+	float:left;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/eview_minimize.png);
+	background-repeat: no-repeat;
+}
+.head_minImage a:hover{
+	background-image: url(images/eview_minimize_hover.png);
+}
+.head_maxImage a{
+	position:absolute;
+	top:9px;
+	right:39px;
+	float:left;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/eview_maximize.png);
+	background-repeat: no-repeat;
+}
+.head_maxImage a:hover{
+	background-image: url(images/eview_maximize_hover.png);
+}
+.head_closeImage a{
+	position:absolute;
+	top:9px;
+	right:24px;
+	float:left;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/eview_close.png);
+	background-repeat: no-repeat;
+}
+.head_closeImage a:hover{
+	background-image: url(images/eview_close_hover.png);
+}
+.head_expandImage a{
+	position:absolute;
+	top:9px;
+	right:9px;
+	float:left;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/eview_expand.png);
+	background-repeat: no-repeat;
+}
+.head_expandImage a:hover{
+	background-image: url(images/eview_expand_hover.png);
+}
+.head_noexpandImage a{
+	position:absolute;
+	top:9px;
+	right:9px;
+	float:left;
+	height:28px;
+	width:20px;
+	cursor:hand;
+	background-image: url(images/eview_noexpand.png);
+	background-repeat: no-repeat;
+}
+.head_noexpandImage a:hover{
+	background-image: url(images/eview_noexpand_hover.png);
+}
+
+
+/*弹出编辑or配置相关样式*/
+.window_topdiv{
+ margin-bottom=-10px;	
+
+}
+.window_topleft{
+	background-image: url(images/window_topleft.png);
+	background-repeat: no-repeat;
+	float:left;
+	height:10px;
+	width:11px;
+}
+.window_topbg{
+	background-image: url(images/window_topbg.png);
+	background-repeat: repeat-x;
+	float:left;
+	height:10px;	
+}
+.window_topright{
+	background-image: url(images/window_topright.png);
+	background-repeat:  no-repeat;
+	float:right;
+	width:09px;
+	height:10px;
+}
+.window_contentbox{
+	clear:both;
+	margin-top:0px; 
+	
+}
+.window_leftbg{
+	background-image: url(images/window_leftbg.png);
+	background-repeat: repeat-y;
+    float:left;
+	width:11px;
+	margin-top:0px;
+}
+.window_contentbg{
+	float:left;
+	margin-top:0px;
+	margin-bottom: 0px;
+	background-color: #EBEBEB;
+	position:relative;
+	left: 0px;
+	top: 0px;
+
+}
+.window_rightbg{
+	background-image: url(images/window_rightbg.png);
+	background-repeat: repeat-y;
+	float:right;
+	width:09px;
+	margin-top:0px;
+}
+
+.window_bottom{
+	clear:both;
+}
+.window_bottomleft{
+	background-image: url(images/window_bottomleft.png);
+	background-repeat: no-repeat;
+	float:left;
+	width:11px;
+	height:9px;
+}
+.window_bottombg{
+	background-image: url(images/window_bottombg.png);
+	background-repeat:repeat-x;
+	float:left;
+	height:9px;
+}
+.window_bottomright{
+	background-image: url(images/window_bottomright.png);
+	background-repeat: no-repeat;
+	float:right;
+	width:9px;
+	height:9px;
+}
+.window_contentbottom{
+	clear:both;
+	width:100%;
+	height:28px;
+	background-color: #bad8ed;
+	margin-bottom:0px;
+	position:absolute;
+	left: 0px;
+	top: 95px;
+}
+
+/*************************************与换肤无关****************************************/
+.window_contentbottom1{
+	clear:both;
+	width:100%;
+	height:38px;
+	background-color: #bad8ed;
+	margin-bottom:0px;
+	position:absolute;
+	left: 0px;
+	top: 300px;
+}
+.textbox{
+	background-color: #f6f6f6;
+	border: 1px solid #bbbcc0;
+	height: 22px;
+
+}
+.button {
+	background-image: url(images/btnbg.png);
+	background-repeat: no-repeat;
+	height: 23px;
+	width: 60px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #FFFFFF;
+	border: none;
+
+}
+.selectbox {
+    background-color: #f6f6f6;
+	height: 22px;
+	border: 1px solid #bbbcc0;
+}
+.textareabox {
+	background-color: #f6f6f6;
+	border: 1px solid #878787;
+}
+/* 右键菜单*/
+.right_menu {
+	clear:both;
+	background-color: #f0f0f0;
+	border: 1px solid #4b6f96;
+	width: 126px;
+}
+.menu_lefticon{
+	float:left;
+	width: 28px;
+	height:22px;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 6px;
+}
+.menu_line1{
+	float:left;
+	width: 2px;
+	background-repeat: repeat-y;
+	height:28px;
+	background-image: url(images/rightmenu_line1.png);
+}
+.menu_rightcontent{
+	float:right;
+	width: 94px;
+	height:22px;
+	padding-left: 4px;
+	margin-top: 6px;
+}
+.menu_line2{
+	clear:both;
+	width: 124px;
+	background-image: url(images/rightmenu_line2.png);
+	background-repeat: no-repeat;
+	height:2px;
+}

@@ -1,0 +1,65 @@
+#wrapper {
+	background-image: url(bg.jpg);
+	background-repeat: no-repeat;
+	height: 528px;
+	width: 644px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 272px;
+	padding-left: 557px;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#login tr td {
+	color: #b2e1ef;
+	font-family: "宋体";
+	font-size: 14px;
+	line-height: 30px;
+	padding-bottom: 8px;
+}
+#login tr td #p_username, #p_password {
+	height: 23px;
+	width: 139px;
+	background-image: url(text_bg.jpg);
+	background-repeat: no-repeat;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	padding-left: 2px;
+}
+#login  tr td  #button1, #button2 {
+	background-image: url(button_bg.jpg);
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 87px;
+	font-weight: bold;
+	line-height: 25px;
+	background-color: #FFF;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin-top: 24px;
+}
+body {
+	background-image: url(line.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+#wrapper1 {
+	background-image: url(bg1.jpg);
+	background-repeat: no-repeat;
+	height: 228px;
+	width: 244px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 132px;
+	padding-left: 297px;
+}
+.readOnly {
+    background-color: #e7e8ed;
+}

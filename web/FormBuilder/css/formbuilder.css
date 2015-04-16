@@ -1,0 +1,120 @@
+.controlContainerSelected {
+	background-color: #EEEEEE;
+}
+
+.appendCol {
+	position: absolute;
+	right: 0px;
+	top: 3px;
+	display: none;
+}
+
+.deleteCol {
+	position: absolute;
+	right: 16px;
+	top: 3px;
+	display: none;
+}
+
+.appendRow {
+	position: absolute;
+	bottom: 0px;
+	left: 3px;
+	display: none;
+}
+
+.deleteRow {
+	position: absolute;
+	bottom: 16px;
+	left: 3px;
+	display: none;
+}
+
+#tableLayout .controlShow {
+	background-color: #D5F5F5 !important;
+	border-style: solid !important;
+	border-color: #DDDDDD !important;
+}
+
+#tableLayout .rowControl {
+	position: relative;
+	height: 35px;
+	width: 20px;
+	background-color: #FFFFFF;
+	border-style: none;
+	/*border-color: transparent;
+	border-right-color: #DDDDDD;*/
+}
+
+#tableLayout .colControl {
+	position: relative;
+	height: 20px;
+	border-color: transparent;
+	border-bottom-color: #DDDDDD;
+}
+
+#tableLayout .tableControl {
+	border-style: none;
+	/*border-color: transparent;*/
+}
+
+#tableLayout {
+	border-spacing: 0px;
+	/*border-style: solid;*/
+	border-collapse: collapse;
+	border-color: #DDDDDD;
+	border-width: 1px;
+}
+
+#outerTableLayout {
+	border-spacing: 0px;
+	border-width: 0px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+#tableLayout TH,#tableLayout TD {
+	border-spacing: 0px;
+	border-style: dashed;
+	border-collapse: collapse;
+	/*border-color: #DDDDDD;*/
+	border-width: 1px;
+}
+
+.target-highlight {
+	background-color: #F0F5FF;
+}
+
+.target-hover {
+	background-color: #EEF0FF;
+}
+
+.target-placeholder {
+	display: none;
+}
+
+#outPanel {
+	position: relative;
+	background: #bbb;
+	margin: 10px auto;
+}
+
+li.twoColumns div span {
+	width: 48%;
+	margin: 0 5px 0 0
+}
+
+li.threeColumns div span {
+	width: 30%;
+	margin: 0 5px 0 0
+}
+
+li.notStacked div span {
+	width: 30%;
+	margin: 0 7px 0 0
+}
+
+ul li div {	
+	display:inline;
+	color: blue
+}

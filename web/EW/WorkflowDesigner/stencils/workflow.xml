@@ -1,0 +1,110 @@
+<shapes name="mxGraph.BPMN">
+
+	<shape name="Start" h="90" w="90" aspect="fixed"
+		strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N" />
+			<constraint x="0.5" y="1" perimeter="0" name="S" />
+			<constraint x="0" y="0.5" perimeter="0" name="W" />
+			<constraint x="1" y="0.5" perimeter="0" name="E" />
+			<constraint x="0.145" y="0.145" perimeter="0" name="NW" />
+			<constraint x="0.145" y="0.855" perimeter="0" name="SW" />
+			<constraint x="0.855" y="0.145" perimeter="0" name="NE" />
+			<constraint x="0.855" y="0.855" perimeter="0" name="SE" />
+		</connections>
+		<background>
+			<ellipse x="0" y="0" w="90" h="90" />
+		</background>
+		<foreground>
+			<fillstroke />
+		</foreground>
+	</shape>
+
+
+	<shape name="End" h="90" w="90" aspect="fixed"
+		strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N" />
+			<constraint x="0.5" y="1" perimeter="0" name="S" />
+			<constraint x="0" y="0.5" perimeter="0" name="W" />
+			<constraint x="1" y="0.5" perimeter="0" name="E" />
+			<constraint x="0.145" y="0.145" perimeter="0" name="NW" />
+			<constraint x="0.145" y="0.855" perimeter="0" name="SW" />
+			<constraint x="0.855" y="0.145" perimeter="0" name="NE" />
+			<constraint x="0.855" y="0.855" perimeter="0" name="SE" />
+		</connections>
+		<background>
+			<ellipse x="0" y="0" w="90" h="90" />
+		</background>
+		<foreground>
+			<fillstroke />
+			<ellipse x="9" y="9" w="72" h="72" />
+			<fillstroke />
+		</foreground>
+	</shape>
+
+	<shape name="Fork" h="90" w="90" aspect="fixed"
+		strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N" />
+			<constraint x="0.5" y="1" perimeter="0" name="S" />
+			<constraint x="0" y="0.5" perimeter="0" name="W" />
+			<constraint x="1" y="0.5" perimeter="0" name="E" />
+		</connections>
+		<background>
+			<path>
+				<move x="45" y="0" />
+				<line x="90" y="45" />
+				<line x="45" y="90" />
+				<line x="0" y="45" />
+				<close />
+			</path>
+		</background>
+		<foreground>
+			<fillstroke />
+			<path>
+				<move x="45" y="18" />
+				<line x="45" y="72" />
+			</path>
+			<stroke />
+			<path>
+				<move x="72" y="45" />
+				<line x="18" y="45" />
+			</path>
+			<stroke />
+		</foreground>
+	</shape>
+	
+	<shape name="Join" h="90" w="90" aspect="fixed"
+		strokewidth="inherit">
+		<connections>
+			<constraint x="0.5" y="0" perimeter="0" name="N" />
+			<constraint x="0.5" y="1" perimeter="0" name="S" />
+			<constraint x="0" y="0.5" perimeter="0" name="W" />
+			<constraint x="1" y="0.5" perimeter="0" name="E" />
+		</connections>
+		<background>
+			<path>
+				<move x="45" y="0" />
+				<line x="90" y="45" />
+				<line x="45" y="90" />
+				<line x="0" y="45" />
+				<close />
+			</path>
+		</background>
+		<foreground>
+			<fillstroke />
+			<path>
+				<move x="34.5" y="21" />
+				<line x="57" y="69" />
+			</path>
+			<stroke />
+			<path>
+				<move x="57" y="21" />
+				<line x="34.5" y="69" />
+			</path>
+			<stroke />
+		</foreground>
+	</shape>
+
+</shapes>

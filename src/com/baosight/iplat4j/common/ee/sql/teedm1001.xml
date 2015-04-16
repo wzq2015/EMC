@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+    <!--      
+         table information  
+         Generate time :2011-04-12 03:19:50
+         table comment :国际化性能测试表
+         tableName :TEEDM1001
+         INTER_ITEM1    VARCHAR  NOT NULL ,
+         INTER_ITEM2    VARCHAR  NOT NULL ,
+         INTER_ITEM3    VARCHAR  NOT NULL ,
+         INTER_ITEM4    VARCHAR  NOT NULL ,
+         INTER_ITEM5    VARCHAR  NOT NULL ,
+         INTER_ITEM6    VARCHAR  NOT NULL ,
+         INTER_ITEM7    VARCHAR  NOT NULL ,
+         INTER_ITEM8    VARCHAR  NOT NULL ,
+         INTER_ITEM9    VARCHAR  NOT NULL ,
+         INTER_ITEM10    VARCHAR  NOT NULL ,
+         INTER_ITEM11    VARCHAR  NOT NULL ,
+         INTER_ITEM12    VARCHAR  NOT NULL ,
+         INTER_ITEM13    VARCHAR  NOT NULL ,
+         INTER_ITEM14    VARCHAR  NOT NULL ,
+         INTER_ITEM15    VARCHAR  NOT NULL ,
+         INTER_ITEM16    VARCHAR  NOT NULL ,
+         INTER_ITEM17    VARCHAR  NOT NULL ,
+         INTER_ITEM18    VARCHAR  NOT NULL ,
+         INTER_ITEM19    VARCHAR  NOT NULL ,
+         INTER_ITEM20    VARCHAR  NOT NULL ,
+         INTER_ITEM21    VARCHAR  NOT NULL ,
+         INTER_ITEM22    VARCHAR  NOT NULL ,
+         INTER_ITEM23    VARCHAR  NOT NULL ,
+         INTER_ITEM24    VARCHAR  NOT NULL ,
+         INTER_ITEM25    VARCHAR  NOT NULL ,
+         INTER_ITEM26    VARCHAR  NOT NULL ,
+         INTER_ITEM27    VARCHAR  NOT NULL ,
+         INTER_ITEM28    VARCHAR  NOT NULL ,
+         INTER_ITEM29    VARCHAR  NOT NULL ,
+         INTER_ITEM30    VARCHAR  NOT NULL ,
+         INTER_ITEM31    VARCHAR  NOT NULL ,
+         INTER_ITEM32    VARCHAR  NOT NULL ,
+         INTER_ITEM33    VARCHAR  NOT NULL ,
+         INTER_ITEM34    VARCHAR  NOT NULL ,
+         INTER_ITEM35    VARCHAR  NOT NULL ,
+         INTER_ITEM36    VARCHAR  NOT NULL ,
+         INTER_ITEM37    VARCHAR  NOT NULL ,
+         INTER_ITEM38    VARCHAR  NOT NULL ,
+         INTER_ITEM39    VARCHAR  NOT NULL ,
+         INTER_ITEM40    VARCHAR  NOT NULL ,
+         INTER_ITEM41    VARCHAR  NOT NULL ,
+         INTER_ITEM42    VARCHAR  NOT NULL ,
+         INTER_ITEM43    VARCHAR  NOT NULL ,
+         INTER_ITEM44    VARCHAR  NOT NULL ,
+         INTER_ITEM45    VARCHAR  NOT NULL ,
+         INTER_ITEM46    VARCHAR  NOT NULL ,
+         INTER_ITEM47    VARCHAR  NOT NULL ,
+         INTER_ITEM48    VARCHAR  NOT NULL ,
+         INTER_ITEM49    VARCHAR  NOT NULL ,
+         INTER_ITEM50    VARCHAR  NOT NULL		 		
+    -->
+    <sqlMap namespace="teedm1001">
+    <select id="query" parameterClass="java.util.HashMap" 
+            resultClass="com.baosight.iplat4j.common.ee.domain.Teedm1001">
+		SELECT
+		INTER_ITEM1  as  "interItem1"  , <!--  字段1  -->
+		INTER_ITEM2  as  "interItem2"  , <!--  字段2  -->
+		INTER_ITEM3  as  "interItem3"  , <!--  字段3  -->
+		INTER_ITEM4  as  "interItem4"  , <!--  字段4  -->
+		INTER_ITEM5  as  "interItem5"  , <!--  字段5  -->
+		INTER_ITEM6  as  "interItem6"  , <!--  字段6  -->
+		INTER_ITEM7  as  "interItem7"  , <!--  字段7  -->
+		INTER_ITEM8  as  "interItem8"  , <!--  字段8  -->
+		INTER_ITEM9  as  "interItem9"  , <!--  字段9  -->
+		INTER_ITEM10  as  "interItem10"  , <!--  字段10  -->
+		INTER_ITEM11  as  "interItem11"  , <!--  字段11  -->
+		INTER_ITEM12  as  "interItem12"  , <!--  字段12  -->
+		INTER_ITEM13  as  "interItem13"  , <!--  字段13  -->
+		INTER_ITEM14  as  "interItem14"  , <!--  字段14  -->
+		INTER_ITEM15  as  "interItem15"  , <!--  字段15  -->
+		INTER_ITEM16  as  "interItem16"  , <!--  字段16  -->
+		INTER_ITEM17  as  "interItem17"  , <!--  字段17  -->
+		INTER_ITEM18  as  "interItem18"  , <!--  字段18  -->
+		INTER_ITEM19  as  "interItem19"  , <!--  字段19  -->
+		INTER_ITEM20  as  "interItem20"  , <!--  字段20  -->
+		INTER_ITEM21  as  "interItem21"  , <!--  字段21  -->
+		INTER_ITEM22  as  "interItem22"  , <!--  字段22  -->
+		INTER_ITEM23  as  "interItem23"  , <!--  字段23  -->
+		INTER_ITEM24  as  "interItem24"  , <!--  字段24  -->
+		INTER_ITEM25  as  "interItem25"  , <!--  字段25  -->
+		INTER_ITEM26  as  "interItem26"  , <!--  字段26  -->
+		INTER_ITEM27  as  "interItem27"  , <!--  字段27  -->
+		INTER_ITEM28  as  "interItem28"  , <!--  字段28  -->
+		INTER_ITEM29  as  "interItem29"  , <!--  字段29  -->
+		INTER_ITEM30  as  "interItem30"  , <!--  字段30  -->
+		INTER_ITEM31  as  "interItem31"  , <!--  字段31  -->
+		INTER_ITEM32  as  "interItem32"  , <!--  字段32  -->
+		INTER_ITEM33  as  "interItem33"  , <!--  字段33  -->
+		INTER_ITEM34  as  "interItem34"  , <!--  字段34  -->
+		INTER_ITEM35  as  "interItem35"  , <!--  字段35  -->
+		INTER_ITEM36  as  "interItem36"  , <!--  字段36  -->
+		INTER_ITEM37  as  "interItem37"  , <!--  字段37  -->
+		INTER_ITEM38  as  "interItem38"  , <!--  字段38  -->
+		INTER_ITEM39  as  "interItem39"  , <!--  字段39  -->
+		INTER_ITEM40  as  "interItem40"  , <!--  字段40  -->
+		INTER_ITEM41  as  "interItem41"  , <!--  字段41  -->
+		INTER_ITEM42  as  "interItem42"  , <!--  字段42  -->
+		INTER_ITEM43  as  "interItem43"  , <!--  字段43  -->
+		INTER_ITEM44  as  "interItem44"  , <!--  字段44  -->
+		INTER_ITEM45  as  "interItem45"  , <!--  字段45  -->
+		INTER_ITEM46  as  "interItem46"  , <!--  字段46  -->
+		INTER_ITEM47  as  "interItem47"  , <!--  字段47  -->
+		INTER_ITEM48  as  "interItem48"  , <!--  字段48  -->
+		INTER_ITEM49  as  "interItem49"  , <!--  字段49  -->
+		INTER_ITEM50  as  "interItem50"  <!--  字段50  -->
+		      
+        FROM TEEDM1001 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="interItem1">
+			INTER_ITEM1 like '%$interItem1$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem2">
+			INTER_ITEM2 like '%$interItem2$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem3">
+			INTER_ITEM3 like '%$interItem3$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem4">
+			INTER_ITEM4 like '%$interItem4$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem5">
+			INTER_ITEM5 like '%$interItem5$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem6">
+			INTER_ITEM6 like '%$interItem6$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem7">
+			INTER_ITEM7 like '%$interItem7$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem8">
+			INTER_ITEM8 like '%$interItem8$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem9">
+			INTER_ITEM9 like '%$interItem9$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem10">
+			INTER_ITEM10 like '%$interItem10$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem11">
+			INTER_ITEM11 like '%$interItem11$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem12">
+			INTER_ITEM12 like '%$interItem12$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem13">
+			INTER_ITEM13 like '%$interItem13$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem14">
+			INTER_ITEM14 like '%$interItem14$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem15">
+			INTER_ITEM15 like '%$interItem15$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem16">
+			INTER_ITEM16 like '%$interItem16$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem17">
+			INTER_ITEM17 like '%$interItem17$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem18">
+			INTER_ITEM18 like '%$interItem18$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem19">
+			INTER_ITEM19 like '%$interItem19$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem20">
+			INTER_ITEM20 like '%$interItem20$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem31">
+			INTER_ITEM31 like '%$interItem31$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem32">
+			INTER_ITEM32 like '%$interItem32$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem33">
+			INTER_ITEM33 like '%$interItem33$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem34">
+			INTER_ITEM34 like '%$interItem34$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem35">
+			INTER_ITEM35 like '%$interItem35$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem36">
+			INTER_ITEM36 like '%$interItem36$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem37">
+			INTER_ITEM37 like '%$interItem37$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem38">
+			INTER_ITEM38 like '%$interItem38$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem39">
+			INTER_ITEM39 like '%$interItem39$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem40">
+			INTER_ITEM40 like '%$interItem40$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem41">
+			INTER_ITEM41 like '%$interItem41$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem42">
+			INTER_ITEM42 like '%$interItem42$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem43">
+			INTER_ITEM43 like '%$interItem43$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem44">
+			INTER_ITEM44 like '%$interItem44$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem45">
+			INTER_ITEM45 like '%$interItem45$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem46">
+			INTER_ITEM46 like '%$interItem46$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem47">
+			INTER_ITEM47 like '%$interItem47$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem48">
+			INTER_ITEM48 like '%$interItem48$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem49">
+			INTER_ITEM49 like '%$interItem49$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="interItem50">
+			INTER_ITEM50 like '%$interItem50$%'
+		</isNotEmpty>
+        <dynamic prepend="ORDER BY">
+           <isNotEmpty property="orderBy">
+              $orderBy$
+           </isNotEmpty>
+         </dynamic>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TEEDM1001 (
+                           INTER_ITEM1  ,   <!--  字段1  -->
+                           INTER_ITEM2  ,   <!--  字段2  -->
+                           INTER_ITEM3  ,   <!--  字段3  -->
+                           INTER_ITEM4  ,   <!--  字段4  -->
+                           INTER_ITEM5  ,   <!--  字段5  -->
+                           INTER_ITEM6  ,   <!--  字段6  -->
+                           INTER_ITEM7  ,   <!--  字段7  -->
+                           INTER_ITEM8  ,   <!--  字段8  -->
+                           INTER_ITEM9  ,   <!--  字段9  -->
+                           INTER_ITEM10  ,   <!--  字段10  -->
+                           INTER_ITEM11  ,   <!--  字段11  -->
+                           INTER_ITEM12  ,   <!--  字段12  -->
+                           INTER_ITEM13  ,   <!--  字段13  -->
+                           INTER_ITEM14  ,   <!--  字段14  -->
+                           INTER_ITEM15  ,   <!--  字段15  -->
+                           INTER_ITEM16  ,   <!--  字段16  -->
+                           INTER_ITEM17  ,   <!--  字段17  -->
+                           INTER_ITEM18  ,   <!--  字段18  -->
+                           INTER_ITEM19  ,   <!--  字段19  -->
+                           INTER_ITEM20  ,   <!--  字段20  -->
+                           INTER_ITEM21  ,   <!--  字段21  -->
+                           INTER_ITEM22  ,   <!--  字段22  -->
+                           INTER_ITEM23  ,   <!--  字段23  -->
+                           INTER_ITEM24  ,   <!--  字段24  -->
+                           INTER_ITEM25  ,   <!--  字段25  -->
+                           INTER_ITEM26  ,   <!--  字段26  -->
+                           INTER_ITEM27  ,   <!--  字段27  -->
+                           INTER_ITEM28  ,   <!--  字段28  -->
+                           INTER_ITEM29  ,   <!--  字段29  -->
+                           INTER_ITEM30  ,   <!--  字段30  -->
+                           INTER_ITEM31  ,   <!--  字段31  -->
+                           INTER_ITEM32  ,   <!--  字段32  -->
+                           INTER_ITEM33  ,   <!--  字段33  -->
+                           INTER_ITEM34  ,   <!--  字段34  -->
+                           INTER_ITEM35  ,   <!--  字段35  -->
+                           INTER_ITEM36  ,   <!--  字段36  -->
+                           INTER_ITEM37  ,   <!--  字段37  -->
+                           INTER_ITEM38  ,   <!--  字段38  -->
+                           INTER_ITEM39  ,   <!--  字段39  -->
+                           INTER_ITEM40  ,   <!--  字段40  -->
+                           INTER_ITEM41  ,   <!--  字段41  -->
+                           INTER_ITEM42  ,   <!--  字段42  -->
+                           INTER_ITEM43  ,   <!--  字段43  -->
+                           INTER_ITEM44  ,   <!--  字段44  -->
+                           INTER_ITEM45  ,   <!--  字段45  -->
+                           INTER_ITEM46  ,   <!--  字段46  -->
+                           INTER_ITEM47  ,   <!--  字段47  -->
+                           INTER_ITEM48  ,   <!--  字段48  -->
+                           INTER_ITEM49  ,   <!--  字段49  -->
+                           INTER_ITEM50    <!--  字段50  -->
+                               )
+        VALUES (
+          #interItem1: VARCHAR#   ,
+          #interItem2: VARCHAR#   ,
+          #interItem3: VARCHAR#   ,
+          #interItem4: VARCHAR#   ,
+          #interItem5: VARCHAR#   ,
+          #interItem6: VARCHAR#   ,
+          #interItem7: VARCHAR#   ,
+          #interItem8: VARCHAR#   ,
+          #interItem9: VARCHAR#   ,
+          #interItem10: VARCHAR#   ,
+          #interItem11: VARCHAR#   ,
+          #interItem12: VARCHAR#   ,
+          #interItem13: VARCHAR#   ,
+          #interItem14: VARCHAR#   ,
+          #interItem15: VARCHAR#   ,
+          #interItem16: VARCHAR#   ,
+          #interItem17: VARCHAR#   ,
+          #interItem18: VARCHAR#   ,
+          #interItem19: VARCHAR#   ,
+          #interItem20: VARCHAR#   ,
+          #interItem21: VARCHAR#   ,
+          #interItem22: VARCHAR#   ,
+          #interItem23: VARCHAR#   ,
+          #interItem24: VARCHAR#   ,
+          #interItem25: VARCHAR#   ,
+          #interItem26: VARCHAR#   ,
+          #interItem27: VARCHAR#   ,
+          #interItem28: VARCHAR#   ,
+          #interItem29: VARCHAR#   ,
+          #interItem30: VARCHAR#   ,
+          #interItem31: VARCHAR#   ,
+          #interItem32: VARCHAR#   ,
+          #interItem33: VARCHAR#   ,
+          #interItem34: VARCHAR#   ,
+          #interItem35: VARCHAR#   ,
+          #interItem36: VARCHAR#   ,
+          #interItem37: VARCHAR#   ,
+          #interItem38: VARCHAR#   ,
+          #interItem39: VARCHAR#   ,
+          #interItem40: VARCHAR#   ,
+          #interItem41: VARCHAR#   ,
+          #interItem42: VARCHAR#   ,
+          #interItem43: VARCHAR#   ,
+          #interItem44: VARCHAR#   ,
+          #interItem45: VARCHAR#   ,
+          #interItem46: VARCHAR#   ,
+          #interItem47: VARCHAR#   ,
+          #interItem48: VARCHAR#   ,
+          #interItem49: VARCHAR#   ,
+          #interItem50: VARCHAR#   		)
+	</insert>
+
+    <delete id="delete">
+        DELETE FROM TEEDM1001  WHERE 
+		INTER_ITEM1 = #interItem1#
+    </delete>
+
+    <update id="update">
+        UPDATE  TEEDM1001
+        SET
+        INTER_ITEM1 = #interItem1#     ,     <!--  字段1  -->
+        INTER_ITEM2 = #interItem2#     ,     <!--  字段2  -->
+        INTER_ITEM3 = #interItem3#     ,     <!--  字段3  -->
+        INTER_ITEM4 = #interItem4#     ,     <!--  字段4  -->
+        INTER_ITEM5 = #interItem5#     ,     <!--  字段5  -->
+        INTER_ITEM6 = #interItem6#     ,     <!--  字段6  -->
+        INTER_ITEM7 = #interItem7#     ,     <!--  字段7  -->
+        INTER_ITEM8 = #interItem8#     ,     <!--  字段8  -->
+        INTER_ITEM9 = #interItem9#     ,     <!--  字段9  -->
+        INTER_ITEM10 = #interItem10#     ,     <!--  字段10  -->
+        INTER_ITEM11 = #interItem11#     ,     <!--  字段11  -->
+        INTER_ITEM12 = #interItem12#     ,     <!--  字段12  -->
+        INTER_ITEM13 = #interItem13#     ,     <!--  字段13  -->
+        INTER_ITEM14 = #interItem14#     ,     <!--  字段14  -->
+        INTER_ITEM15 = #interItem15#     ,     <!--  字段15  -->
+        INTER_ITEM16 = #interItem16#     ,     <!--  字段16  -->
+        INTER_ITEM17 = #interItem17#     ,     <!--  字段17  -->
+        INTER_ITEM18 = #interItem18#     ,     <!--  字段18  -->
+        INTER_ITEM19 = #interItem19#     ,     <!--  字段19  -->
+        INTER_ITEM20 = #interItem20#     ,     <!--  字段20  -->
+        INTER_ITEM21 = #interItem21#     ,     <!--  字段21  -->
+        INTER_ITEM22 = #interItem22#     ,     <!--  字段22  -->
+        INTER_ITEM23 = #interItem23#     ,     <!--  字段23  -->
+        INTER_ITEM24 = #interItem24#     ,     <!--  字段24  -->
+        INTER_ITEM25 = #interItem25#     ,     <!--  字段25  -->
+        INTER_ITEM26 = #interItem26#     ,     <!--  字段26  -->
+        INTER_ITEM27 = #interItem27#     ,     <!--  字段27  -->
+        INTER_ITEM28 = #interItem28#     ,     <!--  字段28  -->
+        INTER_ITEM29 = #interItem29#     ,     <!--  字段29  -->
+        INTER_ITEM30 = #interItem30#     ,     <!--  字段30  -->
+        INTER_ITEM31 = #interItem31#     ,     <!--  字段31  -->
+        INTER_ITEM32 = #interItem32#     ,     <!--  字段32  -->
+        INTER_ITEM33 = #interItem33#     ,     <!--  字段33  -->
+        INTER_ITEM34 = #interItem34#     ,     <!--  字段34  -->
+        INTER_ITEM35 = #interItem35#     ,     <!--  字段35  -->
+        INTER_ITEM36 = #interItem36#     ,     <!--  字段36  -->
+        INTER_ITEM37 = #interItem37#     ,     <!--  字段37  -->
+        INTER_ITEM38 = #interItem38#     ,     <!--  字段38  -->
+        INTER_ITEM39 = #interItem39#     ,     <!--  字段39  -->
+        INTER_ITEM40 = #interItem40#     ,     <!--  字段40  -->
+        INTER_ITEM41 = #interItem41#     ,     <!--  字段41  -->
+        INTER_ITEM42 = #interItem42#     ,     <!--  字段42  -->
+        INTER_ITEM43 = #interItem43#     ,     <!--  字段43  -->
+        INTER_ITEM44 = #interItem44#     ,     <!--  字段44  -->
+        INTER_ITEM45 = #interItem45#     ,     <!--  字段45  -->
+        INTER_ITEM46 = #interItem46#     ,     <!--  字段46  -->
+        INTER_ITEM47 = #interItem47#     ,     <!--  字段47  -->
+        INTER_ITEM48 = #interItem48#     ,     <!--  字段48  -->
+        INTER_ITEM49 = #interItem49#     ,     <!--  字段49  -->
+        INTER_ITEM50 = #interItem50#        <!--  字段50  -->
+        WHERE 
+   	   INTER_ITEM1 = #interItem1#
+    </update>
+    </sqlMap>

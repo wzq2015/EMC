@@ -1,0 +1,12 @@
+	<!-- $service.result-0-methodCname -->
+	<delete id="$service.result-0-methodEname">
+		DELETE FROM $service.where-0-tableName $service.where-0-tableAlias
+		WHERE 1=1
+#set($items = $service.getBlock("where").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+		#parse("${base}/dao-condition.vm")
+#set($index = $index + 1)
+#end		
+	</delete>

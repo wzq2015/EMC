@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"               
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DynamicType">
+
+	<typeAlias alias="DynamicType"
+		type="com.baosight.platform.core.security.dynamictype.DynamicType" />
+
+	<resultMap id="QueryResult" class="DynamicType">
+		<result property="DynamicUsersetType" column="dynamic_userset_type" />
+		<result property="ClassName" column="class_name" />
+		<result property="MethodName" column="method_name" />
+	</resultMap>
+
+	<insert id="Insert" parameterClass="DynamicType">
+		insert into
+		${platSchema}.t_es_dynamic_type(dynamic_userset_type,class_name,method_name)
+		values(#DynamicUsersetType:VARCHAR#, #ClassName:VARCHAR#, #MethodName:VARCHAR#)
+	</insert>
+
+	<update id="Update" parameterClass="DynamicType">
+		update ${platSchema}.t_es_dynamic_type set 
+		class_name = #ClassName#,
+		method_name = #MethodName#
+		where dynamic_userset_type = #DynamicUsersetType#
+	</update>
+
+	<select id="Query" parameterClass="DynamicType"
+		resultMap="QueryResult">
+		select * from
+		${platSchema}.t_es_dynamic_type where 1=1
+		<dynamic prepend=" AND ">
+			<isNotNull property="DynamicUsersetType">dynamic_userset_type = #DynamicUsersetType#</isNotNull>
+		</dynamic>
+	</select>
+
+	<delete id="Delete" parameterClass="DynamicType">
+		delete from ${platSchema}.t_es_dynamic_type where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="DynamicUsersetType">dynamic_userset_type = #DynamicUsersetType#</isNotEmpty>
+		</dynamic>
+	</delete>
+	
+	<sql id="SelectDynamicType">
+		from ${platSchema}.t_es_dynamic_type where 1=1
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="DynamicUsersetType">
+				dynamic_userset_type LIKE '%'||#DynamicUsersetType#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="ClassName">
+				class_name LIKE '%'||#ClassName#||'%'
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotEmpty property="MethodName">
+				method_name LIKE '%'||#MethodName#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<sql id="SortDynamicTypeWithCondition">
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ClassName">
+				class_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="MethodName">
+				method_name
+			</isEqual>
+			<isNotEqual property="OrderValue" compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+		</dynamic>
+		<dynamic prepend=" ">
+	        <isEqual property="OrderKey" compareValue="NotSet">
+	          dynamic_userset_type ASC
+	        </isEqual>
+	        <isNotEqual property="OrderKey" compareValue="NotSet">
+	          <isNotEqual property="OrderKey" compareValue="DynamicUsersetType">
+	           ,dynamic_userset_type ASC
+	          </isNotEqual>
+	        </isNotEqual>
+		</dynamic>
+	</sql>
+
+	<select id="QueryList" parameterClass="Map"
+		resultMap="QueryResult">
+		select *
+		<include refid="SelectDynamicType" />
+		<include refid="SortDynamicTypeWithCondition" />
+	</select>
+	
+	<select id="Count" resultClass="int">
+		select count(1)
+		<include refid="SelectDynamicType" />
+	</select>
+
+</sqlMap>

@@ -1,0 +1,54 @@
+##
+## 渲染区域按钮对应java方法的通用模板
+## 调用时需要设置以下参数
+## $_region_id 区域的ID
+#set($_Q = '"')
+#set($_block_name = ".func$" + "${_region_id}")
+#set($_btn_block_name = ".opt$" + "${_region_id}")
+#set($_block_meta = $meta.getBlock("${_btn_block_name}").getBlockMeta().getMetas())
+## 区域类型 0: 查询  1: 单记录  2: 多记录
+#set($_region_type = $meta.getBlock("${_block_name}").regionType)
+#foreach( $_button in $_block_meta)
+#set($_button_serviceEname = $meta.utility.getValue($_button.serviceEname, $meta.formEname))
+#set($_button_methodEname = $meta.utility.getValue($_button.methodEname, $_button.ename))
+#if($meta.formEname == $_button_serviceEname)
+	/**
+	 * $_button.cname
+	 * @param 输入EiInfo
+	 * @return 输出EiInfo
+	 */
+	public EiInfo ${_button_methodEname}(EiInfo inInfo) {
+#set($_block_dataModelEname = $meta.utility.get($meta, "${_block_name}-dataModelEname", ""))
+#if("" != $_block_dataModelEname)
+#if($_button_methodEname == "query")## query
+#set($_block_condEname = $meta.utility.get($meta, "${_block_name}-condEname", ""))
+		$_block_dataModelEname bean = new $_block_dataModelEname();
+		inInfo.setMethodParam(MethodParamConstants.sqlName, "${_block_dataModelEname}.${_block_condEname}");
+		inInfo.setMethodParam(MethodParamConstants.daoEPBaseBean, bean);
+		EiInfo outInfo = super.${_button_methodEname}(inInfo, true);
+		return outInfo;
+#elseif($_button_methodEname == "insert" || $_button_methodEname == "update" || $_button_methodEname == "delete")
+#set($_block_name2 = $_block_name.substring(16))
+#if("slave" == $_block_name2)
+#set($_query_name = "querySlave")
+#else
+#set($_query_name = "query")
+#end
+#if("result" == $_block_name2)
+#set($_block_name2 = "EiConstant.resultBlock")
+#else
+#set($_block_name2 = '"' + "$_block_name2" + '"')
+#end
+		super.${_button_methodEname}(inInfo, "${_block_dataModelEname}.${_button_methodEname}", new ${_block_dataModelEname}(), true, $_block_name2);
+		return ${_query_name}(inInfo); // $_button_methodEname后重新查询并刷新页面
+#else
+		EiInfo outInfo = new EiInfo();
+		return outInfo;
+#end
+#else
+		EiInfo outInfo = new EiInfo();
+		return outInfo;
+#end
+#end
+	}
+#end

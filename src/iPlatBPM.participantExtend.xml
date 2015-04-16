@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ParticipantExtends>	
+	<ParticipantExtend>
+		<Label>User</Label>
+		<Name>取epass用户</Name>
+		<Description>取epass用户</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.StandardAssignmentServiceImpl</BackgroundService>
+		<Visible>false</Visible>
+		<ForegroundService>
+			<ClassName>ProjectEva.CustomTaskSettingWindow,ProjectEva,Version=1.0.0.0</ClassName>
+			<ConstructParamerer></ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>	
+	<ParticipantExtend>
+		<Label>PRCESS_INS_STARTER</Label>
+		<Name>取流程启动者</Name>
+		<Description>取流程启动者</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.StandardAssignmentServiceImpl</BackgroundService>
+		<Visible>false</Visible>
+		<ForegroundService>
+			<ClassName>ProjectEva.CustomTaskSettingWindow1,ProjectEva,Version=1.0.0.0</ClassName>
+			<ConstructParamerer></ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>
+	<ParticipantExtend>
+		<Label>Role</Label>
+		<Name>取EPASS岗位成员</Name>
+		<Description>取EPASS岗位成员</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.StandardAssignmentServiceImpl</BackgroundService>
+		<Visible>false</Visible>
+		<ForegroundService>
+			<ClassName></ClassName>
+			<ConstructParamerer></ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>	
+	<ParticipantExtend>
+		<Label>EpassRoleWithInputOrg</Label>
+		<Name>角色类型+流程组织</Name>
+		<Description>自定义角色,根据流程实例传入的组织机构加上配好的角色类型来查找用户，角色类型可以匹配多个</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.CustomizeEpassRoleWithInputOrg</BackgroundService>
+		<Visible>true</Visible>
+		<ForegroundService>
+			<ClassName>Baosight.Platform.EWPD.UI.ChildWindows.ExtraParticipantCommonWindow</ClassName>
+			<PageName>EW0112</PageName>
+			<ConstructParamerer>
+				<Window Width="600" Height="450"/>
+				<Columns>
+					<Column Name="RoleName" DisplayName="角色类型编码" Width = "100" IsKey="true"></Column>
+					<Column Name="RoleDisplayName" DisplayName="角色类型显示名称" Width = "200" IsName="true"></Column>
+					<Column Name="OrgCode" DisplayName="组织编码在流程对应的参数编码" Description="取流程指定参数的值" Width="200" DefaultValue="StartParameter" IsKey="true"/>
+				</Columns>
+			</ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>
+	<ParticipantExtend>
+		<Label>ActivityLastExecutor</Label>
+		<Name>取指定节点最后一次参与执行者</Name>
+		<Description>取指定流程节点最后一次参与执行者,流程节点可以配多个</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.CustomizeActivityLastExecutor</BackgroundService>
+		<Visible>true</Visible>
+		<ForegroundService>
+			<ClassName>Baosight.Platform.EWPD.UI.ChildWindows.ExtraParticipantCommonWindow</ClassName>
+			<PageName>EW0113</PageName>
+			<ConstructParamerer>
+				<Window Width="600" Height="450"/>
+				<Columns>
+					<Column Name="ActivityName" DisplayName="节点名称" Width = "100" IsKey="true"></Column>
+					<Column Name="ActivityDisplayName" DisplayName="节点显示显示名称" Width = "200" IsName="true"></Column>
+				</Columns>
+			</ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>
+	<ParticipantExtend>
+		<Label>Collaborator</Label>
+		<Name>协办参与者</Name>
+		<Description>协办参与者</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.CustomizeCollaborator</BackgroundService>
+		<Visible>true</Visible>
+		<ForegroundService>
+			<ClassName>Baosight.Platform.EWPD.UI.ChildWindows.CollaboratorSettingWindow</ClassName>
+			<PageName>EW0114</PageName>
+			<ConstructParamerer>
+			</ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>
+	
+	
+	<ParticipantExtend>
+		<Label>CustomizeDataset</Label>
+		<Name>数据集参与者</Name>
+		<Description>数据集参与者</Description>
+		<BackgroundService>com.baosight.ieasyflow.internal.task.CustomizeDataset</BackgroundService>
+		<Visible>true</Visible>
+		<ForegroundService>
+			<ClassName>Baosight.Platform.EWPD.UI.ChildWindows.CustomizeDatasetSettingWindow</ClassName>
+			<PageName>EW0115</PageName>
+			<ConstructParamerer>
+			</ConstructParamerer>
+		</ForegroundService>
+	</ParticipantExtend>
+	
+	<!-- 
+	<ParticipantExtend>
+       <Label>ProjectGroup</Label>
+       <Name>项目团队</Name>
+       <Description>项目团队</Description>
+       <BackgroundService>com.baosight.bpmsx.bb.wf.BPMSXProjectGroupAccess</BackgroundService>
+       <Visible>true</Visible>   
+       <ForegroundService>
+			<ClassName>Baosight.Platform.EWPD.UI.ChildWindows.ExtraParticipantCommonWindow</ClassName>
+			<ConstructParamerer>
+				<Window Width="600" Height="450"/>
+				<Columns>
+					<Column Name="ProjectGroup" DisplayName="项目团队Id" Width = "100" IsKey="true"></Column>
+					<Column Name="ProjectGroupName" DisplayName="项目团队名称" Width = "200" IsName="true"></Column>
+				</Columns>
+			</ConstructParamerer>
+	   </ForegroundService>  
+    </ParticipantExtend>
+	
+	
+	<ParticipantExtend>
+	    <Label>AddParticipants</Label>
+	    <Name>添加用户</Name>
+	    <Description>添加用户</Description>
+	    <BackgroundService>com.baosight.ieasyflow.internal.task.CustomizeAddParticipants</BackgroundService>
+	    <Visible>true</Visible>
+	    <ForegroundService>
+	        <ClassName>Baosight.Platform.EWPD.UI.ChildWindows.ExtraParticipantCommonWindow</ClassName>
+	        <ConstructParamerer>
+	            <Window Width="600" Height="450"/>
+	            <Columns>
+	                <Column Name="UserId" DisplayName="用户标识" Width = "100" IsKey="true"></Column>
+	                <Column Name="UserName" DisplayName="用户名称" Width = "200" IsName="true"></Column>
+	            </Columns>
+	        </ConstructParamerer>
+	    </ForegroundService>
+	</ParticipantExtend>
+	-->
+	 
+	 
+</ParticipantExtends>

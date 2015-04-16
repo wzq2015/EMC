@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+    <!--      
+         table information  
+         Generate time :$date
+#if($tableName.trim()!="")
+         table comment :$tableComment
+#end
+         tableName :$tableName
+#set($i=0)
+#foreach( $key in $list )
+         $key.columnName  #if($key.columnType=="C")  VARCHAR #end#if($key.columnType=="N")  NUMBER#end $key.nullable#if($key.primarykey=='true')  primarykey#end#set($i=$i+1)#if($i<$list.size()) ,
+#end	
+#end
+		 		
+    -->
+#if($subModuleName==''||$tag=="true")	
+    <sqlMap namespace="$bean">
+#else
+    <sqlMap namespace="$beanName">
+#end
+    <select id="query" parameterClass="java.util.HashMap" 
+            resultClass="$beanPackName.$beanName">
+		SELECT
+#set($i=0)
+#foreach( $key in $list )
+		$key.columnName  as  "$key.name" #set($i=$i+1) #if($i<$list.size()), #end#if($key.columnComment.trim()!="")<!--  $key.columnComment  -->
+#end
+#end
+		      
+        FROM $tableName WHERE 1=1
+#foreach( $key in $list )
+#if ($key.primarykey == "true")
+        <isNotEmpty prepend=" AND " property="$key.name">
+              $key.columnName = #$key.name#
+        </isNotEmpty>
+#end
+#end
+        <dynamic prepend="ORDER BY">
+           <isNotEmpty property="orderBy">
+              $orderBy$
+           </isNotEmpty>
+#foreach( $key in $list )
+#if ($key.primarykey == "true")
+           <isEmpty property="orderBy">
+              $key.columnName asc
+           </isEmpty>
+#end
+#end
+         </dynamic>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO $tableName (
+#set($i=0)
+#foreach( $key in $list )
+                           $key.columnName  #set($i=$i+1) #if($i<$list.size()) ,#end#if($key.columnComment.trim()!="")   <!--  $key.columnComment  -->
+#end
+#end
+                               )
+        VALUES (
+#set($i=0)
+#foreach( $key in $list )
+          #$key.name:#if($key.columnType=="C") VARCHAR#  #end#if($key.columnType=="N") NUMERIC# #end
+#set($i=$i+1) #if($i<$list.size()),
+#end
+#end
+		)
+	</insert>
+
+    <delete id="delete">
+        DELETE FROM $tableName  WHERE 
+#set($i=0)
+#foreach( $key in $list )
+#if ($key.primarykey == "true") 
+#set($i=$i+1)        $key.columnName = #${key.name}#   #if($i<$primaryKeyList.size()) and
+#end
+#end
+#end
+
+    </delete>
+
+    <update id="update">
+        UPDATE  $tableName
+        SET
+#set($i=0)
+#foreach( $key in $list )
+#set($i=$i+1)        $key.columnName = #${key.name}#    #if($i<$list.size()) , #end #if($key.columnComment.trim()!="")   <!--  $key.columnComment  -->
+#end
+#end
+        WHERE 
+#set($i=0)
+#foreach($key in $list)
+#if ($key.primarykey == "true")
+#set($i=$i+1)       $key.columnName = #${key.name}#     #if($i<$primaryKeyList.size()) and
+#end
+#end
+#end
+    
+    </update>
+    </sqlMap>

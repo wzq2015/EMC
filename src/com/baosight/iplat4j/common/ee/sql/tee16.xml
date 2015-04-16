@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2009-04-14 10:19:42
+   		Version :  1.0.1.V20070717
+		table comment : GRID大数据量测试
+		tableName :${platSchema}.TEE16 
+		 DOUBLE1  NUMBER   NOT NULL, 
+		 DOUBLE2  NUMBER   NOT NULL, 
+		 DOUBLE3  NUMBER   NOT NULL, 
+		 DOUBLE4  NUMBER   NOT NULL, 
+		 DOUBLE5  NUMBER   NOT NULL, 
+		 DOUBLE6  NUMBER   NOT NULL, 
+		 DOUBLE7  NUMBER   NOT NULL, 
+		 DOUBLE8  NUMBER   NOT NULL, 
+		 DOUBLE9  NUMBER   NOT NULL, 
+		 DOUBLE10  NUMBER   NOT NULL, 
+		 DOUBLE11  NUMBER   NOT NULL, 
+		 DOUBLE12  NUMBER   NOT NULL, 
+		 DOUBLE13  NUMBER   NOT NULL, 
+		 DOUBLE14  NUMBER   NOT NULL, 
+		 DOUBLE15  NUMBER   NOT NULL, 
+		 DOUBLE16  NUMBER   NOT NULL, 
+		 DOUBLE17  NUMBER   NOT NULL, 
+		 DOUBLE18  NUMBER   NOT NULL, 
+		 DOUBLE19  NUMBER   NOT NULL, 
+		 DOUBLE20  NUMBER   NOT NULL
+	-->
+<sqlMap namespace="tee16">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.Tee16">
+		SELECT
+				DOUBLE1	as "double1",  <!-- 数据一 -->
+				DOUBLE2	as "double2",  <!-- 数据二 -->
+				DOUBLE3	as "double3",  <!-- 数据三 -->
+				DOUBLE4	as "double4",  <!-- 数据四 -->
+				DOUBLE5	as "double5",  <!-- 数据五 -->
+				DOUBLE6	as "double6",  <!-- 数据六 -->
+				DOUBLE7	as "double7",  <!-- 数据七 -->
+				DOUBLE8	as "double8",  <!-- 数据八 -->
+				DOUBLE9	as "double9",  <!-- 数据九 -->
+				DOUBLE10	as "double10",  <!-- 数据十 -->
+				DOUBLE11	as "double11",  <!-- 数据十一 -->
+				DOUBLE12	as "double12",  <!-- 数据十二 -->
+				DOUBLE13	as "double13",  <!-- 数据十三 -->
+				DOUBLE14	as "double14",  <!-- 数据十四 -->
+				DOUBLE15	as "double15",  <!-- 数据十五 -->
+				DOUBLE16	as "double16",  <!-- 数据十六 -->
+				DOUBLE17	as "double17",  <!-- 数据十七 -->
+				DOUBLE18	as "double18",  <!-- 数据十八 -->
+				DOUBLE19	as "double19",  <!-- 数据十九 -->
+				DOUBLE20	as "double20" <!-- 数据二十 -->
+		FROM ${platSchema}.TEE16 WHERE 1=1
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEE16 WHERE 1=1
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="double1">
+			DOUBLE1 = #double1#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double2">
+			DOUBLE2 = #double2#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double3">
+			DOUBLE3 = #double3#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double4">
+			DOUBLE4 = #double4#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double5">
+			DOUBLE5 = #double5#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double6">
+			DOUBLE6 = #double6#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double7">
+			DOUBLE7 = #double7#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double8">
+			DOUBLE8 = #double8#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double9">
+			DOUBLE9 = #double9#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double10">
+			DOUBLE10 = #double10#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double11">
+			DOUBLE11 = #double11#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double12">
+			DOUBLE12 = #double12#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double13">
+			DOUBLE13 = #double13#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double14">
+			DOUBLE14 = #double14#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double15">
+			DOUBLE15 = #double15#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double16">
+			DOUBLE16 = #double16#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double17">
+			DOUBLE17 = #double17#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double18">
+			DOUBLE18 = #double18#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double19">
+			DOUBLE19 = #double19#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="double20">
+			DOUBLE20 = #double20#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEE16 (DOUBLE1,  <!-- 数据一 -->
+										DOUBLE2,  <!-- 数据二 -->
+										DOUBLE3,  <!-- 数据三 -->
+										DOUBLE4,  <!-- 数据四 -->
+										DOUBLE5,  <!-- 数据五 -->
+										DOUBLE6,  <!-- 数据六 -->
+										DOUBLE7,  <!-- 数据七 -->
+										DOUBLE8,  <!-- 数据八 -->
+										DOUBLE9,  <!-- 数据九 -->
+										DOUBLE10,  <!-- 数据十 -->
+										DOUBLE11,  <!-- 数据十一 -->
+										DOUBLE12,  <!-- 数据十二 -->
+										DOUBLE13,  <!-- 数据十三 -->
+										DOUBLE14,  <!-- 数据十四 -->
+										DOUBLE15,  <!-- 数据十五 -->
+										DOUBLE16,  <!-- 数据十六 -->
+										DOUBLE17,  <!-- 数据十七 -->
+										DOUBLE18,  <!-- 数据十八 -->
+										DOUBLE19,  <!-- 数据十九 -->
+										DOUBLE20  <!-- 数据二十 -->
+										)		 
+		VALUES (#double1:NUMERIC#, #double2:NUMERIC#, #double3:NUMERIC#, #double4:NUMERIC#, #double5:NUMERIC#, #double6:NUMERIC#, #double7:NUMERIC#, #double8:NUMERIC#, #double9:NUMERIC#, #double10:NUMERIC#, #double11:NUMERIC#, #double12:NUMERIC#, #double13:NUMERIC#, #double14:NUMERIC#, #double15:NUMERIC#, #double16:NUMERIC#, #double17:NUMERIC#, #double18:NUMERIC#, #double19:NUMERIC#, #double20:NUMERIC#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEE16 WHERE 
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEE16 
+		SET 
+		DOUBLE1	= #double1:NUMERIC#,   <!-- 数据一 -->
+					DOUBLE2	= #double2:NUMERIC#,   <!-- 数据二 -->
+					DOUBLE3	= #double3:NUMERIC#,   <!-- 数据三 -->
+					DOUBLE4	= #double4:NUMERIC#,   <!-- 数据四 -->
+					DOUBLE5	= #double5:NUMERIC#,   <!-- 数据五 -->
+					DOUBLE6	= #double6:NUMERIC#,   <!-- 数据六 -->
+					DOUBLE7	= #double7:NUMERIC#,   <!-- 数据七 -->
+					DOUBLE8	= #double8:NUMERIC#,   <!-- 数据八 -->
+					DOUBLE9	= #double9:NUMERIC#,   <!-- 数据九 -->
+					DOUBLE10	= #double10:NUMERIC#,   <!-- 数据十 -->
+					DOUBLE11	= #double11:NUMERIC#,   <!-- 数据十一 -->
+					DOUBLE12	= #double12:NUMERIC#,   <!-- 数据十二 -->
+					DOUBLE13	= #double13:NUMERIC#,   <!-- 数据十三 -->
+					DOUBLE14	= #double14:NUMERIC#,   <!-- 数据十四 -->
+					DOUBLE15	= #double15:NUMERIC#,   <!-- 数据十五 -->
+					DOUBLE16	= #double16:NUMERIC#,   <!-- 数据十六 -->
+					DOUBLE17	= #double17:NUMERIC#,   <!-- 数据十七 -->
+					DOUBLE18	= #double18:NUMERIC#,   <!-- 数据十八 -->
+					DOUBLE19	= #double19:NUMERIC#,   <!-- 数据十九 -->
+					DOUBLE20	= #double20:NUMERIC#  <!-- 数据二十 -->
+			WHERE 	
+	</update>
+  
+</sqlMap>

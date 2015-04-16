@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEBB03">
+
+	<select id="query" parameterClass="java.util.HashMap" resultClass="com.baosight.iplat4j.ee.bb.domain.EEBB03">
+		SELECT
+			COMPANY_CODE as "companyCode" , <!--  公司代号  -->
+			COMPANY_NAME as "companyName" , <!--  公司名称  -->
+			COMPANY_TEL as "companyTel" , <!--  公司电话  -->
+			COMPANY_ADDR as "companyAddr" , <!--  公司地址  -->
+			COUNTRY_CODE as "countryCode" , <!--  国家代号  -->
+			COMPANY_DATE as "companyDate"  <!--  成立日期  -->
+		FROM TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+			<isEmpty property="orderBy">
+COMPANY_CODE asc
+			</isEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO TEEDM01 (
+			COMPANY_CODE , <!--  公司代号  -->
+			COMPANY_NAME , <!--  公司名称  -->
+			COMPANY_TEL , <!--  公司电话  -->
+			COMPANY_ADDR , <!--  公司地址  -->
+			COUNTRY_CODE , <!--  国家代号  -->
+			COMPANY_DATE  <!--  成立日期  -->
+		)
+		VALUES (
+			#companyCode:VARCHAR#,
+			#companyName:VARCHAR#,
+			#companyTel:VARCHAR#,
+			#companyAddr:VARCHAR#,
+			#countryCode:VARCHAR#,
+			#companyDate:VARCHAR#
+		)
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM TEEDM01 WHERE 
+			COMPANY_CODE = #companyCode#
+	</delete>
+
+	<update id="update">
+		UPDATE TEEDM01
+		SET
+			COMPANY_CODE = #companyCode# , <!--  公司名称  -->
+			COMPANY_NAME = #companyName# , <!--  公司电话  -->
+			COMPANY_TEL = #companyTel# , <!--  公司地址  -->
+			COMPANY_ADDR = #companyAddr# , <!--  国家代号  -->
+			COUNTRY_CODE = #countryCode# , <!--  成立日期  -->
+			COMPANY_DATE = #companyDate# 
+		WHERE 
+			COMPANY_CODE = #companyCode#
+	</update>
+	<select id="cond" parameterClass="java.util.HashMap" resultClass="com.baosight.iplat4j.ee.bb.domain.EEBB03">
+		SELECT
+			COMPANY_CODE as "companyCode" , <!--  公司代号  -->
+			COMPANY_NAME as "companyName" , <!--  公司名称  -->
+			COMPANY_TEL as "companyTel" , <!--  公司电话  -->
+			COMPANY_ADDR as "companyAddr" , <!--  公司地址  -->
+			COUNTRY_CODE as "countryCode" , <!--  国家代号  -->
+			COMPANY_DATE as "companyDate"  <!--  成立日期  -->
+		FROM TEEDM01 WHERE 1=1
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+			<isEmpty property="orderBy">
+				COMPANY_CODE asc
+			</isEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

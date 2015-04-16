@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>Designer </title>
+     <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="designer.css" rel="stylesheet" type="text/css">
+  
+ </head>
+<body bgcolor="#EDEDED" onload = "initPage()" onmouseup="bodyOnMouseUp()">
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript" src="designer.js"></script>
+	<script type="text/javascript" src="property.js"></script>
+	<script type="text/javascript" src="controls.js"></script>
+	<div id="dragger" class="monkey"  style="display:none" ></div>
+
+	<table width = 100%  >
+			<tr>
+			<td width="10%" style = "border-width: thin 1px;border-color:#ccc" >
+				<DIV  class = "barItem" >工具栏</DIV>
+				
+				<!--  <DIV style="width:80px; height:0px;" ></DIV> -->
+				 <DIV id="externalContainer" class="treeBox" >
+					 <DIV id="controlContent"  class = "treeStyle" style="height:700px;overflow:auto;"  onmousedown="panelOnMouseDown()">
+					 </DIV>  
+				 </DIV> 
+				
+			</td>
+			<td class="spliter"  onclick="onSpliterClicked(this,'left')"/>
+			<td style = "border-width: thin 1px;border-color:#ccc">
+				<DIV class = "barItem" >
+					<input  class="flatInput" type="text" id="equipmentSizeField" value="1024*768" style="float:right; width:66px;" title="Enter Equipment Size:1024*768" ></input>
+					<select id="equipmentField" style="float:right;" title="Select Equipment" onchange = "onEquipmentChanged(this)">
+						<option value="iPad" selected >iPad</option>
+						<option value="iPhone" >iPhone</option>
+						<option value="aPad" >aPad</option>
+						<option value="aPhone" >aPhone</option>
+					</select>
+					<input  class="flatInput" type="button" id="impFileBtn" value="保存" onclick="saveLayoutFile()" style="float:right; width:66px;" ></input>
+                    <script>
+					function openFileOption()
+					{
+						alert("BBBB");
+				    	//document.getElementById("file1").click();
+					}
+					</script>
+
+				</DIV>
+				<DIV style="border-style:solid;border-width:1px; border-color:#ccc; height:700px;" >
+					<table style="table-layout:fixed" width = 100%  >
+						<tr>
+							<!--<td width = 15%>
+								<DIV class = "barItem" style="overflow:hidden;background-image:url(img/treetitle_bg.png)" >View Structure</DIV>
+								<DIV style="width:120px; height:0px;" ></DIV>
+								<DIV style="border-style:solid;border-width:1px; border-color:#ccc; height:665px;" ></DIV>
+							</td>
+							<td class="spliter" onclick="onSpliterClicked(this,'left')"/>-->
+							<td width = 100%  style="border-style:solid;border-width:1px; border-color:#ccc;">
+								<DIV style="border-style:solid;border-width:1px;border-color:#ccc;height:25px;"  >
+									<DIV id ="hint" class = "buttonItem" style="float:left;width:80px" ></DIV>
+									<DIV id ="amplify" class = "buttonItem" style="background:url(img/zoomIn.png);float:right;width:24px;heght:26px;" onmouseover="{this.style.backgroundColor='lightgreen';}" onmouseout ="{this.style.backgroundColor='';}"  onclick="amplify(true)" title="amplify"></DIV>
+									<DIV id ="reduce" class = "buttonItem" style="background:url(img/zoomOut.png);float:right;width:24px;heght:26px;" onclick="amplify(false)" onmouseover="{this.style.backgroundColor='lightgreen';}" onmouseout ="{this.style.backgroundColor='';}"  title="reduce"></DIV>	
+
+									<DIV id ="amplifyTimeField" class = "buttonItem" style="float:right;width:32px;heght:26px;" title="times">0.5</DIV>
+									<!--<input type="checkbox" id="directionField" style="float:right;width:verticalAlign:center" value="vertical" ></input>-->
+
+								</DIV>
+								<DIV id="mainDesignContent" style="height:555px; overflow:auto;background:url(img/bg.jpg)" >
+								<DIV id="mainBoard"  style="position:relative;top:40px;left:40px; cursor:move; border-color:lightgray;border-style:solid; border-width:2px;background:white; height:384px;width:512px"  onkeydown="del()" onmousedown="boardOnMouseDown()"  onmousemove="bodyOnMouseMove()" >
+								</DIV>
+								</DIV>
+								
+								<DIV id="mainCodeContent" style="height:555px;display:none;background:white;overflow:none" >
+									<textarea id="mainCodeArea" style="width:100%;height:99%"></textarea>
+								</DIV>
+								<DIV id="layoutCodeContent" style="height:555px;display:none;background:white;overflow:none" >
+									<textarea id="layoutCodeArea" style="width:100%;height:99%"></textarea>
+								</DIV>
+								<DIV  style="background:#EDEDED;">	
+									<DIV id="mainDesignButton" class = "tabItem" onclick="showFirstHideOthers('mainDesign','','lightGray')" >&nbsp 设计视图 &nbsp </DIV>
+								    <DIV id="mainCodeButton" class = "tabItem" style="background-color:lightGray" onclick="{showFirstHideOthers('mainCode','','lightGray');generateCode();}" >&nbsp 编码视图 &nbsp </DIV>
+								    <DIV id="layoutCodeButton" class = "tabItem" style="background-color:lightGray" onclick="showFirstHideOthers('layoutCode','','lightGray')" >&nbsp 导入布局 &nbsp </DIV>
+									<!-- <DIV id="mainDesignButton" class = "tabItem" onclick="showFirstHideOthers('mainDesign','mainCode','','lightGray')" >&nbsp Head File View &nbsp </DIV> -->
+								</DIV>
+
+							</td>
+						</tr>
+					</table>
+				</DIV>
+			</td>
+			<td class="spliter" onclick="onSpliterClicked(this,'right')"/>
+			<td width="15%" >
+				<table>
+					<tr>
+						<td id="attributeButton" class = "tabItem"  >&nbsp 属性 &nbsp </td>
+						<!--<td id="attributeButton" class = "tabItem"   onclick="showFirstHideOthers('attribute','event','','lightGray')" >&nbsp Property &nbsp </td>
+						<td id="eventButton" class = "tabItem" style="background-color: lightGray" onclick="showFirstHideOthers('event','attribute','','lightGray')"> &nbsp Event &nbsp</td>-->
+					</tr>
+				</table>
+				<DIV style="width:120px; height:0px;" ></DIV>
+				<DIV id="attributeContent"  style="border: 1px solid #CACACA;height:500px;" ></DIV>
+				<DIV id="selfAttrContent"  style="border: 1px solid #CACACA;height:190px;align:bottom" >
+					<Table id="selfAttrTable">
+						<tr><td width="190px" colSpan=2 font="bold">添加属性:</td></tr>
+					  	<tr><td width="95px">属性名:</td><td><input class="flatInput" style="width:70px" type="text" id="newAttrName" ></td></tr>
+					    <tr><td width="95px">属性值:</td><td><input class="flatInput" style="width:70px" type="text"  value="" id="newAttrValue" ></td></tr>
+					    <tr><td width="95px"><input style="width:70px" type="button" id="addAttrBtn" value="添加"></td></tr>
+					</Table>
+				</DIV>
+			
+				<DIV id="eventContent" style="border: 1px solid #CACACA; height:700px;display:none;text-align:right"  >
+					<Table id="eventTable">
+						<tr><td>click:</td><td><input class="flatInput" onblur="setEvent2Control()" style="width:80px" type="text" id="controlType" ></td></tr>
+						<tr><td></td><td><input class="flatInput" style="width:80px" type="text" id="controlType" ></td></tr> 
+						<tr><td></td><td></td></tr>
+						<tr><td></td><td></td></tr>
+					</Table> 
+				</DIV>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

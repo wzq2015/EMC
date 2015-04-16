@@ -1,0 +1,32 @@
+#if($item.conditionContent.trim() != "")
+	$item.conditionLink $item.conditionContent
+#else
+#if($item.tableAlias.trim() == "")
+#set($table_alias = $item.tableName)
+#else
+#set($table_alias = $item.tableAlias)
+#end
+#set($operator = $item.operator.trim())
+#if($operator == "<")
+#set($operator = "<![CDATA[<]]>")
+#end
+#if($operator == "<=")
+#set($operator = "<![CDATA[<=]]>")
+#end
+#if($operator == "<>")
+#set($operator = "<![CDATA[<>]]>")
+#end
+#if($item.conditionValue.trim() != "")
+#if($item.fieldType == "N")
+	$item.conditionLink ${table_alias}.${item.fieldName} $operator $item.conditionValue
+#else
+	$item.conditionLink ${table_alias}.${item.fieldName} $operator '$item.conditionValue'
+#end
+#else
+#if($item.operator.trim().toLowerCase() == "like")
+	$item.conditionLink ${table_alias}.${item.fieldName} $operator '%'||#$item.fieldColumnName#||'%'
+#else
+	$item.conditionLink ${table_alias}.${item.fieldName} $operator #$item.fieldColumnName#
+#end
+#end
+#end

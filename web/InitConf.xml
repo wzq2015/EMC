@@ -1,0 +1,4 @@
+﻿<InitConfig>
+  <InitialPage path="Project1/test11.upl" />
+  <DataService url="http://localhost:5000" />
+</InitConfig>

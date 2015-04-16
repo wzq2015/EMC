@@ -1,0 +1,10 @@
+﻿import sys
+import clr
+clr.AddReference('System.Windows')
+clr.AddReference('mscorlib')
+
+from System.Windows.Media import *
+from System.Windows import *
+from System import *
+clr.AddReference('WebScada.HMI.ZT.SystemMethods,Version=1.0.0.0, Culture=neutral, PublicKeyToken=null')
+from WebScada.HMI.ZT.SystemMethods import *

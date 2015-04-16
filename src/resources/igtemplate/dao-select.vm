@@ -1,0 +1,54 @@
+	<!-- $service.result-0-methodCname -->
+	<select id="$service.result-0-methodEname" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT
+#set($items = $service.getBlock("field").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+			#parse("${base}/dao-select-field.vm")#if($index < $count - 1),#end
+	
+#set($index = $index + 1)
+#end      
+		FROM $service.tableList 
+		WHERE 1=1
+#set($items = $service.getBlock("where").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+		#parse("${base}/dao-select-condition.vm")
+#set($index = $index + 1)
+#end
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+		    	$orderBy$
+			</isNotEmpty>
+#set($items = $service.getBlock("order_by").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+#if($index == 0)
+			<isEmpty property="orderBy">
+#end
+				#parse("${base}/dao-select-order.vm")#if($index < $count - 1),#end
+
+#if($index == $count - 1)
+			</isEmpty>
+#end
+#set($index = $index + 1)
+#end
+		</dynamic>
+#set($items = $service.getBlock("group_by").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+#if($index == 0)
+		<dynamic prepend="GROUP BY">
+#end
+			#parse("${base}/dao-select-group.vm")#if($index < $count - 1),#end
+	
+#if($index == $count - 1)
+		</dynamic>
+#end
+#set($index = $index + 1)
+#end
+	</select>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架之dao设置 -->
+
+	<bean id="springNamedSqlDao" class="com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoSpringJdbcImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="namedSqlDao" class="com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoDiagnoseImpl">
+		<property name="dao" ref="springNamedSqlDao" />
+	</bean>
+	
+	<!--配置独立的sqlDao     zhangpneg 2008-8-13 -->
+	<bean id="cleanSpringNamedSqlDao" class="com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoSpringJdbcImpl">
+		<property name="dataSource" ref="cleanDataSource" />
+	</bean>
+	
+	<bean id="cleanNamedSqlDao" class="com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoDiagnoseImpl">
+		<property name="dao" ref="cleanSpringNamedSqlDao" />
+	</bean>
+
+</beans>

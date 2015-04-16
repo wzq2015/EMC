@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_devicegroup 
+		 f_devicegroup_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_parent_devicegroup_id  INTEGER, 
+		 f_devicegroup_name  VARCHAR   NOT NULL, 
+		 f_devicegroup_desc  VARCHAR
+	-->
+<sqlMap namespace="tDevicegroup">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevicegroup">
+		SELECT
+				f_devicegroup_id	as "f_devicegroupId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_parent_devicegroup_id	as "f_parentDevicegroupId",  
+				f_devicegroup_name	as "f_devicegroupName",  
+				f_devicegroup_desc	as "f_devicegroupDesc" 
+		FROM .t_devicegroup WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_devicegroupId">
+			f_devicegroup_id = #f_devicegroupId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_devicegroup_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevicegroup">
+		SELECT
+				f_devicegroup_id	as "f_devicegroupId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_parent_devicegroup_id	as "f_parentDevicegroupId",  
+				f_devicegroup_name	as "f_devicegroupName",  
+				f_devicegroup_desc	as "f_devicegroupDesc" 
+		FROM .t_devicegroup WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_devicegroup_id asc
+		</isEmpty>
+  		</dynamic>
+	</select>
+	
+	<select id="queryByProjectIdAndName" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevicegroup">
+		SELECT
+				f_devicegroup_id	as "f_devicegroupId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_parent_devicegroup_id	as "f_parentDevicegroupId",  
+				f_devicegroup_name	as "f_devicegroupName",  
+				f_devicegroup_desc	as "f_devicegroupDesc" 
+		FROM .t_devicegroup WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicegroupName">
+			f_devicegroup_name = #f_devicegroupName#
+		</isNotEmpty>
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_devicegroup WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_devicegroupId">
+			f_devicegroup_id = #f_devicegroupId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_devicegroupId">
+			f_devicegroup_id = #f_devicegroupId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_parentDevicegroupId">
+			f_parent_devicegroup_id = #f_parentDevicegroupId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicegroupName">
+			f_devicegroup_name = #f_devicegroupName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicegroupDesc">
+			f_devicegroup_desc = #f_devicegroupDesc#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_devicegroup (f_devicegroup_id,
+										f_emcproject_id,
+										f_parent_devicegroup_id,
+										f_devicegroup_name,
+										f_devicegroup_desc
+										)		 
+	    VALUES (#f_devicegroupId#, #f_emcprojectId#, #f_parentDevicegroupId#, #f_devicegroupName#, #f_devicegroupDesc#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_devicegroup WHERE 
+			f_devicegroup_id = #f_devicegroupId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_devicegroup 
+		SET 
+					f_devicegroup_name	= #f_devicegroupName#,   
+					f_devicegroup_desc	= #f_devicegroupDesc#  
+			WHERE 	
+			f_devicegroup_id = #f_devicegroupId#
+	</update>
+	
+	<!--  
+	<update id="update">
+		UPDATE .t_devicegroup 
+		SET 
+					f_emcproject_id	= #f_emcprojectId#,   
+					f_parent_devicegroup_id	= #f_parentDevicegroupId#,   
+					f_devicegroup_name	= #f_devicegroupName#,   
+					f_devicegroup_desc	= #f_devicegroupDesc#  
+			WHERE 	
+			f_devicegroup_id = #f_devicegroupId#
+	</update>
+	-->
+  
+</sqlMap>

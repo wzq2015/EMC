@@ -1,0 +1,12 @@
+<mxGraph dropEnabled="1">
+	<mxGraphModel as="model">
+		<root>
+			<WorkflowProcess Id="" Name="" DisplayName=""
+				Description="" Category="" DeployTime="" Author="" Version="1"
+				Status="draft" id="0" />
+			<layer label="Default Layer" id="1">
+				<mxCell parent="0"/>
+			</layer>
+		</root>
+	</mxGraphModel>	
+</mxGraph>

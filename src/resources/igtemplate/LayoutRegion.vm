@@ -1,0 +1,62 @@
+	<EF:EFRegion Name="$control.Name" eHeader="$control.DisplayName" eClearButtonVisibility="Visible" 
+	Width="$control.Width" Height="$control.Height" 
+	Visibility=#if($control.IsVisible=='False')"Collapsed"#else"Visible"#end
+	eHeaderVisibility=#if($control.IsCollapsible=='False')"Collapsed"#else"Visible"#end
+	#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+	#set( $Integer = 0 )
+	#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+	Grid.Row="${RowIndex}"
+	#end
+	
+	#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+	#set( $Integer = 0 )
+	#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+	Grid.Column="${ColumnIndex}"
+	#end
+	
+	#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+	Grid.RowSpan="${control.RowSpan}"
+	#end
+	
+	#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+	Grid.ColumnSpan="${control.ColumnSpan}"
+	#end
+	>
+	 
+	#if( ${control.LayoutType} == 'Grid' )
+	
+	<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" EF:EFDataField.IsFieldGroup="true">
+	    
+	    <Grid.ColumnDefinitions>
+	    #set( $columnlist = $control.ColumnWidth.split( " " ) )
+	    #foreach( ${columnWidth} in $columnlist )
+		<ColumnDefinition Width="${columnWidth}" />
+		#end
+	    </Grid.ColumnDefinitions>
+	    
+	    <Grid.RowDefinitions>
+	    #set( $rowlist = $control.RowHeight.split( " " ) )
+	    #foreach( ${rowHeight} in $rowlist )
+		<RowDefinition Height="${rowHeight}" />
+		#end
+	    </Grid.RowDefinitions>
+	    
+	#else
+    <StackPanel HorizontalAlignment="Stretch" Orientation="${control.LayoutType}" EF:EFDataField.IsFieldGroup="true">
+    #end
+
+	#set( $regionItemControls = $control.SubControls )
+	#foreach($control in $regionItemControls)
+	#if( ${control.Type} != 'LayoutButton' )
+	#set( $regionPath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+	#parse("$regionPath")
+	#end
+	#end
+
+	#if( ${control.LayoutType} == 'Grid' )
+    </Grid>
+    #else
+    </StackPanel>
+	#end
+
+	</EF:EFRegion>

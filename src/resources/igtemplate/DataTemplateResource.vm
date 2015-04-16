@@ -1,0 +1,73 @@
+#foreach($control in ${SubControls})
+
+#if($control.Type == "LayoutDataForm")
+#set( $dataFormControls = $control.SubControls )
+<DataTemplate x:Key="${control.Name}_DetailsTemplate">
+#if( ${control.LayoutType} == 'Grid' )
+	<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" EF:EFDataField.IsFieldGroup="true">
+	    <Grid.ColumnDefinitions>
+		#set( $columnlist = $control.ColumnWidth.split( " " ) )
+		#foreach( ${columnWidth} in $columnlist )
+		<ColumnDefinition Width="${columnWidth}" />
+		#end
+	    </Grid.ColumnDefinitions>
+	    <Grid.RowDefinitions>
+		#set( $rowlist = $control.RowHeight.split( " " ) )
+		#foreach( ${rowHeight} in $rowlist )
+		<RowDefinition Height="${rowHeight}" />
+		#end
+    </Grid.RowDefinitions>
+#else
+    <StackPanel HorizontalAlignment="Stretch" Orientation="${control.LayoutType}" EF:EFDataField.IsFieldGroup="true">
+#end
+#set($inDataForm=true)
+	#foreach($control in $dataFormControls)
+		#set( $dataFormPath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+		#parse("$dataFormPath")
+	#end
+#set($inDataForm=false)
+#if( ${control.LayoutType} == 'Grid' )
+    </Grid>
+#else
+    </StackPanel>
+#end
+</DataTemplate>
+
+#elseif($control.Type == "LayoutDetailGrid")
+#set( $detailFormControls = $control.SubControls )
+<DataTemplate x:Key="${control.Name}_DetailsTemplate">
+#if( ${control.LayoutType} == 'Grid' )
+<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" EF:EFDataField.IsFieldGroup="true">
+    <Grid.ColumnDefinitions>
+    #set( $columnlist = $control.ColumnWidth.split( " " ) )
+    #foreach( ${columnWidth} in $columnlist )
+	<ColumnDefinition Width="${columnWidth}" />
+	#end
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+    #set( $rowlist = $control.RowHeight.split( " " ) )
+    #foreach( ${rowHeight} in $rowlist )
+	<RowDefinition Height="${rowHeight}" />
+	#end
+</Grid.RowDefinitions>
+#else
+<StackPanel HorizontalAlignment="Stretch" Orientation="${control.LayoutType}" EF:EFDataField.IsFieldGroup="true">
+#end
+#set($inDataForm=false)
+#foreach($control in $detailFormControls)
+	#set( $dataFormPath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+	#parse("$dataFormPath")
+#end
+#set($inDataForm=false)
+#if( ${control.LayoutType} == 'Grid' )
+</Grid>
+#else
+</StackPanel>
+#end
+</DataTemplate>
+#end
+
+#set ($SubControls = ${control.SubControls})
+#parse("./resources/igtemplate/DataTemplateResource.vm")
+
+#end

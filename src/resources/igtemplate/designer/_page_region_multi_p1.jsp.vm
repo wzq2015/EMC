@@ -1,0 +1,16 @@
+##
+## 渲染多记录布局区域的通用模板
+## 调用时需要设置以下参数
+## $_region_id 区域的ID
+## $_region_default_title 区域默认的名称
+## $_grid_id 区域中数据表格的ID
+#set($_block_name = ".func$" + "${_region_id}")
+#set($_region_title = $meta.utility.get($meta, "${_block_name}-regionTitle", "$_region_default_title"))
+#set($_region_grid_title = $meta.utility.get($meta, "${_block_name}-regionGridTitle", "记录信息"))
+#set($_region_default_height = $meta.utility.getValue($_region_default_height, 300))
+#set($_height = $meta.utility.get($meta, "${_block_name}-height", $_region_default_height))
+#set($_region_default_style = $meta.utility.getValue($_region_default_style, "overflow:scroll"))
+<div id = "$_region_id" title="$_region_title" style="$_region_default_style"> 
+	<div id = "$_grid_id" title="$_region_grid_title" style="overflow: hidden;height:${_height}px;">
+	</div>
+</div>

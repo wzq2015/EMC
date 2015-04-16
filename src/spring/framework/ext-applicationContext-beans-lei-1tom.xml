@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="containerHolder" class="com.baosight.dexpt.ext.utils.ContainerHolder" />
+	<!--
+		<bean id="dxDataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean"> <property
+		name="jndiName" value="java:comp/env/jdbc/db2_datasource" /> </bean>
+	-->
+	<bean id="dxDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+
+		<property name="initialSize" value="2" />
+		<property name="maxIdle" value="5" />
+		<property name="minIdle" value="2" />
+		<property name="maxActive" value="5" />
+
+		<property name="removeAbandonedTimeout" value="180" />
+		<property name="logAbandoned" value="true" />
+		<property name="removeAbandoned" value="true" />
+	</bean>
+
+	<!-- begin user configuration area -->
+	<!-- default address -->
+<!-- 	<bean id="default" class="com.baosight.ixbuscore.transport.IxBusWSImpl">
+		<property name="url"
+			value="ixbusurl" />
+		<property name="appCode" value="hostid" />
+		<property name="password" value="password" />
+	</bean> -->
+
+<!-- 	<bean id="default" class="com.baosight.dexpt.wsinterface.DexptWSImpl">
+			<property name="url"
+			value="eaiurl" />
+		<property name="appCode" value="hostid" />
+	</bean> -->
+
+	<!-- mydid address -->
+	<bean id="mydid" class="com.baosight.ixbuscore.transport.IxBusWSImpl">
+		<property name="url"
+			value="http://10.25.78.187:60888/ReceiveMessage/BRecv" />
+		<property name="appCode" value="Y4" />
+		<property name="password" value="password" />
+	</bean>
+
+	<!-- ftp address -->
+	<bean id="ftp" class="com.baosight.ixbuscore.transport.ftp.IxBusFtpDexpt">
+		<property name="url" value="ftp" />
+		<property name="targetAppCode" value="ftpname" />
+	</bean>
+	<!-- end user configuration area -->
+
+	<bean id="leiDexpt" class="com.baosight.dexpt.ext.impl.DefaultDexpt">
+		<property name="sendMessageDao" ref="sendMessageDao" />
+		<property name="mappingInfoCache" ref="messageMappingInfoCache" />
+	</bean>
+	<bean id="configurationManager" class="com.baosight.dexpt.ext.ConfigurationManager"
+		init-method="init" destroy-method="release">
+		<property name="components">
+			<list>
+				<ref bean="defaultIllegalStateCorrecter" />
+				<ref bean="messageMappingInfoCache" />
+				<ref bean="messageContextHandlerRepository" />
+				<ref bean="handlerJobTask"/>
+				<ref bean="senderJobTask"/>
+				<ref bean="asynSendManager"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="leiDispatcher" class="com.baosight.dexpt.ext.leiimpl.LeiMessageDispatcher"
+		init-method="init" destroy-method="release">
+		<property name="handlerRepository" ref="messageContextHandlerRepository" />
+	</bean>
+	<!-- Handler Repository -->
+	<bean id="messageContextHandlerRepository"
+		class="com.baosight.dexpt.ext.DefaultMessageContextHandlerRepository">
+		<property name="messageMappingInfoCache" ref="messageMappingInfoCache" />
+	</bean>
+	<bean id="messageMappingInfoCache"
+		class="com.baosight.dexpt.ext.leiimpl.LeiMessageMappingInfoCache">
+		<property name="messageMappingInfoDao" ref="messageMappingInfoDao" />
+	</bean>	
+	<bean id="defaultIllegalStateCorrecter" class="com.baosight.dexpt.ext.DefaultIllegalStateCorrecter">
+		<property name="sendMessageDao" ref="sendMessageDao" />
+		<property name="receiveMessageDao" ref="receiveMessageDao" />
+	</bean>
+	<bean id="receiveMessageDao" class="com.baosight.dexpt.ext.data.ReceiveMessageDaoManager">
+		<property name="dataSource" ref="dxDataSource" />
+	</bean>
+	<bean id="sendMessageDao" class="com.baosight.dexpt.ext.data.SendMessageDaoManager">
+		<property name="dataSource" ref="dxDataSource" />
+	</bean>
+	<!-- 2010 news for mappinginfo -->
+	<bean id="messageMappingInfoDao" class="com.baosight.dexpt.ext.data.MessageMappingInfoDB2Impl">
+		<property name="dataSource" ref="dxDataSource" />
+	</bean>
+
+	<!-- receive and write into db... -->
+	<bean id="receiver" class="com.baosight.dexpt.ext.leiimpl.LeiReceiver">
+		<property name="receiveMessageDao" ref="receiveMessageDao" />
+		<property name="messageMappingInfoCache" ref="messageMappingInfoCache" />
+		<property name="dispatcher" ref="leiDispatcher" />
+	</bean>
+	<bean id="constantSystemConfig" class="com.baosight.dexpt.ext.utils.ConstantSystemConfig">
+		<property name="sendMax">
+			<value>${dexpt.ixbus.SendMax}</value>
+		</property>
+		<property name="receiveMax">
+			<value>${dexpt.ixbus.ReceiveMax}</value>
+		</property>
+	</bean>
+	<!-- iplat4j页面手工处理 -->
+	<bean id="leiManager" class="com.baosight.dexpt.ext.leiimpl.LeiManager">
+		<property name="receiveMessageDao" ref="receiveMessageDao" />
+		<property name="leiMessageDispatcher" ref="leiDispatcher" />
+		<property name="sendMessageDao" ref="sendMessageDao" />
+		<property name="dexpt" ref="default" />
+		<property name="leiDexpt" ref="leiDexpt" />
+		<property name="messageMappingInfoCache" ref="messageMappingInfoCache" />
+	</bean>
+
+	<!-- begin receiver handler job 	-->
+	<bean name="handlerJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="handlerJobTask" />
+		<property name="targetMethod" value="doHandleMessageTask" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="handlerJobTask" class="com.baosight.dexpt.ext.leiimpl.HandlerJob5">
+		<property name="messageDao" ref="receiveMessageDao" />
+		<property name="dispatcher" ref="leiDispatcher" />
+	</bean>
+	<bean id="dxReceiverTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="handlerJob" />
+		<property name="startDelay" value="10000" />
+		<property name="repeatInterval" value="10000" />
+	</bean>
+	<!-- end receiver handler job 	-->
+
+	<!-- begin sender job -->
+	<bean name="senderJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="senderJobTask" />
+		<property name="targetMethod" value="doSendMessageTask" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean name="senderJobTask"
+		class="com.baosight.dexpt.ext.leiimpl.easy1tom.Easy1ToMSenderJob">
+		<property name="messageDao" ref="sendMessageDao" />
+		<property name="blocked" value="true" />
+		<property name="mappingInfoCache" ref="messageMappingInfoCache" />
+		<property name="asynSendMessageQeue" ref="asynSendMessageQeue"/>
+		<property name="asynSendManager" ref="asynSendManager"/>
+	</bean>
+	<bean id="dxSenderTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="senderJob" />
+		<property name="startDelay" value="0" />
+		<property name="repeatInterval" value="10000" />
+	</bean>
+	<bean id="asynSendManager" class="com.baosight.dexpt.ext.impl.AsynSendManager"> 
+		<property name="mappingInfoCache" ref="messageMappingInfoCache"/>
+		<property name="messageDao" ref="sendMessageDao"/>
+		<property name="queue" ref="asynSendMessageQeue"/>
+	</bean>
+	<bean id="asynSendMessageQeue" class="com.baosight.dexpt.ext.impl.AsynSendMessageQeue"/>
+
+	<!-- end sender job -->
+	<!-- scheduler -->
+	<bean id="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		destroy-method="destroy">
+		<property name="autoStartup">
+			<value>true</value>
+		</property>
+		<property name="triggers">
+			<list>
+				<!-- 
+				<ref local="backupTrigger" />
+			-->
+				<ref local="dxSenderTrigger" />
+				<ref local="dxReceiverTrigger" />
+
+			</list>
+		</property>
+		<property name="quartzProperties" value="quartz222.properties" />
+	</bean>
+
+	<!-- for backup -->
+	<bean id="backupDao" class="com.baosight.dexpt.ext.data.BackupDaoImpl">
+		<property name="dataSource" ref="dxDataSource" />
+	</bean>
+	<bean name="backupJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.baosight.dexpt.ext.leiimpl.BackupMessageJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="backupDao" value-ref="backupDao" />
+				<entry key="safeDays" value="0" />
+			</map>
+		</property>
+	</bean>
+	<bean id="backupTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="backupJob" />
+		<property name="cronExpression" value="0 0 5 * * ?" />
+	</bean>
+</beans>

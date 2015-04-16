@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 框架之DispatchAction设置 -->
+	<bean name="DispatchAction" class="com.baosight.iplat4j.struts.DispatchAction" />
+	
+	<bean name="/DispatchAction" class="com.baosight.iplat4j.struts.DispatchActionEx">
+	<property name="dispatchAction" ref="DispatchAction" />
+	<!-- <property name="authenType" value="CodedPwd" /> -->
+	<property name="sessionKeys" ref="keys" />		
+	</bean>
+	
+	<bean name="keys" class="org.springframework.beans.factory.config.ListFactoryBean" >
+	<property name="targetListClass">
+	<value>java.util.ArrayList</value>
+	</property>
+	<property name="sourceList">
+	<list>
+	<value>role</value>	
+	</list>
+	</property>	
+	</bean>	
+	</beans>

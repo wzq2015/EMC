@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+   <bean id="invocationLogging" class="com.baosight.iplat4j.logging.config.LoggingMethodInvocationAspect"/>
+
+   	<!-- item stores -->
+	<bean id="memoryContainer"
+		class="com.baosight.iplat4j.base.store.container.MemoryContainer"/>
+		
+    <bean id="logItemStore"
+		class="com.baosight.iplat4j.logging.store.GeneralLogItemContainer">
+		<property name="msgStore" ref="sqlMapItemStore" />
+		<property name="expStore" ref="expItemStore" />
+	</bean>
+	
+    <!-- Common Item Store -->		
+	<bean id="bizLogDao" parent="nativeDao"/>	
+	<bean id="sqlMapItemStore"
+		class="com.baosight.iplat4j.base.store.container.SqlMapContainer">
+		<property name="dao" ref="bizLogDao" />		
+	</bean>
+		
+	<bean id="txtItemStore"
+		class="com.baosight.iplat4j.base.store.container.SerialFilesContainer">
+		<property name="directory" value="."/>
+		<property name="suffix" value="log"/>
+		<property name="maxBackupIndex" value="2"/>
+		<property name="maxFileSize" value="10240"/>
+		<property name="streamType">
+		  <bean class="com.baosight.iplat4j.base.store.type.StreamType4Txt"/>		
+		</property>
+		<property name="converter">
+		  <bean class="com.baosight.iplat4j.logging.store.String2LogItem"/>		
+		</property>
+	</bean>	
+		
+	<!-- Exception Item Store -->
+	<bean id="expItemStore"
+		class="com.baosight.iplat4j.base.store.container.SerialFilesContainer">
+		<property name="directory" value="."/>
+		<property name="suffix" value="exp"/>
+		<property name="maxBackupIndex" value="2"/>
+		<property name="maxFileSize" value="10240"/>
+		<property name="streamType">
+		  <bean class="com.baosight.iplat4j.base.store.type.StreamType4Xml"/>		
+		</property>
+		<property name="converter">
+		  <bean class="com.baosight.iplat4j.logging.store.Element2Exception"/>		
+		</property>
+	</bean>
+
+	<bean id="stringFormatter" class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobStringFormatter">
+		<property name="format"
+			value="[%8$1s][%1$25s][%2$03d,%3$03d]%5$-5s[%9$1s]%7$-20s %10$tY-%10$tm-%10$td %10$tH:%10$tM:%10$tS %10$tL %11$8d ms: %12$s %13$s %14$s %15$s %16$s %17$s" />
+		<property name="showInformation" value="false" />
+	</bean>
+	
+	<bean id="logFormatter" class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobLogFormatter">
+		<property name="maxLength" value="600" />
+	</bean>
+
+	<bean id="consoleListener" class="com.baosight.iplat4j.ep.monitor.impl.SystemOutJobListener">
+		<property name="formatter" ref="stringFormatter" />
+		<property name="jobFilter">
+			<bean class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobPositionFilter">
+<!-- 			<bean class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobTypeFilterImpl"> -->
+				<property name="includedTypes">
+					<list>
+						<value>(0000|01.*|02.*|03.*|0400|0401|0500|0501|0502|0503)</value>
+					</list>
+				</property>
+				<property name="excludedTypes">
+					<list>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="fileListener" class="com.baosight.iplat4j.ep.monitor.impl.Log4jJobListener">
+		<property name="formatter" ref="logFormatter" />
+		<property name="bufferedIO" value="false" />
+		<property name="file" value="platform.log" />
+		<property name="jobFilter">
+			<bean class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobTypeFilterImpl">
+				<property name="includedTypes">
+					<list>
+					</list>
+				</property>
+				<property name="excludedTypes">
+					<list>
+						<value>(0504|06.*|07.*)</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+		
+	</bean>
+
+	<bean id="diagnosticConfig" class="com.baosight.iplat4j.ep.monitor.DiagnosticConfig"
+		init-method="init" destroy-method="destroy">
+		<property name="enable" value="true" />
+		<property name="listeners">
+			<list>
+				<ref bean="consoleListener" />
+				<ref bean="fileListener" />
+			</list>
+		</property>
+		<property name="typeFilter">
+			<bean class="com.baosight.iplat4j.ep.monitor.impl.DiagnosticJobTypeFilterImpl">
+				<property name="includedTypes">
+					<list>
+					</list>
+				</property>
+				<property name="excludedTypes">
+					<list>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="platformLogArchiver" class="com.baosight.iplat4j.el.PlatformLogArchiver">
+<!-- 		<property name="scheduler" ref="iplat4j_jobScheduler" /> -->
+		<property name="scheduleJob" value="true" />
+		<property name="cronExpression" value="0 15 1,2,3 * * ?" />
+		<property name="log4jJobListener" ref="fileListener" />
+		<property name="deleteAfterArchive" value="true" />
+	</bean>
+	
+	<bean id="logFileReader" class="com.baosight.iplat4j.ep.util.LogFileReaderByLines">
+		<property name="log4jJobListener" ref="fileListener" />
+		<property name="lineCount" value="100" />
+		<property name="labels">
+		    <map>
+	    	  <entry key="SEQ_ID" value="=" />
+	          <entry key="ID" value="=" />
+	          <entry key="PARENT" value="=" />
+	          <entry key="LEAF" value="=" />
+	          <entry key="DEPTH" value="=" />
+	          <entry key="LOG_ID" value="prefix" />
+	          <entry key="LOG_NAME" value="=" />
+	          <entry key="STATUS" value="=" />
+	          <entry key="POSITION" value="=" />
+	          <entry key="TIME" value="&lt;=&gt;" />
+	          <entry key="COST" value="&lt;=&gt;" />
+	    	</map>
+		</property>
+		
+	</bean>
+	
+</beans>

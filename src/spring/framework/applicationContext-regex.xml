@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 框架之正则表达式设置 -->
+	<bean id="regexMarcoResourceProvider"
+		class="com.baosight.iplat4j.core.resource.impl.PropertiesResourceProviderImpl"
+		init-method="init" depends-on="cacheManager">
+		<property name="providerId">
+			<value>regex</value>
+		</property>
+		<property name="refreshDelay">
+			<value>300000</value>
+		</property>
+		<property name="propertieFiles">
+			<list>
+				<value>classpath*:resources/regex/*.properties</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

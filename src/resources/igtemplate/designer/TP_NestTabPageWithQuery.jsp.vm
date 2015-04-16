@@ -1,0 +1,13 @@
+## 带有查询栏和Tab子页面的jsp模板
+#parse("${meta.templateHome}_page_header.jsp.vm")
+
+#set($_region_id = "ef_region_inqu")
+#set($_region_default_title = "查询条件")
+#set($_block_id = "inqu_status")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#parse("${meta.templateHome}_page_region_tab.jsp.vm")
+
+<EF:EFRegion/>
+
+#parse("${meta.templateHome}_page_footer.jsp.vm")

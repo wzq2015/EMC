@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-12-06 10:29:13
+   		Version :  1.0.1.V20070717
+		tableName :.t_energysaving_detail 
+		 f_energysaving_detail_id  INTEGER   NOT NULL   primarykey, 
+		 f_energysaving_type_id  INTEGER   NOT NULL, 
+		 f_emcproject_cycle_index  INTEGER   NOT NULL, 
+		 f_energysaving_detail_acqcalcstep  VARCHAR, 
+		 f_energysaving_detail_acqvalue  DOUBLE, 
+		 f_energysaving_detail_inputcalcstep  VARCHAR, 
+		 f_energysaving_detail_inputvalue  DOUBLE
+	-->
+<sqlMap namespace="tEnergysavingDetail">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingDetail">
+		SELECT
+				f_energysaving_detail_id	as "f_energysavingDetailId",  
+				f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_cycle_index	as "f_emcprojectCycleIndex",  
+				f_energysaving_detail_acqcalcstep	as "f_energysavingDetailAcqcalcstep",  
+				f_energysaving_detail_acqvalue	as "f_energysavingDetailAcqvalue",  
+				f_energysaving_detail_inputcalcstep	as "f_energysavingDetailInputcalcstep",  
+				f_energysaving_detail_inputvalue	as "f_energysavingDetailInputvalue" 
+		FROM .t_energysaving_detail WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailId">
+			f_energysaving_detail_id = #f_energysavingDetailId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysaving_detail_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectIdAndCycleIndex" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingDetail">
+		SELECT
+				f_energysaving_detail_id	as "f_energysavingDetailId",  
+				D.f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_cycle_index	as "f_emcprojectCycleIndex",  
+				f_energysaving_detail_acqcalcstep	as "f_energysavingDetailAcqcalcstep",  
+				f_energysaving_detail_acqvalue	as "f_energysavingDetailAcqvalue",  
+				f_energysaving_detail_inputcalcstep	as "f_energysavingDetailInputcalcstep",  
+				f_energysaving_detail_inputvalue	as "f_energysavingDetailInputvalue" 
+		FROM .t_energysaving_detail D, .t_energysaving_type T WHERE 1=1 AND
+		D.f_energysaving_type_id = T.f_energysaving_type_id
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			T.f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleIndex">
+			f_emcproject_cycle_index = #f_emcprojectCycleIndex#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysaving_detail_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectIdAndCycleIndexes" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingDetail">
+		SELECT
+				f_energysaving_detail_id	as "f_energysavingDetailId",  
+				D.f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_cycle_index	as "f_emcprojectCycleIndex",  
+				f_energysaving_detail_acqcalcstep	as "f_energysavingDetailAcqcalcstep",  
+				f_energysaving_detail_acqvalue	as "f_energysavingDetailAcqvalue",  
+				f_energysaving_detail_inputcalcstep	as "f_energysavingDetailInputcalcstep",  
+				f_energysaving_detail_inputvalue	as "f_energysavingDetailInputvalue" 
+		FROM .t_energysaving_detail D, .t_energysaving_type T WHERE 1=1 AND
+		D.f_energysaving_type_id = T.f_energysaving_type_id
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			T.f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleIndexes">
+			f_emcproject_cycle_index in ($f_emcprojectCycleIndexes$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeIds">
+			D.f_energysaving_type_id in ($f_energysavingTypeIds$)
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_emcproject_cycle_index asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="queryByCycleIndexAndEnergysavingTypeId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingDetail">
+		SELECT
+				f_energysaving_detail_id	as "f_energysavingDetailId",  
+				f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_cycle_index	as "f_emcprojectCycleIndex",  
+				f_energysaving_detail_acqcalcstep	as "f_energysavingDetailAcqcalcstep",  
+				f_energysaving_detail_acqvalue	as "f_energysavingDetailAcqvalue",  
+				f_energysaving_detail_inputcalcstep	as "f_energysavingDetailInputcalcstep",  
+				f_energysaving_detail_inputvalue	as "f_energysavingDetailInputvalue" 
+		FROM .t_energysaving_detail WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeId">
+			f_energysaving_type_id = #f_energysavingTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleIndex">
+			f_emcproject_cycle_index = #f_emcprojectCycleIndex#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysaving_detail_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_energysaving_detail WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailId">
+			f_energysaving_detail_id = #f_energysavingDetailId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailId">
+			f_energysaving_detail_id = #f_energysavingDetailId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeId">
+			f_energysaving_type_id = #f_energysavingTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleIndex">
+			f_emcproject_cycle_index = #f_emcprojectCycleIndex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailAcqcalcstep">
+			f_energysaving_detail_acqcalcstep = #f_energysavingDetailAcqcalcstep#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailAcqvalue">
+			f_energysaving_detail_acqvalue = #f_energysavingDetailAcqvalue#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailInputcalcstep">
+			f_energysaving_detail_inputcalcstep = #f_energysavingDetailInputcalcstep#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingDetailInputvalue">
+			f_energysaving_detail_inputvalue = #f_energysavingDetailInputvalue#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_energysaving_detail (f_energysaving_detail_id,
+										f_energysaving_type_id,
+										f_emcproject_cycle_index,
+										f_energysaving_detail_acqcalcstep,
+										f_energysaving_detail_acqvalue,
+										f_energysaving_detail_inputcalcstep,
+										f_energysaving_detail_inputvalue
+										)		 
+	    VALUES (#f_energysavingDetailId#, #f_energysavingTypeId#, #f_emcprojectCycleIndex#, #f_energysavingDetailAcqcalcstep#, #f_energysavingDetailAcqvalue#, #f_energysavingDetailInputcalcstep#, #f_energysavingDetailInputvalue#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_energysaving_detail WHERE 
+			f_energysaving_detail_id = #f_energysavingDetailId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_energysaving_detail 
+		SET 
+					f_energysaving_type_id	= #f_energysavingTypeId#,   
+					f_emcproject_cycle_index	= #f_emcprojectCycleIndex#,   
+					f_energysaving_detail_acqcalcstep	= #f_energysavingDetailAcqcalcstep#,   
+					f_energysaving_detail_acqvalue	= #f_energysavingDetailAcqvalue#,   
+					f_energysaving_detail_inputcalcstep	= #f_energysavingDetailInputcalcstep#,   
+					f_energysaving_detail_inputvalue	= #f_energysavingDetailInputvalue#  
+			WHERE 	
+			f_energysaving_detail_id = #f_energysavingDetailId#
+	</update>
+  
+  	<select id="gettagvalue" resultClass="String">
+		SELECT fd_tagvalue FROM .trend WHERE 1=1
+		<isNotEmpty prepend=" AND " property="tagName">
+			fd_tagname = #tagName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			fd_datetime between #startTime# and #endTime#
+		</isNotEmpty>
+	</select>
+  
+</sqlMap>

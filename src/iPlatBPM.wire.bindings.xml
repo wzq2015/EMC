@@ -1,0 +1,71 @@
+<wire-bindings>
+
+  <!-- ########################### -->
+  <!-- ### Descriptor bindings ### -->
+  <!-- ########################### -->
+  <!-- basic types -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.TrueBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.FalseBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.CharBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.DoubleBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.FloatBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.IntBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ShortBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ByteBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.LongBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.StringBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.NullBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ClassBinding" />
+  <!-- object and ref --> 
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ObjectBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.RefBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.JndiBinding" />
+  <!-- collections -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ListBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.SetBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.MapBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.PropertiesBinding" />
+  <!-- environment refs -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ProcessEngineRefBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.EnvRefBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.EnvBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ContextRefBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.TransactionRefBinding" />
+  <!-- various specials -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.TransactionBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.JobExecutorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.JobTestHelperBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ScriptManagerBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.BusinessCalendarBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.IdComposerBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.MailTemplateBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.AddressResolverBinding"/>
+
+  <!-- services  -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.CommandServiceBinding" />
+  
+  <!-- interceptors -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.SkipInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.EnvironmentInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.AuthorizationInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.RetryInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.StandardTransactionInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.SerializeInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.JtaTransactionInterceptorBinding" />
+
+  <!-- operation -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.PropertyBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.FieldBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.InvokeBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.SubscribeBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.EnlistBinding" />
+
+  
+  <!-- spring bindings -->
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.SpringTransactionInterceptorBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.ExecutionServiceBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.TaskServiceBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.HistoryServiceBinding" />
+  <binding class="com.baosight.ieasyflow.pvm.wire.binding.RepositoryServiceBinding" />
+
+</wire-bindings>

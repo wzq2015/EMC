@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2011-09-05 10:13:53
+   		Version :  1.0.1.V20070717
+		table comment : 组织架构图(横向)测试表
+		tableName :${platSchema}.TEEDM54 
+		 NODE_ENAME  VARCHAR2   NOT NULL   primarykey, 
+		 NODE_CNAME  VARCHAR2   NOT NULL, 
+		 TREE_ENAME  VARCHAR2   NOT NULL, 
+		 NODE_TYPE  NUMBER   NOT NULL
+	-->
+<sqlMap namespace="teedm54">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.Teedm54">
+		SELECT
+				NODE_ENAME	as "nodeEname",  <!-- 节点编号 -->
+				NODE_CNAME	as "nodeCname",  <!-- 节点中文名 -->
+				TREE_ENAME	as "treeEname",  <!-- 父节点编号 -->
+				NODE_TYPE	as "nodeType" <!-- 节点类型 -->
+		FROM ${platSchema}.TEEDM54 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="nodeEname">
+			NODE_ENAME = #nodeEname#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  NODE_ENAME asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM54 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="nodeEname">
+			NODE_ENAME = #nodeEname#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="nodeEname">
+			NODE_ENAME = #nodeEname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="nodeCname">
+			NODE_CNAME = #nodeCname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="treeEname">
+			TREE_ENAME = #treeEname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="nodeType">
+			NODE_TYPE = #nodeType#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM54 (NODE_ENAME,  <!-- 节点编号 -->
+										NODE_CNAME,  <!-- 节点中文名 -->
+										TREE_ENAME,  <!-- 父节点编号 -->
+										NODE_TYPE  <!-- 节点类型 -->
+										)		 
+		VALUES (#nodeEname:VARCHAR#, #nodeCname:VARCHAR#, #treeEname:VARCHAR#, #nodeType:NUMERIC#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM54 WHERE 
+			NODE_ENAME = #nodeEname#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM54 
+		SET 
+					NODE_CNAME	= #nodeCname#,   <!-- 节点中文名 -->
+					TREE_ENAME	= #treeEname#,   <!-- 父节点编号 -->
+					NODE_TYPE	= #nodeType:NUMERIC#  <!-- 节点类型 -->
+			WHERE 	
+			NODE_ENAME = #nodeEname#
+	</update>
+  
+</sqlMap>
