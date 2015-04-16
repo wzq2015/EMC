@@ -1,0 +1,12 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1024" Height="768" RefreshRate="1000" BackColor="#FFFFFFFF" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<IFHisAlarmControl:IFHisAlarmControl Name="IFHisAlarmControl1" Left="21" Top="17" Width="984" Height="622" ZIndex="0" >
+</IFHisAlarmControl:IFHisAlarmControl>
+</BasicControl:Canvas>
+<Tags>
+</Tags>
+<Script>
+</Script>
+</Pane>

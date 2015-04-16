@@ -1,0 +1,294 @@
+
+PRE {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+}
+
+INPUT {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+}
+
+TEXTAREA {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+}
+P {
+		line-height : 16pt;
+}
+
+TH {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+		font-weight: bold;
+		font-style: normal;
+		color: #FFFFFF;
+		background: gray;#4488AA;
+		padding-left: 5px;
+		text-indent: 5px;
+		text-align: left;
+}
+
+SELECT {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+}
+
+SUP {	
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+		--font-weight: medium;
+		color: maroon;
+}
+
+HR	{
+		size: 1pt;
+}
+.Chart {
+		background: #6699CC;
+		border: none;
+		padding: 0px;
+}
+
+.Content {
+		
+		background: #FFFFFF;
+}
+
+.Contrast {
+		
+		background: #F2F5F9;
+}
+
+.FirstCount {
+		
+		background: #C0C0C0;
+}
+.SecondCount{
+		
+		background: #D0D0D0;
+}
+.TotalCount {
+		
+		background: #EFFFFF;
+}
+
+.ListTitle{
+	background: #E5EAF1;
+	height: 20px;
+}
+
+.Title {
+		font-family: 宋体,Arial,;
+		font-size: 9pt;
+		font-weight: bold;
+		font-style: normal;
+}
+
+.W100 {
+		position: relative;
+		width: 100px;
+}
+
+.W120 {
+		position: relative;
+		width: 120px;
+}
+
+.W150 {
+		position: relative;
+		width: 150px;
+}
+
+.W200 {
+		position: relative;
+		width: 200px;
+}
+
+.W250 {
+		position: relative;
+		width: 250px;
+}
+
+.W300 {
+		position: relative;
+		width: 300px;
+}
+
+.W350 {
+		position: relative;
+		width: 350px;
+}
+
+.W400 {
+		position: relative;
+		width: 400px;
+}
+.W450 {
+		position: relative;
+		width: 450px;
+}
+.Sunday {
+		color: FireBrick;
+		link: FireBrick;
+		visited: FireBrick;
+		active: FireBrick;
+}
+
+.NonSunday {
+		color: Black;
+		link: Black;
+		visited: Black;
+		active: Black;
+}
+
+.UnRead {
+		color: Olive;
+		link: Olive;
+		visited: Olive;
+		active: Olive;
+}
+
+.UnConfirmed {
+		color: Orange;
+		link: Orange;
+		visited: Orange;
+		active: Orange;
+}
+
+.Toolbar {
+	font-family: 宋体,Arial,;
+	font-size: 9pt;
+	color : Black;
+	text-decoration : none;
+}
+
+.Container {
+	Background-Color: #E5EAF1
+}
+
+
+.zi-green {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #087A00;
+	text-decoration: none;
+}
+
+.zi-content {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #545454;
+	text-decoration: none;
+}
+a.zi-content:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #545454;
+	text-decoration: none;
+}
+a.zi-content:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #545454;
+	text-decoration: none;
+}
+a.zi-content:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #087A00;
+	text-decoration: underline;
+}
+a.zi-content:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #545454;
+	text-decoration: none;
+}
+
+
+
+.zi-white {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.zi-white:link {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.zi-white:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.zi-white:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #000000; 
+	text-decoration: underline;
+}
+a.zi-white:active {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
+.zi-dh-green {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #087A00;
+	text-decoration: none;
+}
+a.zi-dh-green:link {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #087A00;
+	text-decoration: none;
+}
+a.zi-dh-green:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #087A00;
+	text-decoration: none;
+}
+a.zi-dh-green:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #545454;
+	text-decoration: underline;
+}
+a.zi-dh-green:active {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #087A00;
+	text-decoration: none;
+}
+
+
+
+.underline {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: dotted;
+	border-left-style: none;
+	border-bottom-color: #CCCCCC;
+}
+.bian {
+	border: 1px solid #CCCCCC;
+}

@@ -1,0 +1,461 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="1000" BackColor="#FFD8D8D8" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<BasicShape:Line Name="Line1" Left="60" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="60" Y1="65" X2="1737" Y2="65" ></BasicShape:Line>
+<BasicShape:Point Name="Point1" Left="300" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point2" Left="400" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point3" Left="600" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point4" Left="700" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point5" Left="900" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point6" Left="1000" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point7" Left="1200" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point8" Left="1300" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point9" Left="1610" Top="62" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line2" Left="303" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="303" Y1="65" X2="303" Y2="360" ></BasicShape:Line>
+<BasicShape:Line Name="Line3" Left="403" Top="65" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="403" Y1="65" X2="403" Y2="310" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle3" Left="195" Top="144" Width="157" Height="333" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle4" Left="358" Top="145" Width="91" Height="99" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle5" Left="358" Top="249" Width="91" Height="169" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line4" Left="194" Top="333" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dashed" X1="194" Y1="333" X2="352" Y2="333" ></BasicShape:Line>
+<BasicShape:Line Name="Line5" Left="603" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="603" Y1="65" X2="603" Y2="360" ></BasicShape:Line>
+<BasicShape:Line Name="Line6" Left="703" Top="65" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="703" Y1="65" X2="703" Y2="310" ></BasicShape:Line>
+<BasicShape:Line Name="Line8" Left="903" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="903" Y1="65" X2="903" Y2="360" ></BasicShape:Line>
+<BasicShape:Line Name="Line9" Left="1003" Top="65" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1003" Y1="65" X2="1003" Y2="310" ></BasicShape:Line>
+<BasicShape:Line Name="Line11" Left="1203" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1203" Y1="65" X2="1203" Y2="360" ></BasicShape:Line>
+<BasicShape:Line Name="Line12" Left="1303" Top="65" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1303" Y1="65" X2="1303" Y2="310" ></BasicShape:Line>
+<BasicShape:Line Name="Line14" Left="1613" Top="65" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1613" Y1="65" X2="1613" Y2="290" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle15" Left="1568" Top="145" Width="91" Height="99" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle16" Left="1465" Top="255" Width="194" Height="253" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group2" Left="392" Top="152" Width="22" Height="80" ZIndex="2" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline5" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline6" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle18" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline7" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline8" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse3" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse4" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line17" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line18" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group3" Left="292" Top="154" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline9" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline10" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle19" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline11" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline12" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse5" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse6" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line19" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line20" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point11" Left="300" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Point Name="Point13" Left="400" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line21" Left="239" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="403" Y1="455" X2="239" Y2="455" ></BasicShape:Line>
+<BasicControl:Group Name="Group4" Left="228" Top="248" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline13" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline14" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle20" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline15" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline16" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse7" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse8" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line22" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line23" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point14" Left="300" Top="237" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line24" Left="238" Top="240" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="303" Y1="240" X2="238" Y2="240" ></BasicShape:Line>
+<BasicShape:Line Name="Line25" Left="239" Top="239" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="239" Y1="239" X2="239" Y2="251" ></BasicShape:Line>
+<BasicShape:Line Name="Line26" Left="239" Top="326" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="239" Y1="326" X2="239" Y2="456" ></BasicShape:Line>
+<BasicControl:Group Name="Group5" Left="302" Top="359" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve1" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve2" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve3" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve4" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line27" Left="303" Top="433" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="303" Y1="433" X2="303" Y2="455" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle21" Left="372" Top="273" Width="62" Height="121" ZIndex="0" LineColor="#FF000000" BackColor="#FFF2F2F2" >
+</BasicShape:Rectangle>
+<BasicShape:Ellipse Name="Ellipse9" Left="400" Top="308" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse10" Left="400" Top="353" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line28" Left="403" Top="357" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="403" Y1="357" X2="403" Y2="840" ></BasicShape:Line>
+<BasicShape:Line Name="Line29" Left="403" Top="313" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="403" Y1="313" X2="403" Y2="353" ></BasicShape:Line>
+<BasicShape:Line Name="Line30" Left="403" Top="310" Width="0" Height="0" ZIndex="0" LineColor="#FF00B050" X1="403" Y1="353" X2="421" Y2="310" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle22" Left="658" Top="145" Width="91" Height="99" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group6" Left="692" Top="152" Width="22" Height="80" ZIndex="2" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline17" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline18" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle23" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline19" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline20" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse11" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse12" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line31" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line32" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Rectangle Name="Rectangle24" Left="658" Top="249" Width="91" Height="169" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle25" Left="672" Top="273" Width="62" Height="121" ZIndex="0" LineColor="#FF000000" BackColor="#FFF2F2F2" >
+</BasicShape:Rectangle>
+<BasicShape:Ellipse Name="Ellipse13" Left="700" Top="308" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse14" Left="700" Top="353" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line33" Left="703" Top="313" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="703" Y1="313" X2="703" Y2="353" ></BasicShape:Line>
+<BasicShape:Line Name="Line34" Left="703" Top="310" Width="0" Height="0" ZIndex="0" LineColor="#FF00B050" X1="703" Y1="353" X2="721" Y2="310" ></BasicShape:Line>
+<BasicShape:Line Name="Line35" Left="703" Top="357" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="703" Y1="357" X2="703" Y2="840" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle26" Left="495" Top="144" Width="157" Height="333" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line36" Left="494" Top="333" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dashed" X1="494" Y1="333" X2="652" Y2="333" ></BasicShape:Line>
+<BasicControl:Group Name="Group7" Left="592" Top="154" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline21" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline22" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle27" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline23" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline24" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse15" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse16" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line37" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line38" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point15" Left="600" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicControl:Group Name="Group8" Left="528" Top="248" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline25" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline26" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle28" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline27" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline28" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse17" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse18" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line39" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line40" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point16" Left="600" Top="237" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line41" Left="538" Top="240" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="603" Y1="240" X2="538" Y2="240" ></BasicShape:Line>
+<BasicShape:Line Name="Line42" Left="539" Top="239" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="539" Y1="239" X2="539" Y2="251" ></BasicShape:Line>
+<BasicShape:Line Name="Line43" Left="539" Top="326" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="539" Y1="326" X2="539" Y2="456" ></BasicShape:Line>
+<BasicControl:Group Name="Group9" Left="602" Top="359" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve5" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve6" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve7" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve8" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line44" Left="603" Top="433" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="603" Y1="433" X2="603" Y2="455" ></BasicShape:Line>
+<BasicShape:Point Name="Point17" Left="700" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line45" Left="539" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="703" Y1="455" X2="539" Y2="455" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle29" Left="958" Top="145" Width="91" Height="99" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group10" Left="992" Top="152" Width="22" Height="80" ZIndex="2" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline29" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline30" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle30" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline31" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline32" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse19" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse20" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line46" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line47" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Rectangle Name="Rectangle31" Left="958" Top="249" Width="91" Height="169" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle32" Left="972" Top="273" Width="62" Height="121" ZIndex="0" LineColor="#FF000000" BackColor="#FFF2F2F2" >
+</BasicShape:Rectangle>
+<BasicShape:Ellipse Name="Ellipse21" Left="1000" Top="308" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse22" Left="1000" Top="353" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line48" Left="1003" Top="313" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="1003" Y1="313" X2="1003" Y2="353" ></BasicShape:Line>
+<BasicShape:Line Name="Line49" Left="1003" Top="310" Width="0" Height="0" ZIndex="0" LineColor="#FF00B050" X1="1003" Y1="353" X2="1021" Y2="310" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle33" Left="795" Top="144" Width="157" Height="333" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line50" Left="794" Top="333" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dashed" X1="794" Y1="333" X2="952" Y2="333" ></BasicShape:Line>
+<BasicControl:Group Name="Group11" Left="892" Top="154" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline33" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline34" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle34" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline35" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline36" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse23" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse24" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line51" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line52" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point18" Left="900" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicControl:Group Name="Group12" Left="828" Top="248" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline37" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline38" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle35" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline39" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline40" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse25" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse26" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line53" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line54" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point19" Left="900" Top="237" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line55" Left="838" Top="240" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="903" Y1="240" X2="838" Y2="240" ></BasicShape:Line>
+<BasicShape:Line Name="Line56" Left="839" Top="239" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="839" Y1="239" X2="839" Y2="251" ></BasicShape:Line>
+<BasicShape:Line Name="Line57" Left="839" Top="326" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="839" Y1="326" X2="839" Y2="456" ></BasicShape:Line>
+<BasicControl:Group Name="Group13" Left="902" Top="359" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve9" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve10" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve11" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve12" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line58" Left="903" Top="433" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="903" Y1="433" X2="903" Y2="455" ></BasicShape:Line>
+<BasicShape:Line Name="Line59" Left="1003" Top="357" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1003" Y1="357" X2="1003" Y2="840" ></BasicShape:Line>
+<BasicShape:Point Name="Point20" Left="1000" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line60" Left="839" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1003" Y1="455" X2="839" Y2="455" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle36" Left="1258" Top="145" Width="91" Height="99" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group14" Left="1292" Top="152" Width="22" Height="80" ZIndex="2" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline41" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline42" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle37" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline43" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline44" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse27" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse28" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line61" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line62" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Rectangle Name="Rectangle38" Left="1258" Top="249" Width="91" Height="169" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle39" Left="1272" Top="273" Width="62" Height="121" ZIndex="0" LineColor="#FF000000" BackColor="#FFF2F2F2" >
+</BasicShape:Rectangle>
+<BasicShape:Ellipse Name="Ellipse29" Left="1300" Top="308" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse30" Left="1300" Top="353" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line63" Left="1303" Top="313" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="1303" Y1="313" X2="1303" Y2="353" ></BasicShape:Line>
+<BasicShape:Line Name="Line64" Left="1303" Top="310" Width="0" Height="0" ZIndex="0" LineColor="#FF00B050" X1="1303" Y1="353" X2="1321" Y2="310" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle40" Left="1095" Top="144" Width="157" Height="333" ZIndex="-1" LineColor="#FF000000" LineStyle="Dashed" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line65" Left="1094" Top="333" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dashed" X1="1094" Y1="333" X2="1252" Y2="333" ></BasicShape:Line>
+<BasicControl:Group Name="Group15" Left="1192" Top="154" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline45" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline46" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle41" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline47" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline48" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse31" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse32" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line66" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line67" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point21" Left="1200" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicControl:Group Name="Group16" Left="1128" Top="248" Width="22" Height="80" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline49" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline50" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle42" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline51" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline52" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse33" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse34" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line68" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line69" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Point Name="Point22" Left="1200" Top="237" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line70" Left="1138" Top="240" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1203" Y1="240" X2="1138" Y2="240" ></BasicShape:Line>
+<BasicShape:Line Name="Line71" Left="1139" Top="239" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1139" Y1="239" X2="1139" Y2="251" ></BasicShape:Line>
+<BasicShape:Line Name="Line72" Left="1139" Top="326" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1139" Y1="326" X2="1139" Y2="456" ></BasicShape:Line>
+<BasicControl:Group Name="Group17" Left="1202" Top="359" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve13" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve14" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve15" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve16" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line73" Left="1203" Top="433" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1203" Y1="433" X2="1203" Y2="455" ></BasicShape:Line>
+<BasicShape:Line Name="Line74" Left="1303" Top="357" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1303" Y1="357" X2="1303" Y2="840" ></BasicShape:Line>
+<BasicShape:Point Name="Point23" Left="1300" Top="452" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line75" Left="1139" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1303" Y1="455" X2="1139" Y2="455" ></BasicShape:Line>
+<BasicControl:Group Name="Group18" Left="1602" Top="152" Width="22" Height="80" ZIndex="2" >
+<BasicControl:Group.Children>
+<BasicShape:Polyline Name="Polyline53" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline54" Top="6" Width="22" Height="11" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Rectangle Name="Rectangle43" Left="3" Top="21" Width="16" Height="38" ZIndex="0" LineColor="#FF000000" BackColor="#FFD8D8D8" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline55" Left="22" Top="74" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline56" Left="22" Top="80" Width="22" Height="11" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Points="0,11 11,0 22,11" ></BasicShape:Polyline>
+<BasicShape:Ellipse Name="Ellipse35" Left="8" Top="27" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse36" Left="8" Top="48" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line76" Left="11" Top="6" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="6" X2="11" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line77" Left="11" Top="53" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="11" Y1="53" X2="11" Y2="73" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Ellipse Name="Ellipse37" Left="1610" Top="288" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse38" Left="1610" Top="333" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line78" Left="1613" Top="290" Width="0" Height="0" ZIndex="0" LineColor="#FF00B050" X1="1613" Y1="333" X2="1631" Y2="290" ></BasicShape:Line>
+<BasicShape:Line Name="Line79" Left="1613" Top="293" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="1613" Y1="293" X2="1613" Y2="333" ></BasicShape:Line>
+<BasicShape:Line Name="Line80" Left="1613" Top="337" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1613" Y1="337" X2="1613" Y2="450" ></BasicShape:Line>
+<BasicShape:Point Name="Point24" Left="1610" Top="272" Width="6" Height="6" ZIndex="0" ></BasicShape:Point>
+<BasicShape:Line Name="Line81" Left="1508" Top="275" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1613" Y1="275" X2="1508" Y2="275" ></BasicShape:Line>
+<BasicShape:Line Name="Line82" Left="1509" Top="275" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1509" Y1="275" X2="1509" Y2="450" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse39" Left="1559" Top="473" Width="6" Height="6" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line83" Left="1508" Top="450" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1528" Y1="450" X2="1508" Y2="450" ></BasicShape:Line>
+<BasicShape:Line Name="Line84" Left="1593" Top="450" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1613" Y1="450" X2="1593" Y2="450" ></BasicShape:Line>
+<BasicShape:Line Name="Line85" Left="1527" Top="450" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="1527" Y1="450" X2="1562" Y2="475" ></BasicShape:Line>
+<BasicShape:Line Name="Line86" Left="1562" Top="450" Width="0" Height="0" ZIndex="0" LineColor="#FFFF0000" X1="1562" Y1="475" X2="1595" Y2="450" ></BasicShape:Line>
+<BasicShape:Line Name="Line87" Left="1562" Top="477" Width="0" Height="0" ZIndex="1" LineColor="#FF000000" X1="1562" Y1="477" X2="1562" Y2="840" ></BasicShape:Line>
+<BasicControl:Image Name="Image1" Left="294" Top="532" Width="103" Height="104" ZIndex="0" ImgSrc="UserUpload/Images/electric.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group19" Left="397" Top="549" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve17" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve18" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve19" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve20" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line88" Left="391" Top="550" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="398" Y1="550" X2="391" Y2="550" ></BasicShape:Line>
+<BasicShape:Line Name="Line89" Left="391" Top="622" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="398" Y1="622" X2="391" Y2="622" ></BasicShape:Line>
+<BasicControl:Image Name="Image2" Left="594" Top="532" Width="103" Height="104" ZIndex="0" ImgSrc="UserUpload/Images/electric.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group20" Left="697" Top="549" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve21" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve22" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve23" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve24" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line90" Left="691" Top="550" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="698" Y1="550" X2="691" Y2="550" ></BasicShape:Line>
+<BasicShape:Line Name="Line91" Left="691" Top="622" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="698" Y1="622" X2="691" Y2="622" ></BasicShape:Line>
+<BasicControl:Image Name="Image3" Left="894" Top="532" Width="103" Height="104" ZIndex="0" ImgSrc="UserUpload/Images/electric.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group21" Left="997" Top="549" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve25" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve26" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve27" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve28" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line92" Left="991" Top="550" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="998" Y1="550" X2="991" Y2="550" ></BasicShape:Line>
+<BasicShape:Line Name="Line93" Left="991" Top="622" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="998" Y1="622" X2="991" Y2="622" ></BasicShape:Line>
+<BasicControl:Image Name="Image4" Left="1194" Top="532" Width="103" Height="104" ZIndex="0" ImgSrc="UserUpload/Images/electric.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group22" Left="1297" Top="549" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve29" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve30" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve31" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve32" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line94" Left="1291" Top="550" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1298" Y1="550" X2="1291" Y2="550" ></BasicShape:Line>
+<BasicShape:Line Name="Line95" Left="1291" Top="622" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1298" Y1="622" X2="1291" Y2="622" ></BasicShape:Line>
+<BasicControl:Image Name="Image5" Left="1454" Top="532" Width="103" Height="104" ZIndex="0" ImgSrc="UserUpload/Images/electric.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group23" Left="1557" Top="549" Width="11.2823171615601" Height="74" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:Curve Name="Curve33" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve34" Top="18" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve35" Top="36" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve36" Top="54" Width="11.2823171615601" Height="20" ZIndex="0" LineColor="#FF000000" Data="M 0.256866455078125,0 C15,2,15,18,0,20" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line96" Left="1551" Top="550" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1558" Y1="550" X2="1551" Y2="550" ></BasicShape:Line>
+<BasicShape:Line Name="Line97" Left="1551" Top="622" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1558" Y1="622" X2="1551" Y2="622" ></BasicShape:Line>
+<BasicControl:Image Name="Image6" Left="312" Top="669" Width="155" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/Motor.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image7" Left="612" Top="669" Width="155" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/Motor.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image8" Left="912" Top="669" Width="155" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/Motor.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image9" Left="1212" Top="669" Width="155" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/Motor.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image10" Left="1472" Top="669" Width="155" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/Motor.png" >
+</BasicControl:Image>
+<EMCControl:EMCFan Name="EMCFan1" Left="350" Top="776" Width="134" Height="106" ZIndex="1" IsWork="False" ></EMCControl:EMCFan>
+<EMCControl:EMCFan Name="EMCFan2" Left="650" Top="776" Width="134" Height="106" ZIndex="1" IsWork="False" ></EMCControl:EMCFan>
+<EMCControl:EMCFan Name="EMCFan3" Left="950" Top="776" Width="134" Height="106" ZIndex="1" IsWork="False" ></EMCControl:EMCFan>
+<EMCControl:EMCFan Name="EMCFan4" Left="1250" Top="776" Width="134" Height="106" ZIndex="1" IsWork="False" ></EMCControl:EMCFan>
+<EMCControl:EMCFan Name="EMCFan5" Left="1510" Top="776" Width="134" Height="106" ZIndex="1" IsWork="False" ></EMCControl:EMCFan>
+</BasicControl:Canvas>
+<Tags>
+</Tags>
+<Script>
+</Script>
+</Pane>

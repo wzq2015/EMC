@@ -1,0 +1,100 @@
+/** 登陆首页样式 **/
+
+
+#indexRealLeftTreeDiv {
+	overflow:auto;
+	text-align:left; 
+	width:99%;
+	margin-left:0px;
+	border:#BFCFDE 1px solid;
+	background-color:white;
+	-moz-border-radius-bottomleft: 10px/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 10px/*{cornerRadius}*/; -khtml-border-bottom-left-radius: 10px/*{cornerRadius}*/; border-bottom-left-radius: 10px/*{cornerRadius}*/;
+	-moz-border-radius-bottomright: 10px/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 10px/*{cornerRadius}*/; -khtml-border-bottom-right-radius: 10px/*{cornerRadius}*/; border-bottom-right-radius: 10px/*{cornerRadius}*/;
+
+}
+
+.SearchAndTreeHide {
+	border-right:1px solid #bfcfde;
+	background—color:#dedede;
+	-moz-border-radius-bottomleft: 10px/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 10px/*{cornerRadius}*/; -khtml-border-bottom-left-radius: 10px/*{cornerRadius}*/; border-bottom-left-radius: 10px/*{cornerRadius}*/;
+	-moz-border-radius-bottomright: 10px/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 10px/*{cornerRadius}*/; -khtml-border-bottom-right-radius: 10px/*{cornerRadius}*/; border-bottom-right-radius: 10px/*{cornerRadius}*/;
+	
+}
+.searchBox SPAN,.searchBox DIV {
+	width: 31px;
+	height: 27px;
+	padding: 0px;
+}
+
+.ef-state-hover#indexRealSearchButton{
+	border:0px;
+}
+.ef-state-hover#indexRealToggleTreeButton{
+	border:0px;
+}
+
+#indexRealSearchButton.ef-state-default #search{
+	background:url(./EF/Images/search.png);
+}
+#indexRealSearchButton.ef-state-hover #search{
+	border:0px;
+	background:url(./EF/Images/search_on.png);
+}
+#indexRealSearchButton.ef-state-active #search{
+	border:0px;
+	background:url(./EF/Images/search_down.png);
+}
+
+#indexRealToggleTreeButton.ef-state-default #Indent{
+	background:url(./EF/Images/Indent.png);
+}
+#indexRealToggleTreeButton.ef-state-hover #Indent{
+	border:0px;
+	background:url(./EF/Images/Indent_on.png);
+}
+#indexRealToggleTreeButton.ef-state-active #Indent{
+	border:0px;
+	background:url(./EF/Images/Indent_down.png);
+}
+
+/** 登陆首页样式END **/
+  
+/**登陆首页搜索框样式**/
+
+.searchBox {
+	/*width:176px;*/
+	height:27px;
+	float:left;
+	background-image: url(./EF/Images/search_bg.jpg);
+	background-repeat: no-repeat;
+	margin:8px 0px 5px 0px;
+	overflow: visible;
+	white-space: nowrap;
+
+}
+.searchField {
+	HEIGHT: 20px;
+	COLOR: #2d4368;
+	width:112px;
+	float:left;
+	margin-top: 2px;
+	border-width: 0px;
+	background-color:transparent;
+	padding-top:3px;
+	padding-bottom:2px;
+	padding-right:1px;
+	padding-left:2px;
+	line-height:1.6;
+	outline: none;	
+}
+
+/*旧搜索样式
+.searchField {
+    background:#f4f9ff;
+/*BORDER-BOTTOM: #b4b4b4 1px solid; BORDER-LEFT: #b4b4b4 1px solid; ; BACKGROUND-COLOR: expression((this.readOnly && this.readOnly==true)?"#EaEaEa":"#f6f6f6");
+/*BORDER: #7b9dc0 1px solid;
+    FONT-FAMILY: Courier New, arial, helvetica, sans-serif; HEIGHT: 18px; COLOR: #2d4368; FONT-SIZE: 12px;
+    border:none;
+
+}
+*/

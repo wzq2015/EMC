@@ -1,0 +1,32 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="1000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<IFHisAlarmControl:IFHisAlarmControl Name="IFHisAlarmControl1" Left="40" Top="40" Width="1840" Height="800" ZIndex="0" >
+</IFHisAlarmControl:IFHisAlarmControl>
+<BasicControl:Button Name="Button1" Left="1346" Top="857" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" FontSize="15" Text="总 貌 图" ></BasicControl:Button>
+<BasicControl:Button Name="Button2" Left="1456" Top="857" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="2#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button3" Left="1566" Top="857" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="3#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button4" Left="1676" Top="857" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="4#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button5" Left="1786" Top="857" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="公辅" ></BasicControl:Button>
+</BasicControl:Canvas>
+<Tags>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_gf.upl&quot;);" />
+</Element>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_2.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880.upl&quot;);" />
+</Element>
+<Element Name="Button3" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_3.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880.upl&quot;);" />
+</Element>
+<Element Name="Button4" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_4.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880.upl&quot;);" />
+</Element>
+<Element Name="Button5" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_gf.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

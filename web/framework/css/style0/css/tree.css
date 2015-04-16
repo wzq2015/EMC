@@ -1,0 +1,222 @@
+BODY {
+	FONT-FAMILY: Arial,"ËÎÌו",Tahoma, sans-serif;
+	FONT-SIZE: 12px;
+	line-height: 135%; color: #000000;
+	background-color: #EBEFF4;
+}
+
+a
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #000099;
+	text-decoration: underline;
+}
+
+p{
+	margin: 10px 0px;
+	line-height: 135%;
+}
+
+INPUT {
+	FONT-SIZE: 100%
+}
+
+SELECT{
+	font-size: 100%;
+}
+
+PRE.Code{
+	font-size: 100%;
+	border: 1px solid #666666;
+	background-color: #F3F3F3;
+	color: #666666;
+	padding: 5px;
+}
+
+#Content h3,#MenuContent h3 {
+	font-size: 1.1em;
+	line-height: 2em;
+	padding-top: 3px;
+	padding-left:  20px;
+	margin: 5px 0px;
+	border-bottom: 1px solid #CCC;
+	background: url(Items/Item.Info.gif) left no-repeat;
+}
+
+#MenuContent ul{
+	margin: 5px 0px;
+	padding-left: 2em;
+	list-style-image: url(Items/Item.Next.gif);
+}
+
+#MenuContent li{
+	line-height: 1.5em;
+}
+
+fieldset{
+	padding: 10px;
+	border: 1px solid #666666;
+}
+
+fieldset  legend{
+	margin-bottom: 10px;
+	padding: 3px;
+	border: 1px solid #666666;
+}
+
+fieldset.Demo{
+	border: 0px solid #000000;
+
+	color: #000000;
+}
+
+fieldset.Demo legend{
+	border: 0px solid #000000;
+}
+
+body#Menu{
+	margin: 5px;
+}
+
+#MenuContent{
+	padding: 5px;
+	background: url(Items/BG.Menu.gif) left  top no-repeat;
+}
+
+#MenuContent h2{
+	margin: 5px 0px;
+	font-size: 120%;
+}
+
+#Content{
+	width: 540px;
+}
+
+#Content p{
+	text-indent: 2em;
+}
+
+#Content p.Next{
+	text-indent: 0em;
+	margin-left: 2em;
+	padding-left: 20px;
+	background: url(Items/Item.Next.gif) left no-repeat;
+}
+
+#Content p.Cutline{
+	text-indent: 0em;
+	text-align: center;
+	color: Green;
+}
+
+#Content ul{
+	list-style-image: url(Items/Item.List.gif);
+}
+
+p.Code{
+	color: #333;
+	background-color: #EEEEEE;
+	padding: 2px 5px;
+}
+
+.TreeNode input{
+	height: 13px;
+	width: 13px;
+	padding: 1px;
+	margin: 0px;
+}
+
+.TreeNode{
+	line-height: 18px;
+	height: 18px;
+}
+
+input.Button{
+	background-color: #DDE6FF;
+	border: 1px solid #002280;
+	color: #002280;
+	line-height: 17px;
+	height: 20px;
+	margin: 0px 2px 0px 2px;
+}
+
+Input.UserInfo{
+	border: 0px;
+	border-bottom: 1px solid #002280;
+	background-color: transparent;
+}
+
+textarea{
+	border: 1px solid #666;
+	font-family: Arial, "ËÎÌו",Helvetica, sans-serif;
+	font-size:1em;
+}
+
+#Footer {
+	
+}
+
+#Footer P {
+	float:left;PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 3px; PADDING-TOP: 2px; 
+}
+
+hr.Foot{
+	width: 450px;
+	height: 1px;
+	margin-top: 1em;
+	text-align: left;
+	margin-left: 50px;
+}
+
+span.HighLight{
+	font-weight: bolder;
+	color: #990000;
+}
+
+#Splash{
+	width: 500px;
+	height: 325px;
+	margin: auto;
+}
+
+li.Folder{
+	padding-left: 5px;
+	list-style-image: url(Items/Item.Folder.gif);
+}
+
+li.File{
+	padding-left: 5px;
+	list-style-image: url(Items/Item.File.gif);
+}
+
+table.API{
+	border-collapse:collapse;
+	border: 1px solid #628000;
+	margin: 5px 0px;
+}
+
+table.API th{
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	background-color:#628000;
+	background-image: url(Items/BG.APIHeader.gif);
+	color:#FFFFFF;
+	padding: 3px 5px;
+	height: 19px;
+	line-height: 19px;
+}
+
+table.API td{
+	border: 1px solid #628000;
+	padding: 3px;
+}
+
+table.API td p{
+	margin: 0px;
+	text-indent: 0px !important
+}

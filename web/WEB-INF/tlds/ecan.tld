@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>ecan</shortname>
+    <uri>http://www.baosight.com</uri>
+    <tag>
+        <name>contextpath</name>
+        <tagclass>com.baosight.vfj.tag.GetContextPathTag</tagclass>
+    </tag>
+    <tag>
+	 <name>prompt</name>
+	 <tagclass>com.baosight.vfj.tag.JspPromptTag</tagclass>
+	 <bodycontent>empty</bodycontent>
+
+	 <attribute>
+			 <name>bundle</name>
+			 <required>false</required>
+			 <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+	 <attribute>
+			 <name>locale</name>
+			 <required>false</required>
+			 <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+	 <attribute>
+			 <name>name</name>
+			 <required>false</required>
+			 <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+	 <attribute>
+			 <name>property</name>
+			 <required>false</required>
+			 <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+     </tag>
+     <tag>
+        <name>accessMenu</name>
+        <tagclass>com.baosight.ecan.tag.AccessMenuTag</tagclass>
+
+        <attribute>
+                         <name>entry</name>
+                         <required>true</required>
+                         <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+         <attribute>
+                         <name>path</name>
+                         <required>true</required>
+                         <rtexprvalue>true</rtexprvalue>
+	 </attribute>
+    </tag>
+</taglib>
+

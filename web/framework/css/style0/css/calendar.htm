@@ -1,0 +1,352 @@
+<HTML>
+<HEAD>
+<TITLE>日历</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<link rel="stylesheet" type="text/css" href="w.css">
+		<script src="../js/calendar.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+var dDate = new Date();
+var dCurMonth = dDate.getMonth();
+var dCurDayOfMonth = dDate.getDate();
+var dCurYear = dDate.getFullYear();
+var objPrevElement = new Object();
+
+function isFourDigitYear(year) {
+if (year.length != 4) {
+alert ("对不起，年份必须为四位数！");
+document.forms[0].tbSelYear.select();
+document.forms[0].tbSelYear.focus();
+} else { return true; }
+}
+function Cancel() {
+					window.parent.opener.form2.start_date.value = "";
+					window.close();
+				}
+function setPreviousYear() {
+var year  = document.forms[0].tbSelYear.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.forms[0].tbSelMonth.selectedIndex + 1;
+year--;
+document.forms[0].tbSelYear.value = year;
+fUpdateCal(year,month);
+   }
+}
+
+
+function setPreviousMonth() {
+var year  = document.forms[0].tbSelYear.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.forms[0].tbSelMonth.selectedIndex;
+if (month == 0) {
+month = 11;
+if (year > 1000) {
+year--;
+document.forms[0].tbSelYear.value = year;
+}
+} else { month--; }
+document.forms[0].tbSelMonth.selectedIndex = month;
+month++;
+fUpdateCal(year,month);
+   }
+}
+function setNextMonth() {
+var year  = document.forms[0].tbSelYear.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.forms[0].tbSelMonth.selectedIndex;
+if (month == 11) {
+month = 0;
+year++;
+document.forms[0].tbSelYear.value = year;
+} else { month++; }
+document.forms[0].tbSelMonth.selectedIndex = month;
+month++;
+fUpdateCal(year,month);
+   }
+}
+function setNextYear() {
+var year = document.forms[0].tbSelYear.value;
+if (isFourDigitYear(year)) {
+var day = 0;
+var month = document.forms[0].tbSelMonth.selectedIndex + 1;
+year++;
+document.forms[0].tbSelYear.value = year;
+fUpdateCal(year,month);
+   }
+}
+
+function fToggleColor(myElement) {
+var toggleColor = "#ff0000";
+if (myElement.id == "calDateText") {
+if (myElement.color == toggleColor) {
+myElement.color = "";
+} else {
+myElement.color = toggleColor;
+   }
+} else if (myElement.id == "calCell") {
+for (var i in myElement.children) {
+if (myElement.children[i].id == "calDateText") {
+if (myElement.children[i].color == toggleColor) {
+myElement.children[i].color = "";
+} else {
+myElement.children[i].color = toggleColor;
+            }
+         }
+      }
+   }
+}
+function fSetSelectedDay(myElement){
+if (myElement.id == "calCell") {
+if (!isNaN(parseInt(myElement.children["calDateText"].innerText))) {
+myElement.bgColor = "#c0c0c0";
+objPrevElement.bgColor = "";
+document.all.calSelectedDate.value = parseInt(myElement.children["calDateText"].innerText);
+objPrevElement = myElement;
+var CurrentYear = document.forms[0].tbSelYear.value;
+var CurrentMonth = document.forms[0].tbSelMonth.selectedIndex + 1
+var strMonth,strDay;
+if(CurrentMonth<10) 
+{
+   strMonth="0" + CurrentMonth;
+}
+else
+{
+   strMonth=CurrentMonth;
+}
+var CurrentDay = document.forms[0].calSelectedDate.value;
+if(CurrentDay<10) 
+{
+   strDay="0" + CurrentDay;
+}
+else
+{
+   strDay=CurrentDay;
+}
+var CurrentDate = CurrentYear + "-" + strMonth + "-" + strDay;
+//alert(CurrentDate);
+if(window.opener)
+{
+    window.parent.opener.form2.start_date.value = CurrentDate;
+    self.close();
+}
+      }
+   }
+}
+function fGetDaysInMonth(iMonth, iYear) {
+var dPrevDate = new Date(iYear, iMonth, 0);
+return dPrevDate.getDate();
+}
+function fBuildCal(iYear, iMonth, iDayStyle) {
+var aMonth = new Array();
+aMonth[0] = new Array(7);
+aMonth[1] = new Array(7);
+aMonth[2] = new Array(7);
+aMonth[3] = new Array(7);
+aMonth[4] = new Array(7);
+aMonth[5] = new Array(7);
+aMonth[6] = new Array(7);
+var dCalDate = new Date(iYear, iMonth-1, 1);
+var iDayOfFirst = dCalDate.getDay();
+var iDaysInMonth = fGetDaysInMonth(iMonth, iYear);
+var iVarDate = 1;
+var i, d, w;
+if (iDayStyle == 2) {
+aMonth[0][0] = "星期天";
+aMonth[0][1] = "星期一";
+aMonth[0][2] = "星期二";
+aMonth[0][3] = "星期三";
+aMonth[0][4] = "星期四";
+aMonth[0][5] = "星期五";
+aMonth[0][6] = "星期六";
+} else if (iDayStyle == 1) {
+aMonth[0][0] = "日";
+aMonth[0][1] = "一";
+aMonth[0][2] = "二";
+aMonth[0][3] = "三";
+aMonth[0][4] = "四";
+aMonth[0][5] = "五";
+aMonth[0][6] = "六";
+} else {
+aMonth[0][0] = "Su";
+aMonth[0][1] = "Mo";
+aMonth[0][2] = "Tu";
+aMonth[0][3] = "We";
+aMonth[0][4] = "Th";
+aMonth[0][5] = "Fr";
+aMonth[0][6] = "Sa";
+}
+for (d = iDayOfFirst; d < 7; d++) {
+aMonth[1][d] = iVarDate;
+iVarDate++;
+}
+for (w = 2; w < 7; w++) {
+for (d = 0; d < 7; d++) {
+if (iVarDate <= iDaysInMonth) {
+aMonth[w][d] = iVarDate;
+iVarDate++;
+      }
+   }
+}
+return aMonth;
+}
+function fDrawCal(iYear, iMonth, iCellWidth, iCellHeight, sDateTextSize, sDateTextWeight, iDayStyle) {
+var myMonth;
+document.forms[0].tbSelYear.value = iYear;
+myMonth = fBuildCal(iYear, iMonth, iDayStyle);
+document.write("<center>");
+document.write("<table border='0' cellpadding='0' cellspacing='0'>");
+document.write("<tr align='center' bgcolor=#FDD3C2>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold;color:#FF9900'>" + myMonth[0][0] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold'>" + myMonth[0][1] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold'>" + myMonth[0][2] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold'>" + myMonth[0][3] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold'>" + myMonth[0][4] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold'>" + myMonth[0][5] + "</td>");
+document.write("<td align='center' style='FONT-FAMILY:Arial;FONT-SIZE:12px;FONT-WEIGHT: bold;color:#FF9900'>" + myMonth[0][6] + "</td>");
+document.write("</tr>");
+for (w = 1; w < 7; w++) {
+document.write("<tr>")
+for (d = 0; d < 7; d++) {
+if(d==0 || d==6){document.write("<td align='center' valign='top' width='" + iCellWidth + "' height='" + iCellHeight + "' id=calCell style='CURSOR:Hand;color:#FF9900' onMouseOver='fToggleColor(this)' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)>");}
+else
+document.write("<td align='center' valign='top' width='" + iCellWidth + "' height='" + iCellHeight + "' id=calCell style='CURSOR:Hand' onMouseOver='fToggleColor(this)' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)>");
+
+if (!isNaN(myMonth[w][d])) {
+document.write("<font id=calDateText onMouseOver='fToggleColor(this)' style='CURSOR:Hand;FONT-FAMILY:Arial;FONT-SIZE:" + sDateTextSize + ";FONT-WEIGHT:" + sDateTextWeight + "' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)>" + myMonth[w][d] + "</font>");
+} else {
+document.write("<font id=calDateText onMouseOver='fToggleColor(this)' style='CURSOR:Hand;FONT-FAMILY:Arial;FONT-SIZE:" + sDateTextSize + ";FONT-WEIGHT:" + sDateTextWeight + "' onMouseOut='fToggleColor(this)' onclick=fSetSelectedDay(this)>&nbsp;</font>");
+}
+document.write("</td>")
+}
+document.write("</tr>");
+}
+document.write("</table>")
+document.write("</center>");
+}
+function fUpdateCal(iYear, iMonth) {
+myMonth = fBuildCal(iYear, iMonth);
+objPrevElement.bgColor = "";
+document.all.calSelectedDate.value = "";
+document.forms[0].tbSelYear.value = iYear;
+for (w = 1; w < 7; w++) {
+for (d = 0; d < 7; d++) {
+if (!isNaN(myMonth[w][d])) {
+calDateText[((7*w)+d)-7].innerText = myMonth[w][d];
+} else {
+calDateText[((7*w)+d)-7].innerText = " ";
+         }
+      }
+   }
+document.forms[0].Go.focus();
+}
+// End -->
+</script>
+</HEAD>
+<BODY BGCOLOR=#ffffff vlink=#0000ff >
+<center>
+    <!-- Demonstration -->
+  <script language="JavaScript" for=window event=onload>
+<!-- Begin
+if(window.opener)
+{
+	if(window.name=="SetCalendarS")
+	{
+		OpenerDate = window.opener.document.forms[0].AcceptDate;
+	}
+	else
+	{
+		OpenerDate = window.opener.document.forms[0].DispatchDate;
+	}
+	
+}
+var dCurDate = new Date();
+document.forms[0].tbSelMonth.options[dCurDate.getMonth()].selected = true;
+for (i = 0; i < document.forms[0].tbSelYear.length; i++)
+if (document.forms[0].tbSelYear.options[i].value == dCurDate.getFullYear())
+document.forms[0].tbSelYear.options[i].selected = true;
+//  End -->
+</script>
+
+<form name="frmCalendarSample" method="post" action="">
+
+
+<table border="0" class="caldar_bj">
+<tr align="center">
+<td>
+<a href="#" class="t2" onClick="var dCurDate = new Date();fUpdateCal(dCurDate.getFullYear(), dCurDate.getMonth()+1)">今天:</a>
+<input type="hidden" name="calSelectedDate" value="">
+<script language="JavaScript">
+<!--
+function PageDate()
+{
+	currentDate = new Date()
+	with (currentDate)
+          {
+		day=getDay()
+		month=getMonth()+1
+		this.document.write('<font size="2" color="#FF9900">'+getFullYear()+'</font><font size="2" color="#FF9900">.</font><font size="2" color="#FF9900">'+month+'</font><font size="2" color="#FF9900">.</font><font size="2" color="#FF9900">'+'<font size="2" color="#FF9900">'+getDate()+'</font>')
+	}
+	if (day==1){document.write(' <font size="2" color="#FF9900">星期一</font>')}
+	if (day==2){document.write(' <font size="2" color="#FF9900">星期二</font>')}
+	if (day==3){document.write(' <font size="2" color="#FF9900">星期三</font>')}
+	if (day==4){document.write(' <font size="2" color="#FF9900">星期四</font>')}
+	if (day==5){document.write(' <font size="2" color="#FF9900">星期五</font>')}
+	if (day==6){document.write(' <font size="2" color="#FF9900">星期六</font>')}
+	if (day==0){document.write(' <font size="2" color="#FF9900">星期日</font>')}
+	document.write('<br>')
+}
+
+PageDate()
+
+// -->
+</script></td>
+</tr>
+<tr align="center">
+<td>
+  <img src="../images/yellowLeftArrow.gif" width="6" height="10"onClick="setPreviousMonth()" class="t2">&nbsp;<select name="tbSelMonth" class="thin" onchange='fUpdateCal(document.forms[0].tbSelYear.value, document.forms[0].tbSelMonth.value)'>
+<option value="1">一月</option>
+<option value="2">二月</option>
+<option value="3">三月</option>
+<option value="4">四月</option>
+<option value="5">五月</option>
+<option value="6">六月</option>
+<option value="7">七月</option>
+<option value="8">八月</option>
+<option value="9">九月</option>
+<option value="10">十月</option>
+<option value="11">十一月</option>
+<option value="12">十二月</option>
+</select>
+<img src="../images/yellowRightArrow.gif" width="6" height="10"onClick="setNextMonth()" class="t2">&nbsp;<img src="../images/yellowLeftArrow.gif" width="6" height="10"onClick="setPreviousYear()" class="t2">
+<INPUT NAME="tbSelYear" TYPE=TEXT class="thin" onChange='fUpdateCal(document.forms[0].tbSelYear.value, document.forms[0].tbSelMonth.value)' SIZE=3 MAXLENGTH=4>
+<img src="../images/yellowRightArrow.gif" width="6" height="10"onClick="setNextYear()" class="t2">
+</td>
+</tr>
+<tr>
+<td>
+<script language="JavaScript">
+var dCurDate = new Date();
+fDrawCal(dCurDate.getFullYear(), dCurDate.getMonth()+1, 20, 20, "12px", "bold", 1);
+</script>
+</td>
+</tr>
+<tr>
+<td>
+  <div align="center"><img src="../images/cancel.gif" onClick="javascript:Cancel()">
+  </div></td>
+</tr>
+</table>
+
+
+
+
+</form> 
+  <!--content_stop--> 
+</center></body></html>
+
+
+

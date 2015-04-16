@@ -1,0 +1,418 @@
+/*---Copyright 2011 baosight---*/
+/*---Created by QIU Zhaoping---*/
+
+/*---���灞��---*/
+*
+{
+	margin:0;
+	padding:0;
+}
+html,body {
+	height:100%;
+	width:100%;
+	background: #cbe3e8;
+	min-height:569px;
+	min-width:900px;
+}
+html {
+	overflow: auto;
+
+}
+body {
+	/*设置滚动条消失*/
+	overflow-x: auto; 
+	overflow-y: hidden;
+	
+	height:100%;
+	font-family: 微软雅黑, 宋体;
+	color: black;
+	text-align:center;
+	line-height:20px;
+	font-size:12px;
+	/*background-image:url(EF/Images/login/loginbg.jpg) ;*/
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:100%;
+}
+
+form {
+ margin:0; padding:0;
+}
+
+a:link, a:visited {
+	color:#2d4368;
+	text-decoration:none;
+}
+a:hover {
+	color:#F60;
+	text-decoration:none;
+}
+
+a.buttonLink:link, .buttonLink:visited, .buttonLink:hover {
+	color:#2d4368;
+}
+
+/*
+----用户名，密码输入框----
+*/
+.inputField {
+	background:#f4f9ff;
+	FONT-FAMILY: 微软雅黑, 宋体;
+	HEIGHT: 25px;
+	COLOR: #2d4368;
+	FONT-SIZE: 12px; 
+	border:#7b9dc0 1px solid;
+	width:155px;
+	margin-bottom:-3px;
+}
+
+/*
+----验证码输入框----
+*/
+.identifyingcodeInputField {
+	background:#f4f9ff;
+	FONT-FAMILY: 微软雅黑, 宋体;
+	HEIGHT: 25px;
+	COLOR: #2d4368;
+	FONT-SIZE: 12px; 
+	border:#7b9dc0 1px solid;
+	width:91px;
+	margin-top:-5px;
+	margin-left:0px;
+}
+
+.languageSelect {
+	background:#f4f9ff;
+	FONT-FAMILY: 微软雅黑, 宋体;
+	HEIGHT: 24px;
+	COLOR: #2d4368;
+	FONT-SIZE: 12px; 
+	border:#7b9dc0 1px solid;
+	width:156px;
+		margin-bottom:-3px;
+}
+
+.wrap {
+	height:100%;
+	width:100%;
+	position:absolute;
+}
+
+.bottomWrap {
+	vertical-align:top;
+	background:url(EF/Images/login/login_bg_bottom.jpg) repeat-x;
+}
+.footerWrap {
+	vertical-align:bottom;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	color:white;
+}
+
+/*
+
+---top---
+---登陆页面顶部---
+
+*/
+.topWrap {
+	/*background:url(EF/Images/login/login_bg_top.jpg) repeat-x;*/
+	height:30%;/*230px*/
+	padding-top:29px;
+	min-width:900px;
+}
+
+div.light {
+	/*background:url(EF/Images/login/login_bg_light.jpg);*/
+	width:100%;
+	height:100%;
+	margin:0px auto;
+	text-align:center;
+	position:relative;
+}
+
+/*
+----logo所在Div----
+*/
+div.logoDiv{
+	float:left;
+	left:100px;
+	width:224px;
+}
+
+div.title1 {
+	/*float:left;*/
+	position:absolute;
+	bottom:90px;
+	left:30%;/*300px*/
+	/*font-family:Verdana, Geneva, sans-serif;*/
+	font-size:40px;
+	font-weight:bold;
+	color:white;
+}
+
+div.title2 {
+	/*float:left;*/
+	position:absolute;
+	bottom:50px;
+	left:50%;/*600px*/
+	font-size:30px;
+	font-weight:bold;
+	font-style:italic;
+	color:white;
+}
+
+/*
+---登陆页面中层 输入区域---
+*/
+
+.middleWrap {
+	/*background:url(EF/Images/login/whitebg.png) no-repeat;*/
+	vertical-align:top;
+	text-align:center;
+	height:auto;
+	margin-top:50px;
+}
+
+/*
+---登陆页面中层 输入区域---
+----div.middle:输入行+按钮行+提示行-----
+*/
+div.middle {
+	background:url(EF/Images/login/whitebg.png) no-repeat;
+	background-position:center;
+	width:100%;
+	height:295px;
+}
+
+div.middleTop {
+	/*
+	background:url(EF/Images/login/middle_bg.jpg) repeat-x;
+	*/
+	height:150px;
+	width:458px;
+	margin-bottom:-20px;
+	padding-top:0px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div.middleBottom{
+	width:458px;
+
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*
+---登陆页面 按钮div---
+*/
+div.buttonBox {
+	font-size:12px;
+	color:#013968;
+	text-align:center;
+	margin-top:17px;
+	width:223px;
+}
+
+div.button1 {
+	margin:10px 50px auto 45px;
+	font-size:12px;
+}
+
+/*
+---登陆页面 登陆按钮---
+*/
+div.loginbutton {
+	float:left;
+	background:url(EF/Images/login/loginbutton.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:65px;
+	padding-top:3px;
+	overflow:visible;
+}
+
+div.loginbutton-on {
+	float:left;
+	background:url(EF/Images/login/loginbutton_onmouse.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:65px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+div.loginbutton-pressed {
+	float:left;
+	background:url(EF/Images/login/loginbutton_pressed.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:65px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+/*
+---登陆页面 重置按钮---
+*/
+div.resetbutton {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:33px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+div.resetbutton-on {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton_onmouse.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:33px;
+	padding-top:3px;
+	overflow:visible;
+}
+div.resetbutton-pressed {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton_pressed.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:33px;
+	padding-top:3px;
+	overflow:visible;
+}
+
+/*----特别提示----*/
+div.hintDiv {
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:15px;
+	color:black;
+	height:78px;
+	padding-left:30px;
+	width:456px;
+	font-size:12px;
+	margin-top:30px;
+	line-height:78px;
+}
+/*
+div.middle-right {
+	
+	left:300px;
+}
+*/
+
+div.loginIcon {
+	background:url(EF/Images/login/login-icon.jpg) no-repeat center;
+	width:77px;
+	height:89px;
+	margin:38px 55px auto 35px;
+}
+
+/*
+---登陆输入区域---
+*/
+.box {
+	height:145px;
+	width:auto;
+	vertical-align:middle;
+	background-image:url(EF/Images/login/login_input_bg.png) ;
+	background-repeat:repeat-x,repeat-y;
+	margin-left:60px;
+	padding-top:5px;
+}
+
+
+/*----运维热线----*/
+div.hotlineMessageDiv {
+	color:black;
+	font-family: 微软雅黑, 宋体;
+	font-size:12px;
+	width:160px;
+	padding-top:20px;
+	padding-left:9px;
+	overflow-x:visible;
+}
+
+/*
+----用户名，密码，国际化，验证码div----
+*/
+div.user, .pwd, .language, .identifyingcodediv{
+	font-size:12px;
+	color:black;
+	text-align:left;
+	margin:5px;
+	margin-bottom:9px;
+	line-height:100%;
+}
+
+div..identifyingcodediv{
+	font-size:12px;
+	color:black;
+	text-align:left;
+	margin:7px;
+	margin-bottom:9px;
+	line-height:100%;
+}
+
+div.message {
+	float:right;
+	font-size:12px;
+	margin:0 3px;
+}
+
+
+/*----页脚----*/
+div.footer {
+	/*background:#367dba;*/
+	padding-top:5px;
+	margin:0 auto;
+	height:40px;
+	bottom:0px;
+	position:absolute;
+	font-size:12px;
+	width:100%;
+}
+
+
+/*
+----box左侧主题图片样式----
+*/
+img.themeImg {
+	width:134px;
+	height: 124px;
+	padding-left:15px;
+}
+
+/*
+----baosteelLogo样式----
+*/
+img.logoImg {
+	margin-left:45px;
+}
+
+/*
+----验证码样式----
+*/
+img.identifyingcodeImg {
+	height:25px;
+	margin-top:-5px;
+}
+
+img.backgroundImg {
+	width:100%;
+	height:100%;
+	min-height:700px;
+	min-width:1000px;
+	
+}

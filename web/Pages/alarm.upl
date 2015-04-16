@@ -1,0 +1,44 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1024" Height="768" RefreshRate="1000" BackColor="#FFFFFFFF" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<iCVAlarmControl:iCVAlarmControl Name="iCVAlarmControl1" Left="20" Top="15" Width="894" Height="244" ZIndex="0" >
+<iCVAlarmControl:iCVAlarmControl.columnConfig>
+<iCVAlarmControl:ColumnList>
+<iCVAlarmControl:ColumnList.columnList>
+<iCVAlarmControl:ColumnDefinition/>
+<iCVAlarmControl:ColumnDefinition Name="确认状态" Description="确认状态" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="节点名" Description="节点名" Width="75"/>
+<iCVAlarmControl:ColumnDefinition Name="变量名" Description="变量名" Width="75"/>
+<iCVAlarmControl:ColumnDefinition Name="报警时变量的值" Description="报警时变量的值" Width="175"/>
+<iCVAlarmControl:ColumnDefinition Name="变量描述" Description="变量描述" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="报警类型" Description="报警类型" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="确认人" Description="确认人" Width="75"/>
+<iCVAlarmControl:ColumnDefinition Name="恢复状态" Description="恢复状态" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="报警时间" Description="报警时间" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="确认时间" Description="确认时间" Width="100"/>
+<iCVAlarmControl:ColumnDefinition Name="报警次数" Description="报警次数" Width="100"/>
+</iCVAlarmControl:ColumnList.columnList>
+</iCVAlarmControl:ColumnList>
+</iCVAlarmControl:iCVAlarmControl.columnConfig>
+<iCVAlarmControl:iCVAlarmControl.colorConfig>
+<iCVAlarmControl:ColorConfig BackNew="#FFFFFFFF" BackConfirm="#FFFFFFFF" BackRecover="#FFFFFFFF" FontNew="#FFFF0000" FontConfirm="#FF0000FF" FontRecover="#FF008000"/>
+</iCVAlarmControl:iCVAlarmControl.colorConfig>
+<iCVAlarmControl:iCVAlarmControl.filterConfig>
+<iCVAlarmControl:FilterList>
+<iCVAlarmControl:FilterList.filters>
+<iCVAlarmControl:GroupFilter EnabledStatus ="False">
+</iCVAlarmControl:GroupFilter>
+<iCVAlarmControl:StatusFilter EnabledStatus="False" NConfirmNRecover="False" NConfirmRecover="False" ConfirmNRecover="False"/>
+<iCVAlarmControl:TimeFilter EnabledStatus="False" StartTime ="" EndTime="" Type="Between"/>
+<iCVAlarmControl:PriorityFilter EnabledStatus="False" Range1Start ="" Range1End="" Range2Start="" Range2End="" Range3Start="" Range3End="" Range4Start="" Range4End=""/>
+</iCVAlarmControl:FilterList.filters>
+</iCVAlarmControl:FilterList>
+</iCVAlarmControl:iCVAlarmControl.filterConfig>
+</iCVAlarmControl:iCVAlarmControl>
+</BasicControl:Canvas>
+<Tags>
+</Tags>
+<Script>
+</Script>
+</Pane>

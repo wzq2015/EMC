@@ -1,0 +1,25 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1024" Height="768" RefreshRate="1000" BackColor="#FFFFFFFF" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<iCVTrendChart:iCVTrendChart Name="iCVTrendChart1" Left="34" Top="20" Width="846" Height="387" ZIndex="0" Title="" XAxisTimeLength="10" XAxisTimeUnit="Minute" IsYAxisAdaptive="True" YAxisUpLimit="0" YAxisDownLimit="0" RefreshTimeInterval="5000" >
+<iCVTrendChart:iCVTrendChart.TrendGroupConfig>
+<iCVTrendChart:TrendGroupConfigModel>
+<iCVTrendChart:TrendGroupConfigModel.TrendGroupList>
+<iCVTrendChart:TrendGroup TrendGroupName="group1" TrendGroupDesc="" IsDefault="True" >
+<iCVTrendChart:TrendGroup.TrendCurveList>
+<iCVTrendChart:TrendCurve CurveName="curve1" NTFName="added_scadaname1.rz1880_PT_2001.f_cv" >
+</iCVTrendChart:TrendCurve>
+</iCVTrendChart:TrendGroup.TrendCurveList>
+</iCVTrendChart:TrendGroup>
+</iCVTrendChart:TrendGroupConfigModel.TrendGroupList>
+</iCVTrendChart:TrendGroupConfigModel>
+</iCVTrendChart:iCVTrendChart.TrendGroupConfig>
+</iCVTrendChart:iCVTrendChart>
+
+</BasicControl:Canvas>
+<Tags>
+</Tags>
+<Script>
+</Script>
+</Pane>

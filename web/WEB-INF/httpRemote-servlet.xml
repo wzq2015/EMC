@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">   
+   
+<beans>   
+<bean id="TemplateService" class="com.baosight.iplat4j.ec.tm.utils.TemplateServiceImpl" />   
+<bean name="/TemplateService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">   
+  <property name="service" ref="TemplateService"></property>   
+  <property name="serviceInterface" value="com.baosight.iplat4j.ec.tm.utils.TemplateService"></property>   
+</bean>      
+</beans>

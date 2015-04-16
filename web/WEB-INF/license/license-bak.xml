@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<licenses>
+    <license code="iPlat">
+        <AuthorizedClient desc="用户名称" type="fixed">emc</AuthorizedClient>
+        <AuthorizedOS desc="授权操作系统" type="fixed">WINDOWS</AuthorizedOS>
+        <AuthorizedProject desc="项目名称" type="fixed">fpserver</AuthorizedProject>
+        <AuthorizingCompany desc="签发单位" type="fixed">上海宝信软件股份有限公司</AuthorizingCompany>
+        <AuthorizingSoftware desc="产品名称" type="fixed">宝信信息系统平台</AuthorizingSoftware>
+        <BPM desc="业务流程管理" type="customized">0</BPM>
+        <ExpiringDate desc="过期时间" type="fixed">2014-07-15</ExpiringDate>
+        <LicVersion desc="许可证版本" type="fixed">1.2.3</LicVersion>
+        <LicenseCode desc="产品代码" type="fixed">iPlat</LicenseCode>
+        <LicenseMode desc="许可证模式" type="fixed">Simple</LicenseMode>
+        <SigningDate desc="签发时间" type="fixed">2014-04-16</SigningDate>
+        <StartDate desc="起始时间" type="fixed">2014-04-16</StartDate>
+        <VersionNumber desc="产品版本" type="fixed">5.0</VersionNumber>
+        <signature desc="防伪签名" type="fixed">302c021460548367cbb8a29d330831a428004423328b6bf202147be38fdeabbd75e57efb4a5e0d7b0f4e9c411406</signature>
+    </license>
+</licenses>

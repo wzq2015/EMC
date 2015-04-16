@@ -1,0 +1,76 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="330" Height="480" RefreshRate="1000" BackColor="#FF225490" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<BasicControl:Label Name="Label1" Left="96" Top="36" Width="140" Height="32" ZIndex="0" IsBold="true" FontSize="15" VAlignment="Center" Text="1#引风机工艺参数" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox1" Left="183" Top="76" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label2" Left="30" Top="74" Width="119" Height="27" ZIndex="0" VAlignment="Center" Text="风机前轴承温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox2" Left="183" Top="106" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label3" Left="30" Top="104" Width="119" Height="27" ZIndex="0" VAlignment="Center" Text="风机后轴承温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox3" Left="183" Top="136" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label4" Left="30" Top="134" Width="119" Height="27" ZIndex="0" VAlignment="Center" Text="电机前轴承温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox4" Left="183" Top="166" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label5" Left="30" Top="164" Width="121" Height="27" ZIndex="0" VAlignment="Center" Text="电机后轴承温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox5" Left="183" Top="196" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label6" Left="30" Top="194" Width="126" Height="27" ZIndex="0" VAlignment="Center" Text="电机U相绕组温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox6" Left="183" Top="226" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label7" Left="30" Top="224" Width="128" Height="27" ZIndex="0" VAlignment="Center" Text="电机V相绕组温度( C)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox7" Left="183" Top="256" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label8" Left="30" Top="254" Width="124" Height="27" ZIndex="0" VAlignment="Center" Text="电机W相绕组温度( C)" ></BasicControl:Label>
+<BasicControl:Button Name="Button1" Left="304" Top="4" Width="23" Height="21" ZIndex="0" Text="x" ></BasicControl:Button>
+<BasicShape:Rectangle Name="Rectangle1" Left="2" Top="29" Width="325" Height="448" ZIndex="-1" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label9" Left="30" Top="284" Width="141" Height="27" ZIndex="0" VAlignment="Center" Text="风机轴承震动1X(mm/s)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox8" Left="183" Top="286" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label10" Left="30" Top="314" Width="138" Height="27" ZIndex="0" VAlignment="Center" Text="风机轴承震动1Y(mm/s)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox9" Left="183" Top="316" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label11" Left="30" Top="404" Width="97" Height="27" ZIndex="0" VAlignment="Center" Text="引风机电流(A)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox10" Left="183" Top="406" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label12" Left="30" Top="434" Width="97" Height="27" ZIndex="0" VAlignment="Center" Text="引风机频率(Hz)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox11" Left="183" Top="436" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label13" Left="120" Top="70" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label14" Left="120" Top="100" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label15" Left="120" Top="130" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label16" Left="120" Top="160" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label17" Left="128" Top="190" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label18" Left="128" Top="220" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label19" Left="131" Top="250" Width="14" Height="20" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label20" Left="30" Top="344" Width="140" Height="27" ZIndex="0" VAlignment="Center" Text="风机轴承震动2X(mm/s)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox12" Left="183" Top="346" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox13" Left="183" Top="376" Width="116" Height="23" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label21" Left="30" Top="374" Width="141" Height="27" ZIndex="0" VAlignment="Center" Text="风机轴承震动2Y(mm/s)" ></BasicControl:Label>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox1" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2101.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox2" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2102.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox3" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2103.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox4" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2104.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox5" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2105.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox6" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2106.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox7" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_2107.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox8" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_VE_2102.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox9" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_VE_2101.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox10" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_ATV71_CUN_D.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox11" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_ATV71_HZ_D.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox12" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_VE_2102.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox13" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_VE_2101.F_CV">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="    PageMethods.ClosePage(&quot;hb05_fan1.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

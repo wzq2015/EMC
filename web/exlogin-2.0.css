@@ -1,0 +1,308 @@
+
+html,body,a,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,
+	/*sup,*/ var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	background: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+form {
+	width:100%;
+}
+
+#home form {
+	background: transparent;
+}
+
+#home #header,#header {
+	position: relative;
+	z-index: 70;
+}
+
+#home #page {
+	margin-bottom: 0;
+	height: 100%;
+}
+
+#home #footer {
+	position: absolute;
+	bottom: 7px;
+	z-index: 59;
+}
+
+#home DIV, TR, TD, SPAN {
+	font-size: 100%;
+	line-height: 1.5;
+	font-family: "Microsoft yahei", "微软雅黑", "Tahoma", "Verdana", "Arial", "sans-serif";
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%
+}
+
+#page {
+	margin: 0 0 58px -475px;
+	width: 950px;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 0;
+}
+
+#header {
+	height: 70px;
+	position: absolute;
+	z-index: 50;
+	top: 7px;
+	width: 950px;
+	background: url(./EF/Images/login/bkg-overlay.png) repeat;
+}
+
+#header span {
+	display:inline-block;
+}
+
+#nav-main {
+	position: relative;
+	background: url(./EF/Images/login/bkg-nav-main.png) repeat-x;
+	height: 100px;
+	display: block;
+	z-index: 50;
+}
+
+#hero {
+	position: absolute;
+    left: 50%;
+    margin-left: -210px;
+ 	top: 50%;
+    margin-top: -150px;
+    width: 420px;
+	height: 300px;  
+	background: #EFEFEF;
+	z-index: 50;
+	border-top-right-radius:8px;
+    border-top-left-radius:8px;
+    border-bottom-right-radius:8px;
+    border-bottom-left-radius:8px;
+}
+
+#login-panel td {
+	padding: 7px;
+}
+
+#footer {
+	background: url(./EF/Images/login/bkg-overlay.png);
+	height: 50px;
+	width: 950px;
+	position: absolute;
+	margin-top: 7px;
+}
+
+.homeBackInit {
+	overflow: hidden;
+	background: #cfcfcf url(./EF/Images/login/bkg-body.png);
+	background-repeat: repeat-x;
+}
+
+#homeBackGround {
+    width: 100%; 
+    height: 100%; 
+    
+	position: absolute;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	
+    z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+
+}
+
+.homeImgStretch {
+    width:100%;
+    height:100%;
+}
+
+.inputField {
+    font-family: Consolas, 微软雅黑, 宋体, arial;
+    font-size: 12px;
+    color: black;
+    height:24px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.leftBanner {
+	width:70px;
+	padding-left:20px;
+	vertical-align:middle
+}
+
+.titleLabel {
+	width: 100%;
+	vertical-align: middle;
+	padding-left: 10px;
+	text-align:left; 
+	
+	color: #FFF;
+	float: left;
+}
+
+.topRightLabel {
+	width: 70px;
+	vertical-align: middle;
+	padding-right: 10px;
+	text-align:right; 
+	
+	color: #FFF;
+	float: right;
+}
+
+.topLeftLabel {
+	width:70px;
+	padding-left:20px;
+	vertical-align:middle
+}
+
+.bottomRightLabel {
+	vertical-align: middle;
+	padding-right: 10px;
+	text-align:right; 
+	
+	color: #FFF;
+	float: right;
+}
+
+
+/*----特别提示----*/
+#hintDiv {
+	border-top: 1px solid #0064A3;
+	padding-left:7px;
+	margin-top:7px;
+    color:black;
+	height:70px;
+}
+
+#hintDiv table {
+  border-collapse:collapse;  
+  border-spacing:0;  
+}
+
+#hintDiv th,td{  
+padding:0;  
+} 
+/*
+----用户名，密码输入框----
+*/
+.inputField {
+	background:#f4f9ff;
+	FONT-FAMILY: 微软雅黑, 宋体;
+	HEIGHT: 25px;
+	COLOR: #2d4368;
+	FONT-SIZE: 12px; 
+	border:#7b9dc0 1px solid;
+	width:155px;
+	margin-bottom:-3px;
+}
+
+/*
+----验证码输入框----
+*/
+.identifyingcodeInputField {
+	width:60px;
+}
+
+.languageSelect {
+	background:#f4f9ff;
+	FONT-FAMILY: 微软雅黑, 宋体;
+	HEIGHT: 24px;
+	COLOR: #2d4368;
+	FONT-SIZE: 12px; 
+	border:#7b9dc0 1px solid;
+	width:156px;
+		margin-bottom:-3px;
+}
+
+/*
+---登陆页面 登陆按钮---
+*/
+div.loginbutton {
+	float:left;
+	background:url(EF/Images/login/loginbutton.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:120px;
+	padding-top:3px;
+	overflow:visible;
+}
+
+div.loginbutton-on {
+	float:left;
+	background:url(EF/Images/login/loginbutton_onmouse.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:120px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+div.loginbutton-pressed {
+	float:left;
+	background:url(EF/Images/login/loginbutton_pressed.png) no-repeat;
+	text-align:left;
+	width:72px;
+	height:27px;
+	margin-left:120px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+/*
+---登陆页面 重置按钮---
+*/
+div.resetbutton {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:27px;
+	padding-top:3px;
+	overflow:visible;
+	
+}
+
+div.resetbutton-on {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton_onmouse.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:27px;
+	padding-top:3px;
+	overflow:visible;
+}
+div.resetbutton-pressed {
+	float:right;
+	background:url(EF/Images/login/resetpswbutton_pressed.png) no-repeat;
+	text-align:left;
+	width:73px;
+	height:27px;
+	padding-top:3px;
+	overflow:visible;
+}
+
+/*
+----验证码样式----
+*/
+img.identifyingcodeImg {
+	height:25px;
+}

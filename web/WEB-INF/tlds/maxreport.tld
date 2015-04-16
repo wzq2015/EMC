@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>out</shortname>
+<!-- Html ReportView -->
+<tag>
+<name>showReport</name>
+<tagclass>com.maxreport.taglib.MaxReportShowTag</tagclass>
+<bodycontent>JSP</bodycontent>
+<attribute>
+ <name>name</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>width</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>height</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>toolBarVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>zoomVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>pageVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>firstVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>priorVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>nextVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>lastVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>findVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>findNextVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>printVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>pageSettingVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>outlineVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>handVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>zoomToolVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>fullScreenVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>serverInfoVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>exportVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>refreshVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>submitVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>fielterVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>closeVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>disableWrite</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>reportTabModel</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>showBorder</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>showStatusBar</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>backGround</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>useSessionParams</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>confirmClosePage</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+<tag>
+<name>showOLAP</name>
+<tagclass>com.maxreport.taglib.MaxOLAPShowTag</tagclass>
+<bodycontent>JSP</bodycontent>
+<attribute>
+ <name>name</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>mapSelectVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>openMapVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>saveMapVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>swapMapVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>exportVisible</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>olapTabModel</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>useSessionParams</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+</tag>
+
+
+<tag>
+<name>showGridReport</name>
+<tagclass>com.maxreport.taglib.MaxGridShowTag</tagclass>
+<bodycontent>JSP</bodycontent>
+<attribute>
+ <name>name</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>width</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>height</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>confirmClosePage</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+</tag>
+  
+<tag>
+<name>showHtmlReport</name>
+<tagclass>com.maxreport.taglib.MaxGridHtmlTag</tagclass>
+<bodycontent>JSP</bodycontent>
+<attribute>
+ <name>name</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>pageCut</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>useCache</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>align</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>pageURL</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>projectName</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>reportName</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+<attribute>
+ <name>runID</name>
+ <required>false</required>
+ <rtexprvalue>true</rtexprvalue>
+</attribute>
+
+
+</tag>
+
+</taglib>
+

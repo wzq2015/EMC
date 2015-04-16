@@ -1,0 +1,143 @@
+BODY{	FONT-SIZE: 9pt;Background-Color: #FFFFFF; Color: black; margin: 2px; SCROLLBAR-FACE-COLOR: #C3D5ED; SCROLLBAR-HIGHLIGHT-COLOR: #E5EAF1; SCROLLBAR-SHADOW-COLOR: #81AAE1; SCROLLBAR-3DLIGHT-COLOR: #81AAE1; SCROLLBAR-ARROW-COLOR: #81AAE1; SCROLLBAR-TRACK-COLOR: #E5EAF1; SCROLLBAR-DARKSHADOW-COLOR: #E5EAF1;}
+td {
+	FONT-SIZE: 9pt; COLOR: #000000;
+}
+.text {
+	COLOR: 000000;
+	font-size: 9pt;
+	letter-spacing: 1px;
+	line-height: 20px;
+
+}
+A:link {
+	COLOR: 000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: 000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #2B73D2; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #2B73D2; TEXT-DECORATION: none
+}
+
+.popupwindow {width:500px; height:400px}
+
+TABLE.address	{
+	FONT-SIZE: 10pt;
+	COLOR: #000000;
+	TEXT-ALIGN:left;
+	width:99%;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	height:20px;
+	BORDER-LEFT: 0px;
+	BORDER-BOTTOM: 0px;
+	
+} 
+
+TABLE.top	{ border: 1px solid #0D1D72; } 
+.toptitle  {
+	font-size: 13px;
+	color: #08116D;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-weight: bold;
+
+} 
+.toptitle:link {
+	COLOR: 08116D; TEXT-DECORATION: none
+}
+.toptitle:visited {
+	COLOR: 08116D; TEXT-DECORATION: none
+}
+.toptitle:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.toptitle:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.topcontent { font-size: 13px;
+	color: #08116D;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 2px; } 
+.topcontent:link {
+	COLOR: 08116D; TEXT-DECORATION: none
+}
+.topcontent:visited {
+	COLOR: 08116D; TEXT-DECORATION: none
+}
+.topcontent:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.topcontent:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+	
+TABLE.panel {
+	cellpadding:0px;
+	cellspacing:0px;
+	FONT-SIZE: 10pt;
+	FONT-FAMILY: "宋体";
+	border: 1px solid #2B73D2;
+} 
+
+TR.panel_title { TEXT-ALIGN: left; FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY:"宋体"; HEIGHT:22px; background-image:  url(../images/grid_title.jpg)} 
+td.panel_title { TEXT-ALIGN: left; FONT-WEIGHT: bold; font-size: 10pt; color: #000000; FONT-FAMILY:"宋体"; height: 22px; background-image:  url(../images/panel_title.gif)}
+
+TR.panel_content {TEXT-ALIGN: left;border-top-width: 0px; FONT-SIZE: 10pt; BACKGROUND-COLOR: #EBEFF4; FONT-FAMILY: "宋体"; HEIGHT: 20px} 
+TD.panel_content {TEXT-ALIGN: left;BORDER-BOTTOM: #ffffef 1px solid; BACKGROUND-COLOR: #EBEFF4;BORDER-right: #ffffef 1px solid; FONT-SIZE: 10pt; FONT-FAMILY: "宋体"; HEIGHT: 20px} 
+
+TR.panel_bottom { FONT-SIZE: 10pt;  FONT-FAMILY: "宋体"; HEIGHT: 22px; } 
+TD.panel_bottom { FONT-SIZE: 10pt;  FONT-FAMILY: "宋体"; HEIGHT: 22px;} 
+
+TABLE.grid {
+	cellpadding:0px;
+	cellspacing:0px;
+	FONT-SIZE: 10pt;
+	FONT-FAMILY: "宋体";
+	border: 1px solid #2B73D2;
+} 
+
+TR.grid_title { TEXT-ALIGN: left; FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY:"宋体"; HEIGHT:22px; background-image: url(../images/grid_title.jpg)} 
+td.grid_title { TEXT-ALIGN: left; FONT-WEIGHT: bold; font-size: 10pt; color: #000000; FONT-FAMILY:"宋体"; height:22px; background-image: url(../images/grid_title.gif)}
+
+TR.grid_head {TEXT-ALIGN: left;TEXT-ALIGN: left; FONT-WEIGHT: bold; FONT-SIZE: 10pt;  COLOR: #000000; FONT-FAMILY: "宋体"; HEIGHT:22px; BACKGROUND: #D4DBE4;} 
+TD.grid_head {TEXT-ALIGN: left;TEXT-ALIGN: left; FONT-WEIGHT: bold; FONT-SIZE: 10pt;  COLOR: #000000; FONT-FAMILY: "宋体"; HEIGHT:22px; BACKGROUND: #D4DBE4;} 
+
+TR.grid_content {TEXT-ALIGN: left;border-top-width: 1px; FONT-SIZE: 10pt; BACKGROUND-COLOR: expression((this.sectionRowIndex%2==0)?"#ffffff":"#EEF2F7"); FONT-FAMILY: "宋体"; HEIGHT: 20px} 
+TD.grid_content {TEXT-ALIGN: left;BORDER-BOTTOM: #99ffff 1px solid; BORDER-right: #99ffff 1px solid; FONT-SIZE: 10pt; FONT-FAMILY: "宋体"; HEIGHT: 20px} 
+
+TR.grid_bottom { FONT-SIZE: 10pt; BACKGROUND: #D4DBE4; FONT-FAMILY: "宋体"; HEIGHT: 20px ;} 
+TD.grid_bottom { FONT-SIZE: 10pt; BACKGROUND: #D4DBE4; FONT-FAMILY: "宋体"; HEIGHT: 20px ; } 
+
+.button{
+	background-image: url(../images/button_bg.jpg);
+	background-repeat: repeat-x;
+	height: 22px;
+	color: #0F3A6F;
+	border: 1px solid #214B89;
+	letter-spacing: 1px;
+}
+INPUT.text{FONT-FAMILY: monospace;}
+INPUT.readonly{BACKGROUND: #99ffff;FONT-FAMILY: monospace;}
+
+INPUT.mycheckbox{BORDER-TOP-WIDTH: 1px;
+		BORDER-TOP-COLOR: #5BCEFF;BORDER-LEFT-WIDTH: 1px;
+    BORDER-LEFT-COLOR: #5BCEFF;BORDER-BOTTOM-WIDTH: 1.5px;
+    BORDER-BOTTOM-COLOR: #2B90C2;FONT-FAMILY: monospace;
+    BORDER-RIGHT-WIDTH: 1.5px;BORDER-RIGHT-COLOR: #2B90C2
+}
+
+select.myselect{
+    BORDER-TOP-WIDTH: 1px;BORDER-LEFT-WIDTH: 1px;BORDER-LEFT-COLOR: #5BCEFF;
+    BORDER-BOTTOM-WIDTH: 1.5px;BORDER-BOTTOM-COLOR: #2B90C2;BORDER-TOP-COLOR: #5BCEFF;
+    FONT-FAMILY: monospace;BORDER-RIGHT-WIDTH: 1.5px;BORDER-RIGHT-COLOR: #2B90C2
+}
+
+iframe.myframe{HEIGHT: 100%;text_align:center; VISIBILITY: inherit; WIDTH: 100%; 
+	Z-INDEX: 1;border-style: none;frame-border-top-width: 0px;frame-border-right-width: 0px; 
+	rame-border-bottom-width: 0px;frame-border-left-width: 0px
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<global-forwards>
+		<forward name="error" path="/EP/EP01.jsp" />
+		<forward name="blankinfo" path="/framework/jsp/common/blankinfo.jsp" />
+		<forward name="blankmsginfo" path="/framework/jsp/common/blankmsginfo.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+		<action path="/toPage" forward="/framework/jsp/common/toPage.jsp" />
+		
+		<action path="/**" type="com.baosight.iplat4j.struts.StrutsInvokeAction">
+			<forward name="success" path="/{1}.jsp" />
+		</action>
+		
+		<action path="/ActionIframeJson" type="com.baosight.iplat4j.ef.action.ActionIframeJson"
+			name="efForm" scope="request" validate="true">
+			<forward name="success" path="/iframeJson.jsp" />
+		</action>  
+		
+		<action path="/DispatchAction" type="org.springframework.web.struts.DelegatingActionProxy"> 
+		</action>
+
+	</action-mappings>
+	<message-resources
+		factory="com.baosight.iplat4j.struts.FrameworkMessageResourcesFactory"
+		parameter="" null="false" />
+	<message-resources parameter="com.baosight.ecan.EcanResources"
+		key="ecan" null="false" />
+		
+	<!-- ========== Tiles plugin ===================  -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+	
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/framework/struts/validator-rules.xml" />
+	</plug-in>
+
+</struts-config>

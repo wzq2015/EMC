@@ -1,0 +1,301 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="5000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<BasicShape:Polygon Name="Polygon1" Left="537" Top="617" Width="276" Height="208" ZIndex="0" LineColor="#FF000000" BackColor="#FF7F7F7F" FillColor="#FFFFFFFF" HorizontalFillType="FromCenterToSide" IsHorizontalGradual="True" Points="0,0 0,208 276,124 276,0" >
+</BasicShape:Polygon>
+<BasicShape:Rectangle Name="Rectangle1" Left="539" Top="618" Width="19" Height="200" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line1" Left="525" Top="718" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="525" Y1="718" X2="535" Y2="718" ></BasicShape:Line>
+<BasicShape:Line Name="Line2" Left="525" Top="618" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="525" Y1="618" X2="535" Y2="618" ></BasicShape:Line>
+<BasicShape:Line Name="Line3" Left="525" Top="668" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="525" Y1="668" X2="535" Y2="668" ></BasicShape:Line>
+<BasicShape:Line Name="Line4" Left="525" Top="818" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="525" Y1="818" X2="535" Y2="818" ></BasicShape:Line>
+<BasicShape:Line Name="Line5" Left="525" Top="768" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="525" Y1="768" X2="535" Y2="768" ></BasicShape:Line>
+<BasicControl:Label Name="Label1" Left="487" Top="606" Width="38" Height="22" ZIndex="0" Font="Simsun" VAlignment="Center" Text="1000" ></BasicControl:Label>
+<BasicControl:Label Name="Label2" Left="487" Top="656" Width="38" Height="22" ZIndex="0" Font="Simsun" VAlignment="Center" Text="750" ></BasicControl:Label>
+<BasicControl:Label Name="Label3" Left="487" Top="706" Width="38" Height="22" ZIndex="0" Font="Simsun" VAlignment="Center" Text="500" ></BasicControl:Label>
+<BasicControl:Label Name="Label4" Left="487" Top="756" Width="38" Height="22" ZIndex="0" Font="Simsun" VAlignment="Center" Text="250" ></BasicControl:Label>
+<BasicControl:Label Name="Label5" Left="487" Top="806" Width="38" Height="22" ZIndex="0" Font="Simsun" VAlignment="Center" Text="0" ></BasicControl:Label>
+<BasicShape:Line Name="Line6" Left="664" Top="110" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="664" Y1="110" X2="664" Y2="710" ></BasicShape:Line>
+<BasicShape:Line Name="Line7" Left="664" Top="707" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="664" Y1="707" X2="759" Y2="707" ></BasicShape:Line>
+<BasicShape:Line Name="Line8" Left="759" Top="110" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="759" Y1="110" X2="759" Y2="710" ></BasicShape:Line>
+<BasicShape:Line Name="Line9" Left="515" Top="108" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1560" Y1="108" X2="515" Y2="108" ></BasicShape:Line>
+<BasicShape:Line Name="Line10" Left="959" Top="110" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="959" Y1="110" X2="959" Y2="640" ></BasicShape:Line>
+<BasicShape:Line Name="Line11" Left="814" Top="638" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="814" Y1="638" X2="959" Y2="638" ></BasicShape:Line>
+<BasicShape:Line Name="Line12" Left="1558" Top="110" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1558" Y1="110" X2="1558" Y2="205" ></BasicShape:Line>
+<BasicShape:Line Name="Line13" Left="1474" Top="481" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="481" X2="1642" Y2="481" ></BasicShape:Line>
+<BasicShape:Line Name="Line14" Left="1474" Top="536" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="536" X2="1642" Y2="536" ></BasicShape:Line>
+<BasicShape:Line Name="Line15" Left="1473" Top="479" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1473" Y1="479" X2="1473" Y2="690" ></BasicShape:Line>
+<BasicShape:Line Name="Line16" Left="1642" Top="479" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1642" Y1="479" X2="1642" Y2="690" ></BasicShape:Line>
+<BasicShape:Line Name="Line17" Left="1474" Top="688" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="688" X2="1642" Y2="688" ></BasicShape:Line>
+<BasicShape:Line Name="Line18" Left="1558" Top="687" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1558" Y1="687" X2="1558" Y2="722" ></BasicShape:Line>
+<BasicShape:Line Name="Line19" Left="1559" Top="720" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1559" Y1="720" X2="1850" Y2="720" ></BasicShape:Line>
+<BasicShape:Line Name="Line20" Left="813" Top="685" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="813" Y1="685" X2="1400" Y2="685" ></BasicShape:Line>
+<BasicShape:Line Name="Line21" Left="813" Top="730" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="813" Y1="730" X2="900" Y2="730" ></BasicShape:Line>
+<BasicShape:Line Name="Line22" Left="1398" Top="684" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1398" Y1="684" X2="1398" Y2="830" ></BasicShape:Line>
+<BasicShape:Line Name="Line23" Left="1399" Top="760" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1399" Y1="760" X2="1690" Y2="760" ></BasicShape:Line>
+<BasicShape:Line Name="Line24" Left="1688" Top="720" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1688" Y1="720" X2="1688" Y2="762" ></BasicShape:Line>
+<BasicShape:Line Name="Line25" Left="900" Top="830" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="900" Y1="830" X2="1400" Y2="830" ></BasicShape:Line>
+<BasicShape:Line Name="Line26" Left="899" Top="728" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="899" Y1="728" X2="899" Y2="832" ></BasicShape:Line>
+<BasicShape:Line Name="Line27" Left="1474" Top="166" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="166" X2="1642" Y2="166" ></BasicShape:Line>
+<BasicShape:Line Name="Line28" Left="1474" Top="221" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="221" X2="1642" Y2="221" ></BasicShape:Line>
+<BasicShape:Line Name="Line29" Left="1473" Top="164" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1473" Y1="164" X2="1473" Y2="375" ></BasicShape:Line>
+<BasicShape:Line Name="Line30" Left="1642" Top="164" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1642" Y1="164" X2="1642" Y2="375" ></BasicShape:Line>
+<BasicShape:Line Name="Line31" Left="1474" Top="373" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1474" Y1="373" X2="1642" Y2="373" ></BasicShape:Line>
+<BasicShape:Line Name="Line32" Left="560" Top="26" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="560" Y1="26" X2="560" Y2="194" ></BasicShape:Line>
+<BasicShape:Line Name="Line34" Left="349" Top="28" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="349" Y1="28" X2="560" Y2="28" ></BasicShape:Line>
+<BasicShape:Line Name="Line37" Left="349" Top="192" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="349" Y1="192" X2="560" Y2="192" ></BasicShape:Line>
+<BasicShape:Line Name="Line38" Left="350" Top="26" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="350" Y1="26" X2="350" Y2="194" ></BasicShape:Line>
+<BasicShape:Line Name="Line39" Left="500" Top="26" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="500" Y1="26" X2="500" Y2="194" ></BasicShape:Line>
+<BasicShape:Line Name="Line40" Left="150" Top="99" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="150" Y1="109" X2="170" Y2="99" ></BasicShape:Line>
+<BasicShape:Line Name="Line41" Left="150" Top="107" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="170" Y1="117" X2="150" Y2="107" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse1" Left="375" Top="335" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label7" Left="104" Top="69" Width="74" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="供调节油" ></BasicControl:Label>
+<BasicControl:Label Name="Label8" Left="134" Top="330" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="调节油压力低启动辅助润滑油泵" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse2" Left="375" Top="370" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label9" Left="134" Top="365" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="润滑油压力低启动交流事故泵" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse3" Left="375" Top="405" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label10" Left="134" Top="400" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="润滑油压力低启动直流事故泵" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse4" Left="375" Top="440" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label11" Left="134" Top="435" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="润滑油压力过低停机1" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse5" Left="375" Top="475" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label12" Left="134" Top="470" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="润滑油压力过低停机2" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse6" Left="375" Top="510" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label13" Left="134" Top="505" Width="221" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="润滑油压力过低停机3" ></BasicControl:Label>
+<BasicControl:Image Name="Image1" Left="222" Top="59" Width="32" Height="48" ZIndex="0" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle2" Left="187" Top="118" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox1" Left="190" Top="138" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label14" Left="254" Top="138" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="MPa" ></BasicControl:Label>
+<BasicControl:Image Name="Image2" Left="331" Top="88" Width="31" Height="40" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicShape:Line Name="Line42" Left="150" Top="108" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="332" Y1="108" X2="150" Y2="108" ></BasicShape:Line>
+<BasicControl:Image Name="Image3" Left="519" Top="127" Width="31" Height="40" RotateAngle="180" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle3" Left="348" Top="102" Width="153" Height="10" ZIndex="0" LineColor="#FF000000" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle4" Left="426" Top="91" Width="9" Height="33" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group1" Left="408" Top="8" Width="42.4264068603516" Height="42.4264068603516" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle5" Left="21.2132034301758" Width="30" Height="30" RotateAngle="45" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line43" Left="14.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="14.2132034301758" Y1="8" X2="14.2132034301758" Y2="34" ></BasicShape:Line>
+<BasicShape:Line Name="Line44" Left="28.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="28.2132034301758" Y1="8" X2="28.2132034301758" Y2="34" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group2" Left="408" Top="172" Width="42.4264068603516" Height="42.4264068603516" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle6" Left="21.2132034301758" Width="30" Height="30" RotateAngle="45" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line45" Left="14.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="14.2132034301758" Y1="8" X2="14.2132034301758" Y2="34" ></BasicShape:Line>
+<BasicShape:Line Name="Line46" Left="28.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="28.2132034301758" Y1="8" X2="28.2132034301758" Y2="34" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Image Name="Image4" Left="572" Top="130" Width="47" Height="24" RotateAngle="90" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle7" Left="649" Top="205" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line47" Left="650" Top="206" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="677" Y1="206" X2="650" Y2="267" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle8" Left="601" Top="406" Width="126" Height="8" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label15" Left="567" Top="413" Width="56" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="轴头泵" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse7" Left="646" Top="393" Width="36" Height="36" ZIndex="0" LineColor="#FF000000" BackColor="#FFA589C7" >
+</BasicShape:Ellipse>
+<BasicControl:Image Name="Image5" Left="655" Top="399" Width="18" Height="24" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicShape:Line Name="Line48" Left="583" Top="580" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="583" Y1="580" X2="583" Y2="618" ></BasicShape:Line>
+<BasicShape:Line Name="Line49" Left="543" Top="580" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="583" Y1="580" X2="543" Y2="580" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse8" Left="511" Top="555" Width="36" Height="36" ZIndex="0" LineColor="#FF000000" BackColor="#FF85A543" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label16" Left="522" Top="557" Width="22" Height="31" ZIndex="0" ForeColor="#FFFF0000" IsBold="true" Font="Simsun" FontSize="15" VAlignment="Center" Text="M" ></BasicControl:Label>
+<BasicControl:Label Name="Label17" Left="479" Top="517" Width="72" Height="30" ZIndex="0" Font="Simsun" FontSize="15" VAlignment="Center" Text="油雾风机" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox2" Left="565" Top="648" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label19" Left="629" Top="647" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox3" Left="629" Top="737" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label20" Left="702" Top="733" Width="20" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Label Name="Label21" Left="707" Top="737" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Image Name="Image6" Left="971" Top="437" Width="47" Height="24" RotateAngle="90" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicShape:Ellipse Name="Ellipse9" Left="847" Top="621" Width="36" Height="36" ZIndex="0" LineColor="#FF000000" BackColor="#FF85A543" >
+</BasicShape:Ellipse>
+<BasicControl:Image Name="Image7" Left="877" Top="630" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:TextBox Name="TextBox4" Left="797" Top="583" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label22" Left="871" Top="583" Width="12" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Group Name="Group3" Left="735" Top="464" Width="46" Height="62" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle9" Left="9" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line50" Top="21" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="46" Y1="21" Y2="45" ></BasicShape:Line>
+<BasicShape:Curve Name="Curve1" Left="27" Top="9" Width="9.60946846008301" Height="46" ZIndex="0" LineColor="#FF000000" Data="M 9.60946846008301,0 C-2.39051723480225,10.7333335876465,-3.39051723480225,35.2666664123535,7.95902967453003,46" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve2" Left="22" Top="55" Width="9.60946846008301" Height="46" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Data="M 9.60946846008301,0 C-2.39051723480225,10.7333335876465,-3.39051723480225,35.2666664123535,7.95902967453003,46" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group4" Left="1066" Top="84" Width="46" Height="62" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle11" Left="9" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line52" Top="21" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="46" Y1="21" Y2="45" ></BasicShape:Line>
+<BasicShape:Curve Name="Curve3" Left="27" Top="9" Width="9.60946846008301" Height="46" ZIndex="0" LineColor="#FF000000" Data="M 9.60946846008301,0 C-2.39051723480225,10.7333335876465,-3.39051723480225,35.2666664123535,7.95902967453003,46" ></BasicShape:Curve>
+<BasicShape:Curve Name="Curve4" Left="22" Top="55" Width="9.60946846008301" Height="46" RotateAngle="180" ZIndex="0" LineColor="#FF000000" Data="M 9.60946846008301,0 C-2.39051723480225,10.7333335876465,-3.39051723480225,35.2666664123535,7.95902967453003,46" ></BasicShape:Curve>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Ellipse Name="Ellipse10" Left="981" Top="667" Width="36" Height="36" ZIndex="0" LineColor="#FF000000" BackColor="#FF85A543" >
+</BasicShape:Ellipse>
+<BasicControl:Image Name="Image8" Left="1011" Top="676" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicShape:Ellipse Name="Ellipse11" Left="981" Top="812" Width="36" Height="36" ZIndex="0" LineColor="#FF000000" BackColor="#FF85A543" >
+</BasicShape:Ellipse>
+<BasicControl:Image Name="Image9" Left="1011" Top="821" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image10" Left="1124" Top="673" Width="47" Height="24" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image11" Left="1124" Top="818" Width="47" Height="24" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Group Name="Group5" Left="944" Top="304" Width="30" Height="62" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle10" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line51" Left="1" Top="1" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="28" Y1="1" X2="1" Y2="62" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group6" Left="1330" Top="670" Width="30" Height="62" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle12" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line53" Left="1" Top="1" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="28" Y1="1" X2="1" Y2="62" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group7" Left="1330" Top="815" Width="30" Height="62" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle13" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line54" Left="1" Top="1" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="28" Y1="1" X2="1" Y2="62" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:TextBox Name="TextBox5" Left="1734" Top="737" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label23" Left="1798" Top="737" Width="26" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="MPa" ></BasicControl:Label>
+<BasicControl:Group Name="Group8" Left="1666" Top="705" Width="30" Height="62" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle14" Width="30" Height="62" ZIndex="0" LineColor="#FF000000" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line55" Left="1" Top="1" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="28" Y1="1" X2="1" Y2="62" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Image Name="Image12" Left="1538" Top="707" Width="31" Height="40" RotateAngle="270" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image13" Left="1577" Top="517" Width="31" Height="40" RotateAngle="90" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle15" Left="1562" Top="535" Width="153" Height="10" RotateAngle="90" ZIndex="0" LineColor="#FF000000" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle16" Left="1574" Top="607" Width="9" Height="33" RotateAngle="90" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group9" Left="1494" Top="591" Width="42.4264068603516" Height="42.4264068603516" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle17" Left="21.2132034301758" Width="30" Height="30" RotateAngle="45" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line56" Left="14.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="14.2132034301758" Y1="8" X2="14.2132034301758" Y2="34" ></BasicShape:Line>
+<BasicShape:Line Name="Line57" Left="28.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="28.2132034301758" Y1="8" X2="28.2132034301758" Y2="34" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group10" Left="1662" Top="591" Width="42.4264068603516" Height="42.4264068603516" RotateAngle="90" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Rectangle Name="Rectangle18" Left="21.2132034301758" Width="30" Height="30" RotateAngle="45" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line58" Left="14.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="14.2132034301758" Y1="8" X2="14.2132034301758" Y2="34" ></BasicShape:Line>
+<BasicShape:Line Name="Line59" Left="28.2132034301758" Top="8" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineStyle="Dotted" X1="28.2132034301758" Y1="8" X2="28.2132034301758" Y2="34" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Image Name="Image14" Left="1578" Top="469" Width="47" Height="24" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image15" Left="1538" Top="392" Width="31" Height="40" RotateAngle="270" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image16" Left="1577" Top="202" Width="31" Height="40" RotateAngle="90" ZIndex="1" ImgSrc="UserUpload/Images/Valve3.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle19" Left="1562" Top="220" Width="153" Height="10" RotateAngle="90" ZIndex="0" LineColor="#FF000000" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle20" Left="1574" Top="292" Width="9" Height="33" RotateAngle="90" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line60" Left="1558" Top="390" Width="0" Height="0" ZIndex="0" LineColor="#FFDDDC24" LineThickness="5" X1="1558" Y1="390" X2="1558" Y2="482" ></BasicShape:Line>
+<BasicControl:Image Name="Image17" Left="1578" Top="154" Width="47" Height="24" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle21" Left="1442" Top="254" Width="61" Height="40" ZIndex="0" LineColor="#FF000000" BackColor="#FFA589C7" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle22" Left="1612" Top="254" Width="61" Height="40" ZIndex="0" LineColor="#FF000000" BackColor="#FFA589C7" >
+</BasicShape:Rectangle>
+<BasicShape:Polyline Name="Polyline1" Left="1394" Top="243" Width="82" Height="68" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 82,21 65,30 81,40 0,68" ></BasicShape:Polyline>
+<BasicShape:Line Name="Line61" Left="1340" Top="245" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="245" X2="1398" Y2="245" ></BasicShape:Line>
+<BasicShape:Line Name="Line62" Left="1340" Top="309" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="309" X2="1398" Y2="309" ></BasicShape:Line>
+<BasicShape:Line Name="Line63" Left="1715" Top="245" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1715" Y1="245" X2="1773" Y2="245" ></BasicShape:Line>
+<BasicShape:Line Name="Line64" Left="1715" Top="309" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1715" Y1="309" X2="1773" Y2="309" ></BasicShape:Line>
+<BasicShape:Polyline Name="Polyline2" Left="1719" Top="243" Width="82" Height="68" ScaleX="-1" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 82,21 65,30 81,40 0,68" ></BasicShape:Polyline>
+<BasicShape:Line Name="Line65" Left="1340" Top="145" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="246" X2="1340" Y2="145" ></BasicShape:Line>
+<BasicShape:Line Name="Line66" Left="1340" Top="308" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="409" X2="1340" Y2="308" ></BasicShape:Line>
+<BasicShape:Line Name="Line67" Left="1772" Top="308" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1772" Y1="409" X2="1772" Y2="308" ></BasicShape:Line>
+<BasicShape:Line Name="Line68" Left="1772" Top="143" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1772" Y1="244" X2="1772" Y2="143" ></BasicShape:Line>
+<BasicShape:Line Name="Line69" Left="1340" Top="408" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="408" X2="1773" Y2="408" ></BasicShape:Line>
+<BasicShape:Line Name="Line70" Left="1340" Top="146" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1340" Y1="146" X2="1773" Y2="146" ></BasicShape:Line>
+<BasicControl:Image Name="Image18" Left="1381" Top="318" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image19" Left="1354" Top="235" Width="18" Height="24" RotateAngle="270" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image20" Left="1350" Top="234" Width="33" Height="21" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image21" Left="1350" Top="299" Width="33" Height="21" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image22" Left="1725" Top="299" Width="33" Height="21" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image23" Left="1725" Top="234" Width="33" Height="21" ZIndex="1" ImgSrc="UserUpload/Images/GateValve.png" >
+</BasicControl:Image>
+<BasicControl:Button Name="Button1" Left="1136" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="电力-高压系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button2" Left="1246" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="电力-其他" ></BasicControl:Button>
+<BasicControl:Button Name="Button3" Left="1356" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-总图" ></BasicControl:Button>
+<BasicControl:Button Name="Button4" Left="1466" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-热力系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button5" Left="1576" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-TSI参数" ></BasicControl:Button>
+<BasicControl:Button Name="Button6" Left="1796" Top="862" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" Font="Simsun" FontSize="15" Text="热力-润滑油" ></BasicControl:Button>
+<BasicControl:Button Name="Button7" Left="1686" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-循环水" ></BasicControl:Button>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox1" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_2002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox2" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox3" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox4" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox5" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5001.F_CV">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_gyxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_elecothers.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button3" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_main.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button4" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rlxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button5" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_tsi.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button6" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rhy.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+<Element Name="Button7" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_xhs.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_rhy.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

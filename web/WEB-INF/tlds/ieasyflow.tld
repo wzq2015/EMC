@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>ieasyflowControl</short-name>
+	<uri>ieasyflowControl</uri>
+	
+	<!--OutputTag-->
+	<tag>
+
+    <!--tag名称-->
+		<name>WorkItemControl</name>
+		<tag-class>com.baosight.iplat4j.ew.tag.WorkItemControl</tag-class>
+		<body-content>JSP</body-content><!--标记主体是否可以嵌入内容-->
+		<description><![CDATA[This tag is added for buttons by workItemControl.]]></description>
+		
+		<!--tag属性-->
+		<attribute>
+			<name>tranDefList</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+		<attribute>
+			<name>contextPath</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>	
+		<attribute>
+			<name>serviceName</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>		
+	</tag>
+	
+	
+	
+	<!--OutputTag-->
+	<tag>
+
+    <!--tag名称-->
+		<name>WorkflowHistoryControl</name>
+		<tag-class>com.baosight.iplat4j.ew.tag.WorkflowHistoryControl</tag-class>
+		<body-content>JSP</body-content><!--标记主体是否可以嵌入内容-->
+		<description><![CDATA[This tag is added for buttons by workItemControl.]]></description>
+			<!--tag属性-->
+		<attribute>
+			<name>processId</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+
+		<attribute>
+			<name>historyList</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+		<attribute>
+			<name>contextPath</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>	
+		<attribute>
+			<name>serviceName</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>		
+			
+	</tag>
+	
+	<tag>
+
+    <!--tag名称-->
+		<name>WorkflowOperationControl</name>
+		<tag-class>com.baosight.iplat4j.ew.tag.WorkflowOperationControl</tag-class>
+		<body-content>JSP</body-content><!--标记主体是否可以嵌入内容-->
+		<description><![CDATA[This tag is added for buttons by workItemControl.]]></description>
+			<!--tag属性-->
+			<attribute>
+			<name>processName</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+		<attribute>
+			<name>taskId</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+
+		<attribute>
+			<name>processInfo</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>
+		<attribute>
+			<name>contextPath</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>	
+		<attribute>
+			<name>serviceName</name>
+			<required>true</required><!--属性是否必须的-->
+			<rtexprvalue>true</rtexprvalue><!--属性是否是一个表达式值-->
+		</attribute>		
+			
+	</tag>
+</taglib>

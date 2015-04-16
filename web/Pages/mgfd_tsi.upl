@@ -1,0 +1,248 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="1000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<BasicShape:Rectangle Name="Rectangle1" Left="400" Top="115" Width="1050" Height="20" ZIndex="0" LineColor="#FF000000" FillColor="#FF00B050" HorizontalFillPercent="20" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line1" Left="550" Top="135" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="550" Y1="135" X2="550" Y2="150" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle2" Left="790" Top="135" Width="150" Height="20" ZIndex="0" LineColor="#FF000000" BackColor="#FFFFFF00" FillColor="#FFF2F2F2" VerticalFillType="FromCenterToUpDown" IsVerticalGradual="True" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line2" Left="791" Top="155" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="791" Y1="155" X2="791" Y2="170" ></BasicShape:Line>
+<BasicShape:Line Name="Line3" Left="939" Top="155" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="939" Y1="155" X2="939" Y2="170" ></BasicShape:Line>
+<BasicShape:Line Name="Line4" Left="415" Top="100" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="415" Y1="100" X2="415" Y2="115" ></BasicShape:Line>
+<BasicControl:Label Name="Label1" Left="406" Top="82" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="50" ></BasicControl:Label>
+<BasicControl:Label Name="Label2" Left="541" Top="147" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="500" ></BasicControl:Label>
+<BasicControl:Label Name="Label3" Left="776" Top="167" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="1300" ></BasicControl:Label>
+<BasicControl:Label Name="Label4" Left="926" Top="167" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="1800" ></BasicControl:Label>
+<BasicShape:Line Name="Line5" Left="1285" Top="135" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1285" Y1="135" X2="1285" Y2="150" ></BasicShape:Line>
+<BasicControl:Label Name="Label5" Left="1271" Top="147" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="2950" ></BasicControl:Label>
+<BasicShape:Line Name="Line6" Left="1300" Top="100" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="1300" Y1="100" X2="1300" Y2="115" ></BasicShape:Line>
+<BasicControl:Label Name="Label6" Left="1286" Top="82" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="2950" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle3" Left="801" Top="41" Width="129" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label8" Left="814" Top="40" Width="62" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机转速" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox1" Left="804" Top="63" Width="122" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label9" Left="898" Top="62" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="rpm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle4" Left="483" Top="252" Width="1050" Height="20" ZIndex="0" LineColor="#FF000000" BackColor="#FF7F7F7F" FillColor="#FF00B050" >
+</BasicShape:Rectangle>
+<BasicControl:Image Name="Image1" Left="989" Top="202" Width="122" Height="254" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Tank.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image2" Left="1374" Top="202" Width="122" Height="144" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Tank.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label10" Left="833" Top="252" Width="62" Height="24" ZIndex="0" IsBold="true" Font="Simsun" FontSize="16" VAlignment="Center" Text="汽轮机" ></BasicControl:Label>
+<BasicControl:Label Name="Label11" Left="1273" Top="252" Width="62" Height="24" ZIndex="0" IsBold="true" Font="Simsun" FontSize="16" VAlignment="Center" Text="发电机" ></BasicControl:Label>
+<BasicShape:Polyline Name="Polyline1" Left="692" Top="218" Width="20" Height="27" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline2" Left="711" Top="308" Width="20" Height="27" RotateAngle="180" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline3" Left="1012" Top="218" Width="20" Height="27" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline4" Left="1031" Top="308" Width="20" Height="27" RotateAngle="180" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline5" Left="1182" Top="218" Width="20" Height="27" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline6" Left="1201" Top="308" Width="20" Height="27" RotateAngle="180" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline7" Left="1402" Top="218" Width="20" Height="27" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicShape:Polyline Name="Polyline8" Left="1421" Top="308" Width="20" Height="27" RotateAngle="180" ZIndex="0" LineColor="#FF000000" LineThickness="3" Points="0,0 0,27 20,27 20,1 19,1" ></BasicShape:Polyline>
+<BasicControl:Label Name="Label12" Left="179" Top="200" Width="86" Height="30" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机超速报警1" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse1" Left="277" Top="205" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label13" Left="179" Top="245" Width="86" Height="30" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机超速报警2" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse2" Left="277" Top="250" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label14" Left="179" Top="290" Width="86" Height="30" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机超速报警3" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse3" Left="277" Top="295" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:TextBox Name="TextBox2" Left="319" Top="202" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label15" Left="383" Top="201" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="rpm" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox3" Left="319" Top="247" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label16" Left="383" Top="246" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="rpm" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox4" Left="319" Top="292" Width="90" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label17" Left="383" Top="291" Width="27" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="rpm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle5" Left="452" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox5" Left="455" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label18" Left="460" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机主推力轴承温度1" ></BasicControl:Label>
+<BasicControl:Label Name="Label19" Left="566" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label20" Left="562" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle6" Left="452" Top="429" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox6" Left="455" Top="451" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label21" Left="460" Top="428" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机主推力轴承温度2" ></BasicControl:Label>
+<BasicControl:Label Name="Label22" Left="566" Top="452" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label23" Left="562" Top="444" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle7" Left="607" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox7" Left="610" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label24" Left="615" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机副推力轴承温度1" ></BasicControl:Label>
+<BasicControl:Label Name="Label25" Left="721" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label26" Left="717" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle8" Left="607" Top="429" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox8" Left="610" Top="451" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label27" Left="615" Top="428" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机副推力轴承温度2" ></BasicControl:Label>
+<BasicControl:Label Name="Label28" Left="721" Top="452" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label29" Left="717" Top="444" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle9" Left="762" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox9" Left="765" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label30" Left="770" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机前轴承温度1" ></BasicControl:Label>
+<BasicControl:Label Name="Label31" Left="876" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label32" Left="872" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle10" Left="762" Top="429" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox10" Left="765" Top="451" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label33" Left="770" Top="428" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机前轴承温度2" ></BasicControl:Label>
+<BasicControl:Label Name="Label34" Left="876" Top="452" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label35" Left="872" Top="444" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle11" Left="917" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox11" Left="920" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label36" Left="925" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机后轴承温度1" ></BasicControl:Label>
+<BasicControl:Label Name="Label37" Left="1031" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label38" Left="1027" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle12" Left="917" Top="429" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox12" Left="920" Top="451" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label39" Left="925" Top="428" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽机后轴承温度2" ></BasicControl:Label>
+<BasicControl:Label Name="Label40" Left="1031" Top="452" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label41" Left="1027" Top="444" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle13" Left="1072" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox13" Left="1075" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label42" Left="1080" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="发电机前轴承温度1" ></BasicControl:Label>
+<BasicControl:Label Name="Label43" Left="1186" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label44" Left="1182" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle14" Left="1072" Top="429" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox14" Left="1075" Top="451" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label45" Left="1080" Top="428" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="发电机前轴承温度2" ></BasicControl:Label>
+<BasicControl:Label Name="Label46" Left="1186" Top="452" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label47" Left="1182" Top="444" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle15" Left="1227" Top="364" Width="136" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox15" Left="1230" Top="386" Width="129" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label48" Left="1235" Top="363" Width="122" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="发电机后轴承温度" ></BasicControl:Label>
+<BasicControl:Label Name="Label49" Left="1341" Top="387" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label50" Left="1337" Top="379" Width="15" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle16" Left="769" Top="530" Width="200" Height="17" ZIndex="0" LineColor="#FF000000" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label51" Left="839" Top="506" Width="57" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="轴向位移" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox16" Left="800" Top="551" Width="129" Height="19" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label52" Left="901" Top="547" Width="24" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicControl:Label Name="Label53" Left="794" Top="571" Width="145" Height="24" ZIndex="0" ForeColor="#FFFFFF00" Font="Simsun" VAlignment="Center" Text="-0.4mm   报警  0.4mm" ></BasicControl:Label>
+<BasicControl:Label Name="Label54" Left="794" Top="591" Width="145" Height="24" ZIndex="0" ForeColor="#FFFF0000" Font="Simsun" VAlignment="Center" Text="-0.6mm   停机  0.6mm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle17" Left="747" Top="499" Width="240" Height="130" ZIndex="-1" LineColor="#FF000000" BackColor="#FFA5A5A5" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line7" Left="213" Top="850" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineThickness="2" X1="213" Y1="850" X2="1015" Y2="850" ></BasicShape:Line>
+<BasicShape:Line Name="Line8" Left="214" Top="640" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" LineThickness="2" X1="214" Y1="850" X2="214" Y2="640" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle18" Left="353" Top="650" Width="15" Height="200" ZIndex="0" LineColor="#FF000000" FillColor="#FF00B050" VerticalFillType="FromBottomToTop" VerticalFillPercent="10" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle19" Left="528" Top="650" Width="15" Height="200" ZIndex="0" LineColor="#FF000000" FillColor="#FF00B050" VerticalFillType="FromBottomToTop" VerticalFillPercent="10" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle20" Left="703" Top="650" Width="15" Height="200" ZIndex="0" LineColor="#FF000000" FillColor="#FF00B050" VerticalFillType="FromBottomToTop" VerticalFillPercent="10" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle21" Left="873" Top="650" Width="15" Height="200" ZIndex="0" LineColor="#FF000000" FillColor="#FF00B050" VerticalFillType="FromBottomToTop" VerticalFillPercent="10" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line9" Left="213" Top="780" Width="0" Height="0" ZIndex="-1" LineColor="#FFFFFF00" LineStyle="Dashed" LineThickness="2" X1="213" Y1="780" X2="1015" Y2="780" ></BasicShape:Line>
+<BasicShape:Line Name="Line10" Left="213" Top="750" Width="0" Height="0" ZIndex="-1" LineColor="#FFFF0000" LineStyle="Dashed" LineThickness="2" X1="213" Y1="750" X2="1015" Y2="750" ></BasicShape:Line>
+<BasicControl:Label Name="Label55" Left="179" Top="739" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="100" ></BasicControl:Label>
+<BasicControl:Label Name="Label56" Left="179" Top="769" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="70" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox17" Left="310" Top="859" Width="98" Height="19" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label57" Left="380" Top="855" Width="24" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="um" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox18" Left="485" Top="859" Width="98" Height="19" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label58" Left="555" Top="855" Width="24" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="um" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox19" Left="660" Top="859" Width="98" Height="19" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label59" Left="730" Top="855" Width="24" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="um" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox20" Left="830" Top="859" Width="98" Height="19" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label60" Left="900" Top="855" Width="24" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="um" ></BasicControl:Label>
+<BasicControl:Label Name="Label61" Left="179" Top="641" Width="31" Height="19" ZIndex="0" Font="Simsun" VAlignment="Center" Text="200" ></BasicControl:Label>
+<BasicShape:Line Name="Line11" Left="203" Top="650" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="203" Y1="650" X2="213" Y2="650" ></BasicShape:Line>
+<BasicControl:Label Name="Label62" Left="291" Top="881" Width="148" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽轮机进汽测轴承箱振动" ></BasicControl:Label>
+<BasicControl:Label Name="Label63" Left="471" Top="881" Width="148" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="汽轮机排汽测轴承箱振动" ></BasicControl:Label>
+<BasicControl:Label Name="Label64" Left="661" Top="881" Width="104" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="发电机前轴瓦振动" ></BasicControl:Label>
+<BasicControl:Label Name="Label65" Left="831" Top="881" Width="104" Height="24" ZIndex="0" Font="Simsun" VAlignment="Center" Text="发电机后轴瓦振动" ></BasicControl:Label>
+<BasicControl:Label Name="Label66" Left="1366" Top="494" Width="120" Height="30" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="汽机轴位移大报警" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse4" Left="1491" Top="499" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label67" Left="1310" Top="539" Width="186" Height="30" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="汽机进汽测轴瓦振动大报警" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse5" Left="1491" Top="544" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label68" Left="1310" Top="584" Width="178" Height="30" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="汽机排汽测轴瓦振动大报警" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse6" Left="1491" Top="589" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label69" Left="1323" Top="629" Width="160" Height="30" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="发电机前轴瓦振动大报警" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse7" Left="1491" Top="634" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label70" Left="1323" Top="674" Width="168" Height="30" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="发电机后轴瓦振动大报警" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse8" Left="1491" Top="679" Width="18" Height="19" ZIndex="0" LineColor="#FF000000" BackColor="#FF00FF00" FillColor="#FFFFFFFF" >
+</BasicShape:Ellipse>
+<BasicControl:Button Name="Button2" Left="1136" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="电力-高压系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button3" Left="1246" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="电力-其他" ></BasicControl:Button>
+<BasicControl:Button Name="Button4" Left="1356" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-总图" ></BasicControl:Button>
+<BasicControl:Button Name="Button5" Left="1466" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-热力系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button6" Left="1576" Top="862" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" Font="Simsun" FontSize="15" Text="热力-TSI参数" ></BasicControl:Button>
+<BasicControl:Button Name="Button7" Left="1796" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-润滑油" ></BasicControl:Button>
+<BasicControl:Button Name="Button8" Left="1686" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-循环水" ></BasicControl:Button>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox1" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox2" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox3" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox4" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox5" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox6" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox7" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox8" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox9" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox10" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox11" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox12" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox13" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox14" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox15" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox16" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox17" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox18" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox19" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox20" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_gyxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button3" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_elecothers.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button4" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_main.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button5" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rlxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button6" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_tsi.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button7" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rhy.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+<Element Name="Button8" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_xhs.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_tsi.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

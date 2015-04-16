@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectsConfig xmlns="http://maxcontrol.com/maxprojectsconfig">
+	
+<!-- history 
+200801119 wangyuqiu: 创建，5版本报表引擎配置文件
+-->	
+ 
+	<!-- path改报表项目的路径；name改成自己报表项目的名字； -->
+	<ProjectConfig 
+		Pathtype="1" Path="ER/maxReport/" Name="maxReport" 
+		Enable="true" Reloadable="true"/>
+	
+	<!-- password和user分别是你们数据库的密码和用户名；url改你们数据库url；
+		driver改你们数据库的driver；poolname改成设计器里的数据源连接池名称；（记得要拷贝自己的数据库的驱动jar包到WEB-INF\lib下） 
+	-->
+	<DBConnection 
+		SQLEncoding="" QueryTimeOut="0" ResultsetEncoding="" 
+		ConnectionClassName="" MinConn="1" MaxConn="5" 
+		Password="iplat" User="iplat" URL="jdbc:oracle:thin:@10.25.10.5:1521:iplat" 
+		Driver="oracle.jdbc.driver.OracleDriver" PoolName="iplatDB"/>
+	
+	<!-- ViewerVersion、ViewerPath不用改；port改你们web服务器port；contextname改你们web应用的应用名；
+		ip改你们web服务器所在电脑的ip 
+	-->
+	<ReportServer 
+		ViewerVersion="5,2,8,30" ViewerPath="viewer" Port="8081" 
+		ContextName="PlatDemo" IP="127.0.0.1" ViewerLanguage="Chinese.Simplified" 
+		MainServlet="maxReportServices"/>
+	
+	<!-- DebugFile为报表日志文件路径；
+		Debug为设置调试等级：0不输出任何调试信息；1输出关键调试信息；3输出详细调试信息；7输出全部调试信息 
+	-->
+	<!-- Debug DebugFile="/var/jakarta-tomcat-5.0.30/logs/reportlog.txt" Debug="7" /-->  
+	<Debug DebugFile="D:/iPlat4j3/reportlog.txt" Debug="7" />
+	<!-- <Debug DebugFile="D:/tmp/reportsaver/reportlog.txt" Debug="7"/> -->
+	
+	<SubmitClassName>com.max3.submit.MaxSubmitDataDemo</SubmitClassName>
+	
+	<DataOptions SQLEncoding="" ServerEncoding="UTF-8" ResultsetEncoding="" QueryTimeOut="0"/>
+	
+	<ReportTools Port="8008" IP="127.0.0.1"/>
+	
+	<Historyconfig Pathtype="0" Path=""/>
+	
+	<DBConnectionClassName/>
+	
+	<DesignerCommandClassName/>
+	
+	<TaskFeedBackClassName>com.max3.maxreport.maxtaskfeedback.MaxTaskControlDemo</TaskFeedBackClassName>
+	
+</ProjectsConfig>

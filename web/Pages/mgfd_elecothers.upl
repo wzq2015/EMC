@@ -1,0 +1,428 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="1000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<BasicShape:Line Name="Line1" Left="813" Top="262" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="813" Y1="262" X2="813" Y2="292" ></BasicShape:Line>
+<BasicShape:Line Name="Line2" Left="813" Top="307" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="813" Y1="307" X2="813" Y2="327" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle1" Left="804" Top="325" Width="19" Height="31" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group1" Left="803" Top="283" Width="20" Height="25" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line3" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line4" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line5" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line6" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line7" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line8" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line9" Left="813" Top="356" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="813" Y1="356" X2="813" Y2="386" ></BasicShape:Line>
+<BasicControl:Group Name="Group2" Left="823" Top="407" Width="20" Height="25" RotateAngle="180" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line10" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line11" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line12" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line13" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line14" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line15" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line16" Left="813" Top="406" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="813" Y1="406" X2="813" Y2="622" ></BasicShape:Line>
+<BasicShape:Line Name="Line17" Left="766" Top="464" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="766" Y1="464" X2="890" Y2="464" ></BasicShape:Line>
+<BasicShape:Line Name="Line18" Left="889" Top="463" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="889" Y1="463" X2="889" Y2="493" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle2" Left="880" Top="495" Width="19" Height="31" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line19" Left="889" Top="485" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="889" Y1="485" X2="889" Y2="515" ></BasicShape:Line>
+<BasicShape:Line Name="Line20" Left="889" Top="505" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="894" Y1="505" X2="889" Y2="515" ></BasicShape:Line>
+<BasicShape:Line Name="Line21" Left="884" Top="505" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="884" Y1="505" X2="889" Y2="515" ></BasicShape:Line>
+<BasicControl:Group Name="Group3" Left="879" Top="526" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line22" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line23" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line24" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line25" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line26" Left="850" Top="464" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="850" Y1="464" X2="850" Y2="483" ></BasicShape:Line>
+<BasicShape:Line Name="Line27" Left="840" Top="484" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="840" Y1="484" X2="860" Y2="484" ></BasicShape:Line>
+<BasicShape:Line Name="Line28" Left="840" Top="494" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="840" Y1="494" X2="860" Y2="494" ></BasicShape:Line>
+<BasicShape:Line Name="Line29" Left="850" Top="494" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="850" Y1="494" X2="850" Y2="513" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse1" Left="838" Top="511" Width="24" Height="24" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line30" Left="843" Top="517" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="843" Y1="517" X2="858" Y2="531" ></BasicShape:Line>
+<BasicShape:Line Name="Line31" Left="843" Top="516" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="843" Y1="530" X2="857" Y2="516" ></BasicShape:Line>
+<BasicControl:Group Name="Group4" Left="840" Top="535" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line32" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line33" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line34" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line35" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line36" Left="767" Top="463" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="767" Y1="463" X2="767" Y2="473" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse2" Left="764" Top="487" Width="8" Height="8" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line37" Left="759" Top="474" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="759" Y1="474" X2="766" Y2="487" ></BasicShape:Line>
+<BasicControl:Group Name="Group5" Left="758" Top="494" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line38" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line39" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line40" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line41" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line43" Left="813" Top="608" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="822" Y1="608" X2="813" Y2="626" ></BasicShape:Line>
+<BasicShape:Line Name="Line44" Left="804" Top="609" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="804" Y1="609" X2="813" Y2="626" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle3" Left="701" Top="253" Width="224" Height="13" ZIndex="0" LineColor="#FF000000" BackColor="#FFAA3A37" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle4" Left="982" Top="250" Width="236" Height="446" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label1" Left="997" Top="298" Width="73" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ua（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label2" Left="997" Top="328" Width="74" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ub（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label3" Left="997" Top="358" Width="81" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uc（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label4" Left="997" Top="388" Width="79" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uab（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox1" Left="1079" Top="294" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox2" Left="1079" Top="324" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox3" Left="1079" Top="354" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox4" Left="1079" Top="384" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label5" Left="997" Top="418" Width="78" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ubc（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox5" Left="1079" Top="414" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label6" Left="997" Top="448" Width="106" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uca（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label7" Left="997" Top="478" Width="65" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ia（A）" ></BasicControl:Label>
+<BasicControl:Label Name="Label8" Left="997" Top="508" Width="63" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ib（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox6" Left="1079" Top="504" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label9" Left="997" Top="538" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ic（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox7" Left="1079" Top="534" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox8" Left="1079" Top="444" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox9" Left="1079" Top="474" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label10" Left="997" Top="568" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="P（MW）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox10" Left="1079" Top="564" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label11" Left="997" Top="598" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Q（MVar）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox11" Left="1079" Top="594" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label12" Left="997" Top="628" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="f（Hz）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox12" Left="1079" Top="624" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label13" Left="997" Top="658" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="cosφ" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox13" Left="1079" Top="654" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicShape:Line Name="Line45" Left="1408" Top="262" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1408" Y1="262" X2="1408" Y2="292" ></BasicShape:Line>
+<BasicShape:Line Name="Line46" Left="1408" Top="307" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1408" Y1="307" X2="1408" Y2="327" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle5" Left="1399" Top="325" Width="19" Height="31" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group6" Left="1398" Top="283" Width="20" Height="25" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line47" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line48" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line49" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line50" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line51" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line52" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line53" Left="1408" Top="356" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1408" Y1="356" X2="1408" Y2="386" ></BasicShape:Line>
+<BasicControl:Group Name="Group7" Left="1418" Top="407" Width="20" Height="25" RotateAngle="180" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line54" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line55" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line56" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line57" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line58" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line59" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line60" Left="1408" Top="406" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1408" Y1="406" X2="1408" Y2="538" ></BasicShape:Line>
+<BasicShape:Line Name="Line61" Left="1361" Top="464" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1361" Y1="464" X2="1485" Y2="464" ></BasicShape:Line>
+<BasicShape:Line Name="Line62" Left="1484" Top="463" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1484" Y1="463" X2="1484" Y2="493" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle6" Left="1475" Top="495" Width="19" Height="31" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line63" Left="1484" Top="485" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="1484" Y1="485" X2="1484" Y2="515" ></BasicShape:Line>
+<BasicShape:Line Name="Line64" Left="1484" Top="505" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="1489" Y1="505" X2="1484" Y2="515" ></BasicShape:Line>
+<BasicShape:Line Name="Line65" Left="1479" Top="505" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="1479" Y1="505" X2="1484" Y2="515" ></BasicShape:Line>
+<BasicControl:Group Name="Group8" Left="1474" Top="526" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line66" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line67" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line68" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line69" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line70" Left="1445" Top="464" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1445" Y1="464" X2="1445" Y2="483" ></BasicShape:Line>
+<BasicShape:Line Name="Line71" Left="1435" Top="484" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1435" Y1="484" X2="1455" Y2="484" ></BasicShape:Line>
+<BasicShape:Line Name="Line72" Left="1435" Top="494" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1435" Y1="494" X2="1455" Y2="494" ></BasicShape:Line>
+<BasicShape:Line Name="Line73" Left="1445" Top="494" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1445" Y1="494" X2="1445" Y2="513" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse3" Left="1433" Top="511" Width="24" Height="24" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line74" Left="1438" Top="517" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1438" Y1="517" X2="1453" Y2="531" ></BasicShape:Line>
+<BasicShape:Line Name="Line75" Left="1438" Top="516" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1438" Y1="530" X2="1452" Y2="516" ></BasicShape:Line>
+<BasicControl:Group Name="Group9" Left="1435" Top="535" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line76" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line77" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line78" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line79" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line80" Left="1362" Top="463" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1362" Y1="463" X2="1362" Y2="473" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse4" Left="1359" Top="487" Width="8" Height="8" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line81" Left="1354" Top="474" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="1354" Y1="474" X2="1361" Y2="487" ></BasicShape:Line>
+<BasicControl:Group Name="Group10" Left="1353" Top="494" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line82" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line83" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line84" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line85" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Ellipse Name="Ellipse5" Left="1392" Top="536" Width="32" Height="32" ZIndex="0" LineColor="#FFFF0000" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse6" Left="1392" Top="556" Width="32" Height="32" ZIndex="0" LineColor="#FF000000" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line86" Left="1408" Top="587" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1408" Y1="587" X2="1408" Y2="627" ></BasicShape:Line>
+<BasicShape:Line Name="Line87" Left="1408" Top="608" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1417" Y1="608" X2="1408" Y2="626" ></BasicShape:Line>
+<BasicShape:Line Name="Line88" Left="1399" Top="609" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="1399" Y1="609" X2="1408" Y2="626" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle7" Left="1296" Top="253" Width="224" Height="13" ZIndex="0" LineColor="#FF000000" BackColor="#FFAA3A37" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line89" Left="153" Top="262" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="153" Y1="262" X2="153" Y2="488" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse7" Left="137" Top="486" Width="32" Height="32" ZIndex="0" LineColor="#FFFF0000" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Ellipse Name="Ellipse8" Left="137" Top="506" Width="32" Height="32" ZIndex="0" LineColor="#FF000000" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line90" Left="153" Top="537" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="153" Y1="537" X2="153" Y2="577" ></BasicShape:Line>
+<BasicShape:Line Name="Line91" Left="153" Top="558" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="162" Y1="558" X2="153" Y2="576" ></BasicShape:Line>
+<BasicShape:Line Name="Line92" Left="144" Top="559" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="144" Y1="559" X2="153" Y2="576" ></BasicShape:Line>
+<BasicShape:Line Name="Line93" Left="273" Top="262" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="273" Y1="262" X2="273" Y2="292" ></BasicShape:Line>
+<BasicShape:Line Name="Line94" Left="273" Top="307" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="273" Y1="307" X2="273" Y2="327" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle9" Left="264" Top="325" Width="19" Height="31" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicControl:Group Name="Group11" Left="263" Top="283" Width="20" Height="25" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line95" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line96" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line97" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line98" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line99" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line100" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line101" Left="273" Top="356" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="273" Y1="356" X2="273" Y2="386" ></BasicShape:Line>
+<BasicControl:Group Name="Group12" Left="283" Top="407" Width="20" Height="25" RotateAngle="180" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line102" Left="10" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="20" Y1="15" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line103" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" X2="10" Y2="10" ></BasicShape:Line>
+<BasicShape:Line Name="Line104" Top="10" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="10" Y2="15" ></BasicShape:Line>
+<BasicShape:Line Name="Line105" Left="10" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="16" Y1="19" X2="10" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line106" Left="4" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="16" X2="4" Y2="19" ></BasicShape:Line>
+<BasicShape:Line Name="Line107" Left="10" Top="15" Width="0" Height="0" ZIndex="0" LineColor="#FF00FF80" LineThickness="2" X1="10" Y1="15" X2="10" Y2="25" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line108" Left="273" Top="406" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="273" Y1="406" X2="273" Y2="490" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse9" Left="257" Top="488" Width="32" Height="32" ZIndex="0" LineColor="#FF0000FF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Curve Name="Curve1" Left="261" Top="498" Width="26" Height="13.2782564163208" ZIndex="0" LineColor="#FF0000FF" LineThickness="2" Data="M 0,7.61114406585693 C0.60465145111084,-2.43630456924438,10.8837213516235,-2.43630456924438,12.6976757049561,7.02011775970459 C13.9069766998291,14.7034616470337,25,16,26,7.02011775970459" ></BasicShape:Curve>
+<BasicShape:Line Name="Line109" Left="273" Top="518" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="273" Y1="518" X2="273" Y2="538" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle10" Left="264" Top="542" Width="19" Height="31" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line110" Left="273" Top="532" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="273" Y1="532" X2="273" Y2="562" ></BasicShape:Line>
+<BasicShape:Line Name="Line111" Left="273" Top="552" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="278" Y1="552" X2="273" Y2="562" ></BasicShape:Line>
+<BasicShape:Line Name="Line112" Left="268" Top="552" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="268" Y1="552" X2="273" Y2="562" ></BasicShape:Line>
+<BasicControl:Group Name="Group13" Left="263" Top="573" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line113" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line114" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line115" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line116" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line117" Left="152" Top="472" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="152" Y1="472" X2="273" Y2="472" ></BasicShape:Line>
+<BasicShape:Line Name="Line118" Left="226" Top="414" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="226" Y1="414" X2="350" Y2="414" ></BasicShape:Line>
+<BasicShape:Line Name="Line119" Left="349" Top="413" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="349" Y1="413" X2="349" Y2="443" ></BasicShape:Line>
+<BasicShape:Rectangle Name="Rectangle11" Left="340" Top="445" Width="19" Height="31" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line120" Left="349" Top="435" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="349" Y1="435" X2="349" Y2="465" ></BasicShape:Line>
+<BasicShape:Line Name="Line121" Left="349" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="354" Y1="455" X2="349" Y2="465" ></BasicShape:Line>
+<BasicShape:Line Name="Line122" Left="344" Top="455" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="344" Y1="455" X2="349" Y2="465" ></BasicShape:Line>
+<BasicControl:Group Name="Group14" Left="339" Top="476" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line123" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line124" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line125" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line126" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line127" Left="310" Top="414" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="310" Y1="414" X2="310" Y2="433" ></BasicShape:Line>
+<BasicShape:Line Name="Line128" Left="300" Top="434" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="300" Y1="434" X2="320" Y2="434" ></BasicShape:Line>
+<BasicShape:Line Name="Line129" Left="300" Top="444" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="300" Y1="444" X2="320" Y2="444" ></BasicShape:Line>
+<BasicShape:Line Name="Line130" Left="310" Top="444" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="310" Y1="444" X2="310" Y2="463" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse10" Left="298" Top="461" Width="24" Height="24" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line131" Left="303" Top="467" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="303" Y1="467" X2="318" Y2="481" ></BasicShape:Line>
+<BasicShape:Line Name="Line132" Left="303" Top="466" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="303" Y1="480" X2="317" Y2="466" ></BasicShape:Line>
+<BasicControl:Group Name="Group15" Left="300" Top="485" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line133" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line134" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line135" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line136" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicShape:Line Name="Line137" Left="227" Top="413" Width="0" Height="0" ZIndex="0" LineColor="#FFAA3A37" LineThickness="2" X1="227" Y1="413" X2="227" Y2="423" ></BasicShape:Line>
+<BasicShape:Ellipse Name="Ellipse11" Left="224" Top="437" Width="8" Height="8" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" BackColor="#00FFFFFF" >
+</BasicShape:Ellipse>
+<BasicShape:Line Name="Line138" Left="219" Top="424" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="219" Y1="424" X2="226" Y2="437" ></BasicShape:Line>
+<BasicControl:Group Name="Group16" Left="218" Top="444" Width="20" Height="20" ZIndex="0" Font="Simsun" >
+<BasicControl:Group.Children>
+<BasicShape:Line Name="Line139" Left="10" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="10" X2="10" Y2="11" ></BasicShape:Line>
+<BasicShape:Line Name="Line140" Top="12" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" Y1="12" X2="20" Y2="12" ></BasicShape:Line>
+<BasicShape:Line Name="Line141" Left="3" Top="16" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="3" Y1="16" X2="17" Y2="16" ></BasicShape:Line>
+<BasicShape:Line Name="Line142" Left="5" Top="20" Width="0" Height="0" ZIndex="0" LineColor="#FFFFFFFF" LineThickness="2" X1="5" Y1="20" X2="15" Y2="20" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Label Name="Label27" Left="305" Top="128" Width="129" Height="34" ZIndex="0" Font="Simsun" FontSize="20" VAlignment="Center" Text="10KV发电机" ></BasicControl:Label>
+<BasicControl:Label Name="Label28" Left="288" Top="276" Width="57" Height="19" ZIndex="0" Font="Simsun" FontSize="14" VAlignment="Center" Text="3AH" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle12" Left="96" Top="253" Width="224" Height="13" ZIndex="0" LineColor="#FF000000" BackColor="#FFAA3A37" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle13" Left="1597" Top="250" Width="236" Height="446" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label29" Left="1612" Top="298" Width="73" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ua（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label30" Left="1612" Top="328" Width="74" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ub（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label31" Left="1612" Top="358" Width="81" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uc（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label32" Left="1612" Top="388" Width="79" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uab（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox14" Left="1694" Top="294" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox15" Left="1694" Top="324" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox16" Left="1694" Top="354" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox17" Left="1694" Top="384" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label33" Left="1612" Top="418" Width="78" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ubc（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox18" Left="1694" Top="414" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label34" Left="1612" Top="448" Width="106" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uca（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label35" Left="1612" Top="478" Width="65" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ia（A）" ></BasicControl:Label>
+<BasicControl:Label Name="Label36" Left="1612" Top="508" Width="63" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ib（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox19" Left="1694" Top="504" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label37" Left="1612" Top="538" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ic（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox20" Left="1694" Top="534" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox21" Left="1694" Top="444" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox22" Left="1694" Top="474" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label38" Left="1612" Top="568" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="P（MW）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox23" Left="1694" Top="564" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label39" Left="1612" Top="598" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Q（MVar）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox24" Left="1694" Top="594" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label40" Left="1612" Top="628" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="f（Hz）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox25" Left="1694" Top="624" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label41" Left="1612" Top="658" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="cosφ" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox26" Left="1694" Top="654" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle14" Left="392" Top="250" Width="236" Height="446" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label42" Left="407" Top="298" Width="73" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ua（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label43" Left="407" Top="328" Width="74" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ub（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label44" Left="407" Top="358" Width="81" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uc（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label45" Left="407" Top="388" Width="79" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uab（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox27" Left="489" Top="294" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox28" Left="489" Top="324" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox29" Left="489" Top="354" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox30" Left="489" Top="384" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label46" Left="407" Top="418" Width="78" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ubc（kV）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox31" Left="489" Top="414" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label47" Left="407" Top="448" Width="106" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Uca（kV）" ></BasicControl:Label>
+<BasicControl:Label Name="Label48" Left="407" Top="478" Width="65" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ia（A）" ></BasicControl:Label>
+<BasicControl:Label Name="Label49" Left="407" Top="508" Width="63" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ib（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox32" Left="489" Top="504" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label50" Left="407" Top="538" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Ic（A）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox33" Left="489" Top="534" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox34" Left="489" Top="444" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox35" Left="489" Top="474" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label51" Left="407" Top="568" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="P（MW）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox36" Left="489" Top="564" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label52" Left="407" Top="598" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="Q（MVar）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox37" Left="489" Top="594" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label53" Left="407" Top="628" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="f（Hz）" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox38" Left="489" Top="624" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label54" Left="407" Top="658" Width="62" Height="17" ZIndex="0" Font="Simsun" VAlignment="Center" Text="cosφ" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox39" Left="489" Top="654" Width="120" Height="25" ZIndex="0" Font="Simsun" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label55" Left="890" Top="128" Width="151" Height="34" ZIndex="0" Font="Simsun" FontSize="20" VAlignment="Center" Text="10KV联络保护" ></BasicControl:Label>
+<BasicControl:Label Name="Label56" Left="1490" Top="128" Width="182" Height="34" ZIndex="0" Font="Simsun" FontSize="20" VAlignment="Center" Text="10KV站用变压器" ></BasicControl:Label>
+<BasicControl:Button Name="Button1" Left="1136" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="电力-高压系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button2" Left="1246" Top="862" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" Font="Simsun" FontSize="15" Text="电力-其他" ></BasicControl:Button>
+<BasicControl:Button Name="Button3" Left="1356" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-总图" ></BasicControl:Button>
+<BasicControl:Button Name="Button4" Left="1466" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-热力系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button5" Left="1576" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-TSI参数" ></BasicControl:Button>
+<BasicControl:Button Name="Button6" Left="1796" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-润滑油" ></BasicControl:Button>
+<BasicControl:Button Name="Button7" Left="1686" Top="862" Width="107" Height="43" ZIndex="0" IsBold="true" Font="Simsun" FontSize="15" Text="热力-循环水" ></BasicControl:Button>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox1" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox2" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox3" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox4" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox5" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox6" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox7" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_TOL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox8" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox9" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox22" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox21" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox20" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_TOL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox19" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox18" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox17" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox16" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox15" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox14" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox27" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox28" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox29" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox30" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox31" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox32" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox33" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_TOL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox34" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox35" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_gyxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_elecothers.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button3" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_main.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button4" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rlxt.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button5" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_tsi.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button6" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_rhy.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+<Element Name="Button7" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;mgfd_xhs.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;mgfd_elecothers.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

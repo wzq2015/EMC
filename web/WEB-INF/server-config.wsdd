@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="disablePrettyXML" value="true"/>
+  <parameter name="adminPassword" value="admin"/>
+
+  <!-- 
+  <parameter name="attachments.Directory" value="D:\home\javaworkspace32\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\webapps\dexptClient\WEB-INF\attachments"/>
+
+   -->
+  <parameter name="dotNetSoapEncFix" value="true"/>
+  <parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration> 
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+<!--  
+ <service name="DexptAppReceive" provider="java:RPC" style="wrapped" use="literal">
+
+  <operation name="appReceiveMsg" qname="appReceiveMsg" returnQName="ns1:ReturnMsgXml" returnType="ns2:ReturnMsgXml" soapAction="" xmlns:ns1="http://receive.typedef.schema.dexpt.baosight.com" xmlns:ns2="http://receive.typedef.schema.dexpt.baosight.com">
+
+   <parameter qname="ns1:requ" type="ns2:RequestMsgXml"/>
+
+  </operation>
+
+  <parameter name="allowedMethods" value="appReceiveMsg"/>
+
+  <parameter name="typeMappingVersion" value="1.2"/>
+
+  <parameter name="wsdlPortType" value="DexptAppReceive"/>
+
+  <parameter name="className" value="com.baosight.dexpt.wsinterface.DexptAppReceive"/>
+
+  <parameter name="wsdlServicePort" value="DexptAppReceive"/>
+
+  <parameter name="schemaQualified" value="http://receive.typedef.schema.dexpt.baosight.com"/>
+
+  <parameter name="wsdlTargetNamespace" value="http://receive.typedef.schema.dexpt.baosight.com"/>
+
+  <parameter name="wsdlServiceElement" value="DexptAppReceiveService"/>
+
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:ReturnMsgXml" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.baosight.dexpt.schema.typedef.receive.ReturnMsgXml" xmlns:ns3="http://receive.typedef.schema.dexpt.baosight.com"/>
+
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:RequestMsgXml" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.baosight.dexpt.schema.typedef.receive.RequestMsgXml" xmlns:ns4="http://receive.typedef.schema.dexpt.baosight.com"/>
+
+ </service> -->
+ 	<service name="IxBusReceiver" provider="java:RPC" style="wrapped"
+		use="literal">
+		<operation name="receiveMessage" qname="receiveMessage"
+			returnQName="ns1:DefaultWebServiceResponse" returnType="ns2:DefaultWebServiceResponse"
+			soapAction="" xmlns:ns1="http://webservice.transport.ixbuscore.baosight.com"
+			xmlns:ns2="http://webservice.transport.ixbuscore.baosight.com">
+			<parameter qname="ns1:requ" type="ns2:DefaultWebServiceRequest" />
+		</operation>
+		<parameter name="allowedMethods" value="receiveMessage" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="receiveMessage" />
+		<parameter name="className"
+			value="com.baosight.ixbuscore.transport.IxBusReceiver" />
+		<parameter name="wsdlServicePort" value="IxBusReceiver" />
+		<parameter name="schemaQualified"
+			value="http://webservice.transport.ixbuscore.baosight.com" />
+		<parameter name="wsdlTargetNamespace"
+			value="http://webservice.transport.ixbuscore.baosight.com" />
+		<parameter name="wsdlServiceElement" value="IxBusReceiveService" />
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+			encodingStyle="" qname="ns3:DefaultWebServiceResponse"
+			serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+			type="java:com.baosight.ixbuscore.transport.webservice.DefaultWebServiceResponse"
+			xmlns:ns3="http://webservice.transport.ixbuscore.baosight.com" />
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+			encodingStyle="" qname="ns4:DefaultWebServiceRequest"
+			serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+			type="java:com.baosight.ixbuscore.transport.webservice.DefaultWebServiceRequest"
+			xmlns:ns4="http://webservice.transport.ixbuscore.baosight.com" />
+	</service>
+	<service name="IxBusConfigurationRefresher" provider="java:RPC" style="wrapped"	use="literal">
+		<parameter name="allowedMethods" value="refresh" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="className"
+			value="com.baosight.dexpt.ext.webservice.ConfigurationRefresher" />
+	</service>
+	<service name="DexptAppReceive" provider="java:RPC" style="wrapped"
+		use="literal">
+		<operation name="appReceiveMsg" qname="appReceiveMsg"
+			returnQName="ns1:ReturnMsgXml" returnType="ns2:ReturnMsgXml"
+			soapAction="" xmlns:ns1="http://receive.typedef.schema.dexpt.baosight.com"
+			xmlns:ns2="http://receive.typedef.schema.dexpt.baosight.com">
+			<parameter qname="ns1:requ" type="ns2:RequestMsgXml" />
+		</operation>
+		<parameter name="allowedMethods" value="appReceiveMsg" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DexptAppReceive" />
+		<parameter name="className"
+			value="com.baosight.dexpt.wsinterface.DexptAppReceive" />
+		<parameter name="wsdlServicePort" value="DexptAppReceive" />
+		<parameter name="schemaQualified"
+			value="http://receive.typedef.schema.dexpt.baosight.com" />
+		<parameter name="wsdlTargetNamespace"
+			value="http://receive.typedef.schema.dexpt.baosight.com" />
+		<parameter name="wsdlServiceElement" value="DexptAppReceiveService" />
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+			encodingStyle="" qname="ns3:ReturnMsgXml"
+			serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+			type="java:com.baosight.dexpt.schema.typedef.receive.ReturnMsgXml"
+			xmlns:ns3="http://receive.typedef.schema.dexpt.baosight.com" />
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+			encodingStyle="" qname="ns4:RequestMsgXml"
+			serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+			type="java:com.baosight.dexpt.schema.typedef.receive.RequestMsgXml"
+			xmlns:ns4="http://receive.typedef.schema.dexpt.baosight.com" />
+	</service>
+<!--   <service name="ActivityInsControlManagerWS" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="scope" value="Request"/>
+  <parameter name="className" value="com.baosight.ecan.sm.workflow.wfapi.web.ActivityInsControlManagerWS"/>
+ </service> -->
+
+
+
+
+
+
+
+
+<!--  <service name="ProcessInsControlManagerWS" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="scope" value="Request"/>
+  <parameter name="className" value="com.baosight.ecan.sm.workflow.wfapi.web.ProcessInsControlManagerWS"/>
+ </service> -->
+<!--  <service name="TransitionInsControlManagerWS" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="scope" value="Request"/>
+  <parameter name="className" value="com.baosight.ecan.sm.workflow.wfapi.web.TransitionInsControlManagerWS"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns26:List" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:java.util.List" xmlns:ns26="http://util.java"/>
+ </service> -->
+
+
+
+<!--  <service name="GlobalDataManagerWS" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="scope" value="Request"/>
+  <parameter name="className" value="com.baosight.ecan.sm.workflow.wfapi.web.GlobalDataManagerWS"/>
+ </service> -->
+
+	<!-- ilatrules eqrr -->
+<!-- 	<service name="ruleexecutionService" provider="java:RPC">
+        <parameter name="className" value="com.baosight.ir.ruleexecution.webservice.RuleexecutionService"/>
+        <parameter name="allowedMethods" value="*"/>
+         <beanMapping languageSpecificType="java:com.baosight.iplat4j.core.ei.EiInfo" qname="ns1:EiInfo" xmlns:ns1="urn:BeanService"/>
+    </service> -->
+    
+    <service name="SoaWsInvoker" provider="java:RPC" style="wrapped" use="literal">
+  <operation name="invoke" qname="ns1:invoke" returnQName="ns1:invokeReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://ws.iplat4j.baosight.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <parameter qname="ns1:ei" type="xsd:string"/>
+   <parameter qname="ns1:token" type="xsd:string"/>
+  </operation>
+  <operation name="login" qname="ns2:login" returnQName="ns2:loginReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://ws.iplat4j.baosight.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns2:username" type="xsd:string"/>
+   <parameter qname="ns2:password" type="xsd:string"/>
+  </operation>
+  <parameter name="allowedMethods" value="login invoke"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="wsdlPortType" value="SoaWsInvoker"/>
+  <parameter name="className" value="com.baosight.iplat4j.ws.SoaWsInvoker"/>
+  <parameter name="wsdlServicePort" value="SoaWsInvoker"/>
+  <parameter name="schemaQualified" value="http://ws.iplat4j.baosight.com"/>
+  <parameter name="wsdlTargetNamespace" value="http://ws.iplat4j.baosight.com"/>
+  <parameter name="wsdlServiceElement" value="SoaWsInvokerService"/>
+ </service>
+
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+  <parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>
+

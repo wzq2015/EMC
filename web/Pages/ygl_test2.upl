@@ -1,0 +1,213 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="1000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter1" Left="183" Top="83" Width="174" Height="170" ZIndex="0" MinValue="0" MaxValue="500" CurrentValue="266" ></EMCControl:EMCRoundAnalogMeter>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter2" Left="528" Top="83" Width="174" Height="170" ZIndex="0" MinValue="0" MaxValue="500" CurrentValue="256" ></EMCControl:EMCRoundAnalogMeter>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter3" Left="883" Top="83" Width="174" Height="170" ZIndex="0" MinValue="0" MaxValue="500" CurrentValue="293" ></EMCControl:EMCRoundAnalogMeter>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter4" Left="1228" Top="83" Width="174" Height="170" ZIndex="0" MinValue="0" MaxValue="500" CurrentValue="286" ></EMCControl:EMCRoundAnalogMeter>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter5" Left="1578" Top="83" Width="174" Height="170" ZIndex="0" MinValue="0" MaxValue="500" CurrentValue="234" ></EMCControl:EMCRoundAnalogMeter>
+<BasicControl:TextBox Name="TextBox1" Left="141" Top="299" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="是否变频" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox2" Left="141" Top="364" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电压" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox3" Left="141" Top="429" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电流" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox4" Left="141" Top="494" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功功率" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox5" Left="141" Top="559" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="功率因数" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox6" Left="141" Top="624" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功电度" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox7" Left="141" Top="689" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电压变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox8" Left="215" Top="299" Width="174" Height="50" ZIndex="0" HAlignment="Center" VAlignment="Center" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox9" Left="215" Top="364" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1662" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox10" Left="215" Top="429" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="266" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox11" Left="215" Top="494" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1296" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox12" Left="215" Top="559" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="96" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox13" Left="215" Top="624" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="27784" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox14" Left="215" Top="689" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="3000:100" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle1" Left="130" Top="280" Width="270" Height="540" ZIndex="-1" LineColor="#FF000000" BackColor="#FF97F3EB" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox29" Left="141" Top="754" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电流变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox30" Left="215" Top="754" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="500:5" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label1" Left="366" Top="373" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="V" ></BasicControl:Label>
+<BasicControl:Label Name="Label2" Left="366" Top="438" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Label Name="Label3" Left="355" Top="503" Width="26" Height="33" ZIndex="0" VAlignment="Center" Text="KW" ></BasicControl:Label>
+<BasicControl:Label Name="Label4" Left="365" Top="568" Width="19" Height="33" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicControl:Label Name="Label5" Left="345" Top="633" Width="36" Height="33" ZIndex="0" VAlignment="Center" Text="MWH" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse1" Left="288" Top="312" Width="25" Height="25" ZIndex="0" LineColor="#FF000000" BackColor="#FF00B050" >
+</BasicShape:Ellipse>
+<BasicControl:TextBox Name="TextBox31" Left="491" Top="299" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="是否变频" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox32" Left="491" Top="364" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电压" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox33" Left="491" Top="429" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电流" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox34" Left="491" Top="494" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功功率" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox35" Left="491" Top="559" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="功率因数" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox36" Left="491" Top="624" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功电度" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox37" Left="491" Top="689" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电压变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox38" Left="565" Top="299" Width="174" Height="50" ZIndex="0" HAlignment="Center" VAlignment="Center" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox39" Left="565" Top="364" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1659" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox40" Left="565" Top="429" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="256" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox41" Left="565" Top="494" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="522" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox42" Left="565" Top="559" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="96" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox43" Left="565" Top="624" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="16711" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox44" Left="565" Top="689" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="3000:100" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle6" Left="480" Top="280" Width="270" Height="540" ZIndex="-1" LineColor="#FF000000" BackColor="#FF97F3EB" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox45" Left="491" Top="754" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电流变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox46" Left="565" Top="754" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="500:5" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label6" Left="716" Top="373" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="V" ></BasicControl:Label>
+<BasicControl:Label Name="Label7" Left="716" Top="438" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Label Name="Label8" Left="705" Top="503" Width="26" Height="33" ZIndex="0" VAlignment="Center" Text="KW" ></BasicControl:Label>
+<BasicControl:Label Name="Label9" Left="715" Top="568" Width="19" Height="33" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicControl:Label Name="Label10" Left="695" Top="633" Width="36" Height="33" ZIndex="0" VAlignment="Center" Text="MWH" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse2" Left="638" Top="312" Width="25" Height="25" ZIndex="0" LineColor="#FF000000" BackColor="#FF00B050" >
+</BasicShape:Ellipse>
+<BasicControl:TextBox Name="TextBox47" Left="841" Top="299" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="是否变频" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox48" Left="841" Top="364" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电压" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox49" Left="841" Top="429" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电流" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox50" Left="841" Top="494" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功功率" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox51" Left="841" Top="559" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="功率因数" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox52" Left="841" Top="624" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功电度" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox53" Left="841" Top="689" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电压变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox54" Left="915" Top="299" Width="174" Height="50" ZIndex="0" HAlignment="Center" VAlignment="Center" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox55" Left="915" Top="364" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1662" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox56" Left="915" Top="429" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="293" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox57" Left="915" Top="494" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1431" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox58" Left="915" Top="559" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="96" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox59" Left="915" Top="624" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="28616" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox60" Left="915" Top="689" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="3000:100" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle7" Left="830" Top="280" Width="270" Height="540" ZIndex="-1" LineColor="#FF000000" BackColor="#FF97F3EB" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox61" Left="841" Top="754" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电流变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox62" Left="915" Top="754" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="500:5" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label11" Left="1066" Top="373" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="V" ></BasicControl:Label>
+<BasicControl:Label Name="Label12" Left="1066" Top="438" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Label Name="Label13" Left="1055" Top="503" Width="26" Height="33" ZIndex="0" VAlignment="Center" Text="KW" ></BasicControl:Label>
+<BasicControl:Label Name="Label14" Left="1065" Top="568" Width="19" Height="33" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicControl:Label Name="Label15" Left="1045" Top="633" Width="36" Height="33" ZIndex="0" VAlignment="Center" Text="MWH" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse3" Left="988" Top="312" Width="25" Height="25" ZIndex="0" LineColor="#FF000000" BackColor="#FF00B050" >
+</BasicShape:Ellipse>
+<BasicControl:TextBox Name="TextBox63" Left="1191" Top="299" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="是否变频" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox64" Left="1191" Top="364" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电压" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox65" Left="1191" Top="429" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电流" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox66" Left="1191" Top="494" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功功率" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox67" Left="1191" Top="559" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="功率因数" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox68" Left="1191" Top="624" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功电度" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox69" Left="1191" Top="689" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电压变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox70" Left="1265" Top="299" Width="174" Height="50" ZIndex="0" HAlignment="Center" VAlignment="Center" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox71" Left="1265" Top="364" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1662" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox72" Left="1265" Top="429" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="286" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox73" Left="1265" Top="494" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1395" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox74" Left="1265" Top="559" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="96" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox75" Left="1265" Top="624" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="22294" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox76" Left="1265" Top="689" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="3000:100" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle8" Left="1180" Top="280" Width="270" Height="540" ZIndex="-1" LineColor="#FF000000" BackColor="#FF97F3EB" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox77" Left="1191" Top="754" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电流变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox78" Left="1265" Top="754" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="500:5" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label16" Left="1416" Top="373" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="V" ></BasicControl:Label>
+<BasicControl:Label Name="Label17" Left="1416" Top="438" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Label Name="Label18" Left="1405" Top="503" Width="26" Height="33" ZIndex="0" VAlignment="Center" Text="KW" ></BasicControl:Label>
+<BasicControl:Label Name="Label19" Left="1415" Top="568" Width="19" Height="33" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicControl:Label Name="Label20" Left="1395" Top="633" Width="36" Height="33" ZIndex="0" VAlignment="Center" Text="MWH" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse4" Left="1338" Top="312" Width="25" Height="25" ZIndex="0" LineColor="#FF000000" BackColor="#FF00B050" >
+</BasicShape:Ellipse>
+<BasicControl:TextBox Name="TextBox79" Left="1541" Top="299" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="是否变频" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox80" Left="1541" Top="364" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电压" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox81" Left="1541" Top="429" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="相电流" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox82" Left="1541" Top="494" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功功率" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox83" Left="1541" Top="559" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="功率因数" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox84" Left="1541" Top="624" Width="75" Height="50" ZIndex="0" FontSize="14" HAlignment="Center" VAlignment="Center" Text="有功电度" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox85" Left="1541" Top="689" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电压变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox86" Left="1615" Top="299" Width="174" Height="50" ZIndex="0" HAlignment="Center" VAlignment="Center" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox87" Left="1615" Top="364" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1656" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox88" Left="1615" Top="429" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="234" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox89" Left="1615" Top="494" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="1134" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox90" Left="1615" Top="559" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="95" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox91" Left="1615" Top="624" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="22785" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox92" Left="1615" Top="689" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="3000:100" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicShape:Rectangle Name="Rectangle9" Left="1530" Top="280" Width="270" Height="540" ZIndex="-1" LineColor="#FF000000" BackColor="#FF97F3EB" >
+</BasicShape:Rectangle>
+<BasicControl:TextBox Name="TextBox93" Left="1541" Top="754" Width="75" Height="50" ZIndex="0" BackColor="#FFF2F2F2" FontSize="14" HAlignment="Center" VAlignment="Center" Text="电流变比" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox94" Left="1615" Top="754" Width="174" Height="50" ZIndex="0" FontSize="16" HAlignment="Center" VAlignment="Center" Text="600:5" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label21" Left="1766" Top="373" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="V" ></BasicControl:Label>
+<BasicControl:Label Name="Label22" Left="1766" Top="438" Width="15" Height="33" ZIndex="0" VAlignment="Center" Text="A" ></BasicControl:Label>
+<BasicControl:Label Name="Label23" Left="1755" Top="503" Width="26" Height="33" ZIndex="0" VAlignment="Center" Text="KW" ></BasicControl:Label>
+<BasicControl:Label Name="Label24" Left="1765" Top="568" Width="19" Height="33" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicControl:Label Name="Label25" Left="1745" Top="633" Width="36" Height="33" ZIndex="0" VAlignment="Center" Text="MWH" ></BasicControl:Label>
+<BasicShape:Ellipse Name="Ellipse5" Left="1688" Top="312" Width="25" Height="25" ZIndex="0" LineColor="#FF000000" BackColor="#FF00B050" >
+</BasicShape:Ellipse>
+<BasicControl:Label Name="Label26" Left="203" Top="30" Width="138" Height="30" ZIndex="0" IsBold="true" Font="SimSun" FontSize="20" VAlignment="Center" Text="一次除尘A电表" ></BasicControl:Label>
+<BasicControl:Label Name="Label27" Left="545" Top="30" Width="142" Height="30" ZIndex="0" IsBold="true" Font="SimSun" FontSize="20" VAlignment="Center" Text="一次除尘B电表" ></BasicControl:Label>
+<BasicControl:Label Name="Label28" Left="899" Top="30" Width="143" Height="30" ZIndex="0" IsBold="true" Font="SimSun" FontSize="20" VAlignment="Center" Text="二次除尘A电表" ></BasicControl:Label>
+<BasicControl:Label Name="Label29" Left="1244" Top="30" Width="144" Height="30" ZIndex="0" IsBold="true" Font="SimSun" FontSize="20" VAlignment="Center" Text="二次除尘B电表" ></BasicControl:Label>
+<BasicControl:Label Name="Label30" Left="1604" Top="30" Width="132" Height="30" ZIndex="0" IsBold="true" Font="SimSun" FontSize="20" VAlignment="Center" Text="脱硅除尘电表" ></BasicControl:Label>
+<BasicControl:Button Name="Button1" Left="1676" Top="857" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" FontSize="15" Text="电能计量" ></BasicControl:Button>
+<BasicControl:Button Name="Button2" Left="1786" Top="857" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="出铁状态" ></BasicControl:Button>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox9" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1A_AXDY.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox13" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1A_YGDD.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox43" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1B_YGDD.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox59" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2A_YGDD.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox75" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2B_YGDD.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox91" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_TG_YGDD.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox12" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1A_GLYS.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox42" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1B_GLYS.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox58" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2A_GLYS.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox74" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2B_GLYS.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox90" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_TG_GLYS.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox11" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1A_YGGL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox41" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1B_YGGL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox57" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2A_YGGL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox73" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2B_YGGL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox89" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_TG_YGGL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox10" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1A_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox40" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1B_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox72" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2B_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox56" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2A_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox88" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_TG_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox39" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_1B_AXDY.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox55" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2A_AXDY.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox71" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_2B_AXDY.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox87" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.ygl_TG_AXDY.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCRoundAnalogMeter1" PropertyName="CurrentValue" IsEnable="True" Expression="added_scadaname1.ygl_1A_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCRoundAnalogMeter2" PropertyName="CurrentValue" IsEnable="True" Expression="added_scadaname1.ygl_1B_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCRoundAnalogMeter3" PropertyName="CurrentValue" IsEnable="True" Expression="added_scadaname1.ygl_2A_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCRoundAnalogMeter4" PropertyName="CurrentValue" IsEnable="True" Expression="added_scadaname1.ygl_2B_AXDL.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCRoundAnalogMeter5" PropertyName="CurrentValue" IsEnable="True" Expression="added_scadaname1.ygl_TG_AXDL.F_CV">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;ygl_meter.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;ygl_ironopenstatus.upl&quot;);" />
+</Element>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;ygl_ironopenstatus.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;ygl_meter.upl&quot;);" />
+</Element>
+</Script>
+</Pane>

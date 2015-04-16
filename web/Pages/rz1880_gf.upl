@@ -1,0 +1,616 @@
+<Pane>
+<BasicControl:Canvas Name="Canvas" Width="1920" Height="920" RefreshRate="5000" BackColor="#FF00B0F0" >
+<BasicControl:Canvas.WildcardList>
+</BasicControl:Canvas.WildcardList>
+<EMCControl:EMCPipe Name="EMCPipe1" Left="768" Top="627" Width="184" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe3" Left="690" Top="761" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe2" Left="684" Top="751" Width="304" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image1" Left="817" Top="562" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe4" Left="758" Top="632" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe5" Left="778" Top="828" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe5" Left="768" Top="612" Width="222" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe6" Left="767" Top="680" Width="222" Height="10" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe8" Left="772" Top="818" Width="219" Height="10" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe6" Left="689" Top="516" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe9" Left="684" Top="506" Width="77" Height="10" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe10" Left="769" Top="479" Width="52" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe7" Left="759" Top="490" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe8" Left="779" Top="550" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe9" Left="972" Top="530" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe10" Left="952" Top="470" Width="20" Height="20" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe11" Left="972" Top="479" Width="61" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe12" Left="778" Top="470" Width="177" Height="10" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe14" Left="887" Top="242" Width="308" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe15" Left="122" Top="156" Width="300" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image8" Left="182" Top="106" Width="45" Height="68" ZIndex="0" ImgSrc="UserUpload/Images/Turbine%20meter%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image9" Left="302" Top="56" Width="43" Height="65" ZIndex="1" ImgSrc="UserUpload/Images/Plastic%20control%20valve.png" >
+<BasicControl:Image.DynamicImageConfigEntity>
+<BasicControl:DynamicImageConfig IsRangeConfig="False" >
+<BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+</BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+<BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+<BasicControl:AbsoluteValueImageConfig Value="0" ImageName="Plastic control valve run.png" />
+<BasicControl:AbsoluteValueImageConfig Value="1" ImageName="Plastic control valve stop.png" />
+</BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+</BasicControl:DynamicImageConfig>
+</BasicControl:Image.DynamicImageConfigEntity>
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe17" Left="613" Top="224" Width="80" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe14" Left="603" Top="233" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe16" Left="889" Top="276" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe17" Left="869" Top="197" Width="20" Height="20" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe18" Left="889" Top="207" Width="80" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe20" Left="990" Top="251" Width="257" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<BasicControl:Group Name="Group3" Left="1194" Top="189.456146240234" Width="77" Height="166.543853759766" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:CloseCurve Name="CloseCurve1" Left="1" Top="-6.00232397118816E-09" Width="76" Height="21.5438575744629" ZIndex="0" LineColor="#FF000000" BackColor="#FF595959" FillColor="#FFF2F2F2" HorizontalFillType="FromCenterToSide" IsHorizontalGradual="True" Data="M 0,20.4207744598389 C12,-8.45614051818848,66,-5.45614242553711,76,21.5438575744629 Z" >
+</BasicShape:CloseCurve>
+<BasicShape:Rectangle Name="Rectangle3" Left="2" Top="20.5438594818115" Width="73" Height="146" ZIndex="0" LineColor="#FF000000" BackColor="#FF595959" FillColor="#FFFFFFFF" HorizontalFillType="FromCenterToSide" IsHorizontalGradual="True" >
+</BasicShape:Rectangle>
+<BasicShape:Line Name="Line3" Left="2" Top="64.5438613891602" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="2" Y1="64.5438613891602" X2="77" Y2="99.5438613891602" ></BasicShape:Line>
+<BasicShape:Line Name="Line4" Top="63.5438575744629" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="76" Y1="63.5438575744629" Y2="99.5438613891602" ></BasicShape:Line>
+<BasicShape:Line Name="Line5" Left="2" Top="64.5438613891602" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="2" Y1="64.5438613891602" X2="74" Y2="64.5438613891602" ></BasicShape:Line>
+<BasicShape:Line Name="Line6" Left="2" Top="99.5438613891602" Width="0" Height="0" ZIndex="0" LineColor="#FF000000" X1="2" Y1="99.5438613891602" X2="75" Y2="99.5438613891602" ></BasicShape:Line>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<BasicControl:Group Name="Group4" Left="1071.75" Top="356" Width="324.25" Height="84" ZIndex="0" >
+<BasicControl:Group.Children>
+<BasicShape:CloseCurve Name="CloseCurve2" Width="23.25" Height="84" ZIndex="0" LineColor="#FF000000" BackColor="#FF595959" FillColor="#FFFFFFFF" VerticalFillType="FromCenterToUpDown" IsVerticalGradual="True" Data="M 23.25,0 C-7.75,5,-7.75,78,23.25,84 Z" >
+</BasicShape:CloseCurve>
+<BasicShape:CloseCurve Name="CloseCurve3" Left="324.25" Top="84" Width="23.25" Height="84" RotateAngle="180" ZIndex="0" LineColor="#FF000000" BackColor="#FF595959" FillColor="#FFFFFFFF" VerticalFillType="FromCenterToUpDown" IsVerticalGradual="True" Data="M 23.25,0 C-7.75,5,-7.75,78,23.25,84 Z" >
+</BasicShape:CloseCurve>
+<BasicShape:Rectangle Name="Rectangle4" Left="22.25" Width="280" Height="84" ZIndex="0" LineColor="#FF000000" BackColor="#FF595959" FillColor="#FFFFFFFF" VerticalFillType="FromCenterToUpDown" IsVerticalGradual="True" >
+</BasicShape:Rectangle>
+</BasicControl:Group.Children>
+</BasicControl:Group>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe23" Left="1244" Top="495" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe26" Left="1243" Top="485" Width="253" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe27" Left="1427" Top="428" Width="125" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe24" Left="1417" Top="433" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe25" Left="1437" Top="568" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe29" Left="1432" Top="413" Width="62" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe30" Left="1430" Top="558" Width="65" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe31" Left="1564" Top="395" Width="151" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe26" Left="1722" Top="531" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe27" Left="1702" Top="395" Width="20" Height="20" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe34" Left="1722" Top="409" Width="125" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe36" Left="1795" Top="243" Width="221" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe37" Left="1269" Top="291" Width="251" Height="10" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe38" Left="1336" Top="300" Width="112" Height="10" RotateAngle="90" ZIndex="-1" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe29" Left="1539" Top="281" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe40" Left="1539" Top="113" Width="169" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe41" Left="1322" Top="103" Width="513" Height="10" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image19" Left="1671" Top="54" Width="45" Height="68" ZIndex="0" ImgSrc="UserUpload/Images/Turbine%20meter%201.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label3" Left="698" Top="588" Width="85" Height="18" ZIndex="1" IsBold="true" VAlignment="Center" Text="磷酸盐加药箱" ></BasicControl:Label>
+<BasicControl:Label Name="Label4" Left="938" Top="581" Width="37" Height="18" ZIndex="0" VAlignment="Center" Text="备用" ></BasicControl:Label>
+<BasicControl:Label Name="Label5" Left="927" Top="653" Width="85" Height="18" ZIndex="0" VAlignment="Center" Text="至2#炉汽包" ></BasicControl:Label>
+<BasicControl:Label Name="Label6" Left="927" Top="723" Width="85" Height="18" ZIndex="0" VAlignment="Center" Text="至3#炉汽包" ></BasicControl:Label>
+<BasicControl:Label Name="Label7" Left="927" Top="788" Width="85" Height="18" ZIndex="0" VAlignment="Center" Text="至4#炉汽包" ></BasicControl:Label>
+<BasicControl:Image Name="Image20" Left="707" Top="747" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label10" Left="701" Top="355" Width="65" Height="18" ZIndex="0" IsBold="true" VAlignment="Center" Text="联氨加药箱" ></BasicControl:Label>
+<BasicControl:Image Name="Image24" Left="706" Top="502" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image26" Left="163" Top="152" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label11" Left="60" Top="151" Width="55" Height="18" ZIndex="0" VAlignment="Center" Text="来自纯水" ></BasicControl:Label>
+<BasicControl:Image Name="Image28" Left="975" Top="353" Width="18" Height="24" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label35" Left="1200" Top="378" Width="68" Height="24" ZIndex="0" IsBold="true" FontSize="21" VAlignment="Center" Text="除氧器" ></BasicControl:Label>
+<BasicControl:Image Name="Image29" Left="1781" Top="417" Width="18" Height="24" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label42" Left="1798" Top="208" Width="84" Height="20" ZIndex="0" VAlignment="Center" Text="至2#汽水系统" ></BasicControl:Label>
+<BasicControl:Button Name="Button1" Left="1346" Top="852" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="总 貌 图" ></BasicControl:Button>
+<BasicControl:Button Name="Button2" Left="1456" Top="852" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="2#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button3" Left="1565" Top="851" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="3#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button4" Left="1676" Top="852" Width="107" Height="43" ZIndex="0" IsBold="true" FontSize="15" Text="4#汽水系统" ></BasicControl:Button>
+<BasicControl:Button Name="Button5" Left="1786" Top="852" Width="107" Height="43" ZIndex="0" IsEnabled="false" IsBold="true" FontSize="15" Text="公辅" ></BasicControl:Button>
+<BasicControl:Image Name="Image30" Left="421" Top="167" Width="160" Height="150" ZIndex="0" ImgSrc="UserUpload/Images/WaterTank.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label43" Left="485" Top="232" Width="51" Height="27" ZIndex="0" IsBold="true" FontSize="15" VAlignment="Center" Text="纯水箱" ></BasicControl:Label>
+<EMCControl:EMCPump Name="EMCPump1" Left="662" Top="195" Width="79" Height="47" ZIndex="0" WorkStatus="False" ></EMCControl:EMCPump>
+<EMCControl:EMCPump Name="EMCPump2" Left="664" Top="284" Width="79" Height="47" ZIndex="0" WorkStatus="False" ></EMCControl:EMCPump>
+<BasicShape:Polygon Name="Polygon1" Left="446" Top="175" Width="32" Height="140" ZIndex="0" LineColor="#FF000000" BackColor="#FF949287" FillColor="#FF0000B4" VerticalFillType="FromBottomToTop" VerticalFillPercent="52" Points="14,0 1,7.15328454971313 15,18.3941612243652 2,28.6131381988525 13,49.0510940551758 0,71.532844543457 15,91.9708023071289 0,99.1240844726563 14,118.540145874023 0,130.802917480469 19,140 32,131.824813842773 23,111.386863708496 32,80.7299270629883 21,78.6861343383789 31,53.1386871337891 24,44.9635047912598 31,27.5912399291992 30,5.10948896408081" >
+</BasicShape:Polygon>
+<EMCControl:EMCPipe Name="EMCPipe42" Left="618" Top="213" Width="45" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe43" Left="559" Top="303" Width="106" Height="10" ZIndex="-1" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image33" Left="620" Top="291" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image34" Left="618" Top="201" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe44" Left="744" Top="197" Width="132" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe45" Left="746" Top="286" Width="129" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image35" Left="828" Top="185" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image36" Left="829" Top="273" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image37" Left="780" Top="219" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image38" Left="782" Top="307" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image41" Left="419" Top="170" Width="29" Height="148" ZIndex="0" ImgSrc="UserUpload/Images/TankMeter.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe46" Left="370" Top="194" Width="145" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe31" Left="360" Top="214" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe47" Left="370" Top="324" Width="68" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe32" Left="441" Top="314" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe48" Left="377" Top="194" Width="46" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image42" Left="376" Top="312" Width="52" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/BallValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe33" Left="419" Top="156" Width="20" Height="20" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<BasicControl:Image Name="Image43" Left="306" Top="143" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe49" Left="1620" Top="703" Width="80" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe34" Left="1527" Top="793" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe50" Left="1519" Top="783" Width="247" Height="10" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe35" Left="1783" Top="773" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe51" Left="1517" Top="704" Width="72" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe52" Left="1783" Top="702" Width="82" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCPipe>
+<BasicShape:Rectangle Name="Rectangle9" Left="1517" Top="721" Width="93" Height="62" ZIndex="0" LineColor="#FFFFFFFF" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<BasicShape:Rectangle Name="Rectangle10" Left="1620" Top="736" Width="153" Height="47" ZIndex="0" LineColor="#FFFFFFFF" BackColor="#FFBFBFBF" >
+</BasicShape:Rectangle>
+<EMCControl:EMCPipe Name="EMCPipe53" Left="1546" Top="691" Width="42" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe36" Left="1526" Top="678" Width="20" Height="20" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe54" Left="1410" Top="678" Width="122" Height="10" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe55" Left="1630" Top="710" Width="142" Height="8" ZIndex="0" BackColor="#FFFFFFFF" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image44" Left="1638" Top="680" Width="25" Height="90" ZIndex="0" ImgSrc="UserUpload/Images/LevelMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image45" Left="1686" Top="644" Width="27" Height="69" ZIndex="0" ImgSrc="UserUpload/Images/VerticalPump.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image46" Left="1736" Top="644" Width="27" Height="69" ZIndex="0" ImgSrc="UserUpload/Images/VerticalPump.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe56" Left="1704" Top="710" Width="56" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF85A543" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe57" Left="1754" Top="710" Width="56" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF85A543" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe58" Left="1698" Top="689" Width="141" Height="10" ZIndex="-1" BackColor="#FF85A543" ></EMCControl:EMCPipe>
+<BasicControl:Label Name="Label44" Left="1539" Top="741" Width="51" Height="27" ZIndex="0" IsBold="true" FontSize="15" VAlignment="Center" Text="降温池" ></BasicControl:Label>
+<BasicControl:Image Name="Image47" Left="817" Top="632" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image48" Left="817" Top="702" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image49" Left="817" Top="772" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe59" Left="615" Top="662" Width="20" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe60" Left="615" Top="709" Width="20" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image50" Left="592" Top="633" Width="29" Height="108" ZIndex="0" ImgSrc="UserUpload/Images/TankMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image51" Left="631" Top="632" Width="90" Height="112" ZIndex="0" ImgSrc="UserUpload/Images/Tank.png" >
+</BasicControl:Image>
+<BasicShape:Polygon Name="Polygon2" Left="642" Top="636" Width="67" Height="105" ZIndex="0" LineColor="#FF000000" BackColor="#FFA589C7" Points="16.1445789337158,0 3.22891569137573,16.0887088775635 16.1445789337158,33.8709678649902 0,49.1129035949707 12.1084337234497,68.5887069702148 0.807228922843933,82.1371002197266 16.9518070220947,105 47.6265068054199,105 64.5783157348633,90.6048355102539 56.5060234069824,71.9758071899414 67,54.1935501098633 53.2771072387695,33.0241928100586 64.5783157348633,17.7822589874268 54.0843391418457,0" >
+</BasicShape:Polygon>
+<BasicControl:Image Name="Image52" Left="653" Top="583" Width="46" Height="105" ZIndex="0" ImgSrc="UserUpload/Images/Mixer.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image53" Left="632" Top="387" Width="90" Height="112" ZIndex="0" ImgSrc="UserUpload/Images/Tank.png" >
+</BasicControl:Image>
+<BasicShape:Polygon Name="Polygon3" Left="643" Top="390" Width="68" Height="105" ZIndex="0" LineColor="#FF000000" BackColor="#FFA589C7" Points="16.3855419158936,0 3.27710843086243,16.0887088775635 16.3855419158936,33.8709678649902 0,49.1129035949707 12.2891569137573,68.5887069702148 0.819277107715607,82.1371002197266 17.2048187255859,105 48.3373489379883,105 65.5421676635742,90.6048355102539 57.3493957519531,71.9758071899414 68,54.1935501098633 54.0722885131836,33.0241928100586 65.5421676635742,17.7822589874268 54.8915672302246,0" >
+</BasicShape:Polygon>
+<BasicControl:Image Name="Image54" Left="656" Top="338" Width="46" Height="105" ZIndex="0" ImgSrc="UserUpload/Images/Mixer.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image55" Left="817" Top="425" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image56" Left="817" Top="496" Width="48" Height="71" ZIndex="0" ImgSrc="UserUpload/Images/HandheldMeter.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe38" Left="990" Top="495" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FFEC10EA" ></EMCControl:EMCCornerPipe>
+<BasicControl:Image Name="Image57" Left="931" Top="200" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe61" Left="250" Top="121" Width="36" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe39" Left="240" Top="123" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe62" Left="257" Top="103" Width="130" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe40" Left="383" Top="103" Width="20" Height="20" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe63" Left="403" Top="111" Width="45" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image58" Left="259" Top="92" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image59" Left="354" Top="92" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image60" Left="1246" Top="448" Width="39" Height="26" RotateAngle="90" ZIndex="1" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe64" Left="1234" Top="440" Width="24" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image61" Left="1439" Top="401" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPump Name="EMCPump3" Left="1483" Top="393" Width="79" Height="47" ZIndex="0" WorkStatus="False" ></EMCControl:EMCPump>
+<BasicControl:Image Name="Image63" Left="1617" Top="416" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image64" Left="1667" Top="383" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPump Name="EMCPump4" Left="1481" Top="466" Width="79" Height="47" ZIndex="0" WorkStatus="False" ></EMCControl:EMCPump>
+<EMCControl:EMCPump Name="EMCPump5" Left="1483" Top="539" Width="79" Height="47" ZIndex="0" WorkStatus="False" ></EMCControl:EMCPump>
+<EMCControl:EMCPipe Name="EMCPipe65" Left="1563" Top="468" Width="150" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe66" Left="1565" Top="541" Width="144" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe28" Left="1795" Top="458" Width="20" Height="20" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe67" Left="1721" Top="468" Width="56" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image65" Left="1439" Top="471" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image66" Left="1439" Top="546" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image69" Left="1617" Top="491" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image70" Left="1617" Top="561" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image71" Left="1667" Top="458" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image72" Left="1667" Top="528" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe68" Left="1371" Top="241" Width="159" Height="10" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe41" Left="1357" Top="261" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe69" Left="1367" Top="258" Width="36" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image75" Left="1385" Top="229" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image76" Left="1428" Top="193" Width="43" Height="65" ZIndex="1" ImgSrc="UserUpload/Images/Plastic%20control%20valve.png" >
+<BasicControl:Image.DynamicImageConfigEntity>
+<BasicControl:DynamicImageConfig IsRangeConfig="False" >
+<BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+</BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+<BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+<BasicControl:AbsoluteValueImageConfig Value="0" ImageName="Plastic control valve run.png" />
+<BasicControl:AbsoluteValueImageConfig Value="1" ImageName="Plastic control valve stop.png" />
+</BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+</BasicControl:DynamicImageConfig>
+</BasicControl:Image.DynamicImageConfigEntity>
+</BasicControl:Image>
+<BasicControl:Image Name="Image77" Left="1480" Top="229" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image78" Left="1430" Top="279" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image79" Left="1282" Top="279" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image80" Left="1347" Top="312" Width="39" Height="26" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe42" Left="1336" Top="404" Width="20" Height="20" RotateAngle="90" ZIndex="1" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe70" Left="1160" Top="414" Width="156" Height="10" ZIndex="1" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image82" Left="1070" Top="138" Width="43" Height="65" ZIndex="1" ImgSrc="UserUpload/Images/Plastic%20control%20valve.png" >
+<BasicControl:Image.DynamicImageConfigEntity>
+<BasicControl:DynamicImageConfig IsRangeConfig="False" >
+<BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+</BasicControl:DynamicImageConfig.RangeValueImageConfigList>
+<BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+<BasicControl:AbsoluteValueImageConfig Value="0" ImageName="Plastic control valve run.png" />
+<BasicControl:AbsoluteValueImageConfig Value="1" ImageName="Plastic control valve stop.png" />
+</BasicControl:DynamicImageConfig.AbsoluteValueImageConfigList>
+</BasicControl:DynamicImageConfig>
+</BasicControl:Image.DynamicImageConfigEntity>
+</BasicControl:Image>
+<BasicControl:Image Name="Image83" Left="1075" Top="230" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe71" Left="1019" Top="187" Width="57" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe43" Left="1009" Top="205" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe72" Left="1026" Top="185" Width="130" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe44" Left="1152" Top="185" Width="20" Height="20" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe73" Left="1172" Top="198" Width="45" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image84" Left="1028" Top="174" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image85" Left="1123" Top="174" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image86" Left="710" Top="494" Width="52" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/BallValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe45" Left="1831" Top="689" Width="20" Height="20" ZIndex="0" BackColor="#FF85A543" ></EMCControl:EMCCornerPipe>
+<BasicControl:Image Name="Image87" Left="1295" Top="577" Width="120" Height="184" ZIndex="0" ImgSrc="UserUpload/Images/Tank2.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label45" Left="1317" Top="645" Width="79" Height="27" ZIndex="0" IsBold="true" FontSize="15" VAlignment="Center" Text="定期排污器" ></BasicControl:Label>
+<BasicControl:Image Name="Image88" Left="1450" Top="664" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image89" Left="1076" Top="580" Width="120" Height="181" ZIndex="0" ImgSrc="UserUpload/Images/Tank2.png" >
+</BasicControl:Image>
+<BasicControl:Label Name="Label46" Left="1098" Top="646" Width="79" Height="27" ZIndex="0" IsBold="true" FontSize="15" VAlignment="Center" Text="连续排污器" ></BasicControl:Label>
+<EMCControl:EMCPipe Name="EMCPipe74" Left="1191" Top="677" Width="109" Height="10" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image90" Left="1207" Top="697" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image91" Left="1257" Top="664" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe46" Left="1035" Top="531" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe75" Left="1030" Top="521" Width="94" Height="10" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe76" Left="1025" Top="350" Width="163" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe47" Left="1015" Top="356" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe77" Left="1030" Top="336" Width="109" Height="10" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe48" Left="1135" Top="336" Width="20" Height="20" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<BasicControl:Image Name="Image92" Left="1153" Top="580" Width="39" Height="26" RotateAngle="90" ScaleX="-1" ZIndex="1" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image93" Left="1073" Top="323" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image94" Left="774" Top="600" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image95" Left="774" Top="668" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image96" Left="774" Top="740" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image97" Left="774" Top="805" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image98" Left="874" Top="840" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image99" Left="924" Top="807" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image100" Left="874" Top="634" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image101" Left="924" Top="601" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image102" Left="874" Top="701" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image103" Left="924" Top="668" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image104" Left="874" Top="773" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image105" Left="924" Top="739" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe78" Left="778" Top="540" Width="176" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image106" Left="775" Top="457" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image107" Left="775" Top="527" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image108" Left="873" Top="491" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image109" Left="919" Top="458" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image110" Left="873" Top="561" Width="39" Height="26" RotateAngle="180" ScaleX="-1" ZIndex="0" ImgSrc="UserUpload/Images/CheckValve.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image111" Left="919" Top="528" Width="39" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/HandValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe79" Left="616" Top="417" Width="20" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe80" Left="616" Top="464" Width="20" Height="10" ZIndex="-1" BackColor="#FFEC10EA" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image112" Left="593" Top="389" Width="29" Height="109" ZIndex="0" ImgSrc="UserUpload/Images/TankMeter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image113" Left="709" Top="739" Width="52" Height="26" ZIndex="0" ImgSrc="UserUpload/Images/BallValve.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe81" Left="1070" Top="574" Width="26" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe49" Left="1080" Top="611" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe82" Left="1290" Top="577" Width="23" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe50" Left="1300" Top="611" Width="20" Height="20" RotateAngle="180" ZIndex="0" BackColor="#FF6E8E2C" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe51" Left="1121" Top="521" Width="20" Height="20" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe83" Left="1141" Top="538" Width="49" Height="10" RotateAngle="90" ZIndex="0" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe84" Left="1058" Top="371" Width="20" Height="10" ZIndex="-1" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe85" Left="1058" Top="418" Width="20" Height="10" ZIndex="-1" BackColor="#FF6E8E2C" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image114" Left="1035" Top="358" Width="29" Height="80" ZIndex="0" ImgSrc="UserUpload/Images/TankMeter.png" >
+</BasicControl:Image>
+<BasicShape:Polygon Name="Polygon4" Left="1119" Top="394" Width="232" Height="43" ZIndex="0" LineColor="#FF000000" BackColor="#FF0000B4" Points="0,16 7.6243896484375,0 25.0516357421875,14 34.8544921875,4 59.9061279296875,14 77.3333740234375,7 95.8497314453125,15 118.723022460938,7 130.704223632813,14 141.59619140625,8 163.380249023438,14 176.45068359375,5 188.431884765625,15 205,9 232,14 221.108032226563,39 206.948364257813,33 185.164306640625,43 167.737060546875,35 148.131469726563,42 126.347412109375,34 114.3662109375,42 91.492919921875,34 80.6009521484375,43 67.530517578125,33 50.103271484375,42 39.2113037109375,34 13.0704345703125,39" >
+</BasicShape:Polygon>
+<EMCControl:EMCRoundAnalogMeter Name="EMCRoundAnalogMeter4" Left="1582" Top="73" Width="25" Height="25" ZIndex="0" MinValue="0" MaxValue="100" CurrentValue="50" ></EMCControl:EMCRoundAnalogMeter>
+<EMCControl:EMCPipe Name="EMCPipe89" Left="1599" Top="95" Width="9" Height="10" RotateAngle="90" ZIndex="-1" BackColor="#FFB45303" ></EMCControl:EMCPipe>
+<BasicControl:Image Name="Image115" Left="1782" Top="113" Width="40" Height="40" RotateAngle="270" ZIndex="-1" ImgSrc="UserUpload/Images/RTDWeather.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle19" Left="359" Top="38" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label65" Left="367" Top="37" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LCV5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox10" Left="362" Top="58" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label66" Left="436" Top="58" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle20" Left="156" Top="183" Width="96" Height="76" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label67" Left="164" Top="182" Width="51" Height="24" ZIndex="0" VAlignment="Center" Text="FT5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox11" Left="159" Top="203" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label68" Left="223" Top="203" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="t/h" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox12" Left="159" Top="231" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label69" Left="233" Top="231" Width="10" Height="24" ZIndex="0" VAlignment="Center" Text="t" ></BasicControl:Label>
+<BasicControl:Image Name="Image116" Left="919" Top="238" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image118" Left="1011" Top="467" Width="18" Height="24" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image119" Left="1462" Top="99" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image120" Left="1825" Top="99" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image121" Left="1543" Top="210" Width="18" Height="24" RotateAngle="180" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image122" Left="1389" Top="481" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image124" Left="1524" Top="674" Width="18" Height="24" RotateAngle="90" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicShape:Rectangle Name="Rectangle26" Left="453" Top="111" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label80" Left="461" Top="110" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LT5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox18" Left="456" Top="131" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label81" Left="520" Top="131" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicControl:Label Name="Label82" Left="1351" Top="79" Width="79" Height="18" ZIndex="0" VAlignment="Center" Text="来自蒸汽母管" ></BasicControl:Label>
+<BasicControl:Label Name="Label83" Left="1233" Top="553" Width="102" Height="18" ZIndex="0" VAlignment="Center" Text="2-4#锅炉定排口" ></BasicControl:Label>
+<BasicControl:Label Name="Label84" Left="1020" Top="551" Width="102" Height="18" ZIndex="0" VAlignment="Center" Text="2-4#锅炉连排口" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle27" Left="530" Top="576" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label85" Left="538" Top="575" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LT5101" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox19" Left="533" Top="596" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label86" Left="597" Top="596" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle28" Left="532" Top="338" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label87" Left="540" Top="337" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LT5102" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox20" Left="535" Top="358" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label88" Left="599" Top="358" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle29" Left="1580" Top="623" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label89" Left="1588" Top="622" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LT5003" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox21" Left="1583" Top="643" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label90" Left="1647" Top="643" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle30" Left="1039" Top="445" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label91" Left="1047" Top="444" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LT5002" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox22" Left="1042" Top="465" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label92" Left="1106" Top="465" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="mm" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle31" Left="1729" Top="487" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label93" Left="1737" Top="486" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="PT5002" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox23" Left="1732" Top="507" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label94" Left="1795" Top="507" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="MPa" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle32" Left="1544" Top="124" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label95" Left="1552" Top="123" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="PT5003" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox24" Left="1547" Top="144" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label96" Left="1610" Top="144" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="MPa" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle33" Left="1646" Top="124" Width="96" Height="75" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label97" Left="1654" Top="123" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="FT5003" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox25" Left="1649" Top="144" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label98" Left="1716" Top="144" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="t/h" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox26" Left="1649" Top="171" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label99" Left="1727" Top="171" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="t" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle34" Left="1748" Top="124" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label100" Left="1756" Top="123" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="TE5003" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox27" Left="1751" Top="144" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label101" Left="1826" Top="144" Width="14" Height="24" ZIndex="0" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label102" Left="1822" Top="137" Width="13" Height="24" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle35" Left="1402" Top="137" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label103" Left="1410" Top="136" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="PCV5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox28" Left="1405" Top="157" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label104" Left="1478" Top="157" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle36" Left="1184" Top="92" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label105" Left="1192" Top="91" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="PT5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox29" Left="1187" Top="112" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label106" Left="1252" Top="112" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="KPa" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle37" Left="1044" Top="80" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label107" Left="1052" Top="79" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="LCV5002" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox30" Left="1047" Top="100" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label108" Left="1120" Top="100" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="%" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle38" Left="896" Top="130" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label109" Left="904" Top="129" Width="57" Height="24" ZIndex="0" VAlignment="Center" Text="PT5004" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox31" Left="899" Top="150" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F2}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label110" Left="962" Top="150" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="MPa" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle39" Left="131" Top="429" Width="357" Height="334" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label111" Left="259" Top="443" Width="109" Height="17" ZIndex="0" VAlignment="Center" Text="公辅部分其他参数" ></BasicControl:Label>
+<BasicControl:Label Name="Label112" Left="171" Top="477" Width="112" Height="17" ZIndex="0" VAlignment="Center" Text="循环冷却水流量(t/h)" ></BasicControl:Label>
+<BasicControl:Label Name="Label113" Left="171" Top="507" Width="118" Height="17" ZIndex="0" VAlignment="Center" Text="循环冷却水累计量(t)" ></BasicControl:Label>
+<BasicControl:Label Name="Label114" Left="171" Top="537" Width="120" Height="17" ZIndex="0" VAlignment="Center" Text="仪表空气流量(Nm /h)" ></BasicControl:Label>
+<BasicControl:Label Name="Label115" Left="171" Top="567" Width="126" Height="17" ZIndex="0" VAlignment="Center" Text="仪表空气累计量(Nm )" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox32" Left="318" Top="473" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox33" Left="318" Top="503" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox34" Left="318" Top="533" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:TextBox Name="TextBox35" Left="318" Top="563" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label116" Left="171" Top="597" Width="124" Height="17" ZIndex="0" VAlignment="Center" Text="MCC进线电流CUN(A)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox36" Left="318" Top="593" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label117" Left="171" Top="627" Width="123" Height="17" ZIndex="0" VAlignment="Center" Text="MCC进线电压VOL(V)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox37" Left="317" Top="623" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label118" Left="171" Top="657" Width="134" Height="17" ZIndex="0" VAlignment="Center" Text="干变中线电流GBCUN(A)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox38" Left="318" Top="653" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label119" Left="171" Top="687" Width="113" Height="17" ZIndex="0" VAlignment="Center" Text="瞬时耗电量(KW)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox39" Left="318" Top="683" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label120" Left="171" Top="717" Width="113" Height="17" ZIndex="0" VAlignment="Center" Text="总耗电量(KWh)" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox40" Left="318" Top="713" Width="120" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F0}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label121" Left="268" Top="535" Width="13" Height="13" ZIndex="0" FontSize="9" VAlignment="Center" Text="3" ></BasicControl:Label>
+<BasicControl:Label Name="Label122" Left="280" Top="565" Width="13" Height="13" ZIndex="0" FontSize="9" VAlignment="Center" Text="3" ></BasicControl:Label>
+<BasicShape:Rectangle Name="Rectangle41" Left="1167" Top="498" Width="96" Height="50" ZIndex="0" LineColor="#FF000000" BackColor="#FF9ACCFF" >
+</BasicShape:Rectangle>
+<BasicControl:Label Name="Label125" Left="1175" Top="497" Width="51" Height="24" ZIndex="0" VAlignment="Center" Text="TE5001" ></BasicControl:Label>
+<BasicControl:TextBox Name="TextBox42" Left="1170" Top="520" Width="90" Height="25" ZIndex="0" HAlignment="Center" VAlignment="Center" Text="##" FormatString="{}{0:F1}" ></BasicControl:TextBox>
+<BasicControl:Label Name="Label126" Left="1248" Top="521" Width="27" Height="24" ZIndex="0" VAlignment="Center" Text="C" ></BasicControl:Label>
+<BasicControl:Label Name="Label127" Left="1243" Top="516" Width="20" Height="19" ZIndex="0" VAlignment="Center" Text="。" ></BasicControl:Label>
+<BasicControl:Image Name="Image125" Left="1209" Top="430" Width="40" Height="40" RotateAngle="90" ZIndex="-1" ImgSrc="UserUpload/Images/RTDWeather.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image126" Left="1057" Top="600" Width="18" Height="24" RotateAngle="180" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image127" Left="1277" Top="600" Width="18" Height="24" RotateAngle="180" ZIndex="0" ImgSrc="UserUpload/Images/Straight%20arrow%201.png" >
+</BasicControl:Image>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe52" Left="1271" Top="189" Width="16" Height="16" RotateAngle="90" ZIndex="-1" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<BasicControl:Image Name="Image128" Left="1250" Top="150" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image129" Left="1734" Top="426" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<EMCControl:EMCPipe Name="EMCPipe94" Left="1793" Top="349" Width="56" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCPipe Name="EMCPipe95" Left="1793" Top="289" Width="56" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<EMCControl:EMCCornerPipe Name="EMCCornerPipe53" Left="1785" Top="251" Width="20" Height="20" RotateAngle="270" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCCornerPipe>
+<EMCControl:EMCPipe Name="EMCPipe96" Left="1798" Top="231" Width="52" Height="10" ZIndex="0" BackColor="#FF0000B4" ></EMCControl:EMCPipe>
+<BasicControl:Label Name="Label128" Left="1798" Top="268" Width="84" Height="20" ZIndex="0" VAlignment="Center" Text="至3#汽水系统" ></BasicControl:Label>
+<BasicControl:Label Name="Label129" Left="1798" Top="328" Width="84" Height="20" ZIndex="0" VAlignment="Center" Text="至4#汽水系统" ></BasicControl:Label>
+<BasicControl:Image Name="Image130" Left="1573" Top="352" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image131" Left="1573" Top="424" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image132" Left="1573" Top="499" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image133" Left="746" Top="154" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+<BasicControl:Image Name="Image134" Left="746" Top="242" Width="33" Height="47" ZIndex="-1" ImgSrc="UserUpload/Images/PressureTransmitter.png" >
+</BasicControl:Image>
+</BasicControl:Canvas>
+<Tags>
+<TagBinding ElementName="TextBox11" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox12" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5001_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox10" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LCV_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox18" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox20" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5102.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox19" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5101.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox31" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox30" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LCV_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox29" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox22" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox42" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox21" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5003.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox23" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox28" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PCV_5001.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox24" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_PT_5003.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox25" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5003.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox26" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5003_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox27" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_TE_5003.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox32" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox33" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5002_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox34" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox35" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_FT_5004_TOTL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox36" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox37" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_MCC_VOL.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox38" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_GB_CUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox39" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="TextBox40" PropertyName="Text" IsEnable="True" Expression="added_scadaname1.rz1880_POWER_TOL.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCPump1" PropertyName="WorkStatus" IsEnable="True" Expression="added_scadaname1.rz1880_SPUMP1_RUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCPump2" PropertyName="WorkStatus" IsEnable="True" Expression="added_scadaname1.rz1880_SPUMP2_RUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCPump3" PropertyName="WorkStatus" IsEnable="True" Expression="added_scadaname1.rz1880_GPUMP1_RUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCPump4" PropertyName="WorkStatus" IsEnable="True" Expression="added_scadaname1.rz1880_GPUMP2_RUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="EMCPump5" PropertyName="WorkStatus" IsEnable="True" Expression="added_scadaname1.rz1880_GPUMP3_RUN.F_CV">
+</TagBinding>
+<TagBinding ElementName="Image9" PropertyName="ImageValue" IsEnable="True" Expression="added_scadaname1.rz1880_LCV_5001_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="Image82" PropertyName="ImageValue" IsEnable="True" Expression="added_scadaname1.rz1880_LCV_5002_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="Image76" PropertyName="ImageValue" IsEnable="True" Expression="added_scadaname1.rz1880_PCV_5001_FT.F_CV">
+</TagBinding>
+<TagBinding ElementName="Polygon1" PropertyName="VerticalFillPercent" IsEnable="True" Expression="added_scadaname1.rz1880_LT_5001.F_CV / 44">
+</TagBinding>
+</Tags>
+<Script>
+<Element Name="Button1" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_gf.upl&quot;);" />
+</Element>
+<Element Name="Button3" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_3.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_gf.upl&quot;);" />
+</Element>
+<Element Name="Button4" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_4.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_gf.upl&quot;);" />
+</Element>
+<Element Name="Button5" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_gf.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_2.upl&quot;);" />
+</Element>
+<Element Name="Button2" >
+<Event Name="Click" Content="  PageMethods.OpenPage(&quot;rz1880_2.upl&quot;, None, None);!!  PageMethods.ClosePage(&quot;rz1880_gf.upl&quot;);" />
+</Element>
+</Script>
+</Pane>
