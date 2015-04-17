@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_emcproject_cycle 
+		 f_emcproject_cycle_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_emcproject_cycle_cycleindex  INTEGER   NOT NULL, 
+		 f_emcproject_cycle_starttime  VARCHAR   NOT NULL, 
+		 f_emcproject_cycle_endtime  VARCHAR   NOT NULL
+	-->
+<sqlMap namespace="tEmcprojectCycle">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEmcprojectCycle">
+		SELECT
+				f_emcproject_cycle_id	as "f_emcprojectCycleId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_emcproject_cycle_cycleindex	as "f_emcprojectCycleCycleindex",  
+				f_emcproject_cycle_starttime	as "f_emcprojectCycleStarttime",  
+				f_emcproject_cycle_endtime	as "f_emcprojectCycleEndtime" 
+		FROM .t_emcproject_cycle WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleId">
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_emcproject_cycle_cycleindex asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryById" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEmcprojectCycle">
+		SELECT
+				f_emcproject_cycle_id	as "f_emcprojectCycleId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_emcproject_cycle_cycleindex	as "f_emcprojectCycleCycleindex",  
+				f_emcproject_cycle_starttime	as "f_emcprojectCycleStarttime",  
+				f_emcproject_cycle_endtime	as "f_emcprojectCycleEndtime" 
+		FROM .t_emcproject_cycle WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_emcproject_cycle_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectIdAndIndex" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEmcprojectCycle">
+		SELECT
+				f_emcproject_cycle_id	as "f_emcprojectCycleId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_emcproject_cycle_cycleindex	as "f_emcprojectCycleCycleindex",  
+				f_emcproject_cycle_starttime	as "f_emcprojectCycleStarttime",  
+				f_emcproject_cycle_endtime	as "f_emcprojectCycleEndtime" 
+		FROM .t_emcproject_cycle WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleCycleindex">
+			f_emcproject_cycle_cycleindex = #f_emcprojectCycleCycleindex#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_emcproject_cycle_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_emcproject_cycle WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleId">
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleId">
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleCycleindex">
+			f_emcproject_cycle_cycleindex = #f_emcprojectCycleCycleindex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleStarttime">
+			f_emcproject_cycle_starttime = #f_emcprojectCycleStarttime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleEndtime">
+			f_emcproject_cycle_endtime = #f_emcprojectCycleEndtime#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_emcproject_cycle (f_emcproject_cycle_id,
+										f_emcproject_id,
+										f_emcproject_cycle_cycleindex,
+										f_emcproject_cycle_starttime,
+										f_emcproject_cycle_endtime
+										)		 
+	    VALUES (#f_emcprojectCycleId#, #f_emcprojectId#, #f_emcprojectCycleCycleindex#, #f_emcprojectCycleStarttime#, #f_emcprojectCycleEndtime#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_emcproject_cycle WHERE 
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_emcproject_cycle 
+		SET 
+					f_emcproject_cycle_starttime	= #f_emcprojectCycleStarttime#,   
+					f_emcproject_cycle_endtime	= #f_emcprojectCycleEndtime#  
+			WHERE 	
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+	</update>
+	  
+</sqlMap>

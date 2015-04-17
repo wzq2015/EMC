@@ -1,0 +1,17 @@
+#foreach($control in $SubControls)
+#if($control.Type=="LayoutField" && $control.BindingEvent.size()>0)
+#foreach($event in ${control.BindingEvent})
+#if($event=="ValueChanged")
+#set($argsType="ValueChangedEventArgs")
+#else
+#set($argsType="RoutedEventArgs")
+#end
+			private void ${control.Name}_${event}(object sender, ${argsType} e)
+			{
+			}
+
+#end
+#end
+#set ($SubControls = ${control.SubControls})
+#parse("./resources/igtemplate/Eventcs.vm")
+#end

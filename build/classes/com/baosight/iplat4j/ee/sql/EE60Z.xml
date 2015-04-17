@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information 
+	tableName :TEE60 
+	 NUMBER1  NUMBER   NOT NULL   primarykey, 
+	 NUMBER2  NUMBER   NOT NULL   , 
+	 NUMBER3  NUMBER   NOT NULL   , 
+	 NUMBER4  NUMBER   NOT NULL   , 
+	 NUMBER5  NUMBER   NOT NULL   , 
+	 NUMBER6  NUMBER   NOT NULL   
+	 
+	-->
+<sqlMap namespace="EE60Z">
+
+	<select id="dynaQueryFull" resultClass="java.util.HashMap" >
+	  $selectStr$
+	</select>
+
+
+
+	<select id="dynaQuery" resultClass="com.baosight.iplat4j.ee.domain.TEE60Z" >
+	 select $column1$ as "form_ename", $column2$ as "form_cname" from $table$ 
+	</select>
+
+	<select id="dynaQuery2" resultClass="java.util.HashMap" >
+	 select $column1$ as "#column1#", $column2$ as "#column2#" from $table$ 
+	</select>
+
+	<select id="subquery" resultClass="java.util.HashMap" >
+	 select number1, number2 from tee60 
+	 where number2 = 
+	 (select max(number2) from tee60)
+	</select>
+
+	<select id="subquery2" resultClass="java.util.HashMap" >
+	 select t0.form_ename, t0.form_cname, t1.button_ename 
+	 from tedfa00 t0, tedfa01 t1 where t0.form_ename = t1.form_ename
+	 and t1.NODE_SORT_ID = (select max(node_sort_id) from tedfa01)
+	</select>
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.domain.TEE60ZZ">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2	as "number2",  
+				NUMBER3	as "number3",  
+				NUMBER4	as "number4",  
+				NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+	<select id="queryCC" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+		SELECT
+				'测试1' as "测试1",
+				'测试2' as "test2",
+				'test3' as "测试3",
+				NUMBER1	as "number1",  
+				NUMBER2	as "number2",  
+				NUMBER3	as "number3",  
+				NUMBER4	as "number4",  
+				NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+
+	<select id="query3" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2	as "number2",  
+				NUMBER3	as "number3",  
+				NUMBER4	as "number4",  
+				NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+	<select id="query2" resultClass="java.util.HashMap">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2/NUMBER3	as "number2",  
+				concat(NUMBER3,NUMBER4)	as "number3",  
+				NUMBER4-NUMBER5	as "number4",  
+				NUMBER5||'\'||NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+	<select id="aaa.query2" resultClass="java.util.HashMap">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2/NUMBER3	as "number2",  
+				concat(NUMBER3,NUMBER4)	as "number3",  
+				NUMBER4-NUMBER5	as "number4",  
+				NUMBER5||'\'||NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+	<select id="EE60Z.bbb.query2" resultClass="java.util.HashMap">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2/NUMBER3	as "number2",  
+				concat(NUMBER3,NUMBER4)	as "number3",  
+				NUMBER4-NUMBER5	as "number4",  
+				NUMBER5||'\'||NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+
+	<insert id="insert" parameterClass="java.util.HashMap">
+		INSERT INTO TEE60 (NUMBER1,NUMBER2,NUMBER3,NUMBER4,NUMBER5,NUMBER6)		 
+		VALUES (#number1#, #number2#, #number3#, #number4#, #number5#, #number6#)
+	</insert>
+  
+	<delete id="delete" parameterClass="com.baosight.iplat4j.ee.domain.TEE60Z">
+		DELETE FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</delete>
+
+	<update id="update" parameterClass="com.baosight.iplat4j.ee.domain.TEE60Z">
+		UPDATE TEE60 
+		SET 
+						NUMBER2	= #number2#,  
+						NUMBER3	= #number3#,  
+						NUMBER4	= #number4#,  
+						NUMBER5	= #number5#,  
+						NUMBER6	= #number6# 
+			WHERE 1=1	
+		   <isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		   </isNotEmpty>
+	</update>
+
+	<update id="updateC1" >
+		UPDATE TEE60 
+		SET 
+						NUMBER2	= #number2#,  
+						NUMBER3	= <![CDATA[$number3$,]]>  
+						NUMBER4	= #number4#,  
+						NUMBER5	= #number5#,  
+						NUMBER6	= #number6# 
+			WHERE 1=1	
+		   <isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		   </isNotEmpty>
+	</update>
+
+	<update id="updateC2" >
+		UPDATE TEE60 
+		SET 
+						<![CDATA[
+						NUMBER2	= #number2#,  
+						NUMBER3	= #number3#,  
+						NUMBER4	= #number4#,  
+						NUMBER5	= #number5#,  
+						NUMBER6	= #number6#]]>
+			WHERE 1=1	
+		   <isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		   </isNotEmpty>
+	</update>
+
+
+	<update id="update2" parameterClass="java.util.HashMap">
+		UPDATE TEE60 
+		SET 
+						NUMBER2	= #number2#,  
+						NUMBER3	= #number3#,  
+						NUMBER4	= #number4#,  
+						NUMBER5	= #number5#,  
+						NUMBER6	= #number6# 
+			WHERE 1=1	
+		   <isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		   </isNotEmpty>
+	</update>
+	<update id="update3" >
+		UPDATE TEE60 
+		SET 
+						NUMBER2	= #number2#,  
+						NUMBER3	= #number3#,  
+						NUMBER4	= #number4#,  
+						NUMBER5	= #number5#,  
+						NUMBER6	= #number6# 
+			WHERE 1=1	
+		   <isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		   </isNotEmpty>
+	</update>
+
+  
+</sqlMap>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-14 8:50:09
+   		Version :  1.0.1.V20070717
+		table comment : 国家信息表
+		tableName :${platSchema}.TEEDM03 
+		 COUNTRY_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 COUNTRY_NAME  VARCHAR2   NOT NULL, 
+		 CONTINENT_CODE  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="teedm03">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM03">
+		SELECT
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COUNTRY_NAME	as "countryName",  <!-- 国家名称 -->
+				CONTINENT_CODE	as "continentCode" <!-- 洲代号 -->
+		FROM ${platSchema}.TEEDM03 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COUNTRY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM03 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="countryName">
+			COUNTRY_NAME = #countryName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="continentCode">
+			CONTINENT_CODE = #continentCode#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM03 (COUNTRY_CODE,  <!-- 国家代号 -->
+										COUNTRY_NAME,  <!-- 国家名称 -->
+										CONTINENT_CODE  <!-- 洲代号 -->
+										)		 
+		VALUES (#countryCode:VARCHAR#, #countryName:VARCHAR#, #continentCode:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM03 WHERE 
+			COUNTRY_CODE = #countryCode#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM03 
+		SET 
+					COUNTRY_NAME	= #countryName#,   <!-- 国家名称 -->
+					CONTINENT_CODE	= #continentCode#  <!-- 洲代号 -->
+			WHERE 	
+			COUNTRY_CODE = #countryCode#
+	</update>
+  
+</sqlMap>

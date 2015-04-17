@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEMD05">
+
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM TED10 t
+		WHERE 1=1
+			AND t.FPROVIDERKEY = #fproviderkey#
+	</delete>	
+	
+	<!-- 新增 -->
+	<insert id="insert">
+		INSERT INTO TED10 (
+			FPROVIDERKEY,
+			FPROVIDERNAME,
+			FRESTABLE
+		)      
+		VALUES (
+			#fproviderkey: VARCHAR#,
+			#fprovidername: VARCHAR#,
+			#frestable: VARCHAR#
+		)
+	</insert>	
+	
+	<!-- 查询 -->
+	<select id="query" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT
+			t.FPROVIDERKEY as "fproviderkey",	
+			t.FPROVIDERNAME as "fprovidername",	
+			t.FRESTABLE as "frestable",	
+			t1.FSUFFIX as "fsuffix",	
+			t1.FVALUE as "fvalue"	
+		FROM TED11 t1, TED10 t 
+		WHERE 1=1
+		<isNotEmpty prepend=" AND " property="fproviderkey">
+			t.FPROVIDERKEY = #fproviderkey#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="fsuffix">
+			t1.FSUFFIX = #fsuffix#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+		    	$orderBy$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<!-- 修改 -->
+	<update id="update">
+		UPDATE  TED10 t
+        SET
+			FPROVIDERNAME = #fprovidername#,
+			FRESTABLE = #frestable#
+		WHERE 1=1
+			AND t.FPROVIDERKEY = #fproviderkey#
+	</update>	
+	
+
+</sqlMap>

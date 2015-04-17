@@ -1,0 +1,138 @@
+##
+## 处理数据列
+##
+#set($_Q= '"')
+#if($_column.editor == "hidden")
+#set($_visible = ' visible="false"')
+#else
+#set($_visible = '')
+#end
+#if($_column.fix == "true")
+#set($_fix = ' fix="yes"')
+#else
+#set($_fix = '')
+#end
+#if($_column.readonly == "true")
+#set($_readonly = ' readonly="true"')
+#else
+#set($_readonly = '')
+#end
+#if(!$_column.get("width") || $_column.get("width").trim() == "")
+#set($_width = ' width="100"')
+#else
+#set($_p1 = ' width="')
+#set($_p2 = $_column.get("width"))
+#set($_p3 = '"')
+#set($_width = "$_p1$_p2$_p3")
+#end
+#if(!$_column.get("align") || $_column.get("align").trim() == "")
+#set($_align = '')
+#else
+#set($_p1 = ' align="')
+#set($_p2 = $_column.get("align"))
+#set($_p3 = '"')
+#set($_align = "$_p1$_p2$_p3")
+#end
+#if($_column.enable == "false")
+#set($_enable = ' enable="false"')
+#else
+#set($_enable = '')
+#end
+#if($_column.sort == "true")
+#set($_sort = ' sort="true"')
+#else
+#set($_sort = '')
+#end
+## 扩展属性
+#set($_col_ext_attr = $meta.utility.getValue($_column.extAttr, ""))
+#if("" != $_col_ext_attr)
+#set($_col_ext_attr = " ${_col_ext_attr}")
+#end
+#if($_column.nullable.trim() == "0")
+#set($_column_nullable = false)
+#else
+#set($_column_nullable = true)
+#end
+#if(!$_column.get("minLength") || $_column.get("minLength").toString().trim() == "")
+#set($_column_minLength = false)
+#else
+#set($_column_minLength = true)
+#end
+#if(!$_column.get("maxLength") || $_column.get("maxLength").toString().trim() == "")
+#set($_column_maxLength = false)
+#else
+#set($_column_maxLength = true)
+#end
+#if(!$_column.formatString || $_column.formatString.trim() == "")
+#set($_column_formatString = false)
+#else
+#set($_column_formatString = true)
+#end
+## 日期
+#if($_column.editor == "date")
+	<EF:EFColumn ename="$_column.ename" editType="date" dateFormat="$_column.dateFormat"#if(!$_column_nullable) nullable='false'#end cname="$_column.cname"$_visible$_fix$_readonly$_width$_align$_enable$_sort${_col_ext_attr} />
+## 基于小代码的下拉选择
+#elseif($_column.editor == "codeselect")
+#set($_column_condition = $meta.utility.getValue($_column.condition, ""))
+#if("" != $_column_condition)
+#set($_column_condition = " condition=${_Q}${_column_condition}${_Q}")
+#end
+#set($_column_conj = $meta.utility.getValue($_column.conj, ""))
+#if("" != $_column_conj)
+#set($_column_conj = " conj=${_Q}${_column_conj}${_Q}")
+#end
+	<EF:EFComboColumn ename="$_column.ename" cname="$_column.cname"$_visible$_fix$_readonly$_width$_align$_enable$_sort${_col_ext_attr}>
+#if($_column.hasNullOption && $_column.hasNullOption == "true")
+		<EF:EFOption label="" value="" />
+#end
+#foreach($_select_option in $meta.utility.splitOptions($_column.options))
+#set($_select_option_value = $_select_option.value)
+#set($_select_option_label = $_select_option.label)
+		<EF:EFOption label="$_select_option_label" value="$_select_option_value" />
+#end
+#if($_column.codeName && $_column.codeName.trim() != "")
+		<EF:EFCodeOption codeName="$_column.codeName"${_column_conj}${_column_condition} />
+#end
+	</EF:EFComboColumn>
+## 基于数据库的下拉选择
+#elseif($_column.editor == "tableselect")
+#set($_column_condition = $meta.utility.getValue($_column.condition, ""))
+#if("" != $_column_condition)
+#set($_column_condition = " condition=${_Q}${_column_condition}${_Q}")
+#end
+#set($_column_conj = $meta.utility.getValue($_column.conj, ""))
+#if("" != $_column_conj)
+#set($_column_conj = " conj=${_Q}${_column_conj}${_Q}")
+#end
+#set($_column_valueColumnName = $meta.utility.getValue($_column.valueColumnName, ""))
+#if("" != $_column_valueColumnName)
+#set($_column_valueColumnName = " valueColumnName=${_Q}${_column_valueColumnName}${_Q}")
+#end
+#set($_column_labelColumnName = $meta.utility.getValue($_column.labelColumnName, ""))
+#if("" != $_column_labelColumnName)
+#set($_column_labelColumnName = " labelColumnName=${_Q}${_column_labelColumnName}${_Q}")
+#end
+#set($_column_orderBy = $meta.utility.getValue($_column.orderBy, ""))
+#if("" != $_column_orderBy)
+#set($_column_orderBy = " orderBy=${_Q}${_column_orderBy}${_Q}")
+#end
+	<EF:EFComboColumn ename="$_column.ename" cname="$_column.cname"$_visible$_fix$_readonly$_width$_align$_enable$_sort${_col_ext_attr}>
+#if($_column.hasNullOption && $_column.hasNullOption == "true")
+		<EF:EFOption label="" value="" />
+#end
+#foreach($_select_option in $meta.utility.splitOptions($_column.options))
+#set($_select_option_value = $_select_option.value)
+#set($_select_option_label = $_select_option.label)
+		<EF:EFOption label="$_select_option_label" value="$_select_option_value" />
+#end
+#if($_column.beanName.trim() != "")
+		<EF:EFTableOption beanName="$_column.beanName"${_column_valueColumnName}${_column_labelColumnName}${_column_orderBy}${_column_conj}${_column_condition} />
+#elseif($_column.sql.trim() != "")
+		<EF:EFTableOption sql="$_column.sql"${_column_valueColumnName}${_column_labelColumnName}${_column_orderBy}${_column_conj}${_column_condition} />
+#elseif($_column.tableName.trim() != "")
+		<EF:EFTableOption tableName="$_column.tableName"${_column_valueColumnName}${_column_labelColumnName}${_column_orderBy}${_column_conj}${_column_condition} />					
+#end
+	</EF:EFComboColumn>
+#else
+	<EF:EFColumn ename="$_column.ename" cname="$_column.cname"#if($_column_formatString) formatString="$_column.formatString"#end#if(!$_column_nullable) nullable='false'#end#if($_column_maxLength) maxLength='$_column.get("maxLength")'#end#if($_column_minLength) minLength='$_column.get("minLength")'#end#if($_column.validateRegex0) validateRegex="/$_column.validateRegex0/" validateErrorPrompt="$_column.validateErrorPrompt0"#end$_visible$_fix$_readonly$_width$_align$_enable$_sort${_col_ext_attr} />
+#end

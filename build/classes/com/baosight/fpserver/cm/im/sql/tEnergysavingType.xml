@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-11-25 9:42:22
+   		Version :  1.0.1.V20070717
+		tableName :.t_energysaving_type 
+		 f_energysaving_type_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_energysaving_type_name  VARCHAR   NOT NULL, 
+		 f_energysaving_type_desc  VARCHAR, 
+		 f_energysaving_type_formula  VARCHAR   NOT NULL, 
+		 f_energysaving_type_targetvalue  DOUBLE, 
+		 f_energysaving_type_calcstep  VARCHAR
+	-->
+<sqlMap namespace="tEnergysavingType">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingType">
+		SELECT
+				f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_energysaving_type_name	as "f_energysavingTypeName",  
+				f_energysaving_type_desc	as "f_energysavingTypeDesc",  
+				f_energysaving_type_formula	as "f_energysavingTypeFormula",  
+				f_energysaving_type_targetvalue	as "f_energysavingTypeTargetvalue",  
+				f_energysaving_type_calcstep	as "f_energysavingTypeCalcstep" 
+		FROM .t_energysaving_type WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeId">
+			f_energysaving_type_id = #f_energysavingTypeId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysaving_type_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingType">
+		SELECT
+				f_energysaving_type_id	as "f_energysavingTypeId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_energysaving_type_name	as "f_energysavingTypeName",  
+				f_energysaving_type_desc	as "f_energysavingTypeDesc",  
+				f_energysaving_type_formula	as "f_energysavingTypeFormula",  
+				f_energysaving_type_targetvalue	as "f_energysavingTypeTargetvalue", 
+				f_energysaving_type_calcstep	as "f_energysavingTypeCalcstep" 
+		FROM .t_energysaving_type WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysaving_type_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_energysaving_type WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeId">
+			f_energysaving_type_id = #f_energysavingTypeId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeId">
+			f_energysaving_type_id = #f_energysavingTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeName">
+			f_energysaving_type_name = #f_energysavingTypeName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeDesc">
+			f_energysaving_type_desc = #f_energysavingTypeDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeFormula">
+			f_energysaving_type_formula = #f_energysavingTypeFormula#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeTargetvalue">
+			f_energysaving_type_targetvalue = #f_energysavingTypeTargetvalue#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeCalcstep">
+			f_energysaving_type_calcstep = #f_energysavingTypeCalcstep#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_energysaving_type (f_energysaving_type_id,
+										f_emcproject_id,
+										f_energysaving_type_name,
+										f_energysaving_type_desc,
+										f_energysaving_type_formula,
+										f_energysaving_type_targetvalue,
+										f_energysaving_type_calcstep
+										)		 
+	    VALUES (#f_energysavingTypeId#, #f_emcprojectId#, #f_energysavingTypeName#, #f_energysavingTypeDesc#, #f_energysavingTypeFormula#, #f_energysavingTypeTargetvalue#, #f_energysavingTypeCalcstep#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_energysaving_type WHERE 
+			f_energysaving_type_id = #f_energysavingTypeId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_energysaving_type 
+		SET 
+					f_energysaving_type_name	= #f_energysavingTypeName#,   
+					f_energysaving_type_desc	= #f_energysavingTypeDesc#,   
+					f_energysaving_type_targetvalue	= #f_energysavingTypeTargetvalue#
+			WHERE 	
+			f_energysaving_type_id = #f_energysavingTypeId#
+	</update>
+	
+	<update id="updateFormula">
+		UPDATE .t_energysaving_type 
+		SET 
+					f_energysaving_type_formula	= #f_energysavingTypeFormula#
+			WHERE 	
+			f_energysaving_type_id = #f_energysavingTypeId#
+	</update>
+	
+	<update id="updateCalcstep">
+		UPDATE .t_energysaving_type 
+		SET 
+					f_energysaving_type_calcstep = #f_energysavingTypeCalcstep# 
+			WHERE 	
+			f_energysaving_type_id = #f_energysavingTypeId#
+	</update>
+  
+</sqlMap>

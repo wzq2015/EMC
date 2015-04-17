@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!--
+    <bean id="file2swfService" class="com.baosight.iplat4j.eu.af.config.ConvertQueue" >
+        <property name="configManager" ref="configManager"/>
+    </bean>
+
+    <bean id="fileTransferTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="timerTask" ref="file2swfService" />
+        <property name="period" value="610000"/>
+        <property name="delay" value="30000"/>
+    </bean>
+
+    <bean id ="timerBean"  class ="org.springframework.scheduling.timer.TimerFactoryBean">
+        <property name ="scheduledTimerTasks" >
+            <list >
+				<ref bean ="fileTransferTask" />
+            </list >
+        </property >
+    </bean >
+	-->
+    <bean id="iplat4j_jobScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+
+            </list>
+        </property>
+        <property name="startupDelay" value="120"/>
+    </bean>
+
+    <bean id="iplat4j_JobService" class="com.baosight.iplat4j.job.quartz.JobServiceQuartzImpl">
+        <property name="scheduler" ref="iplat4j_jobScheduler"/>
+        <property name="tablePrefix" value="QRTZ_"/>
+    </bean>
+
+    <!-- 批作业队列管理器 
+    <bean id="jobQueueManager" class="com.baosight.iplat4j.ej.pd.impl.JobQueueManagerHazelcastImpl" >
+    	<property name="dao" ref="dao" />
+    	<property name="jobQueueImplClassName" value="com.baosight.iplat4j.ej.pd.impl.JobQueueHazelcastImpl"/>
+    </bean>
+    -->
+    
+    <!-- 批作业执行器 
+    <bean id="jobExecutor" class="com.baosight.iplat4j.ej.pd.impl.JobExecutorImpl" destroy-method="stop" >
+    	<property name="jobQueueManager" ref="jobQueueManager" />
+    	<property name="maxThreadCount" value="30" />
+    	<property name="scheduleInterval" value="20000" />
+    	<property name="scheduleRound" value="20" />
+    	<property name="scheduleTaskCount" value="2" />
+    </bean>
+    -->
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-basic.xsd"
+	xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!--
+	<map name="diagnose*">
+		<time-to-live-seconds>30</time-to-live-seconds>
+		<backup-count>0</backup-count>
+		<map-store enabled="true">
+			<factory-class-name>com.baosight.iplat4j.ep.monitor.DiagnoseStoreFactory</factory-class-name>
+			<write-delay-seconds>0</write-delay-seconds>
+		</map-store>
+	</map>
+	-->
+
+</hazelcast>

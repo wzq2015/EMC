@@ -1,0 +1,108 @@
+package $servicePackName;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.apache.log4j.Logger;
+import com.baosight.iplat4j.core.ei.EiInfo;
+import com.baosight.iplat4j.ep.ServiceEPBase;
+import com.baosight.iplat4j.core.spring.SpringApplicationContext;
+import com.baosight.iplat4j.ed.util.CodesetBiz;
+import com.baosight.iplat4j.core.ei.EiBlock;
+import com.baosight.iplat4j.core.ei.EiColumn;
+import $beanPackage;
+
+public class $serviceName extends ServiceEPBase {
+
+	private static final Logger logger = Logger.getLogger(${serviceName}.class);
+
+	/** 
+	 * 页面初始化
+	 * @param EiInfo
+	 * @return EiInfo
+	 */
+	public EiInfo initLoad(EiInfo inInfo) 
+	{
+		EiInfo outInfo = super.initLoad(inInfo, "${resultBlockName}", new $service());
+		
+#foreach($code in $codes)
+		outInfo.addBlock( getCodeOf${code.columnName}() );
+#end
+		return outInfo;
+	}
+
+#foreach($method in $list)
+	/**
+	 * ${method.label}
+	 * @param 包含参数的EiInfo
+	 * @return 包含结果数据集的EiInfo
+	 */
+	public EiInfo ${method.label}(EiInfo inInfo) 
+	{
+#if( $method.type.toLowerCase() == "select" )
+		EiInfo outInfo = super.query(inInfo, "${shortServiceName}.${method.label}", new ${shortServiceName}(),
+			false, null, "${inquBlockName}", "${resultBlockName}", "${resultBlockName}");
+#elseif( $method.type.toLowerCase() == "update" )
+		super.update(inInfo, "${shortServiceName}.${method.label}", null, false, "${resultBlockName}" );
+		EiInfo outInfo = super.query(inInfo, "${shortServiceName}.query", new ${shortServiceName}(),
+			false, null, "${inquBlockName}", "${resultBlockName}", "${resultBlockName}");
+#elseif( $method.type.toLowerCase() == "insert" )
+		super.insert(inInfo, "${shortServiceName}.${method.label}", null, false, "${resultBlockName}" );
+		EiInfo outInfo = super.query(inInfo, "${shortServiceName}.query", new ${shortServiceName}(),
+			false, null, "${inquBlockName}", "${resultBlockName}", "${resultBlockName}");
+#elseif( $method.type.toLowerCase() == "delete" )
+		super.delete(inInfo, "${shortServiceName}.${method.label}", null, false, "${resultBlockName}" );	
+		EiInfo outInfo = super.query(inInfo, "${shortServiceName}.query", new ${shortServiceName}(),
+			false, null, "${inquBlockName}", "${resultBlockName}", "${resultBlockName}");
+#end
+		return outInfo;	
+	}
+	
+#end
+
+#foreach($code in $codes)
+
+	/**
+	 * 返回小代码名称为 "$code.codeValue" 的EiBlock 
+	 * @return EiBlock 
+	 */
+	private EiBlock getCodeOf${code.columnName}()
+	{
+		EiBlock block = new EiBlock( "${code.codeValue}#if($code.codeCondition.trim()!=""){$code.codeCondition}#end#if($code.format.trim()!="")($code.format)#end" );
+		
+		CodesetBiz codeBiz = (CodesetBiz) SpringApplicationContext.getBean("codesetBiz");
+		List list = codeBiz.getCodeSet( "$code.codeValue", "$code.codeCondition.trim()");
+		
+#if($code.format.trim()=="")
+		String displayFormat = "%2$2s";
+#else
+		String displayFormat = "${code.format}".replace("%1", "%1$2s").replace("%2", "%2$2s");
+#end		
+
+		List codeSetList = new ArrayList();
+		for (int i = 0; i < list.size(); i++) {
+			HashMap map = (HashMap) list.get(i);
+			String label = map.get("label").toString();
+			String value = map.get("value").toString();
+			
+			HashMap codeSetMap = new HashMap();
+			codeSetMap.put("value", value);
+			codeSetMap.put("label", String.format(displayFormat, value, label));
+			codeSetList.add(codeSetMap);
+		}
+		
+		EiColumn eiColumn = new EiColumn( "label" );
+		eiColumn.setType( "C" );
+		block.addMeta( eiColumn );
+		
+		eiColumn = new EiColumn( "value" );
+		eiColumn.setType( "C" );
+		block.addMeta( eiColumn );
+		
+		block.setRows( codeSetList );
+		return block;
+	}
+
+#end
+
+}

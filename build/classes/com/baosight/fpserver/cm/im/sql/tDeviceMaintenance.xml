@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_device_maintenance 
+		 f_device_maintenance_id  INTEGER   NOT NULL   primarykey, 
+		 f_device_id  INTEGER   NOT NULL, 
+		 f_device_maintenance_date  VARCHAR, 
+		 f_device_maintenance_type  INTEGER, 
+		 f_device_maintenance_desc  VARCHAR
+	-->
+<sqlMap namespace="tDeviceMaintenance">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDeviceMaintenance">
+		SELECT
+				f_device_maintenance_id	as "f_deviceMaintenanceId",  
+				f_device_id	as "f_deviceId",  
+				f_device_maintenance_date	as "f_deviceMaintenanceDate",  
+				f_device_maintenance_type	as "f_deviceMaintenanceType",  
+				f_device_maintenance_desc	as "f_deviceMaintenanceDesc" 
+		FROM .t_device_maintenance WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceId">
+			f_device_maintenance_id = #f_deviceMaintenanceId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_device_maintenance_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_device_maintenance WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceId">
+			f_device_maintenance_id = #f_deviceMaintenanceId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceId">
+			f_device_maintenance_id = #f_deviceMaintenanceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceDate">
+			f_device_maintenance_date = #f_deviceMaintenanceDate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceType">
+			f_device_maintenance_type = #f_deviceMaintenanceType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceMaintenanceDesc">
+			f_device_maintenance_desc = #f_deviceMaintenanceDesc#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_device_maintenance (f_device_maintenance_id,
+										f_device_id,
+										f_device_maintenance_date,
+										f_device_maintenance_type,
+										f_device_maintenance_desc
+										)		 
+	    VALUES (#f_deviceMaintenanceId#, #f_deviceId#, #f_deviceMaintenanceDate#, #f_deviceMaintenanceType#, #f_deviceMaintenanceDesc#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_device_maintenance WHERE 
+			f_device_maintenance_id = #f_deviceMaintenanceId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_device_maintenance 
+		SET 
+					f_device_id	= #f_deviceId#,   
+					f_device_maintenance_date	= #f_deviceMaintenanceDate#,   
+					f_device_maintenance_type	= #f_deviceMaintenanceType#,   
+					f_device_maintenance_desc	= #f_deviceMaintenanceDesc#  
+			WHERE 	
+			f_device_maintenance_id = #f_deviceMaintenanceId#
+	</update>
+  
+</sqlMap>

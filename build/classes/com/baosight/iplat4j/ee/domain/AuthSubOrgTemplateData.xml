@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="authOrgTemplateDao">
+ 	
+ 	<resultMap id="orgNodeMapping"
+		class="demo.ui.tree.OrganizationNode">
+		<result property="parent" column="TARGET_ORG_ID"/>
+		<result property="label" column="ORG_ID" />
+		<result property="text" column="ORG_NAME" />
+	</resultMap>
+ 	
+	<select id="querySelf" parameterClass="java.util.HashMap" resultMap="orgNodeMapping">
+		SELECT TARGET_ORG_ID, ORG_ID, ORG_NAME FROM T_HROG_ORG_RELATION WHERE ORG_ID=#TOPORG#
+	</select>
+
+   <select id="querySub" parameterClass="java.util.HashMap" resultMap="orgNodeMapping">
+        select TARGET_ORG_ID, ORG_ID, ORG_NAME from T_HROG_ORG_RELATION where level &lt; #LEVEL# and TARGET_ORG_ID=#PARENT# connect by prior ORG_ID=TARGET_ORG_ID start with TARGET_ORG_ID=#TOPORG# 
+	</select>
+
+</sqlMap>

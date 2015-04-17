@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-14 8:50:09
+   		Version :  1.0.1.V20070717
+		table comment : 公司信息表
+		tableName :${platSchema}.TEEDM01 
+		 COMPANY_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 COMPANY_NAME  VARCHAR2   NOT NULL, 
+		 COMPANY_TEL  VARCHAR2   NOT NULL, 
+		 COMPANY_ADDR  VARCHAR2   NOT NULL, 
+		 COUNTRY_CODE  VARCHAR2   NOT NULL, 
+		 COMPANY_DATE  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="teedm01">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM01">
+		SELECT
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				COMPANY_TEL	as "companyTel",  <!-- 公司电话 -->
+				COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+		FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE like '%$companyCode$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COMPANY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyName">
+			COMPANY_NAME = #companyName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyTel">
+			COMPANY_TEL = #companyTel#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyAddr">
+			COMPANY_ADDR = #companyAddr#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyDate">
+			COMPANY_DATE = #companyDate#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM01 (COMPANY_CODE,  <!-- 公司代号 -->
+										COMPANY_NAME,  <!-- 公司名称 -->
+										COMPANY_TEL,  <!-- 公司电话 -->
+										COMPANY_ADDR,  <!-- 公司地址 -->
+										COUNTRY_CODE,  <!-- 国家代号 -->
+										COMPANY_DATE  <!-- 成立日期 -->
+										)		 
+		VALUES (#companyCode:VARCHAR#, #companyName:VARCHAR#, #companyTel:VARCHAR#, #companyAddr:VARCHAR#, #countryCode:VARCHAR#, #companyDate:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM01 WHERE 
+			COMPANY_CODE = #companyCode#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM01 
+		SET 
+					COMPANY_NAME	= #companyName#,   <!-- 公司名称 -->
+					COMPANY_TEL	= #companyTel#,   <!-- 公司电话 -->
+					COMPANY_ADDR	= #companyAddr#,   <!-- 公司地址 -->
+					COUNTRY_CODE	= #countryCode#,   <!-- 国家代号 -->
+					COMPANY_DATE	= #companyDate#  <!-- 成立日期 -->
+			WHERE 	
+			COMPANY_CODE = #companyCode#
+	</update>
+  
+</sqlMap>

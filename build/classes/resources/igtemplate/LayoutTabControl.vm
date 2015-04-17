@@ -1,0 +1,27 @@
+<EF:EFTab HorizontalAlignment="Stretch" Name="$control.Name" Width="$control.Width" Height="$control.Height"
+	Visibility=#if($control.IsVisible=='False')"Collapsed"#else"Visible"#end Align="$control.Align"
+	TabStripPlacement="$control.TabStripPlacement" TabOrientation="$control.TabOrientation"
+#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+Grid.Row="${RowIndex}"
+#end
+#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+Grid.Column="${ColumnIndex}"
+#end
+#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+Grid.RowSpan="${control.RowSpan}"
+#end
+#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end >
+
+#set( $tabItemControl = $control.SubControls )
+#foreach($control in $tabItemControl)
+#set( $tabitemvmpath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+#parse("${tabitemvmpath}")
+#end
+
+</EF:EFTab>

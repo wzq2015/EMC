@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-22 13:30:25
+   		Version :  1.0.1.V20070717
+		tableName :${platSchema}.TEENT01 
+		 CUSTOMERID  VARCHAR2   NOT NULL   primarykey, 
+		 FIRSTNAME  VARCHAR2   NOT NULL, 
+		 LASTNAME  VARCHAR2   NOT NULL, 
+		 MIDDLEINITIAL  CHAR   NOT NULL, 
+		 SSNUMBER  CHAR   NOT NULL, 
+		 MOTHERMAIDENNAME  VARCHAR2   NOT NULL, 
+		 CUSTOMERLEVEL  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="teent01">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEENT01">
+		SELECT
+				CUSTOMERID	as "customerid",  <!-- 客户ID -->
+				FIRSTNAME	as "firstname",  <!-- 姓 -->
+				LASTNAME	as "lastname",  <!-- 名 -->
+				MIDDLEINITIAL	as "middleinitial",  <!-- MIDDLE -->
+				SSNUMBER	as "ssnumber",  <!-- NUMBER -->
+				MOTHERMAIDENNAME	as "mothermaidenname",  <!-- 国籍 -->
+				CUSTOMERLEVEL	as "customerlevel" <!-- 客户水平 -->
+		FROM ${platSchema}.TEENT01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="customerid">
+			CUSTOMERID = #customerid#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  CUSTOMERID asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEENT01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="customerid">
+			CUSTOMERID = #customerid#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="customerid">
+			CUSTOMERID = #customerid#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="firstname">
+			FIRSTNAME = #firstname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="lastname">
+			LASTNAME = #lastname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="middleinitial">
+			MIDDLEINITIAL = #middleinitial#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ssnumber">
+			SSNUMBER = #ssnumber#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="mothermaidenname">
+			MOTHERMAIDENNAME = #mothermaidenname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="customerlevel">
+			CUSTOMERLEVEL = #customerlevel#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEENT01 (CUSTOMERID,  <!-- 客户ID -->
+										FIRSTNAME,  <!-- 姓 -->
+										LASTNAME,  <!-- 名 -->
+										MIDDLEINITIAL,  <!-- MIDDLE -->
+										SSNUMBER,  <!-- NUMBER -->
+										MOTHERMAIDENNAME,  <!-- 国籍 -->
+										CUSTOMERLEVEL  <!-- 客户水平 -->
+										)		 
+		VALUES (#customerid:VARCHAR#, #firstname:VARCHAR#, #lastname:VARCHAR#, #middleinitial#, #ssnumber#, #mothermaidenname:VARCHAR#, #customerlevel:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEENT01 WHERE 
+			CUSTOMERID = #customerid#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEENT01 
+		SET 
+					FIRSTNAME	= #firstname#,   <!-- 姓 -->
+					LASTNAME	= #lastname#,   <!-- 名 -->
+					MIDDLEINITIAL	= #middleinitial#,   <!-- MIDDLE -->
+					SSNUMBER	= #ssnumber#,   <!-- NUMBER -->
+					MOTHERMAIDENNAME	= #mothermaidenname#,   <!-- 国籍 -->
+					CUSTOMERLEVEL	= #customerlevel#  <!-- 客户水平 -->
+			WHERE 	
+			CUSTOMERID = #customerid#
+	</update>
+  
+</sqlMap>

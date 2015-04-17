@@ -1,0 +1,3561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2010-01-25 14:30:36
+   		Version :  1.0.1.V20070717
+		table comment : EF_GRID_500列性能测试
+		tableName :${platSchema}.TEEDM34 
+		 NAME  VARCHAR2   NOT NULL   primarykey, 
+		 DISPLAY_NAME  VARCHAR2, 
+		 MODULE_TYPE  VARCHAR2, 
+		 PARENT  VARCHAR2, 
+		 APPLICATION  VARCHAR2, 
+		 VERSION  VARCHAR2, 
+		 ARCHIEVE_FLAG  NUMBER, 
+		 LOAD_ON_DEMAND  NUMBER, 
+		 CREATE_TIME  VARCHAR2, 
+		 MODIFY_TIME  VARCHAR2, 
+		 TABLE_SPACE_NAME  VARCHAR2, 
+		 TABLE_SPACE_SIZE  NUMBER, 
+		 PRICE  NUMBER, 
+		 CREATOR  VARCHAR2, 
+		 MODULE_DESC  VARCHAR2, 
+		 TYPE_FULL_NAME  VARCHAR2, 
+		 MODULE_LINK  VARCHAR2, 
+		 COL18  VARCHAR2, 
+		 COL19  VARCHAR2, 
+		 COL20  VARCHAR2, 
+		 COL21  VARCHAR2, 
+		 COL22  VARCHAR2, 
+		 COL23  VARCHAR2, 
+		 COL24  VARCHAR2, 
+		 COL25  VARCHAR2, 
+		 COL26  VARCHAR2, 
+		 COL27  VARCHAR2, 
+		 COL28  VARCHAR2, 
+		 COL29  VARCHAR2, 
+		 COL30  VARCHAR2, 
+		 COL31  VARCHAR2, 
+		 COL32  VARCHAR2, 
+		 COL33  VARCHAR2, 
+		 COL34  VARCHAR2, 
+		 COL35  VARCHAR2, 
+		 COL36  VARCHAR2, 
+		 COL37  VARCHAR2, 
+		 COL38  VARCHAR2, 
+		 COL39  VARCHAR2, 
+		 COL40  VARCHAR2, 
+		 COL41  VARCHAR2, 
+		 COL42  VARCHAR2, 
+		 COL43  VARCHAR2, 
+		 COL44  VARCHAR2, 
+		 COL45  VARCHAR2, 
+		 COL46  VARCHAR2, 
+		 COL47  VARCHAR2, 
+		 COL48  VARCHAR2, 
+		 COL49  VARCHAR2, 
+		 COL50  VARCHAR2, 
+		 COL51  VARCHAR2, 
+		 COL52  VARCHAR2, 
+		 COL53  VARCHAR2, 
+		 COL54  VARCHAR2, 
+		 COL55  VARCHAR2, 
+		 COL56  VARCHAR2, 
+		 COL57  VARCHAR2, 
+		 COL58  VARCHAR2, 
+		 COL59  VARCHAR2, 
+		 COL60  VARCHAR2, 
+		 COL61  VARCHAR2, 
+		 COL62  VARCHAR2, 
+		 COL63  VARCHAR2, 
+		 COL64  VARCHAR2, 
+		 COL65  VARCHAR2, 
+		 COL66  VARCHAR2, 
+		 COL67  VARCHAR2, 
+		 COL68  VARCHAR2, 
+		 COL69  VARCHAR2, 
+		 COL70  VARCHAR2, 
+		 COL71  VARCHAR2, 
+		 COL72  VARCHAR2, 
+		 COL73  VARCHAR2, 
+		 COL74  VARCHAR2, 
+		 COL75  VARCHAR2, 
+		 COL76  VARCHAR2, 
+		 COL77  VARCHAR2, 
+		 COL78  VARCHAR2, 
+		 COL79  VARCHAR2, 
+		 COL80  VARCHAR2, 
+		 COL81  VARCHAR2, 
+		 COL82  VARCHAR2, 
+		 COL83  VARCHAR2, 
+		 COL84  VARCHAR2, 
+		 COL85  VARCHAR2, 
+		 COL86  VARCHAR2, 
+		 COL87  VARCHAR2, 
+		 COL88  VARCHAR2, 
+		 COL89  VARCHAR2, 
+		 COL90  VARCHAR2, 
+		 COL91  VARCHAR2, 
+		 COL92  VARCHAR2, 
+		 COL93  VARCHAR2, 
+		 COL94  VARCHAR2, 
+		 COL95  VARCHAR2, 
+		 COL96  VARCHAR2, 
+		 COL97  VARCHAR2, 
+		 COL98  VARCHAR2, 
+		 COL99  VARCHAR2, 
+		 COL100  VARCHAR2, 
+		 COL101  VARCHAR2, 
+		 COL102  VARCHAR2, 
+		 COL103  VARCHAR2, 
+		 COL104  VARCHAR2, 
+		 COL105  VARCHAR2, 
+		 COL106  VARCHAR2, 
+		 COL107  VARCHAR2, 
+		 COL108  VARCHAR2, 
+		 COL109  VARCHAR2, 
+		 COL110  VARCHAR2, 
+		 COL111  VARCHAR2, 
+		 COL112  VARCHAR2, 
+		 COL113  VARCHAR2, 
+		 COL114  VARCHAR2, 
+		 COL115  VARCHAR2, 
+		 COL116  VARCHAR2, 
+		 COL117  VARCHAR2, 
+		 COL118  VARCHAR2, 
+		 COL119  VARCHAR2, 
+		 COL120  VARCHAR2, 
+		 COL121  VARCHAR2, 
+		 COL122  VARCHAR2, 
+		 COL123  VARCHAR2, 
+		 COL124  VARCHAR2, 
+		 COL125  VARCHAR2, 
+		 COL126  VARCHAR2, 
+		 COL127  VARCHAR2, 
+		 COL128  VARCHAR2, 
+		 COL129  VARCHAR2, 
+		 COL130  VARCHAR2, 
+		 COL131  VARCHAR2, 
+		 COL132  VARCHAR2, 
+		 COL133  VARCHAR2, 
+		 COL134  VARCHAR2, 
+		 COL135  VARCHAR2, 
+		 COL136  VARCHAR2, 
+		 COL137  VARCHAR2, 
+		 COL138  VARCHAR2, 
+		 COL139  VARCHAR2, 
+		 COL140  VARCHAR2, 
+		 COL141  VARCHAR2, 
+		 COL142  VARCHAR2, 
+		 COL143  VARCHAR2, 
+		 COL144  VARCHAR2, 
+		 COL145  VARCHAR2, 
+		 COL146  VARCHAR2, 
+		 COL147  VARCHAR2, 
+		 COL148  VARCHAR2, 
+		 COL149  VARCHAR2, 
+		 COL150  VARCHAR2, 
+		 COL151  VARCHAR2, 
+		 COL152  VARCHAR2, 
+		 COL153  VARCHAR2, 
+		 COL154  VARCHAR2, 
+		 COL155  VARCHAR2, 
+		 COL156  VARCHAR2, 
+		 COL157  VARCHAR2, 
+		 COL158  VARCHAR2, 
+		 COL159  VARCHAR2, 
+		 COL160  VARCHAR2, 
+		 COL161  VARCHAR2, 
+		 COL162  VARCHAR2, 
+		 COL163  VARCHAR2, 
+		 COL164  VARCHAR2, 
+		 COL165  VARCHAR2, 
+		 COL166  VARCHAR2, 
+		 COL167  VARCHAR2, 
+		 COL168  VARCHAR2, 
+		 COL169  VARCHAR2, 
+		 COL170  VARCHAR2, 
+		 COL171  VARCHAR2, 
+		 COL172  VARCHAR2, 
+		 COL173  VARCHAR2, 
+		 COL174  VARCHAR2, 
+		 COL175  VARCHAR2, 
+		 COL176  VARCHAR2, 
+		 COL177  VARCHAR2, 
+		 COL178  VARCHAR2, 
+		 COL179  VARCHAR2, 
+		 COL180  VARCHAR2, 
+		 COL181  VARCHAR2, 
+		 COL182  VARCHAR2, 
+		 COL183  VARCHAR2, 
+		 COL184  VARCHAR2, 
+		 COL185  VARCHAR2, 
+		 COL186  VARCHAR2, 
+		 COL187  VARCHAR2, 
+		 COL188  VARCHAR2, 
+		 COL189  VARCHAR2, 
+		 COL190  VARCHAR2, 
+		 COL191  VARCHAR2, 
+		 COL192  VARCHAR2, 
+		 COL193  VARCHAR2, 
+		 COL194  VARCHAR2, 
+		 COL195  VARCHAR2, 
+		 COL196  VARCHAR2, 
+		 COL197  VARCHAR2, 
+		 COL198  VARCHAR2, 
+		 COL199  VARCHAR2, 
+		 COL200  VARCHAR2, 
+		 COL201  VARCHAR2, 
+		 COL202  VARCHAR2, 
+		 COL203  VARCHAR2, 
+		 COL204  VARCHAR2, 
+		 COL205  VARCHAR2, 
+		 COL206  VARCHAR2, 
+		 COL207  VARCHAR2, 
+		 COL208  VARCHAR2, 
+		 COL209  VARCHAR2, 
+		 COL210  VARCHAR2, 
+		 COL211  VARCHAR2, 
+		 COL212  VARCHAR2, 
+		 COL213  VARCHAR2, 
+		 COL214  VARCHAR2, 
+		 COL215  VARCHAR2, 
+		 COL216  VARCHAR2, 
+		 COL217  VARCHAR2, 
+		 COL218  VARCHAR2, 
+		 COL219  VARCHAR2, 
+		 COL220  VARCHAR2, 
+		 COL221  VARCHAR2, 
+		 COL222  VARCHAR2, 
+		 COL223  VARCHAR2, 
+		 COL224  VARCHAR2, 
+		 COL225  VARCHAR2, 
+		 COL226  VARCHAR2, 
+		 COL227  VARCHAR2, 
+		 COL228  VARCHAR2, 
+		 COL229  VARCHAR2, 
+		 COL230  VARCHAR2, 
+		 COL231  VARCHAR2, 
+		 COL232  VARCHAR2, 
+		 COL233  VARCHAR2, 
+		 COL234  VARCHAR2, 
+		 COL235  VARCHAR2, 
+		 COL236  VARCHAR2, 
+		 COL237  VARCHAR2, 
+		 COL238  VARCHAR2, 
+		 COL239  VARCHAR2, 
+		 COL240  VARCHAR2, 
+		 COL241  VARCHAR2, 
+		 COL242  VARCHAR2, 
+		 COL243  VARCHAR2, 
+		 COL244  VARCHAR2, 
+		 COL245  VARCHAR2, 
+		 COL246  VARCHAR2, 
+		 COL247  VARCHAR2, 
+		 COL248  VARCHAR2, 
+		 COL249  VARCHAR2, 
+		 COL250  VARCHAR2, 
+		 COL251  VARCHAR2, 
+		 COL252  VARCHAR2, 
+		 COL253  VARCHAR2, 
+		 COL254  VARCHAR2, 
+		 COL255  VARCHAR2, 
+		 COL256  VARCHAR2, 
+		 COL257  VARCHAR2, 
+		 COL258  VARCHAR2, 
+		 COL259  VARCHAR2, 
+		 COL260  VARCHAR2, 
+		 COL261  VARCHAR2, 
+		 COL262  VARCHAR2, 
+		 COL263  VARCHAR2, 
+		 COL264  VARCHAR2, 
+		 COL265  VARCHAR2, 
+		 COL266  VARCHAR2, 
+		 COL267  VARCHAR2, 
+		 COL268  VARCHAR2, 
+		 COL269  VARCHAR2, 
+		 COL270  VARCHAR2, 
+		 COL271  VARCHAR2, 
+		 COL272  VARCHAR2, 
+		 COL273  VARCHAR2, 
+		 COL274  VARCHAR2, 
+		 COL275  VARCHAR2, 
+		 COL276  VARCHAR2, 
+		 COL277  VARCHAR2, 
+		 COL278  VARCHAR2, 
+		 COL279  VARCHAR2, 
+		 COL280  VARCHAR2, 
+		 COL281  VARCHAR2, 
+		 COL282  VARCHAR2, 
+		 COL283  VARCHAR2, 
+		 COL284  VARCHAR2, 
+		 COL285  VARCHAR2, 
+		 COL286  VARCHAR2, 
+		 COL287  VARCHAR2, 
+		 COL288  VARCHAR2, 
+		 COL289  VARCHAR2, 
+		 COL290  VARCHAR2, 
+		 COL291  VARCHAR2, 
+		 COL292  VARCHAR2, 
+		 COL293  VARCHAR2, 
+		 COL294  VARCHAR2, 
+		 COL295  VARCHAR2, 
+		 COL296  VARCHAR2, 
+		 COL297  VARCHAR2, 
+		 COL298  VARCHAR2, 
+		 COL299  VARCHAR2, 
+		 COL300  VARCHAR2, 
+		 COL301  VARCHAR2, 
+		 COL302  VARCHAR2, 
+		 COL303  VARCHAR2, 
+		 COL304  VARCHAR2, 
+		 COL305  VARCHAR2, 
+		 COL306  VARCHAR2, 
+		 COL307  VARCHAR2, 
+		 COL308  VARCHAR2, 
+		 COL309  VARCHAR2, 
+		 COL310  VARCHAR2, 
+		 COL311  VARCHAR2, 
+		 COL312  VARCHAR2, 
+		 COL313  VARCHAR2, 
+		 COL314  VARCHAR2, 
+		 COL315  VARCHAR2, 
+		 COL316  VARCHAR2, 
+		 COL317  VARCHAR2, 
+		 COL318  VARCHAR2, 
+		 COL319  VARCHAR2, 
+		 COL320  VARCHAR2, 
+		 COL321  VARCHAR2, 
+		 COL322  VARCHAR2, 
+		 COL323  VARCHAR2, 
+		 COL324  VARCHAR2, 
+		 COL325  VARCHAR2, 
+		 COL326  VARCHAR2, 
+		 COL327  VARCHAR2, 
+		 COL328  VARCHAR2, 
+		 COL329  VARCHAR2, 
+		 COL330  VARCHAR2, 
+		 COL331  VARCHAR2, 
+		 COL332  VARCHAR2, 
+		 COL333  VARCHAR2, 
+		 COL334  VARCHAR2, 
+		 COL335  VARCHAR2, 
+		 COL336  VARCHAR2, 
+		 COL337  VARCHAR2, 
+		 COL338  VARCHAR2, 
+		 COL339  VARCHAR2, 
+		 COL340  VARCHAR2, 
+		 COL341  VARCHAR2, 
+		 COL342  VARCHAR2, 
+		 COL343  VARCHAR2, 
+		 COL344  VARCHAR2, 
+		 COL345  VARCHAR2, 
+		 COL346  VARCHAR2, 
+		 COL347  VARCHAR2, 
+		 COL348  VARCHAR2, 
+		 COL349  VARCHAR2, 
+		 COL350  VARCHAR2, 
+		 COL351  VARCHAR2, 
+		 COL352  VARCHAR2, 
+		 COL353  VARCHAR2, 
+		 COL354  VARCHAR2, 
+		 COL355  VARCHAR2, 
+		 COL356  VARCHAR2, 
+		 COL357  VARCHAR2, 
+		 COL358  VARCHAR2, 
+		 COL359  VARCHAR2, 
+		 COL360  VARCHAR2, 
+		 COL361  VARCHAR2, 
+		 COL362  VARCHAR2, 
+		 COL363  VARCHAR2, 
+		 COL364  VARCHAR2, 
+		 COL365  VARCHAR2, 
+		 COL366  VARCHAR2, 
+		 COL367  VARCHAR2, 
+		 COL368  VARCHAR2, 
+		 COL369  VARCHAR2, 
+		 COL370  VARCHAR2, 
+		 COL371  VARCHAR2, 
+		 COL372  VARCHAR2, 
+		 COL373  VARCHAR2, 
+		 COL374  VARCHAR2, 
+		 COL375  VARCHAR2, 
+		 COL376  VARCHAR2, 
+		 COL377  VARCHAR2, 
+		 COL378  VARCHAR2, 
+		 COL379  VARCHAR2, 
+		 COL380  VARCHAR2, 
+		 COL381  VARCHAR2, 
+		 COL382  VARCHAR2, 
+		 COL383  VARCHAR2, 
+		 COL384  VARCHAR2, 
+		 COL385  VARCHAR2, 
+		 COL386  VARCHAR2, 
+		 COL387  VARCHAR2, 
+		 COL388  VARCHAR2, 
+		 COL389  VARCHAR2, 
+		 COL390  VARCHAR2, 
+		 COL391  VARCHAR2, 
+		 COL392  VARCHAR2, 
+		 COL393  VARCHAR2, 
+		 COL394  VARCHAR2, 
+		 COL395  VARCHAR2, 
+		 COL396  VARCHAR2, 
+		 COL397  VARCHAR2, 
+		 COL398  VARCHAR2, 
+		 COL399  VARCHAR2, 
+		 COL400  VARCHAR2, 
+		 COL401  VARCHAR2, 
+		 COL402  VARCHAR2, 
+		 COL403  VARCHAR2, 
+		 COL404  VARCHAR2, 
+		 COL405  VARCHAR2, 
+		 COL406  VARCHAR2, 
+		 COL407  VARCHAR2, 
+		 COL408  VARCHAR2, 
+		 COL409  VARCHAR2, 
+		 COL410  VARCHAR2, 
+		 COL411  VARCHAR2, 
+		 COL412  VARCHAR2, 
+		 COL413  VARCHAR2, 
+		 COL414  VARCHAR2, 
+		 COL415  VARCHAR2, 
+		 COL416  VARCHAR2, 
+		 COL417  VARCHAR2, 
+		 COL418  VARCHAR2, 
+		 COL419  VARCHAR2, 
+		 COL420  VARCHAR2, 
+		 COL421  VARCHAR2, 
+		 COL422  VARCHAR2, 
+		 COL423  VARCHAR2, 
+		 COL424  VARCHAR2, 
+		 COL425  VARCHAR2, 
+		 COL426  VARCHAR2, 
+		 COL427  VARCHAR2, 
+		 COL428  VARCHAR2, 
+		 COL429  VARCHAR2, 
+		 COL430  VARCHAR2, 
+		 COL431  VARCHAR2, 
+		 COL432  VARCHAR2, 
+		 COL433  VARCHAR2, 
+		 COL434  VARCHAR2, 
+		 COL435  VARCHAR2, 
+		 COL436  VARCHAR2, 
+		 COL437  VARCHAR2, 
+		 COL438  VARCHAR2, 
+		 COL439  VARCHAR2, 
+		 COL440  VARCHAR2, 
+		 COL441  VARCHAR2, 
+		 COL442  VARCHAR2, 
+		 COL443  VARCHAR2, 
+		 COL444  VARCHAR2, 
+		 COL445  VARCHAR2, 
+		 COL446  VARCHAR2, 
+		 COL447  VARCHAR2, 
+		 COL448  VARCHAR2, 
+		 COL449  VARCHAR2, 
+		 COL450  VARCHAR2, 
+		 COL451  VARCHAR2, 
+		 COL452  VARCHAR2, 
+		 COL453  VARCHAR2, 
+		 COL454  VARCHAR2, 
+		 COL455  VARCHAR2, 
+		 COL456  VARCHAR2, 
+		 COL457  VARCHAR2, 
+		 COL458  VARCHAR2, 
+		 COL459  VARCHAR2, 
+		 COL460  VARCHAR2, 
+		 COL461  VARCHAR2, 
+		 COL462  VARCHAR2, 
+		 COL463  VARCHAR2, 
+		 COL464  VARCHAR2, 
+		 COL465  VARCHAR2, 
+		 COL466  VARCHAR2, 
+		 COL467  VARCHAR2, 
+		 COL468  VARCHAR2, 
+		 COL469  VARCHAR2, 
+		 COL470  VARCHAR2, 
+		 COL471  VARCHAR2, 
+		 COL472  VARCHAR2, 
+		 COL473  VARCHAR2, 
+		 COL474  VARCHAR2, 
+		 COL475  VARCHAR2, 
+		 COL476  VARCHAR2, 
+		 COL477  VARCHAR2, 
+		 COL478  VARCHAR2, 
+		 COL479  VARCHAR2, 
+		 COL480  VARCHAR2, 
+		 COL481  VARCHAR2, 
+		 COL482  VARCHAR2, 
+		 COL483  VARCHAR2, 
+		 COL484  VARCHAR2, 
+		 COL485  VARCHAR2, 
+		 COL486  VARCHAR2, 
+		 COL487  VARCHAR2, 
+		 COL488  VARCHAR2, 
+		 COL489  VARCHAR2, 
+		 COL490  VARCHAR2, 
+		 COL491  VARCHAR2, 
+		 COL492  VARCHAR2, 
+		 COL493  VARCHAR2, 
+		 COL494  VARCHAR2, 
+		 COL495  VARCHAR2, 
+		 COL496  VARCHAR2, 
+		 COL497  VARCHAR2, 
+		 COL498  VARCHAR2, 
+		 COL499  VARCHAR2, 
+		 COL500  VARCHAR2
+	-->
+<sqlMap namespace="EEDM34">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.Teedm34">
+		SELECT
+				NAME	as "name",  <!-- 名称 -->
+				DISPLAY_NAME	as "displayName",  <!-- 显示名称 -->
+				MODULE_TYPE	as "moduleType",  <!-- 类型 -->
+				PARENT	as "parent",  <!-- 父模块 -->
+				APPLICATION	as "application",  <!-- 应用系统 -->
+				VERSION	as "version",  <!-- 版本 -->
+				ARCHIEVE_FLAG	as "archieveFlag",  <!-- 归档标记 -->
+				LOAD_ON_DEMAND	as "loadOnDemand",  <!-- 按需加载 -->
+				CREATE_TIME	as "createTime",  <!-- 创建时间 -->
+				MODIFY_TIME	as "modifyTime",  <!-- 修改时间 -->
+				TABLE_SPACE_NAME	as "tableSpaceName",  <!-- 表空间名称 -->
+				TABLE_SPACE_SIZE	as "tableSpaceSize",  <!-- 表空间大小 -->
+				PRICE	as "price",  <!-- 模块售价 -->
+				CREATOR	as "creator",  <!-- 创建者 -->
+				MODULE_DESC	as "moduleDesc",  <!--  描述  -->
+				TYPE_FULL_NAME	as "typeFullName",  <!-- 类型全名 -->
+				MODULE_LINK	as "moduleLink",  <!-- 链接 -->
+				COL18	as "col18",  
+				COL19	as "col19",  
+				COL20	as "col20",  
+				COL21	as "col21",  
+				COL22	as "col22",  
+				COL23	as "col23",  
+				COL24	as "col24",  
+				COL25	as "col25",  
+				COL26	as "col26",  
+				COL27	as "col27",  
+				COL28	as "col28",  
+				COL29	as "col29",  
+				COL30	as "col30",  
+				COL31	as "col31",  
+				COL32	as "col32",  
+				COL33	as "col33",  
+				COL34	as "col34",  
+				COL35	as "col35",  
+				COL36	as "col36",  
+				COL37	as "col37",  
+				COL38	as "col38",  
+				COL39	as "col39",  
+				COL40	as "col40",  
+				COL41	as "col41",  
+				COL42	as "col42",  
+				COL43	as "col43",  
+				COL44	as "col44",  
+				COL45	as "col45",  
+				COL46	as "col46",  
+				COL47	as "col47",  
+				COL48	as "col48",  
+				COL49	as "col49",  
+				COL50	as "col50",  
+				COL51	as "col51",  
+				COL52	as "col52",  
+				COL53	as "col53",  
+				COL54	as "col54",  
+				COL55	as "col55",  
+				COL56	as "col56",  
+				COL57	as "col57",  
+				COL58	as "col58",  
+				COL59	as "col59",  
+				COL60	as "col60",  
+				COL61	as "col61",  
+				COL62	as "col62",  
+				COL63	as "col63",  
+				COL64	as "col64",  
+				COL65	as "col65",  
+				COL66	as "col66",  
+				COL67	as "col67",  
+				COL68	as "col68",  
+				COL69	as "col69",  
+				COL70	as "col70",  
+				COL71	as "col71",  
+				COL72	as "col72",  
+				COL73	as "col73",  
+				COL74	as "col74",  
+				COL75	as "col75",  
+				COL76	as "col76",  
+				COL77	as "col77",  
+				COL78	as "col78",  
+				COL79	as "col79",  
+				COL80	as "col80",  
+				COL81	as "col81",  
+				COL82	as "col82",  
+				COL83	as "col83",  
+				COL84	as "col84",  
+				COL85	as "col85",  
+				COL86	as "col86",  
+				COL87	as "col87",  
+				COL88	as "col88",  
+				COL89	as "col89",  
+				COL90	as "col90",  
+				COL91	as "col91",  
+				COL92	as "col92",  
+				COL93	as "col93",  
+				COL94	as "col94",  
+				COL95	as "col95",  
+				COL96	as "col96",  
+				COL97	as "col97",  
+				COL98	as "col98",  
+				COL99	as "col99",  
+				COL100	as "col100",  
+				COL101	as "col101",  
+				COL102	as "col102",  
+				COL103	as "col103",  
+				COL104	as "col104",  
+				COL105	as "col105",  
+				COL106	as "col106",  
+				COL107	as "col107",  
+				COL108	as "col108",  
+				COL109	as "col109",  
+				COL110	as "col110",  
+				COL111	as "col111",  
+				COL112	as "col112",  
+				COL113	as "col113",  
+				COL114	as "col114",  
+				COL115	as "col115",  
+				COL116	as "col116",  
+				COL117	as "col117",  
+				COL118	as "col118",  
+				COL119	as "col119",  
+				COL120	as "col120",  
+				COL121	as "col121",  
+				COL122	as "col122",  
+				COL123	as "col123",  
+				COL124	as "col124",  
+				COL125	as "col125",  
+				COL126	as "col126",  
+				COL127	as "col127",  
+				COL128	as "col128",  
+				COL129	as "col129",  
+				COL130	as "col130",  
+				COL131	as "col131",  
+				COL132	as "col132",  
+				COL133	as "col133",  
+				COL134	as "col134",  
+				COL135	as "col135",  
+				COL136	as "col136",  
+				COL137	as "col137",  
+				COL138	as "col138",  
+				COL139	as "col139",  
+				COL140	as "col140",  
+				COL141	as "col141",  
+				COL142	as "col142",  
+				COL143	as "col143",  
+				COL144	as "col144",  
+				COL145	as "col145",  
+				COL146	as "col146",  
+				COL147	as "col147",  
+				COL148	as "col148",  
+				COL149	as "col149",  
+				COL150	as "col150",  
+				COL151	as "col151",  
+				COL152	as "col152",  
+				COL153	as "col153",  
+				COL154	as "col154",  
+				COL155	as "col155",  
+				COL156	as "col156",  
+				COL157	as "col157",  
+				COL158	as "col158",  
+				COL159	as "col159",  
+				COL160	as "col160",  
+				COL161	as "col161",  
+				COL162	as "col162",  
+				COL163	as "col163",  
+				COL164	as "col164",  
+				COL165	as "col165",  
+				COL166	as "col166",  
+				COL167	as "col167",  
+				COL168	as "col168",  
+				COL169	as "col169",  
+				COL170	as "col170",  
+				COL171	as "col171",  
+				COL172	as "col172",  
+				COL173	as "col173",  
+				COL174	as "col174",  
+				COL175	as "col175",  
+				COL176	as "col176",  
+				COL177	as "col177",  
+				COL178	as "col178",  
+				COL179	as "col179",  
+				COL180	as "col180",  
+				COL181	as "col181",  
+				COL182	as "col182",  
+				COL183	as "col183",  
+				COL184	as "col184",  
+				COL185	as "col185",  
+				COL186	as "col186",  
+				COL187	as "col187",  
+				COL188	as "col188",  
+				COL189	as "col189",  
+				COL190	as "col190",  
+				COL191	as "col191",  
+				COL192	as "col192",  
+				COL193	as "col193",  
+				COL194	as "col194",  
+				COL195	as "col195",  
+				COL196	as "col196",  
+				COL197	as "col197",  
+				COL198	as "col198",  
+				COL199	as "col199",  
+				COL200	as "col200",  
+				COL201	as "col201",  
+				COL202	as "col202",  
+				COL203	as "col203",  
+				COL204	as "col204",  
+				COL205	as "col205",  
+				COL206	as "col206",  
+				COL207	as "col207",  
+				COL208	as "col208",  
+				COL209	as "col209",  
+				COL210	as "col210",  
+				COL211	as "col211",  
+				COL212	as "col212",  
+				COL213	as "col213",  
+				COL214	as "col214",  
+				COL215	as "col215",  
+				COL216	as "col216",  
+				COL217	as "col217",  
+				COL218	as "col218",  
+				COL219	as "col219",  
+				COL220	as "col220",  
+				COL221	as "col221",  
+				COL222	as "col222",  
+				COL223	as "col223",  
+				COL224	as "col224",  
+				COL225	as "col225",  
+				COL226	as "col226",  
+				COL227	as "col227",  
+				COL228	as "col228",  
+				COL229	as "col229",  
+				COL230	as "col230",  
+				COL231	as "col231",  
+				COL232	as "col232",  
+				COL233	as "col233",  
+				COL234	as "col234",  
+				COL235	as "col235",  
+				COL236	as "col236",  
+				COL237	as "col237",  
+				COL238	as "col238",  
+				COL239	as "col239",  
+				COL240	as "col240",  
+				COL241	as "col241",  
+				COL242	as "col242",  
+				COL243	as "col243",  
+				COL244	as "col244",  
+				COL245	as "col245",  
+				COL246	as "col246",  
+				COL247	as "col247",  
+				COL248	as "col248",  
+				COL249	as "col249",  
+				COL250	as "col250",  
+				COL251	as "col251",  
+				COL252	as "col252",  
+				COL253	as "col253",  
+				COL254	as "col254",  
+				COL255	as "col255",  
+				COL256	as "col256",  
+				COL257	as "col257",  
+				COL258	as "col258",  
+				COL259	as "col259",  
+				COL260	as "col260",  
+				COL261	as "col261",  
+				COL262	as "col262",  
+				COL263	as "col263",  
+				COL264	as "col264",  
+				COL265	as "col265",  
+				COL266	as "col266",  
+				COL267	as "col267",  
+				COL268	as "col268",  
+				COL269	as "col269",  
+				COL270	as "col270",  
+				COL271	as "col271",  
+				COL272	as "col272",  
+				COL273	as "col273",  
+				COL274	as "col274",  
+				COL275	as "col275",  
+				COL276	as "col276",  
+				COL277	as "col277",  
+				COL278	as "col278",  
+				COL279	as "col279",  
+				COL280	as "col280",  
+				COL281	as "col281",  
+				COL282	as "col282",  
+				COL283	as "col283",  
+				COL284	as "col284",  
+				COL285	as "col285",  
+				COL286	as "col286",  
+				COL287	as "col287",  
+				COL288	as "col288",  
+				COL289	as "col289",  
+				COL290	as "col290",  
+				COL291	as "col291",  
+				COL292	as "col292",  
+				COL293	as "col293",  
+				COL294	as "col294",  
+				COL295	as "col295",  
+				COL296	as "col296",  
+				COL297	as "col297",  
+				COL298	as "col298",  
+				COL299	as "col299",  
+				COL300	as "col300",  
+				COL301	as "col301",  
+				COL302	as "col302",  
+				COL303	as "col303",  
+				COL304	as "col304",  
+				COL305	as "col305",  
+				COL306	as "col306",  
+				COL307	as "col307",  
+				COL308	as "col308",  
+				COL309	as "col309",  
+				COL310	as "col310",  
+				COL311	as "col311",  
+				COL312	as "col312",  
+				COL313	as "col313",  
+				COL314	as "col314",  
+				COL315	as "col315",  
+				COL316	as "col316",  
+				COL317	as "col317",  
+				COL318	as "col318",  
+				COL319	as "col319",  
+				COL320	as "col320",  
+				COL321	as "col321",  
+				COL322	as "col322",  
+				COL323	as "col323",  
+				COL324	as "col324",  
+				COL325	as "col325",  
+				COL326	as "col326",  
+				COL327	as "col327",  
+				COL328	as "col328",  
+				COL329	as "col329",  
+				COL330	as "col330",  
+				COL331	as "col331",  
+				COL332	as "col332",  
+				COL333	as "col333",  
+				COL334	as "col334",  
+				COL335	as "col335",  
+				COL336	as "col336",  
+				COL337	as "col337",  
+				COL338	as "col338",  
+				COL339	as "col339",  
+				COL340	as "col340",  
+				COL341	as "col341",  
+				COL342	as "col342",  
+				COL343	as "col343",  
+				COL344	as "col344",  
+				COL345	as "col345",  
+				COL346	as "col346",  
+				COL347	as "col347",  
+				COL348	as "col348",  
+				COL349	as "col349",  
+				COL350	as "col350",  
+				COL351	as "col351",  
+				COL352	as "col352",  
+				COL353	as "col353",  
+				COL354	as "col354",  
+				COL355	as "col355",  
+				COL356	as "col356",  
+				COL357	as "col357",  
+				COL358	as "col358",  
+				COL359	as "col359",  
+				COL360	as "col360",  
+				COL361	as "col361",  
+				COL362	as "col362",  
+				COL363	as "col363",  
+				COL364	as "col364",  
+				COL365	as "col365",  
+				COL366	as "col366",  
+				COL367	as "col367",  
+				COL368	as "col368",  
+				COL369	as "col369",  
+				COL370	as "col370",  
+				COL371	as "col371",  
+				COL372	as "col372",  
+				COL373	as "col373",  
+				COL374	as "col374",  
+				COL375	as "col375",  
+				COL376	as "col376",  
+				COL377	as "col377",  
+				COL378	as "col378",  
+				COL379	as "col379",  
+				COL380	as "col380",  
+				COL381	as "col381",  
+				COL382	as "col382",  
+				COL383	as "col383",  
+				COL384	as "col384",  
+				COL385	as "col385",  
+				COL386	as "col386",  
+				COL387	as "col387",  
+				COL388	as "col388",  
+				COL389	as "col389",  
+				COL390	as "col390",  
+				COL391	as "col391",  
+				COL392	as "col392",  
+				COL393	as "col393",  
+				COL394	as "col394",  
+				COL395	as "col395",  
+				COL396	as "col396",  
+				COL397	as "col397",  
+				COL398	as "col398",  
+				COL399	as "col399",  
+				COL400	as "col400",  
+				COL401	as "col401",  
+				COL402	as "col402",  
+				COL403	as "col403",  
+				COL404	as "col404",  
+				COL405	as "col405",  
+				COL406	as "col406",  
+				COL407	as "col407",  
+				COL408	as "col408",  
+				COL409	as "col409",  
+				COL410	as "col410",  
+				COL411	as "col411",  
+				COL412	as "col412",  
+				COL413	as "col413",  
+				COL414	as "col414",  
+				COL415	as "col415",  
+				COL416	as "col416",  
+				COL417	as "col417",  
+				COL418	as "col418",  
+				COL419	as "col419",  
+				COL420	as "col420",  
+				COL421	as "col421",  
+				COL422	as "col422",  
+				COL423	as "col423",  
+				COL424	as "col424",  
+				COL425	as "col425",  
+				COL426	as "col426",  
+				COL427	as "col427",  
+				COL428	as "col428",  
+				COL429	as "col429",  
+				COL430	as "col430",  
+				COL431	as "col431",  
+				COL432	as "col432",  
+				COL433	as "col433",  
+				COL434	as "col434",  
+				COL435	as "col435",  
+				COL436	as "col436",  
+				COL437	as "col437",  
+				COL438	as "col438",  
+				COL439	as "col439",  
+				COL440	as "col440",  
+				COL441	as "col441",  
+				COL442	as "col442",  
+				COL443	as "col443",  
+				COL444	as "col444",  
+				COL445	as "col445",  
+				COL446	as "col446",  
+				COL447	as "col447",  
+				COL448	as "col448",  
+				COL449	as "col449",  
+				COL450	as "col450",  
+				COL451	as "col451",  
+				COL452	as "col452",  
+				COL453	as "col453",  
+				COL454	as "col454",  
+				COL455	as "col455",  
+				COL456	as "col456",  
+				COL457	as "col457",  
+				COL458	as "col458",  
+				COL459	as "col459",  
+				COL460	as "col460",  
+				COL461	as "col461",  
+				COL462	as "col462",  
+				COL463	as "col463",  
+				COL464	as "col464",  
+				COL465	as "col465",  
+				COL466	as "col466",  
+				COL467	as "col467",  
+				COL468	as "col468",  
+				COL469	as "col469",  
+				COL470	as "col470",  
+				COL471	as "col471",  
+				COL472	as "col472",  
+				COL473	as "col473",  
+				COL474	as "col474",  
+				COL475	as "col475",  
+				COL476	as "col476",  
+				COL477	as "col477",  
+				COL478	as "col478",  
+				COL479	as "col479",  
+				COL480	as "col480",  
+				COL481	as "col481",  
+				COL482	as "col482",  
+				COL483	as "col483",  
+				COL484	as "col484",  
+				COL485	as "col485",  
+				COL486	as "col486",  
+				COL487	as "col487",  
+				COL488	as "col488",  
+				COL489	as "col489",  
+				COL490	as "col490",  
+				COL491	as "col491",  
+				COL492	as "col492",  
+				COL493	as "col493",  
+				COL494	as "col494",  
+				COL495	as "col495",  
+				COL496	as "col496",  
+				COL497	as "col497",  
+				COL498	as "col498",  
+				COL499	as "col499",  
+				COL500	as "col500" 
+		FROM ${platSchema}.TEEDM34 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR like '%$creator$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  NAME asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM34 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR like '%$creator$%'
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="name">
+			NAME = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="displayName">
+			DISPLAY_NAME = #displayName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleType">
+			MODULE_TYPE = #moduleType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="parent">
+			PARENT = #parent#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="version">
+			VERSION = #version#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="archieveFlag">
+			ARCHIEVE_FLAG = #archieveFlag#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="loadOnDemand">
+			LOAD_ON_DEMAND = #loadOnDemand#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="createTime">
+			CREATE_TIME = #createTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="modifyTime">
+			MODIFY_TIME = #modifyTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceName">
+			TABLE_SPACE_NAME = #tableSpaceName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceSize">
+			TABLE_SPACE_SIZE = #tableSpaceSize#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="price">
+			PRICE = #price#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR = #creator#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleDesc">
+			MODULE_DESC = #moduleDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeFullName">
+			TYPE_FULL_NAME = #typeFullName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleLink">
+			MODULE_LINK = #moduleLink#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col18">
+			COL18 = #col18#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col19">
+			COL19 = #col19#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col20">
+			COL20 = #col20#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col21">
+			COL21 = #col21#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col22">
+			COL22 = #col22#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col23">
+			COL23 = #col23#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col24">
+			COL24 = #col24#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col25">
+			COL25 = #col25#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col26">
+			COL26 = #col26#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col27">
+			COL27 = #col27#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col28">
+			COL28 = #col28#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col29">
+			COL29 = #col29#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col30">
+			COL30 = #col30#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col31">
+			COL31 = #col31#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col32">
+			COL32 = #col32#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col33">
+			COL33 = #col33#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col34">
+			COL34 = #col34#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col35">
+			COL35 = #col35#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col36">
+			COL36 = #col36#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col37">
+			COL37 = #col37#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col38">
+			COL38 = #col38#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col39">
+			COL39 = #col39#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col40">
+			COL40 = #col40#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col41">
+			COL41 = #col41#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col42">
+			COL42 = #col42#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col43">
+			COL43 = #col43#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col44">
+			COL44 = #col44#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col45">
+			COL45 = #col45#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col46">
+			COL46 = #col46#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col47">
+			COL47 = #col47#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col48">
+			COL48 = #col48#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col49">
+			COL49 = #col49#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col50">
+			COL50 = #col50#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col51">
+			COL51 = #col51#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col52">
+			COL52 = #col52#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col53">
+			COL53 = #col53#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col54">
+			COL54 = #col54#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col55">
+			COL55 = #col55#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col56">
+			COL56 = #col56#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col57">
+			COL57 = #col57#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col58">
+			COL58 = #col58#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col59">
+			COL59 = #col59#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col60">
+			COL60 = #col60#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col61">
+			COL61 = #col61#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col62">
+			COL62 = #col62#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col63">
+			COL63 = #col63#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col64">
+			COL64 = #col64#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col65">
+			COL65 = #col65#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col66">
+			COL66 = #col66#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col67">
+			COL67 = #col67#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col68">
+			COL68 = #col68#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col69">
+			COL69 = #col69#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col70">
+			COL70 = #col70#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col71">
+			COL71 = #col71#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col72">
+			COL72 = #col72#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col73">
+			COL73 = #col73#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col74">
+			COL74 = #col74#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col75">
+			COL75 = #col75#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col76">
+			COL76 = #col76#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col77">
+			COL77 = #col77#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col78">
+			COL78 = #col78#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col79">
+			COL79 = #col79#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col80">
+			COL80 = #col80#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col81">
+			COL81 = #col81#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col82">
+			COL82 = #col82#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col83">
+			COL83 = #col83#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col84">
+			COL84 = #col84#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col85">
+			COL85 = #col85#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col86">
+			COL86 = #col86#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col87">
+			COL87 = #col87#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col88">
+			COL88 = #col88#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col89">
+			COL89 = #col89#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col90">
+			COL90 = #col90#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col91">
+			COL91 = #col91#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col92">
+			COL92 = #col92#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col93">
+			COL93 = #col93#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col94">
+			COL94 = #col94#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col95">
+			COL95 = #col95#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col96">
+			COL96 = #col96#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col97">
+			COL97 = #col97#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col98">
+			COL98 = #col98#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col99">
+			COL99 = #col99#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col100">
+			COL100 = #col100#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col101">
+			COL101 = #col101#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col102">
+			COL102 = #col102#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col103">
+			COL103 = #col103#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col104">
+			COL104 = #col104#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col105">
+			COL105 = #col105#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col106">
+			COL106 = #col106#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col107">
+			COL107 = #col107#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col108">
+			COL108 = #col108#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col109">
+			COL109 = #col109#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col110">
+			COL110 = #col110#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col111">
+			COL111 = #col111#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col112">
+			COL112 = #col112#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col113">
+			COL113 = #col113#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col114">
+			COL114 = #col114#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col115">
+			COL115 = #col115#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col116">
+			COL116 = #col116#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col117">
+			COL117 = #col117#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col118">
+			COL118 = #col118#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col119">
+			COL119 = #col119#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col120">
+			COL120 = #col120#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col121">
+			COL121 = #col121#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col122">
+			COL122 = #col122#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col123">
+			COL123 = #col123#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col124">
+			COL124 = #col124#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col125">
+			COL125 = #col125#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col126">
+			COL126 = #col126#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col127">
+			COL127 = #col127#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col128">
+			COL128 = #col128#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col129">
+			COL129 = #col129#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col130">
+			COL130 = #col130#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col131">
+			COL131 = #col131#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col132">
+			COL132 = #col132#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col133">
+			COL133 = #col133#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col134">
+			COL134 = #col134#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col135">
+			COL135 = #col135#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col136">
+			COL136 = #col136#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col137">
+			COL137 = #col137#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col138">
+			COL138 = #col138#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col139">
+			COL139 = #col139#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col140">
+			COL140 = #col140#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col141">
+			COL141 = #col141#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col142">
+			COL142 = #col142#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col143">
+			COL143 = #col143#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col144">
+			COL144 = #col144#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col145">
+			COL145 = #col145#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col146">
+			COL146 = #col146#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col147">
+			COL147 = #col147#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col148">
+			COL148 = #col148#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col149">
+			COL149 = #col149#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col150">
+			COL150 = #col150#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col151">
+			COL151 = #col151#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col152">
+			COL152 = #col152#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col153">
+			COL153 = #col153#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col154">
+			COL154 = #col154#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col155">
+			COL155 = #col155#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col156">
+			COL156 = #col156#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col157">
+			COL157 = #col157#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col158">
+			COL158 = #col158#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col159">
+			COL159 = #col159#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col160">
+			COL160 = #col160#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col161">
+			COL161 = #col161#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col162">
+			COL162 = #col162#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col163">
+			COL163 = #col163#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col164">
+			COL164 = #col164#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col165">
+			COL165 = #col165#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col166">
+			COL166 = #col166#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col167">
+			COL167 = #col167#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col168">
+			COL168 = #col168#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col169">
+			COL169 = #col169#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col170">
+			COL170 = #col170#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col171">
+			COL171 = #col171#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col172">
+			COL172 = #col172#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col173">
+			COL173 = #col173#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col174">
+			COL174 = #col174#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col175">
+			COL175 = #col175#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col176">
+			COL176 = #col176#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col177">
+			COL177 = #col177#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col178">
+			COL178 = #col178#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col179">
+			COL179 = #col179#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col180">
+			COL180 = #col180#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col181">
+			COL181 = #col181#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col182">
+			COL182 = #col182#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col183">
+			COL183 = #col183#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col184">
+			COL184 = #col184#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col185">
+			COL185 = #col185#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col186">
+			COL186 = #col186#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col187">
+			COL187 = #col187#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col188">
+			COL188 = #col188#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col189">
+			COL189 = #col189#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col190">
+			COL190 = #col190#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col191">
+			COL191 = #col191#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col192">
+			COL192 = #col192#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col193">
+			COL193 = #col193#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col194">
+			COL194 = #col194#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col195">
+			COL195 = #col195#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col196">
+			COL196 = #col196#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col197">
+			COL197 = #col197#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col198">
+			COL198 = #col198#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col199">
+			COL199 = #col199#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col200">
+			COL200 = #col200#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col201">
+			COL201 = #col201#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col202">
+			COL202 = #col202#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col203">
+			COL203 = #col203#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col204">
+			COL204 = #col204#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col205">
+			COL205 = #col205#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col206">
+			COL206 = #col206#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col207">
+			COL207 = #col207#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col208">
+			COL208 = #col208#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col209">
+			COL209 = #col209#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col210">
+			COL210 = #col210#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col211">
+			COL211 = #col211#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col212">
+			COL212 = #col212#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col213">
+			COL213 = #col213#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col214">
+			COL214 = #col214#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col215">
+			COL215 = #col215#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col216">
+			COL216 = #col216#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col217">
+			COL217 = #col217#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col218">
+			COL218 = #col218#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col219">
+			COL219 = #col219#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col220">
+			COL220 = #col220#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col221">
+			COL221 = #col221#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col222">
+			COL222 = #col222#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col223">
+			COL223 = #col223#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col224">
+			COL224 = #col224#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col225">
+			COL225 = #col225#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col226">
+			COL226 = #col226#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col227">
+			COL227 = #col227#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col228">
+			COL228 = #col228#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col229">
+			COL229 = #col229#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col230">
+			COL230 = #col230#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col231">
+			COL231 = #col231#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col232">
+			COL232 = #col232#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col233">
+			COL233 = #col233#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col234">
+			COL234 = #col234#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col235">
+			COL235 = #col235#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col236">
+			COL236 = #col236#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col237">
+			COL237 = #col237#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col238">
+			COL238 = #col238#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col239">
+			COL239 = #col239#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col240">
+			COL240 = #col240#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col241">
+			COL241 = #col241#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col242">
+			COL242 = #col242#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col243">
+			COL243 = #col243#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col244">
+			COL244 = #col244#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col245">
+			COL245 = #col245#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col246">
+			COL246 = #col246#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col247">
+			COL247 = #col247#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col248">
+			COL248 = #col248#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col249">
+			COL249 = #col249#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col250">
+			COL250 = #col250#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col251">
+			COL251 = #col251#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col252">
+			COL252 = #col252#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col253">
+			COL253 = #col253#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col254">
+			COL254 = #col254#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col255">
+			COL255 = #col255#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col256">
+			COL256 = #col256#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col257">
+			COL257 = #col257#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col258">
+			COL258 = #col258#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col259">
+			COL259 = #col259#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col260">
+			COL260 = #col260#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col261">
+			COL261 = #col261#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col262">
+			COL262 = #col262#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col263">
+			COL263 = #col263#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col264">
+			COL264 = #col264#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col265">
+			COL265 = #col265#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col266">
+			COL266 = #col266#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col267">
+			COL267 = #col267#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col268">
+			COL268 = #col268#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col269">
+			COL269 = #col269#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col270">
+			COL270 = #col270#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col271">
+			COL271 = #col271#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col272">
+			COL272 = #col272#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col273">
+			COL273 = #col273#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col274">
+			COL274 = #col274#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col275">
+			COL275 = #col275#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col276">
+			COL276 = #col276#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col277">
+			COL277 = #col277#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col278">
+			COL278 = #col278#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col279">
+			COL279 = #col279#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col280">
+			COL280 = #col280#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col281">
+			COL281 = #col281#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col282">
+			COL282 = #col282#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col283">
+			COL283 = #col283#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col284">
+			COL284 = #col284#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col285">
+			COL285 = #col285#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col286">
+			COL286 = #col286#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col287">
+			COL287 = #col287#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col288">
+			COL288 = #col288#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col289">
+			COL289 = #col289#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col290">
+			COL290 = #col290#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col291">
+			COL291 = #col291#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col292">
+			COL292 = #col292#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col293">
+			COL293 = #col293#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col294">
+			COL294 = #col294#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col295">
+			COL295 = #col295#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col296">
+			COL296 = #col296#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col297">
+			COL297 = #col297#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col298">
+			COL298 = #col298#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col299">
+			COL299 = #col299#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col300">
+			COL300 = #col300#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col301">
+			COL301 = #col301#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col302">
+			COL302 = #col302#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col303">
+			COL303 = #col303#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col304">
+			COL304 = #col304#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col305">
+			COL305 = #col305#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col306">
+			COL306 = #col306#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col307">
+			COL307 = #col307#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col308">
+			COL308 = #col308#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col309">
+			COL309 = #col309#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col310">
+			COL310 = #col310#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col311">
+			COL311 = #col311#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col312">
+			COL312 = #col312#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col313">
+			COL313 = #col313#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col314">
+			COL314 = #col314#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col315">
+			COL315 = #col315#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col316">
+			COL316 = #col316#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col317">
+			COL317 = #col317#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col318">
+			COL318 = #col318#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col319">
+			COL319 = #col319#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col320">
+			COL320 = #col320#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col321">
+			COL321 = #col321#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col322">
+			COL322 = #col322#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col323">
+			COL323 = #col323#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col324">
+			COL324 = #col324#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col325">
+			COL325 = #col325#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col326">
+			COL326 = #col326#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col327">
+			COL327 = #col327#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col328">
+			COL328 = #col328#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col329">
+			COL329 = #col329#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col330">
+			COL330 = #col330#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col331">
+			COL331 = #col331#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col332">
+			COL332 = #col332#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col333">
+			COL333 = #col333#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col334">
+			COL334 = #col334#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col335">
+			COL335 = #col335#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col336">
+			COL336 = #col336#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col337">
+			COL337 = #col337#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col338">
+			COL338 = #col338#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col339">
+			COL339 = #col339#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col340">
+			COL340 = #col340#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col341">
+			COL341 = #col341#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col342">
+			COL342 = #col342#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col343">
+			COL343 = #col343#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col344">
+			COL344 = #col344#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col345">
+			COL345 = #col345#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col346">
+			COL346 = #col346#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col347">
+			COL347 = #col347#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col348">
+			COL348 = #col348#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col349">
+			COL349 = #col349#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col350">
+			COL350 = #col350#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col351">
+			COL351 = #col351#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col352">
+			COL352 = #col352#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col353">
+			COL353 = #col353#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col354">
+			COL354 = #col354#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col355">
+			COL355 = #col355#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col356">
+			COL356 = #col356#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col357">
+			COL357 = #col357#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col358">
+			COL358 = #col358#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col359">
+			COL359 = #col359#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col360">
+			COL360 = #col360#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col361">
+			COL361 = #col361#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col362">
+			COL362 = #col362#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col363">
+			COL363 = #col363#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col364">
+			COL364 = #col364#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col365">
+			COL365 = #col365#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col366">
+			COL366 = #col366#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col367">
+			COL367 = #col367#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col368">
+			COL368 = #col368#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col369">
+			COL369 = #col369#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col370">
+			COL370 = #col370#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col371">
+			COL371 = #col371#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col372">
+			COL372 = #col372#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col373">
+			COL373 = #col373#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col374">
+			COL374 = #col374#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col375">
+			COL375 = #col375#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col376">
+			COL376 = #col376#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col377">
+			COL377 = #col377#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col378">
+			COL378 = #col378#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col379">
+			COL379 = #col379#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col380">
+			COL380 = #col380#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col381">
+			COL381 = #col381#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col382">
+			COL382 = #col382#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col383">
+			COL383 = #col383#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col384">
+			COL384 = #col384#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col385">
+			COL385 = #col385#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col386">
+			COL386 = #col386#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col387">
+			COL387 = #col387#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col388">
+			COL388 = #col388#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col389">
+			COL389 = #col389#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col390">
+			COL390 = #col390#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col391">
+			COL391 = #col391#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col392">
+			COL392 = #col392#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col393">
+			COL393 = #col393#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col394">
+			COL394 = #col394#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col395">
+			COL395 = #col395#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col396">
+			COL396 = #col396#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col397">
+			COL397 = #col397#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col398">
+			COL398 = #col398#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col399">
+			COL399 = #col399#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col400">
+			COL400 = #col400#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col401">
+			COL401 = #col401#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col402">
+			COL402 = #col402#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col403">
+			COL403 = #col403#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col404">
+			COL404 = #col404#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col405">
+			COL405 = #col405#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col406">
+			COL406 = #col406#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col407">
+			COL407 = #col407#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col408">
+			COL408 = #col408#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col409">
+			COL409 = #col409#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col410">
+			COL410 = #col410#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col411">
+			COL411 = #col411#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col412">
+			COL412 = #col412#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col413">
+			COL413 = #col413#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col414">
+			COL414 = #col414#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col415">
+			COL415 = #col415#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col416">
+			COL416 = #col416#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col417">
+			COL417 = #col417#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col418">
+			COL418 = #col418#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col419">
+			COL419 = #col419#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col420">
+			COL420 = #col420#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col421">
+			COL421 = #col421#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col422">
+			COL422 = #col422#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col423">
+			COL423 = #col423#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col424">
+			COL424 = #col424#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col425">
+			COL425 = #col425#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col426">
+			COL426 = #col426#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col427">
+			COL427 = #col427#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col428">
+			COL428 = #col428#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col429">
+			COL429 = #col429#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col430">
+			COL430 = #col430#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col431">
+			COL431 = #col431#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col432">
+			COL432 = #col432#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col433">
+			COL433 = #col433#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col434">
+			COL434 = #col434#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col435">
+			COL435 = #col435#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col436">
+			COL436 = #col436#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col437">
+			COL437 = #col437#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col438">
+			COL438 = #col438#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col439">
+			COL439 = #col439#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col440">
+			COL440 = #col440#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col441">
+			COL441 = #col441#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col442">
+			COL442 = #col442#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col443">
+			COL443 = #col443#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col444">
+			COL444 = #col444#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col445">
+			COL445 = #col445#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col446">
+			COL446 = #col446#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col447">
+			COL447 = #col447#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col448">
+			COL448 = #col448#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col449">
+			COL449 = #col449#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col450">
+			COL450 = #col450#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col451">
+			COL451 = #col451#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col452">
+			COL452 = #col452#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col453">
+			COL453 = #col453#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col454">
+			COL454 = #col454#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col455">
+			COL455 = #col455#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col456">
+			COL456 = #col456#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col457">
+			COL457 = #col457#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col458">
+			COL458 = #col458#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col459">
+			COL459 = #col459#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col460">
+			COL460 = #col460#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col461">
+			COL461 = #col461#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col462">
+			COL462 = #col462#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col463">
+			COL463 = #col463#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col464">
+			COL464 = #col464#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col465">
+			COL465 = #col465#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col466">
+			COL466 = #col466#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col467">
+			COL467 = #col467#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col468">
+			COL468 = #col468#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col469">
+			COL469 = #col469#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col470">
+			COL470 = #col470#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col471">
+			COL471 = #col471#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col472">
+			COL472 = #col472#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col473">
+			COL473 = #col473#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col474">
+			COL474 = #col474#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col475">
+			COL475 = #col475#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col476">
+			COL476 = #col476#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col477">
+			COL477 = #col477#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col478">
+			COL478 = #col478#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col479">
+			COL479 = #col479#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col480">
+			COL480 = #col480#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col481">
+			COL481 = #col481#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col482">
+			COL482 = #col482#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col483">
+			COL483 = #col483#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col484">
+			COL484 = #col484#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col485">
+			COL485 = #col485#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col486">
+			COL486 = #col486#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col487">
+			COL487 = #col487#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col488">
+			COL488 = #col488#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col489">
+			COL489 = #col489#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col490">
+			COL490 = #col490#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col491">
+			COL491 = #col491#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col492">
+			COL492 = #col492#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col493">
+			COL493 = #col493#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col494">
+			COL494 = #col494#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col495">
+			COL495 = #col495#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col496">
+			COL496 = #col496#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col497">
+			COL497 = #col497#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col498">
+			COL498 = #col498#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col499">
+			COL499 = #col499#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col500">
+			COL500 = #col500#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM34 (NAME,  <!-- 名称 -->
+										DISPLAY_NAME,  <!-- 显示名称 -->
+										MODULE_TYPE,  <!-- 类型 -->
+										PARENT,  <!-- 父模块 -->
+										APPLICATION,  <!-- 应用系统 -->
+										VERSION,  <!-- 版本 -->
+										ARCHIEVE_FLAG,  <!-- 归档标记 -->
+										LOAD_ON_DEMAND,  <!-- 按需加载 -->
+										CREATE_TIME,  <!-- 创建时间 -->
+										MODIFY_TIME,  <!-- 修改时间 -->
+										TABLE_SPACE_NAME,  <!-- 表空间名称 -->
+										TABLE_SPACE_SIZE,  <!-- 表空间大小 -->
+										PRICE,  <!-- 模块售价 -->
+										CREATOR,  <!-- 创建者 -->
+										MODULE_DESC,  <!--  描述  -->
+										TYPE_FULL_NAME,  <!-- 类型全名 -->
+										MODULE_LINK,  <!-- 链接 -->
+										COL18,
+										COL19,
+										COL20,
+										COL21,
+										COL22,
+										COL23,
+										COL24,
+										COL25,
+										COL26,
+										COL27,
+										COL28,
+										COL29,
+										COL30,
+										COL31,
+										COL32,
+										COL33,
+										COL34,
+										COL35,
+										COL36,
+										COL37,
+										COL38,
+										COL39,
+										COL40,
+										COL41,
+										COL42,
+										COL43,
+										COL44,
+										COL45,
+										COL46,
+										COL47,
+										COL48,
+										COL49,
+										COL50,
+										COL51,
+										COL52,
+										COL53,
+										COL54,
+										COL55,
+										COL56,
+										COL57,
+										COL58,
+										COL59,
+										COL60,
+										COL61,
+										COL62,
+										COL63,
+										COL64,
+										COL65,
+										COL66,
+										COL67,
+										COL68,
+										COL69,
+										COL70,
+										COL71,
+										COL72,
+										COL73,
+										COL74,
+										COL75,
+										COL76,
+										COL77,
+										COL78,
+										COL79,
+										COL80,
+										COL81,
+										COL82,
+										COL83,
+										COL84,
+										COL85,
+										COL86,
+										COL87,
+										COL88,
+										COL89,
+										COL90,
+										COL91,
+										COL92,
+										COL93,
+										COL94,
+										COL95,
+										COL96,
+										COL97,
+										COL98,
+										COL99,
+										COL100,
+										COL101,
+										COL102,
+										COL103,
+										COL104,
+										COL105,
+										COL106,
+										COL107,
+										COL108,
+										COL109,
+										COL110,
+										COL111,
+										COL112,
+										COL113,
+										COL114,
+										COL115,
+										COL116,
+										COL117,
+										COL118,
+										COL119,
+										COL120,
+										COL121,
+										COL122,
+										COL123,
+										COL124,
+										COL125,
+										COL126,
+										COL127,
+										COL128,
+										COL129,
+										COL130,
+										COL131,
+										COL132,
+										COL133,
+										COL134,
+										COL135,
+										COL136,
+										COL137,
+										COL138,
+										COL139,
+										COL140,
+										COL141,
+										COL142,
+										COL143,
+										COL144,
+										COL145,
+										COL146,
+										COL147,
+										COL148,
+										COL149,
+										COL150,
+										COL151,
+										COL152,
+										COL153,
+										COL154,
+										COL155,
+										COL156,
+										COL157,
+										COL158,
+										COL159,
+										COL160,
+										COL161,
+										COL162,
+										COL163,
+										COL164,
+										COL165,
+										COL166,
+										COL167,
+										COL168,
+										COL169,
+										COL170,
+										COL171,
+										COL172,
+										COL173,
+										COL174,
+										COL175,
+										COL176,
+										COL177,
+										COL178,
+										COL179,
+										COL180,
+										COL181,
+										COL182,
+										COL183,
+										COL184,
+										COL185,
+										COL186,
+										COL187,
+										COL188,
+										COL189,
+										COL190,
+										COL191,
+										COL192,
+										COL193,
+										COL194,
+										COL195,
+										COL196,
+										COL197,
+										COL198,
+										COL199,
+										COL200,
+										COL201,
+										COL202,
+										COL203,
+										COL204,
+										COL205,
+										COL206,
+										COL207,
+										COL208,
+										COL209,
+										COL210,
+										COL211,
+										COL212,
+										COL213,
+										COL214,
+										COL215,
+										COL216,
+										COL217,
+										COL218,
+										COL219,
+										COL220,
+										COL221,
+										COL222,
+										COL223,
+										COL224,
+										COL225,
+										COL226,
+										COL227,
+										COL228,
+										COL229,
+										COL230,
+										COL231,
+										COL232,
+										COL233,
+										COL234,
+										COL235,
+										COL236,
+										COL237,
+										COL238,
+										COL239,
+										COL240,
+										COL241,
+										COL242,
+										COL243,
+										COL244,
+										COL245,
+										COL246,
+										COL247,
+										COL248,
+										COL249,
+										COL250,
+										COL251,
+										COL252,
+										COL253,
+										COL254,
+										COL255,
+										COL256,
+										COL257,
+										COL258,
+										COL259,
+										COL260,
+										COL261,
+										COL262,
+										COL263,
+										COL264,
+										COL265,
+										COL266,
+										COL267,
+										COL268,
+										COL269,
+										COL270,
+										COL271,
+										COL272,
+										COL273,
+										COL274,
+										COL275,
+										COL276,
+										COL277,
+										COL278,
+										COL279,
+										COL280,
+										COL281,
+										COL282,
+										COL283,
+										COL284,
+										COL285,
+										COL286,
+										COL287,
+										COL288,
+										COL289,
+										COL290,
+										COL291,
+										COL292,
+										COL293,
+										COL294,
+										COL295,
+										COL296,
+										COL297,
+										COL298,
+										COL299,
+										COL300,
+										COL301,
+										COL302,
+										COL303,
+										COL304,
+										COL305,
+										COL306,
+										COL307,
+										COL308,
+										COL309,
+										COL310,
+										COL311,
+										COL312,
+										COL313,
+										COL314,
+										COL315,
+										COL316,
+										COL317,
+										COL318,
+										COL319,
+										COL320,
+										COL321,
+										COL322,
+										COL323,
+										COL324,
+										COL325,
+										COL326,
+										COL327,
+										COL328,
+										COL329,
+										COL330,
+										COL331,
+										COL332,
+										COL333,
+										COL334,
+										COL335,
+										COL336,
+										COL337,
+										COL338,
+										COL339,
+										COL340,
+										COL341,
+										COL342,
+										COL343,
+										COL344,
+										COL345,
+										COL346,
+										COL347,
+										COL348,
+										COL349,
+										COL350,
+										COL351,
+										COL352,
+										COL353,
+										COL354,
+										COL355,
+										COL356,
+										COL357,
+										COL358,
+										COL359,
+										COL360,
+										COL361,
+										COL362,
+										COL363,
+										COL364,
+										COL365,
+										COL366,
+										COL367,
+										COL368,
+										COL369,
+										COL370,
+										COL371,
+										COL372,
+										COL373,
+										COL374,
+										COL375,
+										COL376,
+										COL377,
+										COL378,
+										COL379,
+										COL380,
+										COL381,
+										COL382,
+										COL383,
+										COL384,
+										COL385,
+										COL386,
+										COL387,
+										COL388,
+										COL389,
+										COL390,
+										COL391,
+										COL392,
+										COL393,
+										COL394,
+										COL395,
+										COL396,
+										COL397,
+										COL398,
+										COL399,
+										COL400,
+										COL401,
+										COL402,
+										COL403,
+										COL404,
+										COL405,
+										COL406,
+										COL407,
+										COL408,
+										COL409,
+										COL410,
+										COL411,
+										COL412,
+										COL413,
+										COL414,
+										COL415,
+										COL416,
+										COL417,
+										COL418,
+										COL419,
+										COL420,
+										COL421,
+										COL422,
+										COL423,
+										COL424,
+										COL425,
+										COL426,
+										COL427,
+										COL428,
+										COL429,
+										COL430,
+										COL431,
+										COL432,
+										COL433,
+										COL434,
+										COL435,
+										COL436,
+										COL437,
+										COL438,
+										COL439,
+										COL440,
+										COL441,
+										COL442,
+										COL443,
+										COL444,
+										COL445,
+										COL446,
+										COL447,
+										COL448,
+										COL449,
+										COL450,
+										COL451,
+										COL452,
+										COL453,
+										COL454,
+										COL455,
+										COL456,
+										COL457,
+										COL458,
+										COL459,
+										COL460,
+										COL461,
+										COL462,
+										COL463,
+										COL464,
+										COL465,
+										COL466,
+										COL467,
+										COL468,
+										COL469,
+										COL470,
+										COL471,
+										COL472,
+										COL473,
+										COL474,
+										COL475,
+										COL476,
+										COL477,
+										COL478,
+										COL479,
+										COL480,
+										COL481,
+										COL482,
+										COL483,
+										COL484,
+										COL485,
+										COL486,
+										COL487,
+										COL488,
+										COL489,
+										COL490,
+										COL491,
+										COL492,
+										COL493,
+										COL494,
+										COL495,
+										COL496,
+										COL497,
+										COL498,
+										COL499,
+										COL500
+										)		 
+		VALUES (#name:VARCHAR#, #displayName:VARCHAR#, #moduleType:VARCHAR#, #parent:VARCHAR#, #application:VARCHAR#, #version:VARCHAR#, #archieveFlag:NUMERIC#, #loadOnDemand:NUMERIC#, #createTime:VARCHAR#, #modifyTime:VARCHAR#, #tableSpaceName:VARCHAR#, #tableSpaceSize:NUMERIC#, #price:NUMERIC#, #creator:VARCHAR#, #moduleDesc:VARCHAR#, #typeFullName:VARCHAR#, #moduleLink:VARCHAR#, #col18:VARCHAR#, #col19:VARCHAR#, #col20:VARCHAR#, #col21:VARCHAR#, #col22:VARCHAR#, #col23:VARCHAR#, #col24:VARCHAR#, #col25:VARCHAR#, #col26:VARCHAR#, #col27:VARCHAR#, #col28:VARCHAR#, #col29:VARCHAR#, #col30:VARCHAR#, #col31:VARCHAR#, #col32:VARCHAR#, #col33:VARCHAR#, #col34:VARCHAR#, #col35:VARCHAR#, #col36:VARCHAR#, #col37:VARCHAR#, #col38:VARCHAR#, #col39:VARCHAR#, #col40:VARCHAR#, #col41:VARCHAR#, #col42:VARCHAR#, #col43:VARCHAR#, #col44:VARCHAR#, #col45:VARCHAR#, #col46:VARCHAR#, #col47:VARCHAR#, #col48:VARCHAR#, #col49:VARCHAR#, #col50:VARCHAR#, #col51:VARCHAR#, #col52:VARCHAR#, #col53:VARCHAR#, #col54:VARCHAR#, #col55:VARCHAR#, #col56:VARCHAR#, #col57:VARCHAR#, #col58:VARCHAR#, #col59:VARCHAR#, #col60:VARCHAR#, #col61:VARCHAR#, #col62:VARCHAR#, #col63:VARCHAR#, #col64:VARCHAR#, #col65:VARCHAR#, #col66:VARCHAR#, #col67:VARCHAR#, #col68:VARCHAR#, #col69:VARCHAR#, #col70:VARCHAR#, #col71:VARCHAR#, #col72:VARCHAR#, #col73:VARCHAR#, #col74:VARCHAR#, #col75:VARCHAR#, #col76:VARCHAR#, #col77:VARCHAR#, #col78:VARCHAR#, #col79:VARCHAR#, #col80:VARCHAR#, #col81:VARCHAR#, #col82:VARCHAR#, #col83:VARCHAR#, #col84:VARCHAR#, #col85:VARCHAR#, #col86:VARCHAR#, #col87:VARCHAR#, #col88:VARCHAR#, #col89:VARCHAR#, #col90:VARCHAR#, #col91:VARCHAR#, #col92:VARCHAR#, #col93:VARCHAR#, #col94:VARCHAR#, #col95:VARCHAR#, #col96:VARCHAR#, #col97:VARCHAR#, #col98:VARCHAR#, #col99:VARCHAR#, #col100:VARCHAR#, #col101:VARCHAR#, #col102:VARCHAR#, #col103:VARCHAR#, #col104:VARCHAR#, #col105:VARCHAR#, #col106:VARCHAR#, #col107:VARCHAR#, #col108:VARCHAR#, #col109:VARCHAR#, #col110:VARCHAR#, #col111:VARCHAR#, #col112:VARCHAR#, #col113:VARCHAR#, #col114:VARCHAR#, #col115:VARCHAR#, #col116:VARCHAR#, #col117:VARCHAR#, #col118:VARCHAR#, #col119:VARCHAR#, #col120:VARCHAR#, #col121:VARCHAR#, #col122:VARCHAR#, #col123:VARCHAR#, #col124:VARCHAR#, #col125:VARCHAR#, #col126:VARCHAR#, #col127:VARCHAR#, #col128:VARCHAR#, #col129:VARCHAR#, #col130:VARCHAR#, #col131:VARCHAR#, #col132:VARCHAR#, #col133:VARCHAR#, #col134:VARCHAR#, #col135:VARCHAR#, #col136:VARCHAR#, #col137:VARCHAR#, #col138:VARCHAR#, #col139:VARCHAR#, #col140:VARCHAR#, #col141:VARCHAR#, #col142:VARCHAR#, #col143:VARCHAR#, #col144:VARCHAR#, #col145:VARCHAR#, #col146:VARCHAR#, #col147:VARCHAR#, #col148:VARCHAR#, #col149:VARCHAR#, #col150:VARCHAR#, #col151:VARCHAR#, #col152:VARCHAR#, #col153:VARCHAR#, #col154:VARCHAR#, #col155:VARCHAR#, #col156:VARCHAR#, #col157:VARCHAR#, #col158:VARCHAR#, #col159:VARCHAR#, #col160:VARCHAR#, #col161:VARCHAR#, #col162:VARCHAR#, #col163:VARCHAR#, #col164:VARCHAR#, #col165:VARCHAR#, #col166:VARCHAR#, #col167:VARCHAR#, #col168:VARCHAR#, #col169:VARCHAR#, #col170:VARCHAR#, #col171:VARCHAR#, #col172:VARCHAR#, #col173:VARCHAR#, #col174:VARCHAR#, #col175:VARCHAR#, #col176:VARCHAR#, #col177:VARCHAR#, #col178:VARCHAR#, #col179:VARCHAR#, #col180:VARCHAR#, #col181:VARCHAR#, #col182:VARCHAR#, #col183:VARCHAR#, #col184:VARCHAR#, #col185:VARCHAR#, #col186:VARCHAR#, #col187:VARCHAR#, #col188:VARCHAR#, #col189:VARCHAR#, #col190:VARCHAR#, #col191:VARCHAR#, #col192:VARCHAR#, #col193:VARCHAR#, #col194:VARCHAR#, #col195:VARCHAR#, #col196:VARCHAR#, #col197:VARCHAR#, #col198:VARCHAR#, #col199:VARCHAR#, #col200:VARCHAR#, #col201:VARCHAR#, #col202:VARCHAR#, #col203:VARCHAR#, #col204:VARCHAR#, #col205:VARCHAR#, #col206:VARCHAR#, #col207:VARCHAR#, #col208:VARCHAR#, #col209:VARCHAR#, #col210:VARCHAR#, #col211:VARCHAR#, #col212:VARCHAR#, #col213:VARCHAR#, #col214:VARCHAR#, #col215:VARCHAR#, #col216:VARCHAR#, #col217:VARCHAR#, #col218:VARCHAR#, #col219:VARCHAR#, #col220:VARCHAR#, #col221:VARCHAR#, #col222:VARCHAR#, #col223:VARCHAR#, #col224:VARCHAR#, #col225:VARCHAR#, #col226:VARCHAR#, #col227:VARCHAR#, #col228:VARCHAR#, #col229:VARCHAR#, #col230:VARCHAR#, #col231:VARCHAR#, #col232:VARCHAR#, #col233:VARCHAR#, #col234:VARCHAR#, #col235:VARCHAR#, #col236:VARCHAR#, #col237:VARCHAR#, #col238:VARCHAR#, #col239:VARCHAR#, #col240:VARCHAR#, #col241:VARCHAR#, #col242:VARCHAR#, #col243:VARCHAR#, #col244:VARCHAR#, #col245:VARCHAR#, #col246:VARCHAR#, #col247:VARCHAR#, #col248:VARCHAR#, #col249:VARCHAR#, #col250:VARCHAR#, #col251:VARCHAR#, #col252:VARCHAR#, #col253:VARCHAR#, #col254:VARCHAR#, #col255:VARCHAR#, #col256:VARCHAR#, #col257:VARCHAR#, #col258:VARCHAR#, #col259:VARCHAR#, #col260:VARCHAR#, #col261:VARCHAR#, #col262:VARCHAR#, #col263:VARCHAR#, #col264:VARCHAR#, #col265:VARCHAR#, #col266:VARCHAR#, #col267:VARCHAR#, #col268:VARCHAR#, #col269:VARCHAR#, #col270:VARCHAR#, #col271:VARCHAR#, #col272:VARCHAR#, #col273:VARCHAR#, #col274:VARCHAR#, #col275:VARCHAR#, #col276:VARCHAR#, #col277:VARCHAR#, #col278:VARCHAR#, #col279:VARCHAR#, #col280:VARCHAR#, #col281:VARCHAR#, #col282:VARCHAR#, #col283:VARCHAR#, #col284:VARCHAR#, #col285:VARCHAR#, #col286:VARCHAR#, #col287:VARCHAR#, #col288:VARCHAR#, #col289:VARCHAR#, #col290:VARCHAR#, #col291:VARCHAR#, #col292:VARCHAR#, #col293:VARCHAR#, #col294:VARCHAR#, #col295:VARCHAR#, #col296:VARCHAR#, #col297:VARCHAR#, #col298:VARCHAR#, #col299:VARCHAR#, #col300:VARCHAR#, #col301:VARCHAR#, #col302:VARCHAR#, #col303:VARCHAR#, #col304:VARCHAR#, #col305:VARCHAR#, #col306:VARCHAR#, #col307:VARCHAR#, #col308:VARCHAR#, #col309:VARCHAR#, #col310:VARCHAR#, #col311:VARCHAR#, #col312:VARCHAR#, #col313:VARCHAR#, #col314:VARCHAR#, #col315:VARCHAR#, #col316:VARCHAR#, #col317:VARCHAR#, #col318:VARCHAR#, #col319:VARCHAR#, #col320:VARCHAR#, #col321:VARCHAR#, #col322:VARCHAR#, #col323:VARCHAR#, #col324:VARCHAR#, #col325:VARCHAR#, #col326:VARCHAR#, #col327:VARCHAR#, #col328:VARCHAR#, #col329:VARCHAR#, #col330:VARCHAR#, #col331:VARCHAR#, #col332:VARCHAR#, #col333:VARCHAR#, #col334:VARCHAR#, #col335:VARCHAR#, #col336:VARCHAR#, #col337:VARCHAR#, #col338:VARCHAR#, #col339:VARCHAR#, #col340:VARCHAR#, #col341:VARCHAR#, #col342:VARCHAR#, #col343:VARCHAR#, #col344:VARCHAR#, #col345:VARCHAR#, #col346:VARCHAR#, #col347:VARCHAR#, #col348:VARCHAR#, #col349:VARCHAR#, #col350:VARCHAR#, #col351:VARCHAR#, #col352:VARCHAR#, #col353:VARCHAR#, #col354:VARCHAR#, #col355:VARCHAR#, #col356:VARCHAR#, #col357:VARCHAR#, #col358:VARCHAR#, #col359:VARCHAR#, #col360:VARCHAR#, #col361:VARCHAR#, #col362:VARCHAR#, #col363:VARCHAR#, #col364:VARCHAR#, #col365:VARCHAR#, #col366:VARCHAR#, #col367:VARCHAR#, #col368:VARCHAR#, #col369:VARCHAR#, #col370:VARCHAR#, #col371:VARCHAR#, #col372:VARCHAR#, #col373:VARCHAR#, #col374:VARCHAR#, #col375:VARCHAR#, #col376:VARCHAR#, #col377:VARCHAR#, #col378:VARCHAR#, #col379:VARCHAR#, #col380:VARCHAR#, #col381:VARCHAR#, #col382:VARCHAR#, #col383:VARCHAR#, #col384:VARCHAR#, #col385:VARCHAR#, #col386:VARCHAR#, #col387:VARCHAR#, #col388:VARCHAR#, #col389:VARCHAR#, #col390:VARCHAR#, #col391:VARCHAR#, #col392:VARCHAR#, #col393:VARCHAR#, #col394:VARCHAR#, #col395:VARCHAR#, #col396:VARCHAR#, #col397:VARCHAR#, #col398:VARCHAR#, #col399:VARCHAR#, #col400:VARCHAR#, #col401:VARCHAR#, #col402:VARCHAR#, #col403:VARCHAR#, #col404:VARCHAR#, #col405:VARCHAR#, #col406:VARCHAR#, #col407:VARCHAR#, #col408:VARCHAR#, #col409:VARCHAR#, #col410:VARCHAR#, #col411:VARCHAR#, #col412:VARCHAR#, #col413:VARCHAR#, #col414:VARCHAR#, #col415:VARCHAR#, #col416:VARCHAR#, #col417:VARCHAR#, #col418:VARCHAR#, #col419:VARCHAR#, #col420:VARCHAR#, #col421:VARCHAR#, #col422:VARCHAR#, #col423:VARCHAR#, #col424:VARCHAR#, #col425:VARCHAR#, #col426:VARCHAR#, #col427:VARCHAR#, #col428:VARCHAR#, #col429:VARCHAR#, #col430:VARCHAR#, #col431:VARCHAR#, #col432:VARCHAR#, #col433:VARCHAR#, #col434:VARCHAR#, #col435:VARCHAR#, #col436:VARCHAR#, #col437:VARCHAR#, #col438:VARCHAR#, #col439:VARCHAR#, #col440:VARCHAR#, #col441:VARCHAR#, #col442:VARCHAR#, #col443:VARCHAR#, #col444:VARCHAR#, #col445:VARCHAR#, #col446:VARCHAR#, #col447:VARCHAR#, #col448:VARCHAR#, #col449:VARCHAR#, #col450:VARCHAR#, #col451:VARCHAR#, #col452:VARCHAR#, #col453:VARCHAR#, #col454:VARCHAR#, #col455:VARCHAR#, #col456:VARCHAR#, #col457:VARCHAR#, #col458:VARCHAR#, #col459:VARCHAR#, #col460:VARCHAR#, #col461:VARCHAR#, #col462:VARCHAR#, #col463:VARCHAR#, #col464:VARCHAR#, #col465:VARCHAR#, #col466:VARCHAR#, #col467:VARCHAR#, #col468:VARCHAR#, #col469:VARCHAR#, #col470:VARCHAR#, #col471:VARCHAR#, #col472:VARCHAR#, #col473:VARCHAR#, #col474:VARCHAR#, #col475:VARCHAR#, #col476:VARCHAR#, #col477:VARCHAR#, #col478:VARCHAR#, #col479:VARCHAR#, #col480:VARCHAR#, #col481:VARCHAR#, #col482:VARCHAR#, #col483:VARCHAR#, #col484:VARCHAR#, #col485:VARCHAR#, #col486:VARCHAR#, #col487:VARCHAR#, #col488:VARCHAR#, #col489:VARCHAR#, #col490:VARCHAR#, #col491:VARCHAR#, #col492:VARCHAR#, #col493:VARCHAR#, #col494:VARCHAR#, #col495:VARCHAR#, #col496:VARCHAR#, #col497:VARCHAR#, #col498:VARCHAR#, #col499:VARCHAR#, #col500:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM34 WHERE 
+			NAME = #name#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM34 
+		SET 
+					DISPLAY_NAME	= #displayName#,   <!-- 显示名称 -->
+					MODULE_TYPE	= #moduleType#,   <!-- 类型 -->
+					PARENT	= #parent#,   <!-- 父模块 -->
+					APPLICATION	= #application#,   <!-- 应用系统 -->
+					VERSION	= #version#,   <!-- 版本 -->
+					ARCHIEVE_FLAG	= #archieveFlag:NUMERIC#,   <!-- 归档标记 -->
+					LOAD_ON_DEMAND	= #loadOnDemand:NUMERIC#,   <!-- 按需加载 -->
+					CREATE_TIME	= #createTime#,   <!-- 创建时间 -->
+					MODIFY_TIME	= #modifyTime#,   <!-- 修改时间 -->
+					TABLE_SPACE_NAME	= #tableSpaceName#,   <!-- 表空间名称 -->
+					TABLE_SPACE_SIZE	= #tableSpaceSize:NUMERIC#,   <!-- 表空间大小 -->
+					PRICE	= #price:NUMERIC#,   <!-- 模块售价 -->
+					CREATOR	= #creator#,   <!-- 创建者 -->
+					MODULE_DESC	= #moduleDesc#,   <!--  描述  -->
+					TYPE_FULL_NAME	= #typeFullName#,   <!-- 类型全名 -->
+					MODULE_LINK	= #moduleLink#,   <!-- 链接 -->
+					COL18	= #col18#, 
+					COL19	= #col19#, 
+					COL20	= #col20#, 
+					COL21	= #col21#, 
+					COL22	= #col22#, 
+					COL23	= #col23#, 
+					COL24	= #col24#, 
+					COL25	= #col25#, 
+					COL26	= #col26#, 
+					COL27	= #col27#, 
+					COL28	= #col28#, 
+					COL29	= #col29#, 
+					COL30	= #col30#, 
+					COL31	= #col31#, 
+					COL32	= #col32#, 
+					COL33	= #col33#, 
+					COL34	= #col34#, 
+					COL35	= #col35#, 
+					COL36	= #col36#, 
+					COL37	= #col37#, 
+					COL38	= #col38#, 
+					COL39	= #col39#, 
+					COL40	= #col40#, 
+					COL41	= #col41#, 
+					COL42	= #col42#, 
+					COL43	= #col43#, 
+					COL44	= #col44#, 
+					COL45	= #col45#, 
+					COL46	= #col46#, 
+					COL47	= #col47#, 
+					COL48	= #col48#, 
+					COL49	= #col49#, 
+					COL50	= #col50#, 
+					COL51	= #col51#, 
+					COL52	= #col52#, 
+					COL53	= #col53#, 
+					COL54	= #col54#, 
+					COL55	= #col55#, 
+					COL56	= #col56#, 
+					COL57	= #col57#, 
+					COL58	= #col58#, 
+					COL59	= #col59#, 
+					COL60	= #col60#, 
+					COL61	= #col61#, 
+					COL62	= #col62#, 
+					COL63	= #col63#, 
+					COL64	= #col64#, 
+					COL65	= #col65#, 
+					COL66	= #col66#, 
+					COL67	= #col67#, 
+					COL68	= #col68#, 
+					COL69	= #col69#, 
+					COL70	= #col70#, 
+					COL71	= #col71#, 
+					COL72	= #col72#, 
+					COL73	= #col73#, 
+					COL74	= #col74#, 
+					COL75	= #col75#, 
+					COL76	= #col76#, 
+					COL77	= #col77#, 
+					COL78	= #col78#, 
+					COL79	= #col79#, 
+					COL80	= #col80#, 
+					COL81	= #col81#, 
+					COL82	= #col82#, 
+					COL83	= #col83#, 
+					COL84	= #col84#, 
+					COL85	= #col85#, 
+					COL86	= #col86#, 
+					COL87	= #col87#, 
+					COL88	= #col88#, 
+					COL89	= #col89#, 
+					COL90	= #col90#, 
+					COL91	= #col91#, 
+					COL92	= #col92#, 
+					COL93	= #col93#, 
+					COL94	= #col94#, 
+					COL95	= #col95#, 
+					COL96	= #col96#, 
+					COL97	= #col97#, 
+					COL98	= #col98#, 
+					COL99	= #col99#, 
+					COL100	= #col100#, 
+					COL101	= #col101#, 
+					COL102	= #col102#, 
+					COL103	= #col103#, 
+					COL104	= #col104#, 
+					COL105	= #col105#, 
+					COL106	= #col106#, 
+					COL107	= #col107#, 
+					COL108	= #col108#, 
+					COL109	= #col109#, 
+					COL110	= #col110#, 
+					COL111	= #col111#, 
+					COL112	= #col112#, 
+					COL113	= #col113#, 
+					COL114	= #col114#, 
+					COL115	= #col115#, 
+					COL116	= #col116#, 
+					COL117	= #col117#, 
+					COL118	= #col118#, 
+					COL119	= #col119#, 
+					COL120	= #col120#, 
+					COL121	= #col121#, 
+					COL122	= #col122#, 
+					COL123	= #col123#, 
+					COL124	= #col124#, 
+					COL125	= #col125#, 
+					COL126	= #col126#, 
+					COL127	= #col127#, 
+					COL128	= #col128#, 
+					COL129	= #col129#, 
+					COL130	= #col130#, 
+					COL131	= #col131#, 
+					COL132	= #col132#, 
+					COL133	= #col133#, 
+					COL134	= #col134#, 
+					COL135	= #col135#, 
+					COL136	= #col136#, 
+					COL137	= #col137#, 
+					COL138	= #col138#, 
+					COL139	= #col139#, 
+					COL140	= #col140#, 
+					COL141	= #col141#, 
+					COL142	= #col142#, 
+					COL143	= #col143#, 
+					COL144	= #col144#, 
+					COL145	= #col145#, 
+					COL146	= #col146#, 
+					COL147	= #col147#, 
+					COL148	= #col148#, 
+					COL149	= #col149#, 
+					COL150	= #col150#, 
+					COL151	= #col151#, 
+					COL152	= #col152#, 
+					COL153	= #col153#, 
+					COL154	= #col154#, 
+					COL155	= #col155#, 
+					COL156	= #col156#, 
+					COL157	= #col157#, 
+					COL158	= #col158#, 
+					COL159	= #col159#, 
+					COL160	= #col160#, 
+					COL161	= #col161#, 
+					COL162	= #col162#, 
+					COL163	= #col163#, 
+					COL164	= #col164#, 
+					COL165	= #col165#, 
+					COL166	= #col166#, 
+					COL167	= #col167#, 
+					COL168	= #col168#, 
+					COL169	= #col169#, 
+					COL170	= #col170#, 
+					COL171	= #col171#, 
+					COL172	= #col172#, 
+					COL173	= #col173#, 
+					COL174	= #col174#, 
+					COL175	= #col175#, 
+					COL176	= #col176#, 
+					COL177	= #col177#, 
+					COL178	= #col178#, 
+					COL179	= #col179#, 
+					COL180	= #col180#, 
+					COL181	= #col181#, 
+					COL182	= #col182#, 
+					COL183	= #col183#, 
+					COL184	= #col184#, 
+					COL185	= #col185#, 
+					COL186	= #col186#, 
+					COL187	= #col187#, 
+					COL188	= #col188#, 
+					COL189	= #col189#, 
+					COL190	= #col190#, 
+					COL191	= #col191#, 
+					COL192	= #col192#, 
+					COL193	= #col193#, 
+					COL194	= #col194#, 
+					COL195	= #col195#, 
+					COL196	= #col196#, 
+					COL197	= #col197#, 
+					COL198	= #col198#, 
+					COL199	= #col199#, 
+					COL200	= #col200#, 
+					COL201	= #col201#, 
+					COL202	= #col202#, 
+					COL203	= #col203#, 
+					COL204	= #col204#, 
+					COL205	= #col205#, 
+					COL206	= #col206#, 
+					COL207	= #col207#, 
+					COL208	= #col208#, 
+					COL209	= #col209#, 
+					COL210	= #col210#, 
+					COL211	= #col211#, 
+					COL212	= #col212#, 
+					COL213	= #col213#, 
+					COL214	= #col214#, 
+					COL215	= #col215#, 
+					COL216	= #col216#, 
+					COL217	= #col217#, 
+					COL218	= #col218#, 
+					COL219	= #col219#, 
+					COL220	= #col220#, 
+					COL221	= #col221#, 
+					COL222	= #col222#, 
+					COL223	= #col223#, 
+					COL224	= #col224#, 
+					COL225	= #col225#, 
+					COL226	= #col226#, 
+					COL227	= #col227#, 
+					COL228	= #col228#, 
+					COL229	= #col229#, 
+					COL230	= #col230#, 
+					COL231	= #col231#, 
+					COL232	= #col232#, 
+					COL233	= #col233#, 
+					COL234	= #col234#, 
+					COL235	= #col235#, 
+					COL236	= #col236#, 
+					COL237	= #col237#, 
+					COL238	= #col238#, 
+					COL239	= #col239#, 
+					COL240	= #col240#, 
+					COL241	= #col241#, 
+					COL242	= #col242#, 
+					COL243	= #col243#, 
+					COL244	= #col244#, 
+					COL245	= #col245#, 
+					COL246	= #col246#, 
+					COL247	= #col247#, 
+					COL248	= #col248#, 
+					COL249	= #col249#, 
+					COL250	= #col250#, 
+					COL251	= #col251#, 
+					COL252	= #col252#, 
+					COL253	= #col253#, 
+					COL254	= #col254#, 
+					COL255	= #col255#, 
+					COL256	= #col256#, 
+					COL257	= #col257#, 
+					COL258	= #col258#, 
+					COL259	= #col259#, 
+					COL260	= #col260#, 
+					COL261	= #col261#, 
+					COL262	= #col262#, 
+					COL263	= #col263#, 
+					COL264	= #col264#, 
+					COL265	= #col265#, 
+					COL266	= #col266#, 
+					COL267	= #col267#, 
+					COL268	= #col268#, 
+					COL269	= #col269#, 
+					COL270	= #col270#, 
+					COL271	= #col271#, 
+					COL272	= #col272#, 
+					COL273	= #col273#, 
+					COL274	= #col274#, 
+					COL275	= #col275#, 
+					COL276	= #col276#, 
+					COL277	= #col277#, 
+					COL278	= #col278#, 
+					COL279	= #col279#, 
+					COL280	= #col280#, 
+					COL281	= #col281#, 
+					COL282	= #col282#, 
+					COL283	= #col283#, 
+					COL284	= #col284#, 
+					COL285	= #col285#, 
+					COL286	= #col286#, 
+					COL287	= #col287#, 
+					COL288	= #col288#, 
+					COL289	= #col289#, 
+					COL290	= #col290#, 
+					COL291	= #col291#, 
+					COL292	= #col292#, 
+					COL293	= #col293#, 
+					COL294	= #col294#, 
+					COL295	= #col295#, 
+					COL296	= #col296#, 
+					COL297	= #col297#, 
+					COL298	= #col298#, 
+					COL299	= #col299#, 
+					COL300	= #col300#, 
+					COL301	= #col301#, 
+					COL302	= #col302#, 
+					COL303	= #col303#, 
+					COL304	= #col304#, 
+					COL305	= #col305#, 
+					COL306	= #col306#, 
+					COL307	= #col307#, 
+					COL308	= #col308#, 
+					COL309	= #col309#, 
+					COL310	= #col310#, 
+					COL311	= #col311#, 
+					COL312	= #col312#, 
+					COL313	= #col313#, 
+					COL314	= #col314#, 
+					COL315	= #col315#, 
+					COL316	= #col316#, 
+					COL317	= #col317#, 
+					COL318	= #col318#, 
+					COL319	= #col319#, 
+					COL320	= #col320#, 
+					COL321	= #col321#, 
+					COL322	= #col322#, 
+					COL323	= #col323#, 
+					COL324	= #col324#, 
+					COL325	= #col325#, 
+					COL326	= #col326#, 
+					COL327	= #col327#, 
+					COL328	= #col328#, 
+					COL329	= #col329#, 
+					COL330	= #col330#, 
+					COL331	= #col331#, 
+					COL332	= #col332#, 
+					COL333	= #col333#, 
+					COL334	= #col334#, 
+					COL335	= #col335#, 
+					COL336	= #col336#, 
+					COL337	= #col337#, 
+					COL338	= #col338#, 
+					COL339	= #col339#, 
+					COL340	= #col340#, 
+					COL341	= #col341#, 
+					COL342	= #col342#, 
+					COL343	= #col343#, 
+					COL344	= #col344#, 
+					COL345	= #col345#, 
+					COL346	= #col346#, 
+					COL347	= #col347#, 
+					COL348	= #col348#, 
+					COL349	= #col349#, 
+					COL350	= #col350#, 
+					COL351	= #col351#, 
+					COL352	= #col352#, 
+					COL353	= #col353#, 
+					COL354	= #col354#, 
+					COL355	= #col355#, 
+					COL356	= #col356#, 
+					COL357	= #col357#, 
+					COL358	= #col358#, 
+					COL359	= #col359#, 
+					COL360	= #col360#, 
+					COL361	= #col361#, 
+					COL362	= #col362#, 
+					COL363	= #col363#, 
+					COL364	= #col364#, 
+					COL365	= #col365#, 
+					COL366	= #col366#, 
+					COL367	= #col367#, 
+					COL368	= #col368#, 
+					COL369	= #col369#, 
+					COL370	= #col370#, 
+					COL371	= #col371#, 
+					COL372	= #col372#, 
+					COL373	= #col373#, 
+					COL374	= #col374#, 
+					COL375	= #col375#, 
+					COL376	= #col376#, 
+					COL377	= #col377#, 
+					COL378	= #col378#, 
+					COL379	= #col379#, 
+					COL380	= #col380#, 
+					COL381	= #col381#, 
+					COL382	= #col382#, 
+					COL383	= #col383#, 
+					COL384	= #col384#, 
+					COL385	= #col385#, 
+					COL386	= #col386#, 
+					COL387	= #col387#, 
+					COL388	= #col388#, 
+					COL389	= #col389#, 
+					COL390	= #col390#, 
+					COL391	= #col391#, 
+					COL392	= #col392#, 
+					COL393	= #col393#, 
+					COL394	= #col394#, 
+					COL395	= #col395#, 
+					COL396	= #col396#, 
+					COL397	= #col397#, 
+					COL398	= #col398#, 
+					COL399	= #col399#, 
+					COL400	= #col400#, 
+					COL401	= #col401#, 
+					COL402	= #col402#, 
+					COL403	= #col403#, 
+					COL404	= #col404#, 
+					COL405	= #col405#, 
+					COL406	= #col406#, 
+					COL407	= #col407#, 
+					COL408	= #col408#, 
+					COL409	= #col409#, 
+					COL410	= #col410#, 
+					COL411	= #col411#, 
+					COL412	= #col412#, 
+					COL413	= #col413#, 
+					COL414	= #col414#, 
+					COL415	= #col415#, 
+					COL416	= #col416#, 
+					COL417	= #col417#, 
+					COL418	= #col418#, 
+					COL419	= #col419#, 
+					COL420	= #col420#, 
+					COL421	= #col421#, 
+					COL422	= #col422#, 
+					COL423	= #col423#, 
+					COL424	= #col424#, 
+					COL425	= #col425#, 
+					COL426	= #col426#, 
+					COL427	= #col427#, 
+					COL428	= #col428#, 
+					COL429	= #col429#, 
+					COL430	= #col430#, 
+					COL431	= #col431#, 
+					COL432	= #col432#, 
+					COL433	= #col433#, 
+					COL434	= #col434#, 
+					COL435	= #col435#, 
+					COL436	= #col436#, 
+					COL437	= #col437#, 
+					COL438	= #col438#, 
+					COL439	= #col439#, 
+					COL440	= #col440#, 
+					COL441	= #col441#, 
+					COL442	= #col442#, 
+					COL443	= #col443#, 
+					COL444	= #col444#, 
+					COL445	= #col445#, 
+					COL446	= #col446#, 
+					COL447	= #col447#, 
+					COL448	= #col448#, 
+					COL449	= #col449#, 
+					COL450	= #col450#, 
+					COL451	= #col451#, 
+					COL452	= #col452#, 
+					COL453	= #col453#, 
+					COL454	= #col454#, 
+					COL455	= #col455#, 
+					COL456	= #col456#, 
+					COL457	= #col457#, 
+					COL458	= #col458#, 
+					COL459	= #col459#, 
+					COL460	= #col460#, 
+					COL461	= #col461#, 
+					COL462	= #col462#, 
+					COL463	= #col463#, 
+					COL464	= #col464#, 
+					COL465	= #col465#, 
+					COL466	= #col466#, 
+					COL467	= #col467#, 
+					COL468	= #col468#, 
+					COL469	= #col469#, 
+					COL470	= #col470#, 
+					COL471	= #col471#, 
+					COL472	= #col472#, 
+					COL473	= #col473#, 
+					COL474	= #col474#, 
+					COL475	= #col475#, 
+					COL476	= #col476#, 
+					COL477	= #col477#, 
+					COL478	= #col478#, 
+					COL479	= #col479#, 
+					COL480	= #col480#, 
+					COL481	= #col481#, 
+					COL482	= #col482#, 
+					COL483	= #col483#, 
+					COL484	= #col484#, 
+					COL485	= #col485#, 
+					COL486	= #col486#, 
+					COL487	= #col487#, 
+					COL488	= #col488#, 
+					COL489	= #col489#, 
+					COL490	= #col490#, 
+					COL491	= #col491#, 
+					COL492	= #col492#, 
+					COL493	= #col493#, 
+					COL494	= #col494#, 
+					COL495	= #col495#, 
+					COL496	= #col496#, 
+					COL497	= #col497#, 
+					COL498	= #col498#, 
+					COL499	= #col499#, 
+					COL500	= #col500#
+			WHERE 	
+			NAME = #name#
+	</update>
+  
+</sqlMap>

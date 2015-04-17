@@ -1,0 +1,13 @@
+## 主明细表页面service模板
+#parse("${meta.templateHome}_page_header.service.vm")
+
+#set($_region_id = "ef_region_inqu")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+#set($_region_id = "ef_region_result")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+#set($_region_id = "ef_region_detail")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+#parse("${meta.templateHome}_page_footer.service.vm")

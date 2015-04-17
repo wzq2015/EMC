@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBatis.com//DTD SQL Map Config 2.0//EN" "http://www.iBatis.com/dtd/sql-map-config-2.dtd">
+
+<!-- Always ensure to use the correct XML header as above! -->
+<sqlMapConfig> 
+  <properties resource="project.properties"/>  
+  <settings useStatementNamespaces="true"/>  
+  <sqlMap resource="resources/ibatis/Dummy.xml"/>  
+  <!-- menu sqlMap config -->  
+  <!--<sqlMap resource="com/baosight/iplat4j/logging/store/DBItemStore.xml" />
+	<sqlMap resource="resources/security/SecurityBridge.xml" />
+	<sqlMap resource="resources/security/UserManagerForOracle.xml" />
+	<sqlMap resource="resources/security/AuthenticationManagerForOracle.xml" />
+	<sqlMap resource="resources/security/UsersetManagerForOracle.xml" />
+	<sqlMap resource="resources/security/ResourcesetManagerForOracle.xml" />
+	<sqlMap resource="resources/security/AuthorizationManagerForOracle.xml" />
+	<sqlMap resource="resources/security/AuthorizationTreeManagerForOracle.xml" />
+	<sqlMap resource="resources/security/DynamicTypeManagerForOracle.xml" />
+	<sqlMap resource="resources/security/ConfigManagerForOracle.xml" />
+	<sqlMap resource="resources/security/DynamicAuthorizationManagerForOracle.xml" />
+	-->  
+  <!--  db2สนำร
+	<sqlMap resource="com/baosight/iplat4j/ea/sql/eareceiveMessage.db2.xml" />
+	<sqlMap resource="com/baosight/iplat4j/ea/sql/easendMessage.db2.xml" />
+	-->  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/hisalarm.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tArea.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tCompany.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tDevice.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tDeviceMaintenance.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tDevicegroup.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tDevicepara.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tDeviceparaEntry.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEmcproject.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEmcprojectCycle.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEnergysavingDetail.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEnergysavingType.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpenseDetail.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpenseType.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tOperationLog.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tReportFixedperiodGenerated.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tReportTemplate.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tReportTemplateHistory.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tSystemLog.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpenseBudget.xml"/>  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEmcprojectAuth.xml"/>
+</sqlMapConfig>

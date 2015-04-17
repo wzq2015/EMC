@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2007-05-28 11:17:08
+   		Version :  1.0.1.V20070516
+		tableName :TEE504 
+		 TYPE_LONG  NUMBER, 
+		 TYPE_INTEGER  NUMBER, 
+		 TYPE_FLOAT  NUMBER, 
+		 TYPE_DOUBLE  NUMBER, 
+		 TYPE_STRING  VARCHAR2
+	-->
+<sqlMap namespace="EE504">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.domain.TEE504">
+		SELECT
+				TYPE_LONG	as "typeLong",  
+				TYPE_INTEGER	as "typeInteger",  
+				TYPE_FLOAT	as "typeFloat",  
+				TYPE_DOUBLE	as "typeDouble",  
+				TYPE_STRING	as "typeString" 
+		FROM TEE504 WHERE 1=1
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM TEE504 WHERE 1=1
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="typeLong">
+			TYPE_LONG = #typeLong#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeInteger">
+			TYPE_INTEGER = #typeInteger#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeFloat">
+			TYPE_FLOAT = #typeFloat#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeDouble">
+			TYPE_DOUBLE = #typeDouble#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeString">
+			TYPE_STRING = #typeString#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO TEE504 (TYPE_LONG,
+										TYPE_INTEGER,
+										TYPE_FLOAT,
+										TYPE_DOUBLE,
+										TYPE_STRING
+										)		 
+		VALUES (#typeLong#, #typeInteger#, #typeFloat#, #typeDouble#, #typeString#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM TEE504 WHERE 
+			TYPE_LONG = #typeLong#
+	</delete>
+
+	<update id="update">
+		UPDATE TEE504 
+		SET 
+					TYPE_INTEGER	= #typeInteger#, 
+					TYPE_FLOAT	= #typeFloat#, 
+					TYPE_DOUBLE	= #typeDouble#, 
+					TYPE_STRING	= #typeString#
+			WHERE 	
+			TYPE_LONG = #typeLong#
+	</update>
+  
+</sqlMap>

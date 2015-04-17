@@ -1,0 +1,173 @@
+##
+## sqlmap生成模板
+##
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!-- Generate time : $meta.date -->
+<sqlMap namespace="${meta.modelEname}">
+
+	<select id="query" parameterClass="java.util.HashMap" resultClass="${meta.package}.${meta.modelEname}">
+		SELECT
+#set($_i=0)
+#set($_data_count = $meta.getBlock(".crud$data").getRows().size())
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1")
+#if($_data_field.tableNickName.trim() != "")
+#set($_table_alias = "${_data_field.tableNickName}.")
+#else
+#set($_table_alias = "")
+#end
+#if($_i > 0)
+#set($_prefix = ", ")
+#else
+#set($_prefix = "  ")
+#end
+#set($_i = $_i + 1)
+#if($_data_field.exprField.trim() != "")
+			${_prefix}$_data_field.exprField as "$_data_field.fieldName" <!--  $_data_field.fieldCname  -->
+#else
+			${_prefix}${_table_alias}$_data_field.fieldEname as "$_data_field.fieldName" <!--  $_data_field.fieldCname  -->
+#end
+#end
+#end ##foreach
+		FROM $meta.getBlock(".crud$data").mainTable WHERE 1=1
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.exprField.trim() == "")
+#if($_data_field.isPrimaryKey == "1" || $_data_field.dataType=="Long" || $_data_field.dataType=="Integer")
+		<isNotEmpty prepend=" AND " property="$_data_field.fieldName">
+			$_data_field.fieldEname = #$_data_field.fieldName#
+		</isNotEmpty>
+#else
+		<isNotEmpty prepend=" AND " property="$_data_field.fieldName">
+			$_data_field.fieldEname like '%$$_data_field.fieldName$%'
+		</isNotEmpty>
+#end
+#end
+#end ##foreach
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+			<isEmpty property="orderBy">
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.isPrimaryKey == "1")
+#if($_i > 0)
+#set($_prefix = ", ")
+#else
+#set($_prefix = "  ")
+#end
+#set($_i=$_i+1)
+				${_prefix}$_data_field.fieldEname asc
+#end
+#end
+			</isEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM $meta.getBlock(".crud$data").mainTable WHERE 1=1
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.isPrimaryKey == "1")
+		<isNotEmpty prepend=" AND " property="$_data_field.fieldName">
+			$_data_field.fieldEname = #$_data_field.fieldName#
+		</isNotEmpty>
+#end
+#end
+	</select>
+
+	<insert id="insert">
+		INSERT INTO $meta.getBlock(".crud$data").mainTable (
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.exprField.trim() == "")
+#if($_i > 0)
+#set($_prefix = ", ")
+#else
+#set($_prefix = "  ")
+#end
+#set($_i=$_i+1)
+			${_prefix}$_data_field.fieldEname <!--  $_data_field.fieldCname  -->
+#end
+#end ##foreach
+		)
+		VALUES (
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.exprField.trim() == "")
+#if($_i > 0)
+#set($_prefix = ", ")
+#else
+#set($_prefix = "  ")
+#end
+#set($_i=$_i+1)
+#if($_data_field.fieldType=="C")
+#set($_field_desc="#$_data_field.fieldName:VARCHAR#")
+#else
+#set($_field_desc="#$_data_field.fieldName:NUMERIC#")
+#end
+			${_prefix}$_field_desc
+#end
+#end ##foreach
+		)
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM $meta.getBlock(".crud$data").mainTable WHERE 
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if ($_data_field.fieldFlag == "1" && $_data_field.isPrimaryKey == "1")
+#if($_i > 0)
+#set($_prefix = "AND ")
+#else
+#set($_prefix = "    ")
+#end
+#set($_i=$_i+1)
+			${_prefix}$_data_field.fieldEname = #${_data_field.fieldName}#
+#end
+#end ##foreach
+	</delete>
+
+	<update id="update">
+		UPDATE $meta.getBlock(".crud$data").mainTable
+		SET
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.fieldFlag == "1" && $_data_field.exprField.trim() == "" && $_data_field.isPrimaryKey != "1")
+#if($_i > 0)
+#set($_prefix = ", ")
+#else
+#set($_prefix = "  ")
+#end
+#set($_i=$_i+1)
+			${_prefix}$_data_field.fieldEname = #${_data_field.fieldName}# <!--  $_data_field.fieldCname  -->
+#end
+#end ##foreach
+
+		WHERE 
+#set($_i=0)
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if ($_data_field.fieldFlag == "1" && $_data_field.isPrimaryKey == "1")
+#if($_i > 0)
+#set($_prefix = "AND ")
+#else
+#set($_prefix = "    ")
+#end
+#set($_i=$_i+1)
+			${_prefix}$_data_field.fieldEname = #${_data_field.fieldName}#
+#end
+#end ##foreach
+	</update>
+
+##
+## 从条件模型中生成查询
+##
+#foreach($_cond_block in $meta.getBlocks())
+#set($_cond_name=$_cond_block.getBlockMeta().getBlockId())
+#if($_cond_name!=".crud$data")
+#parse("${meta.templateHome}_dao_query.sqlmap.vm")
+
+#end
+#end
+
+</sqlMap>

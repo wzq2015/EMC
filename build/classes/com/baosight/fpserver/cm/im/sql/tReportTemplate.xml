@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-11-21 13:53:49
+   		Version :  1.0.1.V20070717
+		tableName :.t_report_template 
+		 f_report_template_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_report_template_type  INTEGER   NOT NULL, 
+		 f_report_template_name  VARCHAR   NOT NULL, 
+		 f_report_template_desc  VARCHAR, 
+		 f_report_template_path  VARCHAR, 
+		 f_report_template_modifiedtime  VARCHAR, 
+		 f_report_template_autogenerate  INTEGER
+	-->
+<sqlMap namespace="tReportTemplate">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TReportTemplate">
+		SELECT
+				f_report_template_id	as "f_reportTemplateId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_report_template_type	as "f_reportTemplateType",  
+				f_report_template_name	as "f_reportTemplateName",  
+				f_report_template_desc	as "f_reportTemplateDesc",  
+				f_report_template_path	as "f_reportTemplatePath",  
+				f_report_template_modifiedtime	as "f_reportTemplateModifiedtime",  
+				f_report_template_autogenerate	as "f_reportTemplateAutogenerate" 
+		FROM .t_report_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateAutogenerate">
+			f_report_template_autogenerate = #f_reportTemplateAutogenerate#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_report_template_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_report_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateType">
+			f_report_template_type = #f_reportTemplateType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateName">
+			f_report_template_name = #f_reportTemplateName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateDesc">
+			f_report_template_desc = #f_reportTemplateDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplatePath">
+			f_report_template_path = #f_reportTemplatePath#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateModifiedtime">
+			f_report_template_modifiedtime = #f_reportTemplateModifiedtime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateAutogenerate">
+			f_report_template_autogenerate = #f_reportTemplateAutogenerate#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_report_template (f_report_template_id,
+										f_emcproject_id,
+										f_report_template_type,
+										f_report_template_name,
+										f_report_template_desc,
+										f_report_template_path,
+										f_report_template_modifiedtime,
+										f_report_template_autogenerate
+										)		 
+	    VALUES (#f_reportTemplateId#, #f_emcprojectId#, #f_reportTemplateType#, #f_reportTemplateName#, #f_reportTemplateDesc#, #f_reportTemplatePath#, #f_reportTemplateModifiedtime#, #f_reportTemplateAutogenerate#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_report_template WHERE 
+			f_report_template_id = #f_reportTemplateId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_report_template 
+		SET 
+					f_emcproject_id	= #f_emcprojectId#,   
+					f_report_template_type	= #f_reportTemplateType#,   
+					f_report_template_name	= #f_reportTemplateName#,   
+					f_report_template_desc	= #f_reportTemplateDesc#,   
+					f_report_template_path	= #f_reportTemplatePath#,   
+					f_report_template_modifiedtime	= #f_reportTemplateModifiedtime#,   
+					f_report_template_autogenerate	= #f_reportTemplateAutogenerate#  
+			WHERE 	
+			f_report_template_id = #f_reportTemplateId#
+	</update>
+	
+</sqlMap>

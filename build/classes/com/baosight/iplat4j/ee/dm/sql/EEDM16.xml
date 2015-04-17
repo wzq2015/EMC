@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2009-04-14 10:19:42
+   		Version :  1.0.1.V20070717
+		table comment : GRID大数据量测试
+		tableName :${platSchema}.TEE16 
+		 DOUBLE1  NUMBER   NOT NULL, 
+		 DOUBLE2  NUMBER   NOT NULL, 
+		 DOUBLE3  NUMBER   NOT NULL, 
+		 DOUBLE4  NUMBER   NOT NULL, 
+		 DOUBLE5  NUMBER   NOT NULL, 
+		 DOUBLE6  NUMBER   NOT NULL, 
+		 DOUBLE7  NUMBER   NOT NULL, 
+		 DOUBLE8  NUMBER   NOT NULL, 
+		 DOUBLE9  NUMBER   NOT NULL, 
+		 DOUBLE10  NUMBER   NOT NULL, 
+		 DOUBLE11  NUMBER   NOT NULL, 
+		 DOUBLE12  NUMBER   NOT NULL, 
+		 DOUBLE13  NUMBER   NOT NULL, 
+		 DOUBLE14  NUMBER   NOT NULL, 
+		 DOUBLE15  NUMBER   NOT NULL, 
+		 DOUBLE16  NUMBER   NOT NULL, 
+		 DOUBLE17  NUMBER   NOT NULL, 
+		 DOUBLE18  NUMBER   NOT NULL, 
+		 DOUBLE19  NUMBER   NOT NULL, 
+		 DOUBLE20  NUMBER   NOT NULL
+	-->
+<sqlMap namespace="EEDM16">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.Tee16">
+		SELECT
+				DOUBLE1	as "double1",  <!-- 数据一 -->
+				DOUBLE2	as "double2",  <!-- 数据二 -->
+				DOUBLE3	as "double3",  <!-- 数据三 -->
+				DOUBLE4	as "double4",  <!-- 数据四 -->
+				DOUBLE5	as "double5",  <!-- 数据五 -->
+				DOUBLE6	as "double6",  <!-- 数据六 -->
+				DOUBLE7	as "double7",  <!-- 数据七 -->
+				DOUBLE8	as "double8",  <!-- 数据八 -->
+				DOUBLE9	as "double9",  <!-- 数据九 -->
+				DOUBLE10	as "double10",  <!-- 数据十 -->
+				DOUBLE11	as "double11",  <!-- 数据十一 -->
+				DOUBLE12	as "double12",  <!-- 数据十二 -->
+				DOUBLE13	as "double13",  <!-- 数据十三 -->
+				DOUBLE14	as "double14",  <!-- 数据十四 -->
+				DOUBLE15	as "double15",  <!-- 数据十五 -->
+				DOUBLE16	as "double16",  <!-- 数据十六 -->
+				DOUBLE17	as "double17",  <!-- 数据十七 -->
+				DOUBLE18	as "double18",  <!-- 数据十八 -->
+				DOUBLE19	as "double19",  <!-- 数据十九 -->
+				DOUBLE20	as "double20" <!-- 数据二十 -->
+		FROM ${platSchema}.TEE16 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="double1">
+			DOUBLE1 = #double1#
+		</isNotEmpty>			
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+			
+	</select>
+
+</sqlMap>

@@ -1,0 +1,29 @@
+## 主明细Tab页面js模板
+#parse("${meta.templateHome}_page_header.js.vm")
+
+#set($_region_id = "ef_region_inqu")
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region.js.vm")
+
+#set($_region_id = "ef_region_result")
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region.js.vm")
+
+#set($_region_id = "ef_region_detail")
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region.js.vm")
+
+/**
+ * 主表点击一行时，获取明细信息
+ */
+function efgrid_onRowClicked( grid_id, row_index ) {
+	if( grid_id == "ef_grid_result" ) {
+		var grid = efgrid.getGridObject(grid_id);
+		var eiinfo = new EiInfo();
+		eiinfo.setAttr(grid.getRowData(row_index));
+		var ajax_callback = efform.getSystemAjaxCallback("ef_region_detail");
+		EiCommunicator.send("$meta.formEname", "getDetail", eiinfo, ajax_callback);
+	}
+}
+
+#parse("${meta.templateHome}_page_footer.js.vm")

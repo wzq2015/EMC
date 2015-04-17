@@ -1,0 +1,25 @@
+	<EF:EFDataField Name="$control.Name" eLabel="$control.DisplayName" 
+		Width="$control.Width" eEditStyle="$control.EditStyle" eColumnName="$control.BindingName"
+		eBlockName="$control.BlockName" eValueMemberPath="$control.ValueMemberPath"  
+		eDisplayMemberPath="$control.DisplayMemberPath"
+#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+Grid.Row="${RowIndex}"
+#end
+
+#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+Grid.Column="${ColumnIndex}"
+#end
+
+#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+Grid.RowSpan="${control.RowSpan}"
+#end
+
+#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end
+		
+/>

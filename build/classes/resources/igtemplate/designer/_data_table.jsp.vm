@@ -1,0 +1,57 @@
+## 多记录明细数据展示模板，可用于查询条件和明细表
+## 需要的输入参数：
+## $_field_width 字段的总长度
+## $_field_text_width 字段中文字显示部分的长度
+## $_block_id 字段对应的数据块标识
+## $_fields = 字段配置列表
+#foreach( $_field in $_fields)
+##先处理hidden的字段
+#if($_field.editor == "hidden")
+		<EF:EFInput blockId="$_block_id" ename="$_field.ename" row="0" type="$_field.editor" /><!-- $_field.cname -->
+#end
+#end
+		<table width="100%">
+			<tr>
+#set($_current_row = 1)
+#set($_colspan_in_row = 0)
+#foreach( $_field in $_fields)
+#if($_field.nullable && $_field.nullable.trim() == "0")
+#set($_field_nullable = false)
+#else
+#set($_field_nullable = true)
+#end
+#if($_field.editor == "hidden")
+## ignore hidden control
+#else
+#set($_col_span = $_field.colSpan + $_field.colSpan)
+#set($_col_span = $_col_span - 1)
+#set($_col_span_width = $_field.colSpan * $_field_width - $_field_text_width)
+#if($_field.rowNo > $_current_row)
+#set($_current_row = $_current_row + 1)
+#set($_last_col_span = $_max_col_number - $_colspan_in_row)
+#if($_last_col_span > 0)
+#set($_last_col_span = 2 * $_last_col_span)
+#set($_last_ratio = 50 * $_last_col_span / $_max_col_number)
+				<td colspan="$_last_col_span" width="${_last_ratio}%" />
+#end
+			</tr>
+			<tr>
+#set($_colspan_in_row = 0)
+#end
+#set($_colspan_in_row = $_colspan_in_row + $_field.colSpan)
+#set($_ratio1 = $_split_ratio / $_max_col_number)
+#set($_ratio2 = (100 * $_field.colSpan - $_split_ratio) / $_max_col_number)
+				<td nowrap align="right" width="${_ratio1}%">#if($_field_nullable == false)<span style="color:red">*</span>#end$_field.cname</td>
+				<td nowrap colspan="$_col_span" width="${_ratio2}%">
+#parse("${meta.templateHome}_data_field.jsp.vm")
+				</td>
+#end
+#end
+#set($_last_col_span = $_max_col_number - $_colspan_in_row)
+#if($_last_col_span > 0)
+#set($_last_col_span = 2 * $_last_col_span)
+#set($_last_ratio = 50 * $_last_col_span / $_max_col_number)
+				<td colspan="$_last_col_span" width="${_last_ratio}%" />
+#end
+			</tr>
+		</table>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2014-05-05 10:12:52
+   		Version :  1.0.1.V20070717
+		tableName :.t_emcproject_auth 
+		 f_emcproject_auth_id  INTEGER   NOT NULL   primarykey, 
+		 f_username  VARCHAR, 
+		 f_emcproject_id  INTEGER
+	-->
+<sqlMap namespace="tEmcprojectAuth">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEmcprojectAuth">
+		SELECT
+				f_emcproject_auth_id	as "f_emcprojectAuthId",  
+				f_username	as "f_username",  
+				f_emcproject_id	as "f_emcprojectId" 
+		FROM .t_emcproject_auth WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectAuthId">
+			f_emcproject_auth_id = #f_emcprojectAuthId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_username">
+			f_username = #f_username#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_emcproject_auth_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_emcproject_auth WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectAuthId">
+			f_emcproject_auth_id = #f_emcprojectAuthId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_emcprojectAuthId">
+			f_emcproject_auth_id = #f_emcprojectAuthId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_username">
+			f_username = #f_username#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_emcproject_auth (f_emcproject_auth_id,
+										f_username,
+										f_emcproject_id
+										)		 
+	    VALUES (#f_emcprojectAuthId#, #f_username#, #f_emcprojectId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_emcproject_auth WHERE 
+			f_emcproject_auth_id = #f_emcprojectAuthId#
+	</delete>
+	
+	<delete id="deletebyname">
+		DELETE FROM .t_emcproject_auth WHERE 
+			f_username = #f_username#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_emcproject_auth 
+		SET 
+					f_username	= #f_username#,   
+					f_emcproject_id	= #f_emcprojectId#  
+			WHERE 	
+			f_emcproject_auth_id = #f_emcprojectAuthId#
+	</update>
+  
+</sqlMap>

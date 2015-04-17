@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="EE20">
+ 
+  <select id="query" resultClass="java.util.HashMap">
+    SELECT 
+      rec_creator       as "rec_creator", 
+      rec_create_time   as "rec_create_time", 
+      rec_revisor       as "rec_revisor", 
+      rec_revise_time   as "rec_revise_time", 
+      archive_flag      as "archive_flag", 
+      archive_time      as "archive_time", 
+      version_no        as "version_no", 
+      works_no          as "works_no",   
+      route_prod_no     as "route_prod_no", 
+      works_op_no       as "works_op_no", 
+      prod_pri          as "prod_pri", 
+      prod_no           as "prod_no", 
+      resource_no       as "resource_no", 
+      works_op_status   as "works_op_status", 
+      fixed_set_time_dd as "fixed_set_time_dd", 
+      fixed_set_time_hh as "fixed_set_time_hh", 
+      fixed_set_time_mm as "fixed_set_time_mm", 
+      proc_time_dd      as "proc_time_dd", 
+      proc_time_hh      as "proc_time_hh", 
+      proc_time_mm      as "proc_time_mm", 
+      std_time          as "std_time", 
+      std_time_flag     as "std_time_flag", 
+      fixed_std_time_dd as "fixed_std_time_dd", 
+      fixed_std_time_hh as "fixed_std_time_hh", 
+      fixed_std_time_mm as "fixed_std_time_mm", 
+      critical_op_flag  as "critical_op_flag", 
+      act_finish_time   as "act_finish_time", 
+      act_resource_no   as "act_resource_no", 
+      op_yield          as "op_yield", 
+      qlt_yield         as "qlt_yield", 
+      trans_cost        as "trans_cost", 
+      proc_cost         as "proc_cost", 
+      planned_start_wt  as "planned_start_wt", 
+      planned_finish_wt as "planned_finish_wt", 
+      vir_proc_time_dd  as "vir_proc_time_dd", 
+      vir_proc_time_hh  as "vir_proc_time_hh", 
+      vir_proc_time_mm  as "vir_proc_time_mm" 
+    FROM ${platSchema}.topa006
+    <dynamic prepend="WHERE"> 
+      <isNotEmpty prepend=" AND " property="version_no">
+        version_no = #version_no#
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="route_prod_no">
+        route_prod_no = #route_prod_no#
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="works_no">
+        works_no = #works_no#
+      </isNotEmpty>
+      <isNotEmpty prepend=" AND " property="works_op_no">
+        works_op_no = #works_op_no#
+      </isNotEmpty>
+    </dynamic> 
+
+  </select>
+ 
+  <insert id="insert">
+    INSERT INTO ${platSchema}.topa006 (
+      rec_creator      , 
+      rec_create_time  , 
+      rec_revisor      , 
+      rec_revise_time  , 
+      archive_flag     , 
+      archive_time     , 
+      version_no       , 
+      works_no         , 
+      route_prod_no    , 
+      works_op_no      , 
+      prod_pri         , 
+      prod_no          , 
+      resource_no      , 
+      works_op_status  , 
+      fixed_set_time_dd, 
+      fixed_set_time_hh, 
+      fixed_set_time_mm, 
+      proc_time_dd     , 
+      proc_time_hh     , 
+      proc_time_mm     , 
+      std_time         , 
+      std_time_flag    , 
+      fixed_std_time_dd, 
+      fixed_std_time_hh, 
+      fixed_std_time_mm, 
+      critical_op_flag , 
+      act_finish_time  , 
+      act_resource_no  , 
+      op_yield         , 
+      qlt_yield        , 
+      trans_cost       , 
+      proc_cost        , 
+      planned_start_wt , 
+      planned_finish_wt, 
+      vir_proc_time_dd , 
+      vir_proc_time_hh , 
+      vir_proc_time_mm  
+    ) VALUES ( 
+      #rec_creator#, 
+      #rec_create_time#, 
+      #rec_revisor#, 
+      #rec_revise_time#, 
+      #archive_flag#, 
+      #archive_time#, 
+      #version_no#, 
+      #works_no#, 
+      #route_prod_no#, 
+      #works_op_no#, 
+      #prod_pri#, 
+      #prod_no#, 
+      #resource_no#, 
+      #works_op_status#, 
+      #fixed_set_time_dd#, 
+      #fixed_set_time_hh#, 
+      #fixed_set_time_mm#, 
+      #proc_time_dd#, 
+      #proc_time_hh#, 
+      #proc_time_mm#, 
+      #std_time#, 
+      #std_time_flag#, 
+      #fixed_std_time_dd#, 
+      #fixed_std_time_hh#, 
+      #fixed_std_time_mm#, 
+      #critical_op_flag#, 
+      #act_finish_time#, 
+      #act_resource_no#, 
+      #op_yield#, 
+      #qlt_yield#, 
+      #trans_cost#, 
+      #proc_cost#, 
+      #planned_start_wt#, 
+      #planned_finish_wt#, 
+      #vir_proc_time_dd#, 
+      #vir_proc_time_hh#, 
+      #vir_proc_time_mm# 
+    )
+  </insert>
+ 
+  <update id="update">
+    UPDATE ${platSchema}.topa006 SET 
+      rec_creator       = #rec_creator#, 
+      rec_create_time   = #rec_create_time#, 
+      rec_revisor       = #rec_revisor#, 
+      rec_revise_time   = #rec_revise_time#, 
+      archive_flag      = #archive_flag#, 
+      archive_time      = #archive_time#, 
+      version_no        = #version_no#, 
+      works_no          = #works_no#, 
+      route_prod_no     = #route_prod_no#, 
+      works_op_no       = #works_op_no#, 
+      prod_pri          = #prod_pri#, 
+      prod_no           = #prod_no#, 
+      resource_no       = #resource_no#, 
+      works_op_status   = #works_op_status#, 
+      fixed_set_time_dd = #fixed_set_time_dd#, 
+      fixed_set_time_hh = #fixed_set_time_hh#, 
+      fixed_set_time_mm = #fixed_set_time_mm#, 
+      proc_time_dd      = #proc_time_dd#, 
+      proc_time_hh      = #proc_time_hh#, 
+      proc_time_mm      = #proc_time_mm#, 
+      std_time          = #std_time#, 
+      std_time_flag     = #std_time_flag#, 
+      fixed_std_time_dd = #fixed_std_time_dd#, 
+      fixed_std_time_hh = #fixed_std_time_hh#, 
+      fixed_std_time_mm = #fixed_std_time_mm#, 
+      critical_op_flag  = #critical_op_flag#, 
+      act_finish_time   = #act_finish_time#, 
+      act_resource_no   = #act_resource_no#, 
+      op_yield          = #op_yield#, 
+      qlt_yield         = #qlt_yield#, 
+      trans_cost        = #trans_cost#, 
+      proc_cost         = #proc_cost#, 
+      planned_start_wt  = #planned_start_wt#, 
+      planned_finish_wt = #planned_finish_wt#, 
+      vir_proc_time_dd  = #vir_proc_time_dd#, 
+      vir_proc_time_hh  = #vir_proc_time_hh#, 
+      vir_proc_time_mm  = #vir_proc_time_mm# 
+    WHERE version_no = #version_no# 
+      AND route_prod_no = #route_prod_no# 
+      AND works_no = #works_no# 
+      AND works_op_no = #works_op_no# 
+  </update>
+ 
+  <delete id="delete">
+    DELETE FROM ${platSchema}.topa006
+    WHERE version_no = #version_no# 
+      AND route_prod_no = #route_prod_no# 
+      AND works_no = #works_no# 
+      AND works_op_no = #works_op_no# 
+  </delete>
+   
+</sqlMap>
+  

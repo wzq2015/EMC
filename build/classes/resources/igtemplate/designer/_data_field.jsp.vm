@@ -1,0 +1,226 @@
+##
+## 处理数据字段
+##
+#set($_Q= '"')
+#set($_field_id = "blockId=${_Q}${_block_id}${_Q} ename=${_Q}${_field.ename}${_Q} row=${_Q}0${_Q}")
+## trim
+#set($_field_trim = $meta.utility.getValue($_field.trim, "true"))
+#if("false" == $_field_trim)
+#set($_field_trim = " trim=${_Q}false${_Q}")
+#else
+#set($_field_trim = "")
+#end
+## style
+#set($_field_style = $meta.utility.getValue($_field.style, ""))
+#if("" == $_field_style)
+#set($_field_style1 = " style=${_Q}width:85%${_Q}")
+#set($_field_style2 = " style=${_Q}width:48%${_Q}")
+#set($_field_style3 = " style='width:100%'")
+#set($_field_style4 = "")
+#set($_field_style = " style=${_Q}width:100%${_Q}")
+#else
+#set($_field_style1 = " style=${_Q}width:85%;${_field_style}${_Q}")
+#set($_field_style2 = " style=${_Q}width:48%;${_field_style}${_Q}")
+#set($_field_style3 = " style='width:100%;${_field_style}'")
+#set($_field_style4 = " style=${_Q}${_field_style}${_Q}")
+#set($_field_style = " style=${_Q}width:100%;${_field_style}${_Q}")
+#end
+#set($_field_nullable = $meta.utility.getValue($_field.nullable, ""))
+#if("0" == $_field_nullable)
+#set($_field_nullable = " nullable='false'")
+#else
+#set($_field_nullable = "")
+#end
+#set($_field_minLength = $meta.utility.getValue($_field.get("minLength"), ""))
+#if("" == $_field_minLength)
+#set($_field_minLength = "")
+#else
+#set($_field_minLength = " minLength='${_field_minLength}'")
+#end
+#set($_field_maxLength = $meta.utility.getValue($_field.get("maxLength"), ""))
+#if("" == $_field_maxLength)
+#set($_field_maxLength = "")
+#else
+#set($_field_maxLength = " maxLength='${_field_maxLength}'")
+#end
+#set($_field_readonly = $meta.utility.getValue($_field.get("readonly"), ""))
+#if("true" == $_field_readonly)
+#set($_field_readonly = " readonly=${_field_readonly}")
+#else
+#set($_field_readonly = "")
+#end
+#set($_field_etc = $meta.utility.getValue($_field.get("etc"), ""))
+#if("" == $_field_etc)
+#set($_field_etc = "")
+#else
+#set($_field_etc = " ${_field_etc}")
+#end
+#set($_field_onChange = $meta.utility.getValue($_field.get("onChange"), ""))
+#if("" == $_field_onChange)
+#set($_field_onChange = "")
+#else
+#set($_field_onChange = " onchange='javascript:${_field_onChange}'")
+#end
+#set($_field_etc1 = "${_field_style3}${_field_nullable}${_field_minLength}${_field_maxLength}${_field_readonly}${_field_etc}${_field_onChange}")
+#if("" != $_field_etc1)
+#set($_field_etc1 = " etc=${_Q}${_field_etc1}${_Q}")
+#end
+#set($_field_etc = "${_field_nullable}${_field_minLength}${_field_maxLength}${_field_readonly}${_field_etc}${_field_onChange}")
+#if("" != $_field_etc)
+#set($_field_etc = " etc=${_Q}${_field_etc}${_Q}")
+#end
+## 扩展属性
+#set($_field_ext_attr = $meta.utility.getValue($_field.extAttr, ""))
+#if("" != $_field_ext_attr)
+#set($_field_ext_attr = " ${_field_ext_attr}")
+#end
+##
+## 文本，多行文本，密码
+##
+#if($_field.editor == 'text' || 
+	$_field.editor == 'textarea' || 
+	$_field.editor == 'password')
+					<EF:EFInput $_field_id type="$_field.editor"${_field_trim}${_field_style}${_field_etc}${_field_ext_attr} />
+##
+## 日期选择
+##
+#elseif($_field.editor == 'date')
+#set($_field_date_format = $meta.utility.getValue($_field.dateFormat, "yyyy-mm-dd"))
+#set($_void = $_date_fields.add("if (id=='${_block_id}-0-${_field.ename}') {efcalendar(control_source, node, '$_field_date_format', true); return;}"))
+					<EF:EFInput $_field_id popup="$_field.editor"${_field_trim}${_field_style1}${_field_etc}${_field_ext_attr} />
+##
+## 日期区间
+##
+#elseif($_field.editor == 'datespan')
+#set($_field_date_format = $meta.utility.getValue($_field.dateFormat, "yyyy-mm-dd"))
+#set($_void = $_date_fields.add("if (id=='${_block_id}-0-${_field.ename}Start') {efcalendar(control_source, node, '$_field_date_format', true); return;}"))
+#set($_void = $_date_fields.add("if (id=='${_block_id}-0-${_field.ename}End') {efcalendar(control_source, node, '$_field_date_format', true); return;}"))
+					<EF:EFDateStartEnd blockId="$_block_id" startName="${_field.ename}Start" endName="${_field.ename}End" row="0"${_field_trim}${_field_style2}${_field_etc}${_field_ext_attr} />
+##
+## 勾选
+##
+#elseif($_field.editor == 'checkbox')
+#if(!$_field.options || $_field.options.trim() == "")
+					<EF:EFInput $_field_id type="$_field.editor"${_field_trim}${_field_style4}${_field_etc}${_field_ext_attr} />
+#else
+#foreach($_checkbox_option in $meta.utility.splitOptions($_field.options))
+#set($_checkbox_option_value = $_checkbox_option.value)
+#set($_checkbox_option_label = $_checkbox_option.label)
+					$_checkbox_option_label<EF:EFInput $_field_id value="$_checkbox_option_value" type="$_field.editor"${_field_trim}${_field_style4}${_field_etc}${_field_ext_attr} />
+#end
+#end
+##
+## 单选
+##
+#elseif($_field.editor == 'radio')
+#foreach($_radio_option in $meta.utility.splitOptions($_field.options))
+#set($_radio_option_value = $_radio_option.value)
+#set($_radio_option_label = $_radio_option.label)
+					$_radio_option_label<EF:EFInput $_field_id value="$_radio_option_value" type="$_field.editor"${_field_trim}${_field_style4}${_field_etc}${_field_ext_attr} />
+#end
+##
+## 基于小代码的下拉选择
+##
+#elseif($_field.editor == 'codeselect')
+#set($_field_condition = $meta.utility.getValue($_field.condition, ""))
+#if("" != $_field_condition)
+#set($_field_condition = " condition=${_Q}${_field_condition}${_Q}")
+#end
+#set($_field_conj = $meta.utility.getValue($_field.conj, ""))
+#if("" != $_field_conj)
+#set($_field_conj = " conj=${_Q}${_field_conj}${_Q}")
+#end
+					<EF:EFSelect $_field_id${_field_etc1}${_field_ext_attr} >
+#if($_field.hasNullOption && $_field.hasNullOption == "true")
+						<EF:EFOption label="" value="" />
+#end
+#foreach($_select_option in $meta.utility.splitOptions($_field.options))
+#set($_select_option_value = $_select_option.value)
+#set($_select_option_label = $_select_option.label)
+						<EF:EFOption label="$_select_option_label" value="$_select_option_value" />
+#end
+#if($_field.codeName && $_field.codeName.trim() != "")
+						<EF:EFCodeOption codeName="$_field.codeName"${_field_conj}${_field_condition} />
+#end
+					</EF:EFSelect>
+##
+## 基于数据库的下拉选择
+##
+#elseif($_field.editor == 'tableselect')
+#set($_field_condition = $meta.utility.getValue($_field.condition, ""))
+#if("" != $_field_condition)
+#set($_field_condition = " condition=${_Q}${_field_condition}${_Q}")
+#end
+#set($_field_conj = $meta.utility.getValue($_field.conj, ""))
+#if("" != $_field_conj)
+#set($_field_conj = " conj=${_Q}${_field_conj}${_Q}")
+#end
+#set($_field_valueColumnName = $meta.utility.getValue($_field.valueColumnName, ""))
+#if("" != $_field_valueColumnName)
+#set($_field_valueColumnName = " valueColumnName=${_Q}${_field_valueColumnName}${_Q}")
+#end
+#set($_field_labelColumnName = $meta.utility.getValue($_field.labelColumnName, ""))
+#if("" != $_field_labelColumnName)
+#set($_field_labelColumnName = " labelColumnName=${_Q}${_field_labelColumnName}${_Q}")
+#end
+#set($_field_orderBy = $meta.utility.getValue($_field.orderBy, ""))
+#if("" != $_field_orderBy)
+#set($_field_orderBy = " orderBy=${_Q}${_field_orderBy}${_Q}")
+#end
+					<EF:EFSelect ${_field_id}${_field_etc1}${_field_ext_attr} >
+#if($_field.hasNullOption && $_field.hasNullOption == "true")
+						<EF:EFOption label="" value="" />
+#end
+#foreach($_select_option in $meta.utility.splitOptions($_field.options))
+#set($_select_option_value = $_select_option.value)
+#set($_select_option_label = $_select_option.label)
+						<EF:EFOption label="$_select_option_label" value="$_select_option_value" />
+#end
+#if($_field.beanName.trim() != "")
+						<EF:EFTableOption beanName="$_field.beanName"${_field_valueColumnName}${_field_labelColumnName}${_field_orderBy}${_field_conj}${_field_condition} />
+#elseif($_field.sql.trim() != "")
+						<EF:EFTableOption sql="$_field.sql"${_field_valueColumnName}${_field_labelColumnName}${_field_orderBy}${_field_conj}${_field_condition} />
+#elseif($_field.tableName.trim() != "")
+						<EF:EFTableOption tableName="$_field.tableName"${_field_valueColumnName}${_field_labelColumnName}${_field_orderBy}${_field_conj}${_field_condition} />					
+#end
+					</EF:EFSelect>
+##
+## 自动完成
+##
+#elseif($_field.editor == 'autocomplete')
+					<EF:EFFlexBox $_field_id${_field_ext_attr}/>
+##
+## 弹出窗口
+##
+#elseif($_field.editor == 'popwindow')
+					<EF:EFInput $_field_id${_field_trim}${_field_style1}${_field_etc}${_field_ext_attr} />
+					<img onload="efico.setImageSrc(this,'efform.efPopupWindow')" src="./EF/Images/eftree_blank.png"
+						onmouseover="this.style.cursor='hand'" onClick="openPopWindow('$_field.popFormEname','${_block_id}-0-${_field.ename}');" />
+##
+## 树型下拉框
+##
+#elseif($_field.editor == 'treeselect')
+#if($_field.text.trim() != "")
+#set($_field_text = $_field.text)
+#else
+#set($_field_text = "选择")
+#end
+#if($_field.isRefresh && $_field.isRefresh == "true")
+#set($_field_refresh = "true")
+#else
+#set($_field_refresh = "false")
+#end
+#set($_treeselect_field = ["${_block_id}_${_field.ename}", "${_block_id}-0-${_field.ename}", $meta.utility.getValue($_field.param, "")])
+#set($_void = $_treeselect_fields.add($_treeselect_field))
+					<EF:EFTreeInput $_field_id modelName="$_field.modelName" configFunc="config_tree_${_block_id}_${_field.ename}" label="tree-${_block_id}_${_field.ename}" text="$_field_text" isRefresh="$_field_refresh"${_field_trim}${_field_style1}${_field_etc}${_field_ext_attr} />
+##
+## 弹出层控件
+##
+#elseif($_field.editor == 'popup')
+					<EF:EFPopupInput $_field_id labelProperty="${_field.ename}PopLabel" contentDivId="${_field.ename}PopDiv"${_field_trim}${_field_style}${_field_etc}${_field_ext_attr} />
+##
+## 默认
+##
+#else
+					<EF:EFInput $_field_id type="$_field.editor"${_field_trim}${_field_style}${_field_etc}${_field_ext_attr} />
+#end

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<digester-rules> 
+
+   <pattern value="Rule">
+     <object-create-rule classname="com.baosight.eqrd.brl.df.rule.Rule" />
+     <set-properties-rule>
+       <alias attr-name="uuid" prop-name="uuid" />
+       <alias attr-name="displayName" prop-name="displayName" />       
+     </set-properties-rule>
+   </pattern>
+
+   <pattern value="*/RuleToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.rule.RuleToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+   
+   <pattern value="*/MultiActionToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.action.MultiActionToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+        <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+   <pattern value="*/MultiConditionToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.condition.MultiConditionToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+        <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    
+     <pattern value="*/ConditionToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.condition.ConditionToken" />
+       <set-properties-rule >
+         <alias attr-name="leftParenthesisNumber" prop-name="leftParenthesisNumber" />
+         <alias attr-name="rightParenthesisNumber" prop-name="rightParenthesisNumber" />
+         <alias attr-name="valueType" prop-name="valueType" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+  
+
+   <pattern value="*/LogicalJudgeToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.condition.LogicalJudgeToken" />
+       <set-properties-rule >
+         <alias attr-name="index" prop-name="index" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+
+   <pattern value="*/MemberToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.MemberToken" />
+        <set-properties-rule >
+         <alias attr-name="symbol" prop-name="symbol" />
+          <alias attr-name="id" prop-name="id" />
+         <alias attr-name="instanceType" prop-name="instanceType" />
+         <alias attr-name="action" prop-name="action" />
+         <alias attr-name="elementUuid" prop-name="elementUuid" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="uniqueName" prop-name="uniqueName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="argSeq" prop-name="argSeq" />
+        </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+  
+
+   <pattern value="*/StringJudgeToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.condition.StringJudgeToken" />
+       <set-properties-rule >
+         <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+    <pattern value="*/JudgeToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.JudgeToken" />
+       <set-properties-rule >
+         <alias attr-name="type" prop-name="type" />
+         <alias attr-name="index" prop-name="index" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+
+   <pattern value="*/ValueToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.ValueToken" />
+       <set-properties-rule >
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="argName" prop-name="argName" />
+         <alias attr-name="leftParenthesisNumber" prop-name="leftParenthesisNumber" />
+         <alias attr-name="rightParenthesisNumber" prop-name="rightParenthesisNumber" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/OperatorToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.OperatorToken" />
+       <set-properties-rule >
+         <alias attr-name="type" prop-name="type" />
+          <alias attr-name="index" prop-name="index" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+
+    <pattern value="*/NumberOperatorToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.NumberOperatorToken" />
+       <set-properties-rule >
+         <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+   <pattern value="*/StringOperatorToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.StringOperatorToken" />
+       <set-properties-rule >
+         <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+
+
+   <pattern value="*/FieldToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.FieldToken" />
+        <set-properties-rule >
+         <alias attr-name="elementUuid" prop-name="elementUuid" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="uniqueName" prop-name="uniqueName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+        </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+
+   <pattern value="*/ConstantToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.ConstantToken" />
+       <set-properties-rule >
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="value" prop-name="value" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    
+     <pattern value="*/PlaceHolderToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.PlaceHolderToken" />
+       <set-properties-rule >
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="id" prop-name="id" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    
+     <pattern value="*/EnumerationToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.EnumerationToken" />
+       <set-properties-rule >
+         <alias attr-name="enumDomainUuid" prop-name="enumDomainUuid" />
+         <alias attr-name="enumItemUuid" prop-name="enumItemUuid" />
+         <alias attr-name="id" prop-name="id" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+   
+  
+   <pattern value="*/ActionToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.action.ActionToken" />
+      <set-next-rule methodname="addChildElement" />
+    </pattern>
+
+   <pattern value="*/MethodToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.action.MethodToken" />
+        <set-properties-rule >
+         <alias attr-name="symbol" prop-name="symbol" />
+          <alias attr-name="bomUuid" prop-name="bomUuid" />
+         <alias attr-name="elementUuid" prop-name="elementUuid" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="uniqueName" prop-name="uniqueName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+        </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>  
+    
+    <pattern value="*/InstanceMethodToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.action.InstanceMethodToken" />
+        <set-properties-rule >         
+         <alias attr-name="instanceType" prop-name="instanceType" />
+          <alias attr-name="action" prop-name="action" />
+         <alias attr-name="elementUuid" prop-name="elementUuid" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="uniqueName" prop-name="uniqueName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+        </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+     <pattern value="*/HelperMethodToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.action.HelperMethodToken" />
+        <set-properties-rule >         
+         <alias attr-name="helperType" prop-name="helperType" />
+         <alias attr-name="action" prop-name="action" />
+         <alias attr-name="elementUuid" prop-name="elementUuid" />
+         <alias attr-name="displayName" prop-name="displayName" />
+         <alias attr-name="uniqueName" prop-name="uniqueName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="argSeq" prop-name="argSeq" />
+        </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>   
+    
+     <pattern value="*/PredefinitionToken">
+      <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+         <alias attr-name="displayName" prop-name="displayName" /> 
+         <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.PredefinitionToken" />
+      <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+    <pattern value="*/VariableSetToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.VariableSetToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+         <alias attr-name="displayName" prop-name="displayName" /> 
+         <alias attr-name="type" prop-name="type" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+    <pattern value="*/LocalVariableToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.LocalVariableToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+         <alias attr-name="id" prop-name="id" />
+         <alias attr-name="displayName" prop-name="displayName" /> 
+         <alias attr-name="variableName" prop-name="variableName" />
+         <alias attr-name="valueType" prop-name="valueType" />
+         <alias attr-name="valueTypeId" prop-name="valueTypeId" />
+         <alias attr-name="bindVariableId" prop-name="bindVariableId" />
+         <alias attr-name="bindVariableAttr" prop-name="bindVariableAttr" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+      
+    <pattern value="*/VarDefToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.VarDefToken" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />       
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern> 
+    
+     <pattern value="*/LocalParamToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.LocalParamToken" />
+       <set-properties-rule >
+        <alias attr-name="paramName" prop-name="paramName" />        
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/ParamTypeToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.ParamTypeToken" />
+       <set-properties-rule >
+        <alias attr-name="type" prop-name="type" />
+        <alias attr-name="valueType" prop-name="valueType" />        
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/ParamValueToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.ParamValueToken" />
+       <set-properties-rule >
+        <alias attr-name="value" prop-name="value" />        
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    <pattern value="*/ParamToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.value.ParamToken" />
+       <set-properties-rule >
+        <alias attr-name="id" prop-name="id" />        
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>  
+    
+     <pattern value="*/VarBindToken">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.predefinition.VarBindToken" />
+       <set-properties-rule >
+        <alias attr-name="varId" prop-name="varId" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+     <pattern value="*/PrologLines">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.structure.PrologLines" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/RHSLines">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.structure.RHSLines" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    <pattern value="*/LHSLines">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.structure.LHSLines" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/Line">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.structure.Line" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+     <pattern value="*/Token">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.structure.Token" />
+       <set-properties-rule >
+        <alias attr-name="uuid" prop-name="uuid" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+      
+</digester-rules>

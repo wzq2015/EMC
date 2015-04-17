@@ -1,0 +1,77 @@
+##
+## service的头部处理模板
+##
+/**
+ * Generate time : $meta.date
+ */
+package ${meta.package}.service;
+import org.apache.log4j.Logger;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+## 处理block中定义的domain bean
+#set($_beans = {})
+#set($_block_beans = {})
+#foreach($_block in $meta.getBlocks())
+#set($_block_id = $_block.getBlockMeta().getBlockId())
+#if("0" != $_block.regionType && $_block_id.startsWith(".func$"))
+#set($_bean_name = $meta.utility.getValue($_block.dataModelEname, ""))
+#if("" != $_bean_name)
+#set($_module_name_1 = $meta.utility.getValue($_block.dataModelModuleEname1, "").toLowerCase())
+#set($_module_name_2 = $meta.utility.getValue($_block.dataModelModuleEname2, "").toLowerCase())
+#set($_project_name = $meta.frameworkInfo.getProjectEnameByModule($_module_name_1))
+#if("" != $_module_name_2)
+#set($_bean_package_name = "${_project_name}.${_module_name_1}.${_module_name_2}.domain.${_bean_name}")
+#else
+#set($_bean_package_name = "${_project_name}.${_module_name_1}.domain.${_bean_name}")
+#end
+#set($_void = $_beans.put($_bean_name, $_bean_package_name))
+#set($_void = $_block_beans.put($_block.getBlockMeta().getBlockId(), $_bean_package_name))
+#end
+#end## end if("0" != $_block.regionType)
+#end## end foreach
+#foreach($_bean_package_name in $_beans)
+import com.baosight.${_bean_package_name};
+#end
+import com.baosight.iplat4j.ep.util.MethodParamConstants;
+import com.baosight.iplat4j.ep.ServiceEPBase;
+import com.baosight.iplat4j.ed.util.CodesetBiz;
+import com.baosight.iplat4j.core.threadlocal.UserSession;
+import com.baosight.iplat4j.core.spring.SpringApplicationContext;
+import com.baosight.iplat4j.core.exception.PlatException;
+import com.baosight.iplat4j.core.ei.EiInfo;
+import com.baosight.iplat4j.core.ei.EiConstant;
+import com.baosight.iplat4j.core.ei.EiColumn;
+import com.baosight.iplat4j.core.ei.EiBlock;
+import com.baosight.iplat4j.common.constant.EPResource;
+
+public class Service$meta.formEname extends ServiceEPBase {
+
+	private static final Logger logger = Logger.getLogger(Service${meta.formEname}.class);
+	
+	/**
+	 * 页面初始化
+	 * @param EiInfo
+	 * @return EiInfo
+	 */
+	public EiInfo initLoad(EiInfo inInfo) {
+		EiInfo outInfo = new EiInfo();
+		outInfo.setMsgByKey(EPResource.EP_2001, new String[]{UserSession.getLoginName()});
+#foreach($_block in $meta.getBlocks())
+#set($_block_id = $_block.getBlockMeta().getBlockId())
+#if("2" == $_block.regionType && $_block_id.startsWith(".func$"))## 多记录区域返回对应的block
+#set($_bean_name = $meta.utility.getValue($_block.dataModelEname, ""))
+#set($_block_name = $_block_id.substring(16))
+#if("result" == $_block_name)
+#set($_block_name = "EiConstant.resultBlock")
+#else
+#set($_block_name = '"' + "$_block_name" + '"')
+#end
+#if("" != $_bean_name)
+		${_bean_name} ${_bean_name.toLowerCase()} = new ${_bean_name}();
+		outInfo.addBlock(${_block_name}).setBlockMeta(${_bean_name.toLowerCase()}.eiMetadata);
+#end
+#end
+#end## end foreach
+		return outInfo;
+	}

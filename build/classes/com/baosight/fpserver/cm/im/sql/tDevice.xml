@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_device 
+		 f_device_id  INTEGER   NOT NULL   primarykey, 
+		 f_devicegroup_id  INTEGER   NOT NULL, 
+		 f_device_name  VARCHAR   NOT NULL, 
+		 f_device_desc  VARCHAR, 
+		 f_device_position  VARCHAR, 
+		 f_device_manufacture  VARCHAR, 
+		 f_device_typenumber  VARCHAR, 
+		 f_device_serialnumber  VARCHAR, 
+		 f_device_purchasedate  VARCHAR, 
+		 f_device_installdate  VARCHAR, 
+		 f_device_warrantydate  VARCHAR, 
+		 f_device_lastinspectdate  VARCHAR, 
+		 f_device_inspectcycle  INTEGER
+	-->
+<sqlMap namespace="tDevice">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevice">
+		SELECT
+				f_device_id	as "f_deviceId",  
+				f_devicegroup_id	as "f_devicegroupId",  
+				f_device_name	as "f_deviceName",  
+				f_device_desc	as "f_deviceDesc",  
+				f_device_position	as "f_devicePosition",  
+				f_device_manufacture	as "f_deviceManufacture",  
+				f_device_typenumber	as "f_deviceTypenumber",  
+				f_device_serialnumber	as "f_deviceSerialnumber",  
+				f_device_purchasedate	as "f_devicePurchasedate",  
+				f_device_installdate	as "f_deviceInstalldate",  
+				f_device_warrantydate	as "f_deviceWarrantydate",  
+				f_device_lastinspectdate	as "f_deviceLastinspectdate",  
+				f_device_inspectcycle	as "f_deviceInspectcycle" 
+		FROM .t_device WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceName">
+			f_device_name = #f_deviceName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicegroupId">
+			f_devicegroup_id = #f_devicegroupId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_device_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDevice">
+		SELECT
+				f_device_id	as "f_deviceId",  
+				f_devicegroup_id	as "f_devicegroupId",  
+				f_device_name	as "f_deviceName",  
+				f_device_desc	as "f_deviceDesc",  
+				f_device_position	as "f_devicePosition",  
+				f_device_manufacture	as "f_deviceManufacture",  
+				f_device_typenumber	as "f_deviceTypenumber",  
+				f_device_serialnumber	as "f_deviceSerialnumber",  
+				f_device_purchasedate	as "f_devicePurchasedate",  
+				f_device_installdate	as "f_deviceInstalldate",  
+				f_device_warrantydate	as "f_deviceWarrantydate",  
+				f_device_lastinspectdate	as "f_deviceLastinspectdate",  
+				f_device_inspectcycle	as "f_deviceInspectcycle" 
+		FROM .t_device WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_devicegroup_id in (select f_devicegroup_id from t_devicegroup where f_emcproject_id = #f_emcprojectId#)
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_device_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_device WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_deviceId">
+			f_device_id = #f_deviceId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicegroupId">
+			f_devicegroup_id = #f_devicegroupId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceName">
+			f_device_name = #f_deviceName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceDesc">
+			f_device_desc = #f_deviceDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicePosition">
+			f_device_position = #f_devicePosition#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceManufacture">
+			f_device_manufacture = #f_deviceManufacture#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceTypenumber">
+			f_device_typenumber = #f_deviceTypenumber#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceSerialnumber">
+			f_device_serialnumber = #f_deviceSerialnumber#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_devicePurchasedate">
+			f_device_purchasedate = #f_devicePurchasedate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceInstalldate">
+			f_device_installdate = #f_deviceInstalldate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceWarrantydate">
+			f_device_warrantydate = #f_deviceWarrantydate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceLastinspectdate">
+			f_device_lastinspectdate = #f_deviceLastinspectdate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceInspectcycle">
+			f_device_inspectcycle = #f_deviceInspectcycle#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_device (f_device_id,
+										f_devicegroup_id,
+										f_device_name,
+										f_device_desc,
+										f_device_position,
+										f_device_manufacture,
+										f_device_typenumber,
+										f_device_serialnumber,
+										f_device_purchasedate,
+										f_device_installdate,
+										f_device_warrantydate,
+										f_device_lastinspectdate,
+										f_device_inspectcycle
+										)		 
+	    VALUES (#f_deviceId#, #f_devicegroupId#, #f_deviceName#, #f_deviceDesc#, #f_devicePosition#, #f_deviceManufacture#, #f_deviceTypenumber#, #f_deviceSerialnumber#, #f_devicePurchasedate#, #f_deviceInstalldate#, #f_deviceWarrantydate#, #f_deviceLastinspectdate#, #f_deviceInspectcycle#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_device WHERE 
+			f_device_id = #f_deviceId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_device 
+		SET 
+					f_device_name	= #f_deviceName#,   
+					f_device_desc	= #f_deviceDesc#,   
+					f_device_position	= #f_devicePosition#,   
+					f_device_manufacture	= #f_deviceManufacture#,   
+					f_device_typenumber	= #f_deviceTypenumber#,   
+					f_device_serialnumber	= #f_deviceSerialnumber#,   
+					f_device_purchasedate	= #f_devicePurchasedate#,   
+					f_device_installdate	= #f_deviceInstalldate#,   
+					f_device_warrantydate	= #f_deviceWarrantydate#,   
+					f_device_lastinspectdate	= #f_deviceLastinspectdate#,   
+					f_device_inspectcycle	= #f_deviceInspectcycle#  
+			WHERE 	
+			f_device_id = #f_deviceId#
+	</update>
+  
+  
+</sqlMap>

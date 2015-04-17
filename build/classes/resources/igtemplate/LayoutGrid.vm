@@ -1,0 +1,33 @@
+<EF:EFGrid Name="$control.Name" eServiceType="JavaHttpRequest" eDataVersion="V1" eServiceName="$control.ServiceName" 
+	eMethodName="$control.MethodName" eBlockName="$control.BlockName" eCanUserFreezeColumns="$control.CanUserFreezeColumns" 
+	eCanUserPageRecords="$control.CanUserPageRecords" eCanUserReorderColumns="$control.CanUserReorderColumns" 
+	eCanUserResizeColumns="$control.CanUserResizeColumns" eCanUserSortColumns="$control.CanUserSortColumns" 
+	eCanUserInsertRows="$control.CanUserInsertRows" eCanUserDeleteRows="$control.CanUserDeleteRows"
+	eCheckStyle="$control.CheckStyle" eAutoDraw="$control.IsAutoDraw" IsReadOnly="$control.IsReadOnly"
+	Width="$control.Width" Height="$control.Height" ShowGroupPanel="$control.IsShowGroupPanel" ShowColumnFooters="$control.IsShowColumnFooters"
+#if( $control.RowIndex.trim() != '' && ${control.RowIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $RowIndex = $Integer.parseInt( $control.RowIndex.trim() ) - 1 )
+Grid.Row="${RowIndex}"
+#end
+#if( $control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null' )
+#set( $Integer = 0 )
+#set( $ColumnIndex = $Integer.parseInt( $control.ColumnIndex.trim() ) - 1 )
+Grid.Column="${ColumnIndex}"
+#end
+#if( $control.RowSpan.trim() != '' && ${control.RowSpan} != 'null' )
+Grid.RowSpan="${control.RowSpan}"
+#end
+#if( $control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null' )
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end >
+#set( $gridControls = $control.SubControls )
+#if( $control.IsAutoDraw != 'True' )
+	<EF:EFGrid.Columns>
+	#foreach($control in $gridControls)
+		#set( $regionPath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+		#parse("$regionPath")
+	#end
+	</EF:EFGrid.Columns>
+#end
+</EF:EFGrid>

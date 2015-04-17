@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"               
+"http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+<sqlMap	namespace="AuthorizationNode">
+
+    <typeAlias  alias ="AuthorizationNode" type="com.baosight.platform.core.security.authorizationtree.AuthorizationNode" />
+    <typeAlias  alias ="Role" type="java.util.HashMap" />
+
+    <resultMap id="QueryResult" class="AuthorizationNode">
+      <result property ="Name" column="name"  />
+      <result property ="DisplayName" column="display_name"  />
+      <result property ="Desc" column="desc_info"  />
+      <result property ="Index" column="sort_index"  />
+      <result property="ParentName" column="parent_name" />
+      <result property="Attribute" column="attribute" />
+      <result property="Property" column="property" />
+      <result property="Ext1" column="ext1" />
+      <result property="Ext2" column="ext2" />
+      <result property="Ext3" column="ext3" />
+      <result property="ext3_equal" column="ext3" />
+    </resultMap>
+    <resultMap id="RoleResult" class="Role">
+      <result property ="AuthorizationNodeName" column="authz_node_name"  />
+      <result property ="RoleName" column="role_name"  />
+    </resultMap>
+    <resultMap id="UsersetResult" class="Userset" extends="Userset.UsersetResult" />
+    <resultMap id="UserResult" class="User" extends="User.QueryResult" />
+
+    <insert id="Insert" parameterClass="AuthorizationNode">
+      insert into ${platSchema}.t_es_authz_tree(name,display_name,desc_info,sort_index,parent_name,attribute,property,ext1,ext2,ext3)
+      values(#Name:VARCHAR#, #DisplayName:VARCHAR#, #Desc:VARCHAR#, #Index#, #ParentName:VARCHAR#,#Attribute:VARCHAR#,#Property:VARCHAR#,#Ext1:VARCHAR#,#Ext2:VARCHAR#,#Ext3:VARCHAR#)
+    </insert>
+
+    <insert id="InsertRole" parameterClass="Map">
+      insert into ${platSchema}.t_es_role(authz_node_name,role_name)
+      values(#AuthorizationNodeName:VARCHAR#, #RoleName:VARCHAR#)
+    </insert>
+    
+    <insert id="DeleteRole" parameterClass="Map">
+      delete from ${platSchema}.t_es_role where role_name = #RoleName#
+    </insert>
+    
+    <select id="QueryRoleAuthznode" parameterClass="Map" resultClass="String">
+      select authz_node_name from ${platSchema}.t_es_role where role_name = #RoleName#
+    </select>
+
+    <update id="Update" parameterClass="AuthorizationNode">
+      update ${platSchema}.t_es_authz_tree set
+      display_name = #DisplayName:VARCHAR#,
+      desc_info = #Desc:VARCHAR#,
+      sort_index = #Index#,
+      attribute = #Attribute:VARCHAR#,
+      property = #Property:VARCHAR#,
+      ext1 = #Ext1:VARCHAR#,
+      ext2 = #Ext2:VARCHAR#,
+      ext3 = #Ext3:VARCHAR#
+      where name = #Name#
+    </update>
+    
+    <delete id="Delete" parameterClass="AuthorizationNode">
+      delete from ${platSchema}.t_es_authz_tree where 1=1
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name = #Name#
+        </isNotEmpty>
+      </dynamic>
+    </delete>
+
+    <select id="Query" parameterClass="AuthorizationNode" resultMap="QueryResult">
+      select *
+      from ${platSchema}.t_es_authz_tree where 1=1
+      <dynamic prepend=" AND ">
+        <isNotNull property="Name">
+          name = #Name#
+        </isNotNull>
+      </dynamic>
+    </select>
+    
+    <sql id="QueryAuthznodesWithCondition">
+       	<dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name  LIKE '%'||#Name#||'%'
+        </isNotEmpty>
+      </dynamic>
+     <dynamic prepend=" AND ">
+        <isNotEmpty property="DisplayName">
+          display_name  LIKE '%'||#DisplayName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Desc">
+          desc_info  LIKE '%'||#Desc#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Index">
+          sort_index  LIKE '%'||#Index#||'%'
+        </isNotEmpty>
+      </dynamic>
+     <dynamic prepend=" AND ">
+        <isNotEmpty property="ParentName">
+          parent_name  LIKE '%'||#ParentName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    
+    <sql id="SortAuthznodesWithCondition">
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+          name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+          display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ParentName">
+          parent_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+          $OrderValue$
+        </isNotEqual>
+      </dynamic>
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="NotSet">
+          name ASC
+        </isEqual>
+        <isNotEqual property="OrderKey" compareValue="NotSet">
+          <isNotEqual property="OrderKey" compareValue="Name">
+           ,name ASC
+          </isNotEqual>
+        </isNotEqual>
+      </dynamic>
+    </sql>
+	
+	    <sql id="SortSubAuthznodesWithCondition">
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+          name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+          display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ParentName">
+          parent_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+          $OrderValue$,
+        </isNotEqual>
+      </dynamic>
+      sort_index ASC
+      <dynamic prepend=" ">
+        <isNotEqual property="OrderKey" compareValue="Name">
+          ,name ASC
+        </isNotEqual>
+      </dynamic>
+    </sql>
+
+    <sql id="QueryTopAuthznodesWithCondition">
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name  LIKE '%'||#Name#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="DisplayName">
+          display_name  LIKE '%'||#DisplayName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Desc">
+          desc_info  LIKE '%'||#Desc#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Index">
+          sort_index  LIKE '%'||#Index#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <sql id="SortTopAuthznodesWithCondition">
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+          name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+          display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+          $OrderValue$
+        </isNotEqual>
+      </dynamic>
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="NotSet">
+          name ASC
+        </isEqual>
+        <isNotEqual property="OrderKey" compareValue="NotSet">
+          <isNotEqual property="OrderKey" compareValue="Name">
+           ,name ASC
+          </isNotEqual>
+        </isNotEqual>
+      </dynamic>
+    </sql>
+    
+    <select id="QueryAuthznodesList" parameterClass="Map" resultMap="QueryResult">
+    	select * from ${platSchema}.t_es_authz_tree where 1=1
+    	<include refid="QueryAuthznodesWithCondition"/>
+			<include refid="SortAuthznodesWithCondition"/>
+    </select>
+    
+    <select id="QueryAuthznodeCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_authz_tree where 1=1
+    	<include refid="QueryAuthznodesWithCondition"/>
+    </select>
+
+    <select id="QueryTopAuthznodesList" parameterClass="Map" resultMap="QueryResult">
+      select * from ${platSchema}.t_es_authz_tree where parent_name is null
+      <include refid="QueryTopAuthznodesWithCondition"/>
+      <include refid="SortTopAuthznodesWithCondition"/>
+    </select>
+
+    <select id="QueryTopAuthznodeCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_authz_tree where parent_name is null
+      <include refid="QueryTopAuthznodesWithCondition"/>
+    </select>
+    
+    <select id="QuerySubAuthznodesList" parameterClass="Map" resultMap="QueryResult">
+      select * from ${platSchema}.t_es_authz_tree where parent_name=#AuthorizationNodeName#
+      <include refid="QueryAuthznodesWithCondition"/>
+      <include refid="SortSubAuthznodesWithCondition"/>
+    </select>
+
+    <select id="QuerySubAuthznodeCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_authz_tree where parent_name=#AuthorizationNodeName#
+      <include refid="QueryAuthznodesWithCondition"/>
+    </select>
+    
+    <sql id="SelectRecursiveSubAuthznodes">
+      (select * from ${platSchema}.t_es_authz_tree
+		start with parent_name = #AuthorizationNodeName#
+		connect by prior name = parent_name and level <![CDATA[<]]> 6
+	  ) temp
+    </sql>
+
+    <select id="QueryRecursiveSubAuthznodesList" parameterClass="Map" resultMap="QueryResult">
+      select * from ${platSchema}.t_es_authz_tree where name in (select name from <include refid="SelectRecursiveSubAuthznodes" />)
+      <include refid="QueryAuthznodesWithCondition"/>
+      <include refid="SortAuthznodesWithCondition"/>
+    </select>
+
+    <select id="QueryRecursiveSubAuthznodeCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_authz_tree where name in (select name from <include refid="SelectRecursiveSubAuthznodes" />)
+      <include refid="QueryAuthznodesWithCondition"/>
+    </select>
+
+    <sql id="QueryUsersetWithCondition">
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name  LIKE '%'||#Name#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="DisplayName">
+          display_name  LIKE '%'||#DisplayName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Desc">
+          desc_info  LIKE '%'||#Desc#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Index">
+          sort_index  LIKE '%'||#Index#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UsersetType">
+          userset_type  = #UsersetType#
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="ext3_equal">
+          ext3  = #ext3_equal#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <sql id="SortUsersetWithCondition">
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+          name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+          display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UsersetType">
+          userset_type
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+          $OrderValue$,
+        </isNotEqual>
+      </dynamic>
+      sort_index DESC
+      <dynamic prepend=" ">
+        <isNotEqual property="OrderKey" compareValue="Name">
+          ,name ASC
+        </isNotEqual>
+      </dynamic>
+    </sql>
+
+
+    <select id="QueryAuthznodeRolesList" parameterClass="Map" resultMap="UsersetResult">
+      select * from ${platSchema}.t_es_userset where name in(select role_name from ${platSchema}.t_es_role where authz_node_name=#AuthorizationNodeName#)
+      <include refid="QueryUsersetWithCondition"/>
+      <include refid="SortUsersetWithCondition"/>
+    </select>
+
+    <select id="QueryAuthznodeRoleCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_userset where name in(select role_name from ${platSchema}.t_es_role where authz_node_name=#AuthorizationNodeName#)
+      <include refid="QueryUsersetWithCondition"/>
+    </select>
+
+    <select id="QueryRecursiveAuthznodeRolesList" parameterClass="Map" resultMap="UsersetResult">
+      select * from ${platSchema}.t_es_userset where name in(select role_name from ${platSchema}.t_es_role where authz_node_name in (select name from <include refid="SelectRecursiveSubAuthznodes" />))
+      <include refid="QueryUsersetWithCondition"/>
+      <include refid="SortUsersetWithCondition"/>
+    </select>
+
+    <select id="QueryRecursiveAuthznodeRoleCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_userset where name in(select role_name from ${platSchema}.t_es_role where authz_node_name in (select name from <include refid="SelectRecursiveSubAuthznodes" />))
+      <include refid="QueryUsersetWithCondition"/>
+    </select>
+
+    <sql id="QueryUserWithCondition">
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name  LIKE '%'||#Name#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="DisplayName">
+          display_name  LIKE '%'||#DisplayName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Desc">
+          desc  LIKE '%'||#Desc#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="LastName">
+          last_name  LIKE '%'||#LastName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="FirstName">
+          first_name  LIKE '%'||#FirstName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MiddleName">
+          middle_name  LIKE '%'||#MiddleName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="NickName">
+          nick_name  LIKE '%'||#NickName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Title">
+          title  LIKE '%'||#Title#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Initials">
+          initials  LIKE '%'||#Initials#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="FullName">
+          full_name  LIKE '%'||#FullName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Prof">
+          prof  LIKE '%'||#Prof#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Position">
+          position  LIKE '%'||#Position#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Dept">
+          dept  LIKE '%'||#Dept#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Account">
+          account  LIKE '%'||#Account#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="IDNumber">
+          id_number  LIKE '%'||#IDNumber#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="WorkNumber">
+          work_number  LIKE '%'||#WorkNumber#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Gender">
+          gender  LIKE '%'||#Gender#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Birthday">
+          birthday  LIKE '%'||#Birthday#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Country">
+          country  LIKE '%'||#Country#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Province">
+          province  LIKE '%'||#Province#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="City">
+          city  LIKE '%'||#City#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Street">
+          street  LIKE '%'||#Street#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Addr">
+          addr  LIKE '%'||#Addr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="HomeAddr">
+          home_addr  LIKE '%'||#HomeAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OfficeAddr">
+          office_addr  LIKE '%'||#OfficeAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="BusinessAddr">
+          business_addr  LIKE '%'||#BusinessAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OtherAddr">
+          other_addr  LIKE '%'||#OtherAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PostalCode">
+          postal_code  LIKE '%'||#PostalCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PostBox">
+          post_box  LIKE '%'||#PostBox#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="WebSite">
+          web_site  LIKE '%'||#WebSite#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Email">
+          email  LIKE '%'||#Email#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="IM">
+          im  LIKE '%'||#IM#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Domain">
+          domain  LIKE '%'||#Domain#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MainPhone">
+          main_phone  LIKE '%'||#MainPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="HomePhone">
+          home_phone  LIKE '%'||#HomePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MobilePhone">
+          mobile_phone  LIKE '%'||#MobilePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OfficePhone">
+          office_phone  LIKE '%'||#OfficePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="BusinessPhone">
+          business_phone  LIKE '%'||#BusinessPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OtherPhone">
+          other_phone  LIKE '%'||#OtherPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Fax">
+          fax  LIKE '%'||#Fax#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserType">
+          user_type  LIKE '%'||#UserType#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserCode">
+          user_code  LIKE '%'||#UserCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OrgCode">
+          org_code  LIKE '%'||#OrgCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="CreateDate">
+          create_date  LIKE '%'||#CreateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="ExpireDate">
+          expire_date  LIKE '%'||#ExpireDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PwdExpireDate">
+          pwd_expire_date  LIKE '%'||#PwdExpireDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UpdateDate">
+          property_update_date  LIKE '%'||#UpdateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PwdUpdateDate">
+          pwd_update_date  LIKE '%'||#PwdUpdateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="LastLoginDate">
+          last_login_date  LIKE '%'||#LastLoginDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="ErrorLoginDate">
+          error_login_date  LIKE '%'||#ErrorLoginDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Valid">
+          valid  LIKE '%'||#Valid#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Index">
+          sort_index  LIKE '%'||#Index#||'%'
+        </isNotEmpty>
+      </dynamic>
+	  <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <sql id="SortUserWithCondition">
+      order by
+     <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+           name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+           display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastName">
+          last_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FirstName">
+          first_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MiddleName">
+          middle_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="NickName">
+          nick_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Title">
+          title
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Initials">
+          initials
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FullName">
+          full_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Prof">
+          prof
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Position">
+          position
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Dept">
+          dept
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Account">
+          account
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IDNumber">
+          id_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WorkNumber">
+          work_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Gender">
+          gender
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Birthday">
+          birthday
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Country">
+          country
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Province">
+          province
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="City">
+          city
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Street">
+          street
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Addr">
+          addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomeAddr">
+          home_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficeAddr">
+          office_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessAddr">
+          business_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherAddr">
+          other_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostalCode">
+          postal_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostBox">
+          post_box
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WebSite">
+          web_site
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Email">
+          email
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IM">
+          im
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Domain">
+          domain
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MainPhone">
+          main_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomePhone">
+          home_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MobilePhone">
+          mobile_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficePhone">
+          office_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessPhone">
+          business_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherPhone">
+          other_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Fax">
+          fax
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserType">
+          user_type
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserCode">
+          user_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OrgCode">
+          org_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="CreateDate">
+          create_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ExpireDate">
+          expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdExpireDate">
+          pwd_expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UpdateDate">
+          property_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdUpdateDate">
+          pwd_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastLoginDate">
+          last_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ErrorLoginDate">
+          error_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Valid">
+          valid
+        </isEqual>
+		<isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+            $OrderValue$,
+          </isNotEqual>
+      </dynamic>
+      sort_index DESC
+      <dynamic prepend=" ">
+        <isNotEqual property="OrderKey" compareValue="Name">
+          ,name ASC
+        </isNotEqual>
+      </dynamic>
+    </sql>
+
+    <select id="QueryAuthznodeUsersList" parameterClass="Map" resultMap="UserResult">
+      select * from ${platSchema}.t_es_user where name in(select member_name from ${platSchema}.t_es_userset_member where set_name in(select role_name from ${platSchema}.t_es_role where authz_node_name=#AuthorizationNodeName#))
+      <include refid="QueryUserWithCondition"/>
+      <include refid="SortUserWithCondition"/>
+    </select>
+
+    <select id="QueryAuthznodeUserCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_user where name in(select member_name from ${platSchema}.t_es_userset_member where set_name in(select role_name from ${platSchema}.t_es_role where authz_node_name=#AuthorizationNodeName#))
+      <include refid="QueryUserWithCondition"/>
+    </select>
+
+    <select id="QueryAuthznodeRecursiveUsersList" parameterClass="Map" resultMap="UserResult">
+      select * from ${platSchema}.t_es_user where name in(select member_name from ${platSchema}.t_es_userset_member where set_name in(select role_name from ${platSchema}.t_es_role where authz_node_name in (select name from <include refid="SelectRecursiveSubAuthznodes" />)))
+      <include refid="QueryUserWithCondition"/>
+      <include refid="SortUserWithCondition"/>
+    </select>
+
+    <select id="QueryAuthznodeRecursiveUserCount" resultClass="int">
+      select count(1) from ${platSchema}.t_es_user where name in(select member_name from ${platSchema}.t_es_userset_member where set_name in(select role_name from ${platSchema}.t_es_role where authz_node_name in (select name from <include refid="SelectRecursiveSubAuthznodes" />)))
+      <include refid="QueryUserWithCondition"/>
+    </select>
+    
+</sqlMap>
+
