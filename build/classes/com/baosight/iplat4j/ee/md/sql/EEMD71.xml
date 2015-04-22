@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEMD71">
+
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM $service.where-0-tableName $service.where-0-tableAlias
+		WHERE 1=1
+	</delete>	
+	
+	<!-- 新增 -->
+	<insert id="insert">
+		INSERT INTO TED10 (
+			REC_CREATOR,
+			REC_CREATE_TIME,
+			REC_REVISOR
+		)      
+		VALUES (
+			#recCreator: VARCHAR#,
+			#recCreateTime: VARCHAR#,
+			#recRevisor: VARCHAR#
+		)
+	</insert>	
+	
+	<!-- 查询 -->
+	<select id="query" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT
+			t.REC_CREATOR as "recCreator",	
+			t.REC_CREATE_TIME as "recCreateTime",	
+			t.REC_REVISOR as "recRevisor"	
+		FROM TED10 t 
+		WHERE 1=1
+		<isNotEmpty prepend=" AND " property="recCreator">
+			t.REC_CREATOR = #recCreator#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+		    	$orderBy$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<!-- 修改 -->
+	<update id="update">
+		UPDATE  TED10 $service.where-0-tableAlias
+        SET
+			REC_CREATOR = #recCreator#,
+			REC_CREATE_TIME = #recCreateTime#,
+			REC_REVISOR = #recRevisor#
+		WHERE 1=1
+	</update>	
+	
+
+</sqlMap>

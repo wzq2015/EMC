@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2010-01-25 14:30:36
+   		Version :  1.0.1.V20070717
+		table comment : EF_GRID_20列性能测试
+		tableName :${platSchema}.TEEDM31 
+		 NAME  VARCHAR2   NOT NULL   primarykey, 
+		 DISPLAY_NAME  VARCHAR2, 
+		 MODULE_TYPE  VARCHAR2, 
+		 PARENT  VARCHAR2, 
+		 APPLICATION  VARCHAR2, 
+		 VERSION  VARCHAR2, 
+		 ARCHIEVE_FLAG  NUMBER, 
+		 LOAD_ON_DEMAND  NUMBER, 
+		 CREATE_TIME  VARCHAR2, 
+		 MODIFY_TIME  VARCHAR2, 
+		 TABLE_SPACE_NAME  VARCHAR2, 
+		 TABLE_SPACE_SIZE  NUMBER, 
+		 PRICE  NUMBER, 
+		 CREATOR  VARCHAR2, 
+		 MODULE_DESC  VARCHAR2, 
+		 TYPE_FULL_NAME  VARCHAR2, 
+		 MODULE_LINK  VARCHAR2, 
+		 COL18  VARCHAR2, 
+		 COL19  VARCHAR2, 
+		 COL20  VARCHAR2
+	-->
+<sqlMap namespace="EEDM31">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.Teedm31">
+		SELECT
+				NAME	as "name",  <!-- 名称 -->
+				DISPLAY_NAME	as "displayName",  <!-- 显示名称 -->
+				MODULE_TYPE	as "moduleType",  <!-- 类型 -->
+				PARENT	as "parent",  <!-- 父模块 -->
+				APPLICATION	as "application",  <!-- 应用系统 -->
+				VERSION	as "version",  <!-- 版本 -->
+				ARCHIEVE_FLAG	as "archieveFlag",  <!-- 归档标记 -->
+				LOAD_ON_DEMAND	as "loadOnDemand",  <!-- 按需加载 -->
+				CREATE_TIME	as "createTime",  <!-- 创建时间 -->
+				MODIFY_TIME	as "modifyTime",  <!-- 修改时间 -->
+				TABLE_SPACE_NAME	as "tableSpaceName",  <!-- 表空间名称 -->
+				TABLE_SPACE_SIZE	as "tableSpaceSize",  <!-- 表空间大小 -->
+				PRICE	as "price",  <!-- 模块售价 -->
+				CREATOR	as "creator",  <!-- 创建者 -->
+				MODULE_DESC	as "moduleDesc",  <!--  描述  -->
+				TYPE_FULL_NAME	as "typeFullName",  <!-- 类型全名 -->
+				MODULE_LINK	as "moduleLink",  <!-- 链接 -->
+				COL18	as "col18",  
+				COL19	as "col19",  
+				COL20	as "col20" 
+		FROM ${platSchema}.TEEDM31 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR like '%$creator$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  NAME asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM31 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="name">
+			NAME = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR = #creator#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="name">
+			NAME = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="displayName">
+			DISPLAY_NAME = #displayName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleType">
+			MODULE_TYPE = #moduleType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="parent">
+			PARENT = #parent#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="version">
+			VERSION = #version#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="archieveFlag">
+			ARCHIEVE_FLAG = #archieveFlag#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="loadOnDemand">
+			LOAD_ON_DEMAND = #loadOnDemand#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="createTime">
+			CREATE_TIME = #createTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="modifyTime">
+			MODIFY_TIME = #modifyTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceName">
+			TABLE_SPACE_NAME = #tableSpaceName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceSize">
+			TABLE_SPACE_SIZE = #tableSpaceSize#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="price">
+			PRICE = #price#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR = #creator#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleDesc">
+			MODULE_DESC = #moduleDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeFullName">
+			TYPE_FULL_NAME = #typeFullName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleLink">
+			MODULE_LINK = #moduleLink#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col18">
+			COL18 = #col18#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col19">
+			COL19 = #col19#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col20">
+			COL20 = #col20#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM31 (NAME,  <!-- 名称 -->
+										DISPLAY_NAME,  <!-- 显示名称 -->
+										MODULE_TYPE,  <!-- 类型 -->
+										PARENT,  <!-- 父模块 -->
+										APPLICATION,  <!-- 应用系统 -->
+										VERSION,  <!-- 版本 -->
+										ARCHIEVE_FLAG,  <!-- 归档标记 -->
+										LOAD_ON_DEMAND,  <!-- 按需加载 -->
+										CREATE_TIME,  <!-- 创建时间 -->
+										MODIFY_TIME,  <!-- 修改时间 -->
+										TABLE_SPACE_NAME,  <!-- 表空间名称 -->
+										TABLE_SPACE_SIZE,  <!-- 表空间大小 -->
+										PRICE,  <!-- 模块售价 -->
+										CREATOR,  <!-- 创建者 -->
+										MODULE_DESC,  <!--  描述  -->
+										TYPE_FULL_NAME,  <!-- 类型全名 -->
+										MODULE_LINK,  <!-- 链接 -->
+										COL18,
+										COL19,
+										COL20
+										)		 
+		VALUES (#name:VARCHAR#, #displayName:VARCHAR#, #moduleType:VARCHAR#, #parent:VARCHAR#, #application:VARCHAR#, #version:VARCHAR#, #archieveFlag:NUMERIC#, #loadOnDemand:NUMERIC#, #createTime:VARCHAR#, #modifyTime:VARCHAR#, #tableSpaceName:VARCHAR#, #tableSpaceSize:NUMERIC#, #price:NUMERIC#, #creator:VARCHAR#, #moduleDesc:VARCHAR#, #typeFullName:VARCHAR#, #moduleLink:VARCHAR#, #col18:VARCHAR#, #col19:VARCHAR#, #col20:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM31 WHERE 
+			NAME = #name#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM31 
+		SET 
+					DISPLAY_NAME	= #displayName#,   <!-- 显示名称 -->
+					MODULE_TYPE	= #moduleType#,   <!-- 类型 -->
+					PARENT	= #parent#,   <!-- 父模块 -->
+					APPLICATION	= #application#,   <!-- 应用系统 -->
+					VERSION	= #version#,   <!-- 版本 -->
+					ARCHIEVE_FLAG	= #archieveFlag:NUMERIC#,   <!-- 归档标记 -->
+					LOAD_ON_DEMAND	= #loadOnDemand:NUMERIC#,   <!-- 按需加载 -->
+					CREATE_TIME	= #createTime#,   <!-- 创建时间 -->
+					MODIFY_TIME	= #modifyTime#,   <!-- 修改时间 -->
+					TABLE_SPACE_NAME	= #tableSpaceName#,   <!-- 表空间名称 -->
+					TABLE_SPACE_SIZE	= #tableSpaceSize:NUMERIC#,   <!-- 表空间大小 -->
+					PRICE	= #price:NUMERIC#,   <!-- 模块售价 -->
+					CREATOR	= #creator#,   <!-- 创建者 -->
+					MODULE_DESC	= #moduleDesc#,   <!--  描述  -->
+					TYPE_FULL_NAME	= #typeFullName#,   <!-- 类型全名 -->
+					MODULE_LINK	= #moduleLink#,   <!-- 链接 -->
+					COL18	= #col18#, 
+					COL19	= #col19#, 
+					COL20	= #col20#
+			WHERE 	
+			NAME = #name#
+	</update>
+  
+</sqlMap>

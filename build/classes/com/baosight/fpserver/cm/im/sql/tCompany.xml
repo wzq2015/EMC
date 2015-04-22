@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_company 
+		 f_company_id  INTEGER   NOT NULL   primarykey, 
+		 f_area_id  INTEGER   NOT NULL, 
+		 f_parent_company_id  INTEGER, 
+		 f_company_name  VARCHAR   NOT NULL, 
+		 f_company_desc  VARCHAR, 
+		 f_company_address  VARCHAR, 
+		 f_company_account  VARCHAR, 
+		 f_company_taxnumber  VARCHAR, 
+		 f_company_bank  VARCHAR, 
+		 f_company_orgcode  VARCHAR, 
+		 f_company_zipcode  VARCHAR
+	-->
+<sqlMap namespace="tCompany">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TCompany">
+		SELECT
+				f_company_id	as "f_companyId",  
+				f_area_id	as "f_areaId",  
+				f_parent_company_id	as "f_parentCompanyId",  
+				f_company_name	as "f_companyName",  
+				f_company_desc	as "f_companyDesc",  
+				f_company_address	as "f_companyAddress",  
+				f_company_account	as "f_companyAccount",  
+				f_company_taxnumber	as "f_companyTaxnumber",  
+				f_company_bank	as "f_companyBank",  
+				f_company_orgcode	as "f_companyOrgcode",  
+				f_company_zipcode	as "f_companyZipcode" 
+		FROM .t_company WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_companyId">
+			f_company_id = #f_companyId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyName">
+			f_company_name = #f_companyName#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_company_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_company WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_companyId">
+			f_company_id = #f_companyId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_companyId">
+			f_company_id = #f_companyId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_areaId">
+			f_area_id = #f_areaId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_parentCompanyId">
+			f_parent_company_id = #f_parentCompanyId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyName">
+			f_company_name = #f_companyName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyDesc">
+			f_company_desc = #f_companyDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyAddress">
+			f_company_address = #f_companyAddress#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyAccount">
+			f_company_account = #f_companyAccount#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyTaxnumber">
+			f_company_taxnumber = #f_companyTaxnumber#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyBank">
+			f_company_bank = #f_companyBank#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyOrgcode">
+			f_company_orgcode = #f_companyOrgcode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_companyZipcode">
+			f_company_zipcode = #f_companyZipcode#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_company (f_company_id,
+										f_area_id,
+										f_parent_company_id,
+										f_company_name,
+										f_company_desc,
+										f_company_address,
+										f_company_account,
+										f_company_taxnumber,
+										f_company_bank,
+										f_company_orgcode,
+										f_company_zipcode
+										)		 
+	    VALUES (#f_companyId#, #f_areaId#, #f_parentCompanyId#, #f_companyName#, #f_companyDesc#, #f_companyAddress#, #f_companyAccount#, #f_companyTaxnumber#, #f_companyBank#, #f_companyOrgcode#, #f_companyZipcode#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_company WHERE 
+			f_company_id = #f_companyId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_company 
+		SET 
+					f_company_name	= #f_companyName#,   
+					f_company_desc	= #f_companyDesc#,   
+					f_company_address	= #f_companyAddress#,   
+					f_company_account	= #f_companyAccount#,   
+					f_company_taxnumber	= #f_companyTaxnumber#,   
+					f_company_bank	= #f_companyBank#,   
+					f_company_orgcode	= #f_companyOrgcode#,   
+					f_company_zipcode	= #f_companyZipcode#  
+			WHERE 	
+			f_company_id = #f_companyId#
+	</update>
+	
+	<!--
+	<update id="update">
+		UPDATE .t_company 
+		SET 
+					f_area_id	= #f_areaId#,   
+					f_parent_company_id	= #f_parentCompanyId#,   
+					f_company_name	= #f_companyName#,   
+					f_company_desc	= #f_companyDesc#,   
+					f_company_address	= #f_companyAddress#,   
+					f_company_account	= #f_companyAccount#,   
+					f_company_taxnumber	= #f_companyTaxnumber#,   
+					f_company_bank	= #f_companyBank#,   
+					f_company_orgcode	= #f_companyOrgcode#,   
+					f_company_zipcode	= #f_companyZipcode#  
+			WHERE 	
+			f_company_id = #f_companyId#
+	</update>
+	-->
+  
+</sqlMap>

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DynamicAuthorization">
+
+	<typeAlias alias="DynamicAuthorization"
+		type="com.baosight.platform.core.security.dynamicauthorization.DynamicAuthorization" />
+	<typeAlias alias="Resource2"
+		type="com.baosight.platform.core.security.resource.Resource" />
+	<typeAlias alias="DynamicUserset2"
+		type="com.baosight.platform.core.security.dynamicauthorization.DynamicUserset" />
+	<typeAlias alias="DynamicPermissionPath"
+		type="com.baosight.platform.core.security.base.DynamicPermissionPath" />
+
+	<resultMap id="QueryResult" class="DynamicAuthorization">
+		<result property="DynamicUsersetName" column="dynamic_userset_name" />
+		<result property="DynamicUsersetType" column="dynamic_userset_type" />
+		<result property="ObjectName" column="object_name" />
+		<result property="ObjectType" column="object_type" />
+		<result property="Operation" column="opt" />
+	</resultMap>
+	<resultMap id="ResourceListResult" class="Resource2">
+		<result property="Name" column="object_name" />
+		<result property="ResourceType" column="object_type" />
+	</resultMap>
+	
+	<resultMap id="PathListResult" class="DynamicPermissionPath">
+		<result property="DynamicUsersetName" column="dynamic_userset_name" />
+		<result property="DynamicUsersetType" column="dynamic_userset_type" />
+		<result property="PathObjectName" column="path_object_name" />
+		<result property="PathObjectType" column="path_object_type" />
+		<result property="ObjectName" column="object_name" />
+		<result property="ObjectType" column="object_type" />
+		<result property="Operation" column="opt" />
+	</resultMap>
+	
+	<resultMap id="DynamicUsersetListResult" class="DynamicUserset2">
+		<result property="DynamicUsersetName" column="dynamic_userset_name" />
+		<result property="DynamicUsersetType" column="dynamic_userset_type" />
+	</resultMap>
+
+	<sql id="condition">
+		where 1=1
+		<dynamic prepend=" AND ">
+			<isNotNull property="DynamicUsersetName">
+				dynamic_userset_name = #DynamicUsersetName#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="DynamicUsersetType">
+				dynamic_userset_type = #DynamicUsersetType#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="ObjectName">
+				object_name = #ObjectName#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="ObjectType">
+				object_type = #ObjectType#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend=" AND ">
+			<isNotNull property="Operation">
+				opt = #Operation#
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<insert id="Insert" parameterClass="DynamicAuthorization">
+		insert into
+		${platSchema}.t_es_dynamic_authorization(dynamic_userset_name,dynamic_userset_type,object_name,object_type,opt)
+		values(#DynamicUsersetName#, #DynamicUsersetType#, #ObjectName#, #ObjectType#,
+		#Operation#)
+	</insert>
+
+	<select id="IsGrant" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		select top 1 1 from ${platSchema}.t_es_dynamic_authorization
+		<include refid="condition" />
+	</select>
+	
+	<delete id="Delete" parameterClass="DynamicAuthorization">
+		delete from ${platSchema}.t_es_dynamic_authorization
+		<include refid="condition" />
+	</delete>
+
+	<sql id="DeclareType">
+		declare @resourceset_type_name varchar(8); set @resourceset_type_name =
+		#ResourcesetTypeName#;
+	</sql>
+
+	<select id="DynamicUsersetHasPermission" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		<include refid="DeclareType" />
+		declare @object_name varchar(256); declare
+		@object_type varchar(8); declare @depth int; set
+		@object_name = #ObjectName#; set @object_type = #ObjectType#;
+		set @depth = 5; with object(object_name, object_type, depth) as ( select
+		@object_name as object_name, @object_type as object_type, 0 as
+		depth union all select a.set_name as object_name,
+		@resourceset_type_name as object_type ,depth+1 as depth from
+		${platSchema}.t_es_resourceset_member a inner join object b on a.member_name =
+		b.object_name and a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		@depth ) select top 1 1 from ${platSchema}.t_es_dynamic_authorization a,
+		object b where a.dynamic_userset_name = #DynamicUsersetName# and
+		a.dynamic_userset_type = #DynamicUsersetType# and a.object_name =
+		b.object_name and a.object_type = b.object_type and a.opt =
+		#Operation#
+	</select>
+	
+	<select id="Count" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		select count(1) from ${platSchema}.t_es_dynamic_authorization
+		<include refid="condition" />
+	</select>
+	
+	<select id="Query" parameterClass="DynamicAuthorization"
+		resultMap="QueryResult">
+		select dynamic_userset_name, dynamic_userset_type, object_name, object_type, opt
+		from ${platSchema}.t_es_dynamic_authorization
+		<include refid="condition" />
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectName">
+				object_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectType">
+				object_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="Operation">
+				opt
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectName">
+				object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectType">
+				object_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="Operation">
+				opt
+			</isNotEqual>
+		</dynamic>
+	</select>
+	
+	<select id="DynamicPermissionPathCount" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		<include refid="DeclareType" />
+		declare @object_name varchar(256); declare
+		@object_type varchar(8); declare @operation varchar(256);
+		declare @depth int; set @object_name = #ObjectName#;
+		set @object_type = #ObjectType#; set @operation = #Operation#;
+		set @depth = 5; with object(object_name, object_type, depth) as ( select
+		@object_name, @object_type, 0 union all select a.set_name,
+		@resourceset_type_name, depth+1 from ${platSchema}.t_es_resourceset_member a
+		inner join object b on a.member_name = b.object_name and
+		a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		@depth ) select count(1) from ${platSchema}.t_es_dynamic_authorization a,
+		object b where  a.dynamic_userset_name = #DynamicUsersetName# and
+		a.dynamic_userset_type = #DynamicUsersetType# and a.object_name =
+		b.object_name and a.object_type = b.object_type and a.opt =
+		@operation
+	</select>
+
+	<select id="DynamicPermissionPaths" parameterClass="DynamicAuthorization"
+		resultMap="PathListResult">
+		<include refid="DeclareType" />
+		declare @object_name varchar(256); declare
+		@object_type varchar(8); declare @operation varchar(256);
+		declare @depth int; set @object_name = #ObjectName#;
+		set @object_type = #ObjectType#; set @operation = #Operation#;
+		set @depth = 5; with object(object_name, object_type, p_object_name,
+		p_object_type, depth) as ( select @object_name, @object_type,
+		@object_name, @object_type, 0 union all select @object_name,
+		@object_type, a.set_name, @resourceset_type_name, depth+1 from
+		${platSchema}.t_es_resourceset_member a inner join object b on a.member_name =
+		b.p_object_name and a.member_type = b.p_object_type and b.depth
+		<![CDATA[<]]>
+		@depth ) select a.dynamic_userset_name, a.dynamic_userset_type,
+		a.opt, a.object_name as path_object_name, a.object_type as
+		path_object_type, b.object_name, b.object_type from
+		${platSchema}.t_es_dynamic_authorization a, object b where a.dynamic_userset_name =
+		#DynamicUsersetName# and a.dynamic_userset_type = #DynamicUsersetType# and
+		a.object_name = b.p_object_name and a.object_type =
+		b.p_object_type and a.opt = @operation order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey"
+				compareValue="DynamicUsersetName">
+				a.dynamic_userset_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="DynamicUsersetType">
+				a.dynamic_userset_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				a.object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				a.object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetName">
+				a.dynamic_userset_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetType">
+				a.dynamic_userset_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				a.object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				a.object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<sql id="SelectDynamicUsersetPermissions">
+		<include refid="DeclareType" />
+		declare @depth int; set @depth =
+		5; with object(object_name, object_type, depth) as ( select
+		distinct object_name, object_type, 0 from ${platSchema}.t_es_dynamic_authorization a
+		where a.dynamic_userset_name =#DynamicUsersetName# 
+		and a.dynamic_userset_type = #DynamicUsersetType# and a.opt = #Operation# union
+		all select c.member_name as object_name, c.member_type as
+		object_type ,depth+1 as depth from ${platSchema}.t_es_resourceset_member c
+		inner join object d on c.set_name = d.object_name and
+		d.object_type = @resourceset_type_name and d.depth
+		<![CDATA[<]]>
+		@depth )
+	</sql>
+
+	<select id="DynamicUsersetPermissionCount" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		<include refid="SelectDynamicUsersetPermissions" />
+		select count(1) from ( select distinct aa.object_name,
+		aa.object_type from object aa where aa.object_type
+		<![CDATA[<>]]>
+		@resourceset_type_name ) a
+	</select>
+
+	<select id="DynamicUsersetPermissions" parameterClass="DynamicAuthorization"
+		resultMap="ResourceListResult">
+		<include refid="SelectDynamicUsersetPermissions" />
+		select distinct aa.object_name, aa.object_type from object aa
+		where aa.object_type
+		<![CDATA[<>]]>
+		@resourceset_type_name
+		order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="ResourceName">
+				object_name $OrderValue$,object_type ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ResourceType">
+				object_type $OrderValue$,object_name ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="NotSet">
+				object_name ASC,object_type ASC
+			</isEqual>
+		</dynamic>
+	</select>
+	
+	<sql id="SelectDynamicUsersetPermissionPaths">
+		<include refid="DeclareType" />
+		declare @name varchar(256);declare @type varchar(8);
+		declare @operation varchar(256); declare @depth int;
+		set @name = #DynamicUsersetName#;set @type = #DynamicUsersetType#;
+		set @operation = #Operation#; set @depth = 5;
+		with object(dynamic_userset_name, dynamic_userset_type, p_object_name,
+		p_object_type, object_name, object_type, depth) as ( select
+		distinct a.dynamic_userset_name, a.dynamic_userset_type, a.object_name,
+		a.object_type, a.object_name, a.object_type, 0 from
+		${platSchema}.t_es_dynamic_authorization a where a.dynamic_userset_name =
+		@name and a.dynamic_userset_type = @type and a.opt
+		= @operation union all select b.dynamic_userset_name,
+		b.dynamic_userset_type, b.p_object_name, b.p_object_type,
+		a.member_name as object_name, a.member_type as object_type,
+		depth+1 as depth from ${platSchema}.t_es_resourceset_member a inner join
+		object b on a.set_name = b.object_name and b.object_type =
+		@resourceset_type_name and b.depth
+		<![CDATA[<]]>
+		@depth )
+	</sql>
+
+	<select id="DynamicUsersetPermissionPathCount" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		<include refid="SelectDynamicUsersetPermissionPaths" />
+		select count(1) from ( select distinct dynamic_userset_name,
+		dynamic_userset_type,p_object_name, p_object_type, object_name,
+		object_type from object where object_type
+		<![CDATA[<>]]>
+		@resourceset_type_name) a
+	</select>
+
+	<select id="DynamicUsersetPermissionPaths" parameterClass="DynamicAuthorization"
+		resultMap="PathListResult">
+		<include refid="SelectDynamicUsersetPermissionPaths" />
+		select distinct @name as dynamic_userset_name, @type as
+		dynamic_userset_type, @operation as opt,
+		p_object_name as path_object_name, p_object_type as
+		path_object_type, object_name, object_type from object where
+		object_type
+		<![CDATA[<>]]>
+		@resourceset_type_name order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey"
+				compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectName">
+				object_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="ObjectType">
+				object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectName">
+				object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="ObjectType">
+				object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+	
+	<sql id="SelectResourceDynamicPermissions">
+		<include refid="DeclareType" />
+		declare @object_name varchar(256); declare @object_type
+		varchar(8); declare @depth int; set @object_name = #ObjectName#;
+		set @object_type = #ObjectType#; set @depth = 5; with
+		object(object_name, object_type, depth) as ( select @object_name
+		as object_name, @object_type as object_type, 0 as depth union
+		all select a.set_name as object_name, @resourceset_type_name as
+		object_type ,depth+1 as depth from ${platSchema}.t_es_resourceset_member a
+		inner join object b on a.member_name = b.object_name and
+		a.member_type = b.object_type and b.depth
+		<![CDATA[<]]>
+		@depth )		
+	</sql>
+
+	<select id="ResourceDynamicPermissionCount" parameterClass="DynamicAuthorization"
+		resultClass="int">
+		<include refid="SelectResourceDynamicPermissions" />
+		select count(1) from (select distinct dynamic_userset_name, dynamic_userset_type from ${platSchema}.t_es_dynamic_authorization a,
+		object b where a.object_name = b.object_name and
+		a.object_type = b.object_type and a.opt = #Operation#) aa
+	</select>
+
+	<select id="ResourceDynamicPermissions" parameterClass="DynamicAuthorization"
+		resultMap="DynamicUsersetListResult">
+		<include refid="SelectResourceDynamicPermissions" />
+		select distinct dynamic_userset_name, dynamic_userset_type from ${platSchema}.t_es_dynamic_authorization a,
+		object b where a.object_name = b.object_name and
+		a.object_type = b.object_type and a.opt = #Operation# order by
+     <dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="DynamicUsersetName">
+				dynamic_userset_name $OrderValue$,dynamic_userset_type ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="DynamicUsersetType">
+				dynamic_userset_type $OrderValue$,dynamic_userset_name ASC
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="NotSet">
+				dynamic_userset_name ASC,dynamic_userset_type ASC
+			</isEqual>
+	  </dynamic>
+	</select>
+	
+	<sql id="SelectResourceDynamicPermissionPaths">
+		<include refid="DeclareType" />
+		declare @object_name varchar(256); declare @object_type
+		varchar(8); declare @operation varchar(256); declare @depth int;
+		set @object_name = #ObjectName#; set @object_type =
+		#ObjectType#; set @operation = #Operation#; set @depth = 5; with
+		object(p_object_name, p_object_type, depth) as ( select
+		@object_name, @object_type, 0 as depth union all select
+		a.set_name, @resourceset_type_name, depth+1 from
+		${platSchema}.t_es_resourceset_member a inner join object b on a.member_name =
+		b.p_object_name and a.member_type = b.p_object_type and b.depth
+		<![CDATA[<]]>
+		@depth )
+	</sql>
+
+	<select id="ResourceDynamicPermissionPathCount"
+		parameterClass="DynamicAuthorization" resultClass="int">
+		<include refid="SelectResourceDynamicPermissionPaths" />
+		select count(1) from ${platSchema}.t_es_dynamic_authorization a,
+		object b where a.object_name =b.p_object_name and 
+		a.object_type = b.p_object_type and a.opt =
+		@operation
+	</select>
+
+	<select id="ResourceDynamicPermissionPaths" parameterClass="DynamicAuthorization"
+		resultMap="PathListResult">
+		<include refid="SelectResourceDynamicPermissionPaths" />
+		select distinct dynamic_userset_name, dynamic_userset_type,
+		@operation as opt, p_object_name as path_object_name,
+		p_object_type as path_object_type, @object_name as object_name,
+		@object_type as object_type from ${platSchema}.t_es_dynamic_authorization a,
+		object b where a.object_name =b.p_object_name and 
+		a.object_type = b.p_object_type and a.opt =
+		@operation order by
+		<dynamic prepend=" ">
+			<isEqual property="OrderKey" compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isEqual>
+			<isEqual property="OrderKey" compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isEqual>
+			<isEqual property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isEqual>
+			<isNotEqual prepend=" " property="OrderValue"
+				compareValue="NotSet">
+				$OrderValue$
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetName">
+				dynamic_userset_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="DynamicUsersetType">
+				dynamic_userset_type
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectName">
+				p_object_name
+			</isNotEqual>
+			<isNotEqual prepend="," property="OrderKey"
+				compareValue="PathObjectType">
+				p_object_type
+			</isNotEqual>
+		</dynamic>
+	</select>
+	
+</sqlMap>

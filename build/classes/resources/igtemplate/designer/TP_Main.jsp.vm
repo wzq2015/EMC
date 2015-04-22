@@ -1,0 +1,20 @@
+## 主表页面模板
+#parse("${meta.templateHome}_page_header.jsp.vm")
+
+#set($_region_id = "ef_region_inqu")
+#set($_region_default_title = "查询条件")
+#set($_block_id = "inqu_status")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#set($_region_id = "ef_region_result")
+#set($_region_default_title = "记录集")
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+<EF:EFRegion/>
+
+#set($_region_id = "ef_region_result")
+#set($_block_id = "result")
+#parse("${meta.templateHome}_page_region_multi_p2.jsp.vm")
+
+#parse("${meta.templateHome}_page_footer.jsp.vm")

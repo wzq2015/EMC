@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架之soa设置 -->
+
+	<bean id="soaInvokerEFImpl" class="com.baosight.iplat4j.ep.soa.SoaInvokerEFImpl" />
+
+ 	<bean id="soaConfig" class="com.baosight.iplat4j.core.soa.impl.SoaConfigResourceImpl" >
+		<property name="resourceProviderId" value="soaConfig" />
+	</bean>
+
+	<bean id="soaInvokerSpringImpl" class="com.baosight.iplat4j.core.soa.impl.SoaInvokerSpringImpl" />
+	<bean id="soaInvokerClassImpl" class="com.baosight.iplat4j.core.soa.impl.SoaInvokerClassImpl">
+		<property name="soaConfig" ref="soaConfig"/>
+	</bean>
+	
+	<bean id="soaInvokerTransactionProxy" class="com.baosight.iplat4j.core.soa.impl.SoaInvokerTransactionProxy">
+		<property name="targetSoaInvoker" ref="soaInvokerEFImpl"/>
+	</bean>
+	
+	<bean id="soaInvokerHttpRemote" class="com.baosight.iplat4j.ep.HttpServiceInvoker">
+		<property name="encrypt" value="false"/>
+		<property name="sourceAppCode" value="${projectName}"/>
+		<property name="servicePath" value="EiService"/>
+	</bean>
+	
+	<bean id="soaInvokerRestRemote" class="com.baosight.iplat4j.ep.RestServiceInvoker">
+		<property name="dao" ref="dao" />
+		<property name="encrypt" value="false"/>
+		<property name="proxy" value=""/>
+		<property name="sourceAppCode" value="${projectName}"/>
+		<property name="restPath" value="RestService"/>
+	</bean>
+
+	<!--发送定时任务  -->
+	<bean id="asyncRestJob" class="com.baosight.iplat4j.ep.AsyncRestServiceJob">
+		<!-- <property name="scheduler" ref="iplat4j_jobScheduler" />  -->
+		<property name="scheduleJob" value="false" />  <!--正式使用时改成true  -->
+		<property name="cronExpression" value="0 0/1 * * * ?" />
+		<property name="timeThreshold" value="100000" />
+	</bean>
+
+	<!--接收后的触发定时任务  -->
+	<bean id="asyncRestInvokeJob" class="com.baosight.iplat4j.ep.AsyncRestServiceInvokeJob">
+		<!-- <property name="scheduler" ref="iplat4j_jobScheduler" />  -->
+		<property name="scheduleJob" value="false" />  <!--正式使用时改成true  -->
+		<property name="cronExpression" value="0 0/1 * * * ?" />
+		<property name="timeThreshold" value="100000" />
+	</bean>
+	
+	<bean id="soaInvokerRemoteServiceProxy" class="com.baosight.iplat4j.core.soa.impl.SoaInvokerRemoteServiceProxy">
+		<property name="targetSoaInvoker" ref="soaInvokerTransactionProxy" />
+		<property name="defaultProtocol" value="REST"/>
+		<property name="invokers">
+			<map>
+				<entry key="HTTP" value-ref="soaInvokerHttpRemote" />
+				<entry key="REST" value-ref="soaInvokerRestRemote" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="soaRouter" class="com.baosight.iplat4j.core.soa.impl.SoaRouterSpringImpl">
+		<property name="soaConfig" ref="soaConfig"/>
+		<property name="defaultSoaInvoker" ref="soaInvokerRemoteServiceProxy"/>
+	</bean>
+
+	<!-- 服务并发控制 -->
+	<!-- totalLimit全局并发数, config中配置单独调用的并发数, 0表示不限制 -->
+	<!-- timeout等待超时时间(秒) -->
+	<!--  
+	<bean id="soaConcurrentManager" class="com.baosight.iplat4j.core.soa.impl.SoaRouterConcurrentLimitImpl">
+		<property name="targetSoaRouter" ref="soaRouter" />
+		<property name="totalLimit" value="0" />
+		<property name="timeout" value="10" />
+		<property name="config">
+			<map>
+				<entry key="EP50.alive" value="0" />
+			</map>
+		</property>
+	</bean>
+	-->
+
+	<bean class="com.baosight.iplat4j.core.resource.impl.PropertiesResourceProviderImpl"
+		init-method="init" depends-on="cacheManager">
+		<property name="providerId">
+			<value>soaConfig</value>
+		</property>
+		<property name="refreshDelay">
+			<value>60000</value>
+		</property>
+		<property name="propertieFiles">
+			<list>
+				<value>classpath*:resources/soa/**/*.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+</beans>

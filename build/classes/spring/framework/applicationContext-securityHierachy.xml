@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util = "http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+   	
+   	<bean id="HierachyGlobals" class="com.baosight.iplat4j.security.hierarchy.HierachyGlobalsImpl">
+   	  <property name="dao" ref="dao" />
+   	</bean> 
+   	 
+   	<!--
+   	<bean id="level" lazy-init="false" 
+      factory-bean="HierachyGlobals"  factory-method="getHierachyLevel"/>
+       
+   	<util:map id="fieldPermMap" map-class="java.util.HashMap">
+	  <entry key="orgPerm1" value="SubOrgAdminManage" />
+      <entry key="orgPerm2" value="SubOrgResouceRange" />
+      <entry key="orgPerm3" value="SubOrgHrogMap" />
+      <entry key="orgPerm4" value="SubOrgManage" />
+      <entry key="orgPerm5" value="RoleManage" />
+      <entry key="orgPerm6" value="RoleMemberManage" />
+      <entry key="orgPerm7" value="RolePermissionManage" />
+	</util:map>
+   	 -->
+   	
+   	<bean class="com.baosight.iplat4j.security.hierarchy.HierachyAdministratorManagerImpl">
+   	  <property name="filedPermission">
+   	    <map>
+    	  <entry key="orgPerm1" value="SubOrgAdminManage" />
+          <entry key="orgPerm2" value="SubOrgResouceRange" />
+          <entry key="orgPerm3" value="SubOrgHrogMap" />
+          <entry key="orgPerm4" value="SubOrgManage" />
+          <entry key="orgPerm5" value="RoleManage" />
+          <entry key="orgPerm6" value="RoleMemberManage" />
+          <entry key="orgPerm7" value="RolePermissionManage" />
+    	</map>
+      </property>				
+      <property name="dao" ref="dao" />
+	</bean>
+   	
+   	
+	<!--  Hierachy Authorization  -->
+	
+	<!-- 系统管理员有权创建顶级组织机构 -->
+	<bean class="com.baosight.iplat4j.security.rule.Authorization">
+	  <property name="targetClass">
+	    <bean class="com.baosight.iplat4j.security.rule.TargetType" >
+	      <property name="type" value="system" />
+	    </bean>
+	  </property>	    
+	  <property name="permissionClass">
+	    <bean class="com.baosight.iplat4j.security.rule.PermissionSet">
+	     <property name="permissions">
+	      <list>
+		   <value>TopOrgManage</value>
+		  </list>
+	     </property>
+	    </bean>
+	  </property>	    
+      <property name="userClass">
+        <bean class="com.baosight.iplat4j.security.hierarchy.uc.SystemAdministrator" />
+      </property>
+	</bean>
+	
+    <!-- 系统管理员可以为层次范围内的机构进行分级授权 -->    
+	<bean class="com.baosight.iplat4j.security.rule.Authorization">
+	  <property name="targetClass">
+	    <bean class="com.baosight.iplat4j.security.hierarchy.target.LevelOrganization" />
+	  </property>	    
+	  <property name="permissionClass">
+	    <bean class="com.baosight.iplat4j.security.rule.PermissionSet">
+	     <property name="permissions">
+	      <list>
+		   <value>SubOrgAdminManage</value>
+		   <value>SubOrgResouceRange</value>
+		   <value>SubOrgHrogMap</value>
+		  </list>
+	     </property>
+	    </bean>
+	  </property>	    
+      <property name="userClass">
+        <bean class="com.baosight.iplat4j.security.hierarchy.uc.SystemAdministrator" />
+      </property>
+	</bean>
+	 
+	<!-- 系统管理员可以管理所有机构 -->
+	<bean class="com.baosight.iplat4j.security.rule.Authorization">
+	  <property name="targetClass">
+	    <bean class="com.baosight.iplat4j.security.rule.TargetType" >
+	      <property name="type" value="organization" />
+	    </bean>
+	  </property>	    
+	  <property name="permissionClass">
+	    <bean class="com.baosight.iplat4j.security.rule.PermissionSet">
+	      <property name="permissions">
+	        <list>
+	          <value>SubOrgManage</value>
+	          <value>RoleManage</value>
+	          <value>RoleMemberManage</value>
+	          <value>RolePermissionManage</value>	       
+		    </list>
+	      </property>
+	    </bean>
+	  </property>	    
+      <property name="userClass">
+        <bean class="com.baosight.iplat4j.security.hierarchy.uc.SystemAdministrator" />
+      </property>
+	</bean>
+	
+	<!-- 父机构管理员可以为层次范围内的子机构进行分级授权 -->
+	<bean class="com.baosight.iplat4j.security.rule.Authorization">
+	  <property name="targetClass">
+	    <bean class="com.baosight.iplat4j.security.hierarchy.target.LevelOrganization" />
+	  </property>	    
+	  <property name="permissionClass">
+	    <bean class="com.baosight.iplat4j.security.rule.PermissionSet">
+	     <property name="permissions">
+	      <list>
+		   <value>SubOrgAdminManage</value>
+		   <value>SubOrgResouceRange</value>
+		   <value>SubOrgHrogMap</value>
+		  </list>
+	     </property>
+	    </bean>
+	  </property>
+      <property name="userClass">
+        <bean class="com.baosight.iplat4j.security.hierarchy.uc.HierachyAvailableParentAdministrator" />
+      </property>
+	</bean>
+	
+	<!-- 机构管理员可以管理本机构 -->
+    <bean class="com.baosight.iplat4j.security.rule.Authorization">
+	  <property name="targetClass">
+	    <bean class="com.baosight.iplat4j.security.rule.TargetType" >
+	      <property name="type" value="organization" />
+	    </bean>
+	  </property>
+	  <property name="permissionClass">
+	    <bean class="com.baosight.iplat4j.security.rule.PermissionSet">
+	     <property name="permissions">
+	      <list>
+	       <value>SubOrgManage</value>
+	       <value>RoleManage</value>
+	       <value>RoleMemberManage</value>
+	       <value>RolePermissionManage</value>	       
+		  </list>
+	     </property>
+	    </bean>
+	  </property>
+      <property name="userClass">
+        <bean class="com.baosight.iplat4j.security.hierarchy.uc.HierachyAvailableAdministrator">
+        	<property name="inheritance" value="true" />
+        </bean>
+      </property>
+	</bean>	
+	
+	<bean class="com.baosight.iplat4j.security.cmd.CommandLogInterceptor" destroy-method="destroy">
+		<property name="dao" ref="dao" />
+	</bean>
+	
+</beans>

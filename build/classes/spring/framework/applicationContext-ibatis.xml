@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+	<!-- 
+	<bean id="tableServiceIbatis" class="com.baosight.iplat4j.dao.ibatis.tableservice.TableServiceIbatisImpl" abstract="true" >
+		<property name="dao" value="tableServiceDao" />
+	</bean>
+	
+	<bean id="tableServiceInvokerIbatis" class="com.baosight.iplat4j.dao.ibatis.tableservice.TableServiceInvokerIbatisImpl">
+		<property name="dao" value="tableServiceInvokerDao" />
+	</bean>
+	-->
+
+	<!-- 初始化sqlmap，当前主要是resource属性 -->
+	<bean class="com.baosight.iplat4j.dao.ibatis.SqlMapInitializers"  init-method="init" >
+		<property name="charset" value="UTF-8" />
+	</bean>
+
+	<!-- Custom Editor -->
+	<!-- Custom Property Editor -->
+	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="com.baosight.iplat4j.dao.Dao">
+					<bean class="com.baosight.iplat4j.dao.DaoEditor" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- SqlMap Dao -->
+	<bean id="nativeDao" class="com.baosight.iplat4j.dao.ibatis.SqlMapDao" abstract="true">
+		<property name="sqlMapClient" ref="cleanSqlMap" />
+	</bean>
+	<bean id="dao" class="com.baosight.iplat4j.dao.ibatis.SqlMapDaoLogProxy">
+		<property name="autoLimit" value="true" />
+		<property name="autoCount" value="true" />
+		<property name="sqlMapClient" ref="sqlMap" />
+		<!--<property name="maxQueryCount" value="1000" />-->
+	</bean>
+	
+	<bean id="dynaLimitDao" parent="dao" abstract="true">
+		<property name="autoLimit" value="true" />
+	</bean>
+	
+	<bean id="dynaCountDao" parent="dao" abstract="true">
+		<property name="autoCount" value="true" />
+	</bean>
+	
+	<bean id="dynaOrderDao" parent="dao" abstract="true">
+		<property name="orderKey" value="orderBy" />
+	</bean>
+	
+	<bean id="dynaLimitCountDao" parent="dao" abstract="true">
+		<property name="autoLimit" value="true" />
+		<property name="autoCount" value="true" />
+	</bean>
+	
+	<bean id="dynaLimitOrderDao" parent="dao" abstract="true">
+		<property name="autoLimit" value="true" />
+		<property name="orderKey" value="orderBy" />
+	</bean>
+	
+	<bean id="dynaDao" parent="dao" abstract="true">
+		<property name="autoLimit" value="true" />
+		<property name="autoCount" value="true" />
+		<property name="orderKey" value="orderBy" />
+	</bean>
+	
+	<!-- iBatis SqlMap Client -->
+	<bean id="sqlMap" class="com.baosight.iplat4j.dao.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation">
+			<value>resources/ibatis/sqlmap-config.xml</value>
+		</property>
+	</bean>
+	
+	<bean class="com.baosight.iplat4j.dao.DaoAwareProcessor" />
+	
+	
+	<!-- iBatis SqlMap Client -->
+	<bean id="cleanSqlMap" class="com.baosight.iplat4j.dao.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="cleanDataSource" />
+		<property name="configLocation">
+			<value>resources/ibatis/sqlmap-config.xml</value>
+		</property>
+	</bean>
+	
+	<!--  
+	<bean id="mappedStatementStrategy" class="com.baosight.iplat4j.ep.MappedStatementStrategyImpl" />
+	-->
+	
+	<bean id="mappedStatementStrategy" class="com.baosight.iplat4j.ep.MappedStatementStrategyWithPreLoadImpl" init-method="init">
+		<property name="autoDetect" value="true" />
+		<property name="preLoadResources">
+			<list>
+				<value>com/baosight/iplat4j/logging/store/DBItemStore.xml</value>
+				<value>resources/security/SecurityBridge.xml</value>
+				<value>resources/security/UserManager.xml</value>
+				<value>resources/security/AuthenticationManager.xml</value>
+				<value>resources/security/UsersetManager.xml</value>
+				<value>resources/security/ResourcesetManager.xml</value>
+				<value>resources/security/AuthorizationManager.xml</value>
+				<value>resources/security/AuthorizationTreeManager.xml</value>
+				<value>resources/security/DynamicTypeManager.xml</value>
+				<value>resources/security/ConfigManager.xml</value>
+				<value>resources/security/DynamicAuthorizationManager.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dbTypeRegexMapping" class="com.baosight.iplat4j.ep.DbTypeRegexMapping">
+		<property name="dbTypeRegexMap">
+			<map>
+				<entry key="oracle" value="(?i).*oracle.*"></entry>
+				<entry key="db2" value="(?i).*db2.*"></entry>
+				<entry key="mssql" value="(?i).*microsoft.*"></entry>
+				<entry key="mysql" value="(?i).*mysql.*"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>

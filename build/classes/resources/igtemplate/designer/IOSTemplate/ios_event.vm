@@ -1,0 +1,46 @@
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//Auto-Generated   Event Handler  
+///////////////////////////////////////////////////////////////////////////////////////////
+#foreach($onClick in $events)
+
+-(IBAction)$onClick:(id)sender  
+{
+    
+    EiInfo* inInfo = [[EiInfo alloc]init] ; 
+     
+    [inInfo set:PROJECT_TOKEN value:[[NSBundle mainBundle] bundleIdentifier]]; 
+    [inInfo set:SERVICE_TOKEN value:@"serviceName"]; 
+    [inInfo set:METHOD_TOKEN value:@"methodName"]; 
+    
+    //whether compress
+    [inInfo set:PARAMETER_COMPRESSDATA value:@"false"]; 
+    //whether encrypt
+    [inInfo set:PARAMETER_ENCRYPTDATA value:@"false"];
+    //whether bytes
+    [inInfo set:ENCRYPTION_ENCODING value:@"false"];
+     
+    [[Container instance].serviceAgent callServiceWithObject:self inInfo:inInfo target:self 
+    successCallBack:@selector(do${onClick}Succeed:eiInfo:) 
+    failCallBack:@selector(do${onClick}Failed:eiInfo:)];
+    [inInfo release];
+     
+}
+
+- (void) do${onClick}Succeed :(id) sender eiInfo:(EiInfo *)outInfo 
+{
+    
+}
+- (void) do${onClick}Failed :(id) sender eiInfo:(EiInfo *)outInfo 
+{
+    
+}
+
+#end
+///////////////////////////////////////////////////////////////////////////////////////////
+//END_oF_Auto-Generated   Event Handler  
+///////////////////////////////////////////////////////////////////////////////////////////
+
+

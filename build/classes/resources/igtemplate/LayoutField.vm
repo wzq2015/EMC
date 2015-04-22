@@ -1,0 +1,102 @@
+<EF:EFDataField
+	Name="$control.Name"
+#if($control.BindingEvent.size()>0&&${isInterfacePreview}==false)
+#foreach(${event} in ${control.BindingEvent})
+    $event="${control.Name}_${event}"
+#end
+#end
+#if($inDataForm == true)
+	eColumnName="$control.BindingName"
+#else
+	eBindingName="$control.BindingName"
+#end
+#if($control.NotEmpty == 'False')
+	eLabel="$control.DisplayName"
+#end 
+	Width="$control.Width" 
+	Height="$control.Height" 
+	eBlockName="${control.Code}#if($control.CodeCondition.trim()!=""){$control.CodeCondition}#end#if($control.Format.trim()!="")($control.Format)#end" 
+#if($control.Regex.trim() != '')
+	eRegex="$control.Regex"
+	eValidateErrorPrompt="$control.ValidateErrorPrompt"
+#end
+	eValueMemberPath="$control.ValueMemberPath"
+	eDisplayMemberPath="$control.DisplayMemberPath" 
+	Visibility=#if($control.IsVisible == 'False')"Collapsed"#else"Visible"#end
+#if($control.EditStyle=="ComboBox")
+	IsReadOnly="True"
+#else
+	IsReadOnly="$control.IsReadOnly"
+#end
+#if(($control.EditStyle=="ComboTree" || $control.EditStyle=="ComboGrid" || $control.EditStyle=="ComboBox" || $control.EditStyle=="CustomView" || $control.EditStyle=="Date") && $control.IsReadOnly == "True")
+	IsEnabled="False"
+#end
+#if($control.EditStyle=="ComboTree")
+	eEditStyle="CustomView"
+	eViewName="EDMD04" 
+	eViewInitParams="codeset=$control.Code,condition=$control.EncodedCodeCondition,format=$control.Format,bindingService=$control.BindingService,isLeafOnly=$control.IsLeafOnly,displayMemberPath=$control.DisplayMemberPath,valueMemberPath=$control.ValueMemberPath,parentMemberPath=$control.ParentMemberPath" 
+#elseif($control.EditStyle=="ComboGrid")
+	eEditStyle="CustomView"
+	eViewName="EDMD05" 
+	eViewInitParams="codeset=$control.Code,condition=$control.EncodedCodeCondition,bindingService=$control.BindingService,displayMemberPath=$control.DisplayMemberPath,valueMemberPath=$control.ValueMemberPath" 
+#elseif($control.EditStyle=="TextArea")
+	eEditStyle="Text"
+	eTextWrapping="Wrap"
+	eAcceptsReturn="True"
+	eVerticalScrollBarVisibility="Auto"
+#elseif($control.EditStyle=="NumericUpDown")
+	eEditStyle="NumericUpDown" 
+	#if($control.Maximum.trim()!='')eMaximum="$control.Maximum" #end
+	#if($control.Minimum.trim()!='')eMinimum="$control.Minimum" #end
+	#if($control.SmallChange.trim()!='')eSmallChange="$control.SmallChange" #end
+	eValueFormat="$control.ValueFormat"				
+#elseif($control.EditStyle=="CheckBoxGroup")
+	eEditStyle="CheckBoxGroup"
+	eItemLabels="$control.ItemLabels"
+	Value="$control.ItemValues"
+#elseif($control.EditStyle=="Date")
+	eEditStyle="$control.EditStyle"
+	eDateFormat="yyyyMMddHHmmss"
+#else
+	eEditStyle="$control.EditStyle"
+	eDateFormat="$control.Format"
+	eCheckedValue="$control.CheckedValue"
+	eUnCheckedValue="$control.UnCheckedValue"
+	eViewName="$control.ViewName"
+	eViewInitParams="$control.ViewInitParams" 
+#end
+#if($control.RowIndex.trim() != '' && ${control.RowIndex} != 'null')
+#set($Integer = 0)
+#set($RowIndex = $Integer.parseInt($control.RowIndex.trim()) - 1)
+Grid.Row="${RowIndex}"
+#end
+#if($control.ColumnIndex.trim() != '' && ${control.ColumnIndex} != 'null')
+#set($Integer = 0)
+#set($ColumnIndex = $Integer.parseInt($control.ColumnIndex.trim()) - 1)
+Grid.Column="${ColumnIndex}"
+#end
+#if($control.RowSpan.trim() != '' && ${control.RowSpan} != 'null')
+Grid.RowSpan="${control.RowSpan}"
+#end
+#if($control.ColumnSpan.trim() != '' && ${control.ColumnSpan} != 'null')
+Grid.ColumnSpan="${control.ColumnSpan}"
+#end
+#if($control.Mask.trim() != '' && ${control.Mask} != 'null')
+eMask="${control.Mask}"
+#end
+#if($control.Culture.trim() != '' && ${control.Culture} != 'null')
+eCulture="${control.Culture}"
+#end
+#if($control.NotEmpty == 'False')
+/>
+#else
+>
+	<EF:EFDataField.eLabel>
+	    <StackPanel Orientation="Horizontal" >
+	        <TextBlock Text="* " Foreground="Red" />
+	        <TextBlock Text="$control.DisplayName" />
+	    </StackPanel>
+	</EF:EFDataField.eLabel>
+</EF:EFDataField>
+#end
+

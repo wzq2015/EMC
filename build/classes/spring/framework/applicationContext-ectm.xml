@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+ <bean id="TemplateUnit1" class="com.baosight.iplat4j.ec.tm.utils.TemplateStaticUnit"/>
+ <bean id="TemplateUnit2" class="com.baosight.iplat4j.ec.tm.utils.TemplateColLinkUnit"/>
+ <bean id="TemplateUnit3" class="com.baosight.iplat4j.ec.tm.utils.TemplateTitleLinkUnit"/>
+ <bean id="TemplateUnit4" class="com.baosight.iplat4j.ec.tm.utils.TemplateNaviUnit"/>
+ <bean id="TemplateUnit5" class="com.baosight.iplat4j.ec.tm.utils.TemplateArticleUnit"/>
+ <bean id="TemplateUnit6" class="com.baosight.iplat4j.ec.tm.utils.TemplateBulletinUnit"/>  
+ <bean id="TemplateUnit7" class="com.baosight.iplat4j.ec.tm.utils.TemplateImgLinkUnit"/>
+ <bean id="TemplateUnit8" class="com.baosight.iplat4j.ec.tm.utils.TemplateQueryUnit"/>
+ <bean id="TemplateUnit9" class="com.baosight.iplat4j.ec.tm.utils.TemplateSearchUnit"/>
+ <bean id="TemplateUnit10" class="com.baosight.iplat4j.ec.tm.utils.TemplatePortal"/>
+ <bean id="TemplateUnit11" class="com.baosight.iplat4j.ec.tm.utils.TemplateVoteLinkUnit"/>
+ <bean id="TemplateUnit12" class="com.baosight.iplat4j.ec.tm.utils.TemplateVisitedCountUnit"/>
+</beans>

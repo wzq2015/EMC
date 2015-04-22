@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+   	<bean id="FusionChart" class="com.baosight.iplat4j.ef.chart.fusionChart.FusionChart">
+		<property name="chartFileDir" value="./ER/chart/FusionCharts/" />
+	</bean>
+	
+	<bean id="Column2D" parent="FusionChart"  >
+	   <property name="fileName" value="Column2D.swf"></property>
+	</bean>
+	
+	<bean id="Column3D" parent="FusionChart"  >
+	   <property name="fileName" value="Column3D.swf"></property>
+	</bean>
+	
+	<bean id="MSColumn2D" parent="FusionChart"  >
+	   <property name="fileName" value="MSColumn2D.swf"></property>
+	</bean>
+	
+	<bean id="MSColumn3D" parent="FusionChart"  >
+	   <property name="fileName" value="MSColumn3D.swf"></property>
+	</bean>
+	
+	<bean id="Pie2D" parent="FusionChart"  >
+	   <property name="fileName" value="Pie2D.swf "></property>
+	</bean>
+	
+	<bean id="Pie3D" parent="FusionChart"  >
+	   <property name="fileName" value="Pie3D.swf "></property>
+	</bean>
+	
+	<bean id="Line" parent="FusionChart"  >
+	   <property name="fileName" value="Line.swf"></property>
+	</bean>
+	
+	<bean id="MSLine" parent="FusionChart"  >
+	   <property name="fileName" value="MSLine.swf"></property>
+	</bean>
+	
+	<bean id="Area" parent="FusionChart">
+	  <property name="fileName" value="Area2D.swf"></property>
+	</bean>
+	
+	<bean id="MSArea" parent="FusionChart">
+	  <property name="fileName" value="MSArea.swf"></property>
+	</bean>
+	
+	<bean id="Bar2D" parent="FusionChart">
+	  <property name="fileName" value="Bar2D.swf"></property>
+	</bean>
+	
+	<bean id="MSBar2D" parent="FusionChart">
+	  <property name="fileName" value="MSBar2D.swf"></property>
+	</bean>
+	
+	<bean id="MSBar3D" parent="FusionChart">
+	  <property name="fileName" value="MSBar3D.swf"></property>
+	</bean>
+	
+	<bean id="StackedColumn2D" parent="FusionChart">
+	  <property name="fileName" value="StackedColumn2D.swf"></property>
+	</bean>
+	
+	<bean id="StackedColumn3D" parent="FusionChart">
+	  <property name="fileName" value="StackedColumn3D.swf"></property>
+	</bean>
+	
+	<bean id="MSStackedColumn2D" parent="FusionChart">
+	  <property name="fileName" value="StackedColumn2D.swf"></property>
+	</bean>
+	
+	<bean id="MSColumnLine3D" parent="FusionChart">
+	  <property name="fileName" value="MSColumnLine3D.swf"></property>
+	</bean>
+	
+   <bean id="FreeChart" abstract="true"></bean>
+   <bean id="PieChart" class="com.baosight.iplat4j.ef.chart.freeChart.chartImpl.PieChart" parent="FreeChart" lazy-init="true" ></bean>
+   <bean id="MsFreeChart" class="com.baosight.iplat4j.ef.chart.freeChart.chartImpl.MsFreeChart" parent="FreeChart" lazy-init="true" ></bean>
+   <bean id="MsLineChart" class="com.baosight.iplat4j.ef.chart.freeChart.chartImpl.ms.MsLineChart" parent="MsFreeChart" lazy-init="true" ></bean>
+   <bean id="MsColumnChart" class="com.baosight.iplat4j.ef.chart.freeChart.chartImpl.ms.MsColumnChart" parent="MsFreeChart" lazy-init="true" ></bean>
+
+</beans>

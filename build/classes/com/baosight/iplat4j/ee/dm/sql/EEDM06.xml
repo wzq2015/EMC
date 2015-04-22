@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-18 15:50:12
+   		Version :  1.0.1.V20070717
+		table comment : 文件信息表
+		tableName :${platSchema}.TEEDM06 
+		 FILE_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 FILE_NAME  VARCHAR2, 
+		 FILE_URL  VARCHAR2, 
+		 HAVE_OBJ  VARCHAR2, 
+		 FILE_OBJ  BLOB
+	-->
+<sqlMap namespace="EEDM06">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.EEDM06">
+		SELECT
+				FILE_CODE	as "fileCode",  <!-- 文件代号 -->
+				FILE_NAME	as "fileName",  <!-- 文件名称 -->
+				FILE_URL	as "fileUrl",  <!-- 文件路径 -->
+				HAVE_OBJ	as "haveObj"  <!-- 是否具有文件对象 -->
+		FROM ${platSchema}.TEEDM06 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="fileCode">
+			FILE_CODE = #fileCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="fileName">
+			FILE_NAME like '%$fileName$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  FILE_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM06 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="fileCode">
+			FILE_CODE = #fileCode#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="fileCode">
+			FILE_CODE = #fileCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="fileName">
+			FILE_NAME = #fileName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="fileUrl">
+			FILE_URL = #fileUrl#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="haveObj">
+			HAVE_OBJ = #haveObj#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="fileObj">
+			FILE_OBJ = #fileObj#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM06 (FILE_CODE,  <!-- 文件代号 -->
+										FILE_NAME,  <!-- 文件名称 -->
+										FILE_URL,  <!-- 文件路径 -->
+										HAVE_OBJ,  <!-- 是否具有文件对象 -->
+										FILE_OBJ  <!-- 文件对象 -->
+										)		 
+		VALUES (#fileCode:VARCHAR#, #fileName:VARCHAR#, #fileUrl:VARCHAR#, #haveObj:VARCHAR#, empty_blob())
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM06 WHERE 
+			FILE_CODE = #fileCode#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM06 
+		SET 
+					FILE_NAME	= #fileName#,   <!-- 文件名称 -->
+					FILE_URL	= #fileUrl#,   <!-- 文件路径 -->
+					HAVE_OBJ	= #haveObj#   <!-- 是否具有文件对象 -->
+			WHERE 	
+			FILE_CODE = #fileCode#
+	</update>
+	
+	<update id="updateServerFileName">
+		UPDATE ${platSchema}.TEEDM06 
+		SET 
+					FILE_NAME	= #fileName#,   <!-- 文件名称 -->
+					FILE_URL	= #fileUrl#   <!-- 文件路径 -->
+			WHERE 	
+			FILE_CODE = #fileCode#
+	</update>
+	<update id="updateDBFileName">
+		UPDATE ${platSchema}.TEEDM06 
+		SET 
+					HAVE_OBJ	= #haveObj#   <!-- 是否具有文件对象 -->
+			WHERE 	
+			FILE_CODE = #fileCode#
+	</update>	
+	
+  
+</sqlMap>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util = "http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+
+	<bean id="selectBiz" class="com.baosight.iplat4j.ed.util.SelectBiz">
+				<property name="dao" ref="dao" />
+	</bean>
+
+	<bean id="codesetBiz" class="com.baosight.iplat4j.ed.util.CodesetBiz">
+				<property name="dao" ref="dao" />
+	</bean>
+
+	<bean id="edfa00Select"
+		class="com.baosight.iplat4j.ed.domain.SelectDefineBean">
+		<property name="tableName" value="${platSchema}.TEDFA00" />
+		<property name="valueColumnName" value="FORM_ENAME" />
+		<property name="labelColumnName" value="FORM_CNAME" />
+		<property name="condition" value="" />
+		<property name="orderBy" value="FORM_ENAME asc" />
+	</bean>
+
+	<bean id="edfa80Select"
+		class="com.baosight.iplat4j.ed.domain.SelectDefineBean">
+		<property name="tableName" value="${platSchema}.TEDFA80" />
+		<property name="valueColumnName" value="COLUMN_NAME" />
+		<property name="labelColumnName" value="PROP_NAME" />
+		<property name="condition" value="" />
+		<property name="orderBy" value="COLUMN_ID asc" />
+	</bean>
+	
+	
+	<!--<util:map id="el00031Select" map-class="java.util.HashMap" >
+	  <entry key="0100" value="EL00031.SpecialQuery" />
+	  <entry key="0101" value="EL00031.SpecialQueryForService" />
+	</util:map>
+	-->
+
+	
+	<!-- 小代码获取接口 -->
+
+</beans>

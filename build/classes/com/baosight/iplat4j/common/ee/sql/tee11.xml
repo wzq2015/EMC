@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2009-11-11 14:06:30
+   		Version :  1.0.1.V20070717
+		table comment : 测试
+		tableName :${platSchema}.TEE11 
+		 REC_CREATOR  VARCHAR2   NOT NULL   primarykey, 
+		 W_MODEL_ID  NUMBER   NOT NULL, 
+		 W_MODEL_NAME  VARCHAR2   NOT NULL, 
+		 W_MODEL_LABEL  VARCHAR2   NOT NULL, 
+		 W_CREATED_TIME  VARCHAR2   NOT NULL, 
+		 W_DESCR  VARCHAR2   NOT NULL, 
+		 REC_CREATE_TIME  VARCHAR2   NOT NULL, 
+		 REC_REVISOR  VARCHAR2   NOT NULL, 
+		 REC_REVISE_TIME  VARCHAR2   NOT NULL, 
+		 ARCHIVE_FLAG  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="tee11">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEE11">
+		SELECT
+				REC_CREATOR	as "rec_creator",  <!-- 记录创建责任者 -->
+				W_MODEL_ID	as "w_model_id",  <!-- 模型标识 -->
+				W_MODEL_NAME	as "w_model_name",  <!-- 模型名称 -->
+				W_MODEL_LABEL	as "w_model_label",  <!-- 模型标签 -->
+				W_CREATED_TIME	as "w_created_time",  <!-- 模型创建时间 -->
+				W_DESCR	as "w_descr",  <!-- 描述信息 -->
+				REC_CREATE_TIME	as "rec_create_time",  <!-- 记录创建时刻 -->
+				REC_REVISOR	as "rec_revisor",  <!-- 记录修改责任者 -->
+				REC_REVISE_TIME	as "rec_revise_time",  <!-- 记录修改时刻 -->
+				ARCHIVE_FLAG	as "archive_flag" <!-- 归档标记 -->
+		FROM ${platSchema}.TEE11 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="rec_creator">
+			REC_CREATOR = #rec_creator#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  REC_CREATOR asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEE11 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="rec_creator">
+			REC_CREATOR = #rec_creator#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="rec_creator">
+			REC_CREATOR = #rec_creator#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="w_model_id">
+			W_MODEL_ID = #w_model_id#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="w_model_name">
+			W_MODEL_NAME = #w_model_name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="w_model_label">
+			W_MODEL_LABEL = #w_model_label#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="w_created_time">
+			W_CREATED_TIME = #w_created_time#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="w_descr">
+			W_DESCR = #w_descr#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="rec_create_time">
+			REC_CREATE_TIME = #rec_create_time#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="rec_revisor">
+			REC_REVISOR = #rec_revisor#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="rec_revise_time">
+			REC_REVISE_TIME = #rec_revise_time#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="archive_flag">
+			ARCHIVE_FLAG = #archive_flag#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEE11 (REC_CREATOR,  <!-- 记录创建责任者 -->
+										W_MODEL_ID,  <!-- 模型标识 -->
+										W_MODEL_NAME,  <!-- 模型名称 -->
+										W_MODEL_LABEL,  <!-- 模型标签 -->
+										W_CREATED_TIME,  <!-- 模型创建时间 -->
+										W_DESCR,  <!-- 描述信息 -->
+										REC_CREATE_TIME,  <!-- 记录创建时刻 -->
+										REC_REVISOR,  <!-- 记录修改责任者 -->
+										REC_REVISE_TIME,  <!-- 记录修改时刻 -->
+										ARCHIVE_FLAG  <!-- 归档标记 -->
+										)		 
+		VALUES (#rec_creator:VARCHAR#, #w_model_id:NUMERIC#, #w_model_name:VARCHAR#, #w_model_label:VARCHAR#, #w_created_time:VARCHAR#, #w_descr:VARCHAR#, #rec_create_time:VARCHAR#, #rec_revisor:VARCHAR#, #rec_revise_time:VARCHAR#, #archive_flag:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEE11 WHERE 
+			REC_CREATOR = #rec_creator#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEE11 
+		SET 
+					W_MODEL_ID	= #w_model_id:NUMERIC#,   <!-- 模型标识 -->
+					W_MODEL_NAME	= #w_model_name#,   <!-- 模型名称 -->
+					W_MODEL_LABEL	= #w_model_label#,   <!-- 模型标签 -->
+					W_CREATED_TIME	= #w_created_time#,   <!-- 模型创建时间 -->
+					W_DESCR	= #w_descr#,   <!-- 描述信息 -->
+					REC_CREATE_TIME	= #rec_create_time#,   <!-- 记录创建时刻 -->
+					REC_REVISOR	= #rec_revisor#,   <!-- 记录修改责任者 -->
+					REC_REVISE_TIME	= #rec_revise_time#,   <!-- 记录修改时刻 -->
+					ARCHIVE_FLAG	= #archive_flag#  <!-- 归档标记 -->
+			WHERE 	
+			REC_CREATOR = #rec_creator#
+	</update>
+  
+</sqlMap>

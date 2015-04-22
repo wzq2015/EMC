@@ -1,0 +1,46 @@
+## 主明细表页面模板
+#parse("${meta.templateHome}_page_header.jsp.vm")
+
+#set($_region_id = "ef_region_inqu")
+#set($_region_default_title = "查询条件")
+#set($_block_id = "inqu_status")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#set($_layout = $meta.utility.get($meta, ".func$ef_region_result-layout", "t"))
+#if($_layout == "t")
+
+#set($_region_id = "ef_region_result")
+#set($_region_default_title = "记录集")
+#set($_region_default_height = 200)
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#set($_region_id = "ef_region_detail")
+#set($_region_default_title = "明细区")
+#set($_block_id = "detail")
+#set($_region_default_showClear = "false")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#else
+
+#set($_region_id = "ef_region_detail")
+#set($_region_default_title = "明细区")
+#set($_block_id = "detail")
+#set($_region_default_showClear = "false")
+#parse("${meta.templateHome}_page_region.jsp.vm")
+
+#set($_region_id = "ef_region_result")
+#set($_region_default_title = "记录集")
+#set($_region_default_height = 200)
+#set($_grid_id = "ef_grid_result")
+#parse("${meta.templateHome}_page_region_multi_p1.jsp.vm")
+
+#end
+
+<EF:EFRegion/>
+
+#set($_region_id = "ef_region_result")
+#set($_block_id = "result")
+#parse("${meta.templateHome}_page_region_multi_p2.jsp.vm")
+
+#parse("${meta.templateHome}_page_footer.jsp.vm")

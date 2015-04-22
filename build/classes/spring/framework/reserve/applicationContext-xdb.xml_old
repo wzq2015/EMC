@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架之dao设置 -->
+
+	<bean id="tableSqlDao" class="com.baosight.iplat4j.xdb.sqldao.TableSqlDaoNamedSqlImpl">
+		<property name="dbDict" ref="dbDict" />
+		<property name="namedSqlDao" ref="namedSqlDao" />
+	</bean>
+	
+	<bean id="dbDict" class="com.baosight.iplat4j.xdb.dbdict.impl.DbDictResourceImpl">
+		<property name="resourceProviderId" value="dbDict" />
+		<property name="refreshDelay"><value>300000</value></property>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="tableService" class="com.baosight.iplat4j.xdb.tableservice.TableServiceDaoImpl" abstract="true" >
+		<property name="tableSqlDao" ref="tableSqlDao" />
+		<property name="tableServiceInvoker" ref="tableServiceInvoker" />
+	</bean>
+
+	
+	<bean id="tableServiceInvoker" class="com.baosight.iplat4j.xdb.tableservice.TableServiceInvokerDaoImpl">
+		<property name="tableSqlDao" ref="tableSqlDao" />
+		<property name="dbDict" ref="dbDict" />
+	</bean>
+	
+	<bean id="soaInvokerAutoTableServiceImpl" class="com.baosight.iplat4j.xdb.soa.SoaInvokerAutoTableServiceImpl">
+		<property name="tableServiceInvoker" ref="tableServiceInvoker"/>
+		<property name="soaConfig" ref="soaConfig"/>
+	</bean>
+	
+	<bean class="com.baosight.iplat4j.core.resource.impl.PropertiesResourceProviderImpl"  init-method="init">
+        <property name="providerId"><value>dbDict</value></property>
+		<property name="refreshDelay"><value>300000</value></property>
+		<property name="propertieFiles">
+			<list>
+				<value>classpath*:resources/dbdict/**/*.properties</value>
+			</list>
+		</property>
+    </bean>
+	
+
+</beans>

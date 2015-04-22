@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 通用工具类 -->
+	<bean id="edCommonUtil" class="com.baosight.iplat4j.ed.md.common.CommonUtil">
+		<property name="dao" ref="dao" />
+	</bean>
+
+	<!-- 序列号业务处理类 -->
+	<bean id="edSeqBiz" class="com.baosight.iplat4j.ed.md.common.SeqBiz">
+		<property name="dao" ref="dao" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="edSeqGenerater" class="com.baosight.iplat4j.ed.md.common.SeqGenerater">
+		<property name="seqBiz" ref="edSeqBiz" />
+	</bean>
+
+    <bean id="commonSeqGenerater" class="com.baosight.iplat4j.ed.md.common.CommonSeqGenerater">
+		<property name="dao" ref="dao" />
+        <property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="edSeqGeneraterFacade"
+		class="com.baosight.iplat4j.ed.md.api.impl.SeqGeneraterFacadeImpl">
+		<property name="seqGenerater" ref="edSeqGenerater" />
+	</bean>
+
+	<!-- 代码生成实现类 -->
+	<bean id="codeManager" class="com.baosight.iplat4j.ed.md.codegen.impl.CodeManagerImpl">
+		<property name="codeGenerators">
+			<map>
+				<entry key="jsp">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.JavaServerPageGenerator">
+					</bean>
+				</entry>
+				<entry key="js">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.JavascriptGenerator">
+					</bean>
+				</entry>
+				<entry key="service">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.JavaServiceGenerator">
+					</bean>
+				</entry>
+				<entry key="bean">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.JavaBeanGenerator">
+					</bean>
+				</entry>
+				<entry key="sqlmap">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.SqlMapGenerator">
+					</bean>
+				</entry>
+				<entry key="sql">
+					<bean class="com.baosight.iplat4j.ed.md.codegen.impl.SqlGenerator">
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="tableArchiver" class="com.baosight.iplat4j.eu.dbUtil.DataBaseArchiver">
+	<property name="namedDao" ref="namedSqlDao"/>
+	<property name="dao" ref="dao"/>	
+	</bean>
+
+</beans>

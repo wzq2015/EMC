@@ -1,0 +1,57 @@
+<EF:EFView #if(${isInterfacePreview}==false)x:Class="Baosight.${appSystemName}.${moduleName}.UI.${viewName}"#end 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:EF="clr-namespace:Baosight.Platform.Core.UI.Controls;assembly=Baosight.Platform.Core.UI.Controls"
+    xmlns:EDMD="clr-namespace:Baosight.Platform.EDMD.UI;assembly=Baosight.Platform.EDMD.UI"
+	xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+    eTitle="${viewTitle}" eServiceType="JavaHttpRequest" eServiceName="${serviceName}" eMethodName="query" >
+
+#set ($SubControls = ${top.SubControls})
+#if($hasDataForm==true)
+	<EF:EFView.Resources>
+	#parse("./resources/igtemplate/DataTemplateResource.vm")
+	</EF:EFView.Resources>
+#end
+
+	<ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" Height="Auto" BorderThickness="0">
+	
+	#if( ${top.LayoutType} == 'Grid' )
+	
+	<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+	    
+	    <Grid.ColumnDefinitions>
+	    #set( $columnlist = $top.ColumnWidth.split( " " ) )
+	    #foreach( ${columnWidth} in $columnlist )
+		<ColumnDefinition Width="${columnWidth}" />
+		#end
+	    </Grid.ColumnDefinitions>
+	    
+	    <Grid.RowDefinitions>
+	    #set( $rowlist = $top.RowHeight.split( " " ) )
+	    #foreach( ${rowHeight} in $rowlist )
+		<RowDefinition Height="${rowHeight}" />
+		#end
+	    </Grid.RowDefinitions>
+
+	#else
+    <StackPanel Orientation="${top.LayoutType}">
+    #end
+    
+    #foreach($control in ${top.SubControls})
+#set( $regionvmpath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+#parse("${regionvmpath}")
+    #end
+    
+    #if( ${top.LayoutType} == 'Grid' )
+    </Grid>
+    #else
+    </StackPanel>
+	#end
+	
+    </ScrollViewer>
+</EF:EFView>
+
+
+
+

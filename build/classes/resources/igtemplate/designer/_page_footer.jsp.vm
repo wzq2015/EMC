@@ -1,0 +1,50 @@
+##
+## 页面尾部的处理模板
+##
+#if(!$meta.hasSubModule)
+<jsp:include flush="false" page="../EF/Form/EFFormTail.jsp"></jsp:include>
+#else
+<jsp:include flush="false" page="../../EF/Form/EFFormTail.jsp"></jsp:include>
+#end
+</form>
+##
+## 生成日期选择的处理方法
+##
+#if($_date_fields.size() > 0)
+<script type="text/javascript">
+	efcalendar_click = function (control_source, id) {
+		var node = ef.getNodeById(id);
+#set($_count = 0)
+#foreach($_date_field in $_date_fields)
+		$_date_field
+#end
+		efcalendar(control_source, node, 'yyyy-mm-dd', true);
+	};
+</script>
+#end
+##
+## 生成树型选择的处理方法
+##
+#if($_treeselect_fields.size() > 0)
+<script type="text/javascript">
+#foreach($_treeselect_field in $_treeselect_fields)
+config_tree_${_treeselect_field.get(0)} = function(tree) {
+	tree.nodeInitializer = function(node) {
+		node.textClicked = function() {
+			ef.get("${_treeselect_field.get(1)}").value=node.label() ;
+			efwindow.hide();
+		};
+		node._jTreeNodeDIV.title = node.label()+" "+node.text();//鼠标悬浮到节点上的提示信息。
+
+		//值第二层的树节点背景色为粉红色。
+		if(node.depth()==2)
+		node._jNodeTextDiv.style.background="pink";
+	};
+	tree.initialExpandDepth = 1;//树默认展开到第1层。  将深度设置的深一点，就可以全部展开。
+	tree.param = "${_treeselect_field.get(2)}";
+}
+#end
+</script>
+#end
+</body>
+</html>

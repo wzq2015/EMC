@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2007-05-23 10:27:05
+   		Version :  1.0.1.V20070521
+		tableName :TEE60 
+		 NUMBER1  NUMBER   NOT NULL   primarykey, 
+		 NUMBER2  NUMBER   NOT NULL, 
+		 NUMBER3  NUMBER   NOT NULL, 
+		 NUMBER4  NUMBER   NOT NULL, 
+		 NUMBER5  NUMBER   NOT NULL, 
+		 NUMBER6  NUMBER   NOT NULL
+	-->
+<sqlMap namespace="EE60ZZ">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.domain.TEE60ZZ">
+		SELECT
+				NUMBER1	as "number1",  
+				NUMBER2	as "number2",  
+				NUMBER3	as "number3",  
+				NUMBER4	as "number4",  
+				NUMBER5	as "number5",  
+				NUMBER6	as "number6" 
+		FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  NUMBER1 asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM TEE60 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="number1">
+			NUMBER1 = #number1#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="number2">
+			NUMBER2 = #number2#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="number3">
+			NUMBER3 = #number3#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="number4">
+			NUMBER4 = #number4#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="number5">
+			NUMBER5 = #number5#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="number6">
+			NUMBER6 = #number6#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO TEE60 (NUMBER1,
+										NUMBER2,
+										NUMBER3,
+										NUMBER4,
+										NUMBER5,
+										NUMBER6
+										)		 
+		VALUES (#number1:NUMERIC#, #number2:NUMERIC#, #number3:NUMERIC#, #number4:NUMERIC#, #number5:NUMERIC#, #number6:NUMERIC#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM TEE60 WHERE 
+			NUMBER1 = #number1#
+	</delete>
+
+	<update id="update">
+		UPDATE TEE60 
+		SET 
+					NUMBER2	= #number2:NUMERIC#, 
+					NUMBER3	= #number3:NUMERIC#, 
+					NUMBER4	= #number4:NUMERIC#, 
+					NUMBER5	= #number5:NUMERIC#, 
+					NUMBER6	= #number6:NUMERIC#
+			WHERE 	
+			NUMBER1 = #number1#
+	</update>
+  
+</sqlMap>

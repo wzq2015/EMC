@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  	<bean id="teleSend_xcom" class="com.baosight.iplat4j.tele.send.impl.TeleSendXcomImpl">
+  		<property name="xcomUrl" value="http://localhost:8080/PlatDemo/xmlrpc"/>
+  		<property name="xcomSendFunctionName" value="app2xcom"/>
+  		<property name="xcomSendGroupFunctionName" value="app2xcomgroup"/>
+  		<!--default set
+  		<property name="encoding" value="GBK"/>
+  		<property name="useBase64" value="true"/>
+  		-->
+  	</bean>
+  	<bean id="teleSend_eai" class="com.baosight.iplat4j.tele.send.impl.TeleSendEaiImpl"/>
+  	
+  	<bean id="teleReceive_xcom" class="com.baosight.iplat4j.tele.receive.impl.TeleReceiveXcomImpl">
+  		<property name="backService" value="backService.backupReveivedMessage"/>
+  		<!--default set
+  		<property name="encoding" value="GBK"/>
+  		<property name="useBase64" value="true"/>
+  		-->
+  	</bean>
+  	
+  	<!--<bean id="tele_config" class="com.baosight.iplat4j.tele.config.impl.TeleConfigMappingResourceImpl"/>-->
+  	<bean id="tele_config" class="com.baosight.iplat4j.tele.config.impl.TeleConfigMappingDbImpl" init-method="init">
+  		<property name="namedSqlDao" ref="namedSqlDao"/>
+  	</bean>
+  	
+
+    <bean id="tele_monitor" class="com.baosight.iplat4j.tele.TeleMonitor" >
+  		<property name="namedSqlDao" ref="namedSqlDao"/>
+  		<property name="monitorTable" value="T_DC_SEND_MESSAGE" />
+  	</bean> 
+</beans>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="hisalarm">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.Hisalarm">
+		SELECT
+				fd_nodename	as "fdNodename",  
+				fd_tagname	as "fdTagname",  
+				fd_alarmtype	as "fdAlarmtype",  
+				fd_occurtime	as "fdOccurtime",  
+				fd_status	as "fdStatus",  
+				fd_tagdesp	as "fdTagdesp",  
+				fd_egu	as "fdEgu",  
+				fd_classname	as "fdClassname",  
+				fd_subsystem	as "fdSubsystem",  
+				fd_category	as "fdCategory",  
+				fd_priority	as "fdPriority",  
+				fd_confirmtime	as "fdConfirmtime",  
+				fd_recovertime	as "fdRecovertime",  
+				fd_confirmperson	as "fdConfirmperson",  
+				fd_curvalue	as "fdCurvalue",  
+				fd_alarmid	as "fdAlarmid" 
+		FROM .hisalarm WHERE 1=1
+		<isNotEmpty prepend=" AND " property="StartTime">
+			fd_occurtime &gt;= #StartTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="EndTime">
+			fd_occurtime &lt;= #EndTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tagName">
+			fd_tagname like CONCAT('%',#tagName#,'%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ProjectName">
+			fd_tagname like CONCAT('%',#ProjectName#,'%')
+		</isNotEmpty>
+		order by fd_occurtime asc	
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .hisalarm WHERE 1=1
+		<isNotEmpty prepend=" AND " property="StartTime">
+			fd_occurtime &gt;= #StartTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="EndTime">
+			fd_occurtime &lt;= #EndTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tagName">
+			fd_tagname like CONCAT('%',#tagName#,'%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ProjectName">
+			fd_tagname like CONCAT('%',#ProjectName#,'%')
+		</isNotEmpty>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO .hisalarm (fd_nodename,
+										fd_tagname,
+										fd_alarmtype,
+										fd_occurtime,
+										fd_status,
+										fd_tagdesp,
+										fd_egu,
+										fd_classname,
+										fd_subsystem,
+										fd_category,
+										fd_priority,
+										fd_confirmtime,
+										fd_recovertime,
+										fd_confirmperson,
+										fd_curvalue,
+										fd_alarmid
+										)		 
+	    VALUES (#fdNodename#, #fdTagname#, #fdAlarmtype#, #fdOccurtime#, #fdStatus#, #fdTagdesp#, #fdEgu#, #fdClassname#, #fdSubsystem#, #fdCategory#, #fdPriority#, #fdConfirmtime#, #fdRecovertime#, #fdConfirmperson#, #fdCurvalue#, #fdAlarmid#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .hisalarm WHERE 
+			fd_nodename = #fdNodename# AND 
+			fd_tagname = #fdTagname# AND 
+			fd_alarmtype = #fdAlarmtype# AND 
+			fd_occurtime = #fdOccurtime# AND 
+			fd_status = #fdStatus#
+	</delete>
+
+	<update id="update">
+		UPDATE .hisalarm 
+		SET 
+																	fd_tagdesp	= #fdTagdesp#,   
+					fd_egu	= #fdEgu#,   
+					fd_classname	= #fdClassname#,   
+					fd_subsystem	= #fdSubsystem#,   
+					fd_category	= #fdCategory#,   
+					fd_priority	= #fdPriority#,   
+					fd_confirmtime	= #fdConfirmtime#,   
+					fd_recovertime	= #fdRecovertime#,   
+					fd_confirmperson	= #fdConfirmperson#,   
+					fd_curvalue	= #fdCurvalue#,   
+					fd_alarmid	= #fdAlarmid#  
+			WHERE 	
+			fd_nodename = #fdNodename# AND 
+			fd_tagname = #fdTagname# AND 
+			fd_alarmtype = #fdAlarmtype# AND 
+			fd_occurtime = #fdOccurtime# AND 
+			fd_status = #fdStatus#
+	</update>
+	
+</sqlMap>

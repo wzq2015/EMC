@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_area 
+		 f_area_id  INTEGER   NOT NULL   primarykey, 
+		 f_area_name  VARCHAR   NOT NULL, 
+		 f_area_desc  VARCHAR
+	-->
+<sqlMap namespace="tArea">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TArea">
+		SELECT
+				f_area_id	as "f_areaId",  
+				f_area_name	as "f_areaName",  
+				f_area_desc	as "f_areaDesc" 
+		FROM .t_area WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_areaId">
+			f_area_id = #f_areaId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_areaName">
+			f_area_name = #f_areaName#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_area_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_area WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_areaId">
+			f_area_id = #f_areaId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_areaId">
+			f_area_id = #f_areaId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_areaName">
+			f_area_name = #f_areaName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_areaDesc">
+			f_area_desc = #f_areaDesc#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_area (f_area_id,
+										f_area_name,
+										f_area_desc
+										)		 
+	    VALUES (#f_areaId#, #f_areaName#, #f_areaDesc#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_area WHERE 
+			f_area_id = #f_areaId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_area 
+		SET 
+					f_area_name	= #f_areaName#,   
+					f_area_desc	= #f_areaDesc#  
+			WHERE 	
+			f_area_id = #f_areaId#
+	</update>
+  
+</sqlMap>

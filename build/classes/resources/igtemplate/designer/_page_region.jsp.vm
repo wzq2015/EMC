@@ -1,0 +1,22 @@
+##
+## 渲染单记录区域的通用模板
+## 调用时需要设置以下参数
+## $_region_id 区域的ID
+## $_region_default_title 区域默认的名称
+## $_block_id 区域中字段对应的Block ID
+#set($_block_name = ".func$" + "${_region_id}")
+#set($_region_title = $meta.utility.get($meta, "${_block_name}-regionTitle", "$_region_default_title"))
+#set($_field_width = $meta.utility.get($meta, "${_block_name}-fieldWidth", 280))
+#set($_field_text_width = $meta.utility.get($meta, "${_block_name}-fieldTextWidth", 105))
+#set($_region_default_showClear = $meta.utility.getValue($_region_default_showClear, "true"))
+#set($_region_showClear = $meta.utility.get($meta, "${_block_name}-showClear", "$_region_default_showClear"))
+##set($_block_id = "inqu_status")
+#set($_fields = $meta.getBlock("${_block_name}").getBlockMeta().getMetas())
+#set($_max_col_number = $meta.utility.get($meta, "${_block_name}-maxColNumber", 4))
+#set($_split_ratio = $meta.utility.get($meta, "${_block_name}-splitRatio", 40))
+
+<div id = "$_region_id" title="$_region_title" efRegionShowClear="$_region_showClear">
+	<div style="overflow:hidden;width:100%">
+#parse("${meta.templateHome}_data_table.jsp.vm")
+	</div>
+</div>

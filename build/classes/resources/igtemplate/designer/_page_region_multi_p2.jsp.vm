@@ -1,0 +1,20 @@
+##
+## 渲染多记录表格TAG定义区域的通用模板
+## 调用时需要设置以下参数
+## $_region_id 区域的ID
+## $_block_id 区域中数据表格的block ID
+#set($_block_name = ".func$" + "${_region_id}")
+#set($_sum_type = $meta.utility.get($meta, "${_block_name}-sumType", "none"))
+#set($_grid_ajax = $meta.utility.get($meta, "${_block_name}-ajax", "true"))
+#set($_grid_attr = $meta.utility.get($meta, "${_block_name}-gridAttr", ""))
+#set($_block_meta = $meta.getBlock("${_block_name}").getBlockMeta().getMetas())
+#if("slave" == $_block_id)
+#set($_query_method = ' queryMethod="querySlave"')
+#else
+#set($_query_method = "")	
+#end
+<EF:EFGrid blockId="$_block_id" sumType="$_sum_type" ajax="$_grid_ajax"$_query_method $_grid_attr >
+#foreach( $_column in $_block_meta)
+#parse("${meta.templateHome}_data_column.jsp.vm")
+#end
+</EF:EFGrid>

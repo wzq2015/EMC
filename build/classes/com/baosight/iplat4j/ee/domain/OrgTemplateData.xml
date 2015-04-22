@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="orgTemplateDao">
+ 	
+ 	<resultMap id="orgNodeMapping"
+		class="demo.ui.tree.OrganizationNode">
+		<result property="parent" column="TARGET_ORG_ID"/>
+		<result property="label" column="ORG_ID" />
+		<result property="text" column="ORG_NAME" />
+		<result property="type" column="ORG_TYPE_ID" />
+	</resultMap>
+ 	
+	<select id="query" parameterClass="java.util.HashMap" resultMap="orgNodeMapping">
+		SELECT TARGET_ORG_ID, ORG_ID, ORG_NAME, ORG_TYPE_ID FROM T_HROG_ORG_RELATION WHERE TARGET_ORG_ID=#PARENT#
+	</select>
+
+</sqlMap>

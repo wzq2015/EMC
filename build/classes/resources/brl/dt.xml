@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<digester-rules> 
+
+   <pattern value="DecisionTable">
+     <object-create-rule classname="com.baosight.eqrd.brl.df.dt.DecisionTable" />
+     <set-properties-rule>
+       <alias attr-name="uuid" prop-name="uuid" />             
+     </set-properties-rule>
+   </pattern>
+
+   <pattern value="*/DataGrid">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.dt.DataGrid" />
+       <set-properties-rule >
+        <alias attr-name="rowNum" prop-name="rowNum" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    <pattern value="*/DecisionVariable">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.dt.DecisionVariable" />
+       <set-properties-rule >
+        <alias attr-name="name" prop-name="name" />
+         <alias attr-name="valueType" prop-name="valueType" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+    
+    <pattern value="*/TR">
+      <object-create-rule classname="com.baosight.eqrd.brl.df.dt.TR" />
+       <set-properties-rule >       
+         <alias attr-name="value" prop-name="value" />
+       </set-properties-rule>
+       <set-next-rule methodname="addChildElement" />
+    </pattern>
+   
+  
+      
+</digester-rules>

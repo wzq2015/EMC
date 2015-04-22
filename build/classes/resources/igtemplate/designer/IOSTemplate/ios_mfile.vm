@@ -1,0 +1,44 @@
+##set( $ON_CLICK = '' )
+
+#if($type=="EFGrid")
+#parse("resources/IOSTemplate/ios_efgrid.vm")
+#else
+#if($type!="EFButton")
+$type* $eId = [[[$type alloc] initWithFrame:CGRectMake($x,$y,$width,$height)] autorelease];
+${eId}.eName = @"$eName";
+#if($type!="EFForm"&&$type!="EFView")
+${eId}.eBindName = @"$eBindName";
+${eId}.eValue = @"$eValue";
+#end
+#else
+EFButton* $eId  = [EFButton buttonWithType:UIButtonTypeRoundedRect];
+[$eId setFrame:CGRectMake($x,$y,$width,$height)];
+#end
+#foreach( $attr in ${CustomAttrs.keySet()} )
+${eId}.$attr = @"${CustomAttrs.get($attr)}";  
+#end
+#if($eBlockName&&$eBlockName.trim().length()!=0)
+${eId}.eBlockName = @"$eBlockName";
+#end
+#if($eValuePath&&$eValuePath.trim().length()!=0)
+${eId}.eValuePath = @"$eValuePath";
+#end
+#if($eCheckedValue&&$eCheckedValue.trim().length()!=0)
+${eId}.eCheckedValue = @"$eCheckedValue";
+#end
+#if($eUnCheckedValue&&$eUnCheckedValue.trim().length()!=0)
+${eId}.eUnCheckedValue = @"$eUnCheckedValue";
+#end
+#if($onClick&&$onClick.trim().length()!=0)
+[$eId addTarget:self action: @selector($onClick :) forControlEvents: UIControlEventTouchUpInside ];
+##if(!$dupicateEvents)
+##parse("resources/IOSTemplate/ios_event.vm")
+##end
+#end
+#if($eParent&&$eParent.trim().length()!=0)
+[$eParent addSubview: $eId];
+
+#end
+#end
+
+

@@ -1,0 +1,24 @@
+	<!-- $service.result-0-methodCname -->
+	<update id="$service.result-0-methodEname">
+		UPDATE  $service.field-0-tableName $service.where-0-tableAlias
+        SET
+#set($items = $service.getBlock("field").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+#set($splitter = ",")
+#if($index == $count - 1)
+#set($splitter = "")
+#end
+			$item.fieldName = #$item.fieldColumnName#$splitter
+#set($index = $index + 1)
+#end
+		WHERE 1=1
+#set($items = $service.getBlock("where").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+		#parse("${base}/dao-condition.vm")
+#set($index = $index + 1)
+#end	
+	</update>

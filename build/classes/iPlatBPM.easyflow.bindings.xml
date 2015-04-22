@@ -1,0 +1,13 @@
+<bindings>
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.StartBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.JoinBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.ManualBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.SubProcessBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.CounterSignatureBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.ForkBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.CodeBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.EndBinding" />
+  <activity binding="com.baosight.ieasyflow.internal.activity.bindings.CustomActivityBinding" />
+  
+  <eventlistener binding="com.baosight.ieasyflow.internal.activity.bindings.EventListenerBinding" />
+</bindings>

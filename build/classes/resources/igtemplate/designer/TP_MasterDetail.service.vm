@@ -1,0 +1,27 @@
+## 主明细表页面service模板
+#parse("${meta.templateHome}_page_header.service.vm")
+
+#set($_region_id = "ef_region_inqu")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+#set($_region_id = "ef_region_result")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+#set($_region_id = "ef_region_detail")
+#parse("${meta.templateHome}_page_region.service.vm")
+
+	public EiInfo getDetail(EiInfo inInfo) {
+		EiInfo outInfo = new EiInfo();
+		//在输出EiInfo中添加明细区对应的block块
+		EiBlock eiBlock = outInfo.addBlock("detail");
+#set($_bean_name = $meta.utility.get($meta, ".func$ef_region_detail-dataModelEname", ""))
+#set($_cond_name = $meta.utility.get($meta, ".func$ef_region_detail-condEname", ""))
+		${_bean_name} bean = new ${_bean_name}();	
+		eiBlock.setBlockMeta(bean.eiMetadata);
+		List list = dao.query("${_bean_name}.${_cond_name}", inInfo.getAttr());
+		eiBlock.setRows(list); //行数据
+		outInfo.setMsgByKey(EPResource.EP_1000, new String[] {String.valueOf(1), "查询明细" });
+		return outInfo;
+	}
+
+#parse("${meta.templateHome}_page_footer.service.vm")

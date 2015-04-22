@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEMD00">
+
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM TEDFA00 t
+		WHERE 1=1
+			AND t.FORM_ENAME = #formEname#
+	</delete>	
+	
+	<!-- 新增 -->
+	<insert id="insert">
+		INSERT INTO TEDFA00 (
+			REC_CREATOR,
+			REC_CREATE_TIME,
+			REC_REVISOR,
+			REC_REVISE_TIME,
+			ARCHIVE_FLAG,
+			FORM_ENAME,
+			FORM_CNAME,
+			FORM_LOAD_PATH,
+			FORM_TYPE,
+			MODULE_ENAME_1,
+			MODULE_ENAME_2,
+			INIT_LOAD_SERVICE_ENAME,
+			IS_GRADE,
+			IS_AUTH,
+			FORM_PARAM,
+			FORM_STYLE
+		)      
+		VALUES (
+			#recCreator: VARCHAR#,
+			#recCreateTime: VARCHAR#,
+			#recRevisor: VARCHAR#,
+			#recReviseTime: VARCHAR#,
+			#archiveFlag: VARCHAR#,
+			#formEname: VARCHAR#,
+			#formCname: VARCHAR#,
+			#formLoadPath: VARCHAR#,
+			#formType: VARCHAR#,
+			#moduleEname1: VARCHAR#,
+			#moduleEname2: VARCHAR#,
+			#initLoadServiceEname: VARCHAR#,
+			#isGrade: VARCHAR#,
+			#isAuth: VARCHAR#,
+			#formParam: VARCHAR#,
+			#formStyle: VARCHAR#
+		)
+	</insert>	
+	
+	<!-- 查询 -->
+	<select id="query" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT
+			t.REC_CREATOR as "recCreator",	
+			t.REC_CREATE_TIME as "recCreateTime",	
+			t.REC_REVISOR as "recRevisor",	
+			t.REC_REVISE_TIME as "recReviseTime",	
+			t.ARCHIVE_FLAG as "archiveFlag",	
+			t.FORM_ENAME as "formEname",	
+			t.FORM_CNAME as "formCname",	
+			t.FORM_LOAD_PATH as "formLoadPath",	
+			t.FORM_TYPE as "formType",	
+			t.MODULE_ENAME_1 as "moduleEname1",	
+			t.MODULE_ENAME_2 as "moduleEname2",	
+			t.INIT_LOAD_SERVICE_ENAME as "initLoadServiceEname",	
+			t.IS_GRADE as "isGrade",	
+			t.IS_AUTH as "isAuth",	
+			t.FORM_PARAM as "formParam",	
+			t.FORM_STYLE as "formStyle"	
+		FROM TEDFA00 t 
+		WHERE 1=1
+		<isNotEmpty prepend=" AND " property="formEname">
+			t.FORM_ENAME = #formEname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="formCname">
+			t.FORM_CNAME = #formCname#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+		    	$orderBy$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<!-- 修改 -->
+	<update id="update">
+		UPDATE  TEDFA00 t
+        SET
+			REC_CREATOR = #recCreator#,
+			REC_CREATE_TIME = #recCreateTime#,
+			REC_REVISOR = #recRevisor#,
+			REC_REVISE_TIME = #recReviseTime#,
+			ARCHIVE_FLAG = #archiveFlag#,
+			FORM_CNAME = #formCname#,
+			FORM_LOAD_PATH = #formLoadPath#,
+			FORM_TYPE = #formType#,
+			MODULE_ENAME_1 = #moduleEname1#,
+			MODULE_ENAME_2 = #moduleEname2#,
+			INIT_LOAD_SERVICE_ENAME = #initLoadServiceEname#,
+			IS_GRADE = #isGrade#,
+			IS_AUTH = #isAuth#,
+			FORM_PARAM = #formParam#,
+			FORM_STYLE = #formStyle#
+		WHERE 1=1
+			AND t.FORM_ENAME = #formEname#
+	</update>	
+	
+
+</sqlMap>

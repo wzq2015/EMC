@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_devicepara_entry 
+		 f_devicepara_entry_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_cycle_id  INTEGER   NOT NULL, 
+		 f_devicepara_name  VARCHAR   NOT NULL, 
+		 f_devicepara_entry_value  VARCHAR, 
+		 f_devicepara_entry_datetime  VARCHAR   NOT NULL
+	-->
+<sqlMap namespace="tDeviceparaEntry">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDeviceparaEntry">
+		SELECT
+				f_devicepara_entry_id	as "f_deviceparaEntryId",  
+				f_emcproject_cycle_id	as "f_emcprojectCycleId",  
+				f_devicepara_name	as "f_deviceparaName",  
+				f_devicepara_entry_value	as "f_deviceparaEntryValue",  
+				f_devicepara_entry_datetime	as "f_deviceparaEntryDatetime" 
+		FROM .t_devicepara_entry WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceparaEntryId">
+			f_devicepara_entry_id = #f_deviceparaEntryId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_devicepara_entry_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryDeviceparaEntryByCycleId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TDeviceparaEntry">
+		SELECT
+				f_devicepara_entry_id	as "f_deviceparaEntryId",  
+				f_emcproject_cycle_id	as "f_emcprojectCycleId",  
+				f_devicepara_name	as "f_deviceparaName",  
+				f_devicepara_entry_value	as "f_deviceparaEntryValue",  
+				f_devicepara_entry_datetime	as "f_deviceparaEntryDatetime" 
+		FROM .t_devicepara_entry WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleId">
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaName">
+			f_devicepara_name = #f_deviceparaName#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_devicepara_entry_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_devicepara_entry WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_deviceparaEntryId">
+			f_devicepara_entry_id = #f_deviceparaEntryId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_deviceparaEntryId">
+			f_devicepara_entry_id = #f_deviceparaEntryId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectCycleId">
+			f_emcproject_cycle_id = #f_emcprojectCycleId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaName">
+			f_devicepara_name = #f_deviceparaName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaEntryValue">
+			f_devicepara_entry_value = #f_deviceparaEntryValue#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_deviceparaEntryDatetime">
+			f_devicepara_entry_datetime = #f_deviceparaEntryDatetime#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_devicepara_entry (f_devicepara_entry_id,
+										f_emcproject_cycle_id,
+										f_devicepara_name,
+										f_devicepara_entry_value,
+										f_devicepara_entry_datetime
+										)		 
+	    VALUES (#f_deviceparaEntryId#, #f_emcprojectCycleId#, #f_deviceparaName#, #f_deviceparaEntryValue#, #f_deviceparaEntryDatetime#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_devicepara_entry WHERE 
+			f_devicepara_entry_id = #f_deviceparaEntryId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_devicepara_entry 
+		SET 
+					f_emcproject_cycle_id	= #f_emcprojectCycleId#,   
+					f_devicepara_name	= #f_deviceparaName#,   
+					f_devicepara_entry_value	= #f_deviceparaEntryValue#,   
+					f_devicepara_entry_datetime	= #f_deviceparaEntryDatetime#  
+			WHERE 	
+			f_devicepara_entry_id = #f_deviceparaEntryId#
+	</update>
+  
+</sqlMap>

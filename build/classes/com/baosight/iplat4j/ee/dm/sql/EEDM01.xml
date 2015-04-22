@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-07 10:03:28
+   		Version :  1.0.1.V20070717
+		table comment : 公司信息表
+		tableName :${platSchema}.TEEDM01 
+		 CODE  VARCHAR2   NOT NULL   primarykey, 
+		 NAME  VARCHAR2, 
+		 TELEPHONE  VARCHAR2, 
+		 ADDRESS  VARCHAR2, 
+		 COUNTRY  VARCHAR2, 
+		 EDATE  VARCHAR2
+	-->
+<sqlMap namespace="EEDM01">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM01">
+		SELECT
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				COMPANY_TEL		as "companyTel",  <!-- 公司电话 -->
+				COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+		FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE like '%$companyCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyName">
+			COMPANY_NAME like '%$companyName$%'
+		</isNotEmpty>	
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE like '%$countryCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyStartDate">
+			COMPANY_DATE >= #companyStartDate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyEndDate">
+			COMPANY_DATE <![CDATA[<]]>= #companyEndDate#
+		</isNotEmpty>		
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty> 
+   		<isEmpty property="orderBy">
+    		  COMPANY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+
+	<select id="unitQuery" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.EEDM01">
+		select 	
+				company.COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				company.COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				company.COMPANY_TEL		as "companyTel",  <!-- 公司电话 -->
+				company.COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				country.continent_code  as "continentCode",<!-- 洲代号 -->
+				company.COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				company.COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+	    FROM ${platSchema}.TEEDM01 company,${platSchema}.TEEDM03 country 
+		WHERE company.country_code = country.country_code	
+		<isNotEmpty prepend=" AND " property="companyCode">
+			company.COMPANY_CODE like '%$companyCode$%'
+		</isNotEmpty> 
+		<isNotEmpty prepend=" AND " property="companyTel">
+			company.COMPANY_TEL like '%$companyTel$%'
+		</isNotEmpty>	
+		<isNotEmpty prepend=" AND " property="continentCode">
+			country.continent_code = #continentCode#
+		</isNotEmpty>		
+		<isNotEmpty prepend=" AND " property="countryCode">
+			company.COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  company.COMPANY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	
+	<select id="queryByCountry" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM01">
+		SELECT
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				COMPANY_TEL	    as "companyTel",  <!-- 公司电话 -->
+				COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+		FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE = #countryCode#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COMPANY_CODE asc
+		</isEmpty>
+  		</dynamic>
+		
+	</select>
+	
+	<select id="queryByName" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM01">
+		SELECT
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				COMPANY_TEL	as "companyTel",  <!-- 公司电话 -->
+				COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+		FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="companyName">
+			COMPANY_NAME like '%$companyName$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COMPANY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	<!--  
+		<isNotEmpty prepend=" AND " property="code">
+			CODE = #code#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="name">
+			NAME = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="telephone">
+			TELEPHONE = #telephone#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="address">
+			ADDRESS = #address#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="country">
+			COUNTRY = #country#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="edate">
+			EDATE = #edate#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM01 (CODE,  <!-- 公司代号 -->
+										NAME,  <!-- 公司名称 -->
+										TELEPHONE,  <!-- 公司电话 -->
+										ADDRESS,  <!-- 公司地址 -->
+										COUNTRY,  <!-- 国家代号 -->
+										EDATE  <!-- 成立日期 -->
+										)		 
+		VALUES (#code:VARCHAR#, #name:VARCHAR#, #telephone:VARCHAR#, #address:VARCHAR#, #country:VARCHAR#, #edate:VARCHAR#)
+	</insert>
+  
+
+  
+</sqlMap>

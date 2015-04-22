@@ -1,0 +1,56 @@
+#set( $H = '#' )
+$type* $eId =[[$type alloc] initWithFrame:CGRectMake($x,$y,$width,$height) style:UITableViewStylePlain];
+${eId}.eBlockName = @"$eBlockName";
+#foreach( $attr in ${CustomAttrs.keySet()} )
+${eId}.$attr = @"${CustomAttrs.get($attr)}";  
+#end
+${eId}.initCell = ^(NSMutableDictionary * row){ return [[[$cellName alloc] initWithStyle:UITableViewCellStyleValue2 
+reuseIdentifier:@"gridIdentifier"] autorelease];};
+
+${eId}.eGroupFieldName = nil; 
+${eId}.eGroupSort = ESortTypeDescend; 
+${eId}.eSortFieldName = nil;
+${eId}.eSort = ESortTypeAscend;
+
+${eId}.eAddingRowEnabled = YES;
+${eId}.ePagingEnabled = YES;    
+${eId}.ePageSize = 5;
+${eId}.doBeginDragToRefreshData = ^(EDragMode dragMode)
+                                    {
+                                        if (dragMode == EDragModeTop) 
+                                        {
+                                            //Drag Grid Top Event
+
+                                            
+                                        }
+                                        else if (dragMode == EDragModeButtom) 
+                                        {
+                                            //Drag Grid Bottom Event
+
+										}
+                                    };
+
+ [${eId} setRowHeight:${cellHeight}];
+
+${eId}.doBeginActionOnRow = ^(EActionType actionType , NSMutableDictionary* row)
+{
+       if(actionType ==EActionTypeAddRow)
+       {
+          //Grid AddRow Event
+          
+       }
+       else if(actionType ==EActionTypeEditRow)
+       {
+          //Grid EditRow Event 
+       }
+       
+       [$eId doEndAction:actionType OnRow:row];
+       
+       return <${H}EFForm${H}>;
+};
+
+${eId}.doDeleteOnRow = ^(NSMutableDictionary* row)
+{
+  [$eId doEndAction:EActionTypeDeleteRow OnRow:row];
+};
+[$eParent addSubview: $eId];

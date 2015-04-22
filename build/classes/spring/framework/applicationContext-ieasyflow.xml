@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="springHelper" class="com.baosight.ieasyflow.pvm.processengine.SpringHelper">
+  		<property name="bpmCfg" value="iPlatBPM.cfg.xml"></property>
+	</bean>
+	<bean id="processEngine" factory-bean="springHelper" factory-method="createProcessEngine" />
+    
+    <!--
+    <bean id="executionService" factory-bean="processEngine" factory-method="getExecutionService" />    
+    <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+    <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+    
+    <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+	-->
+	
+	<bean id="AuthorizationQuery" class="com.baosight.ieasyflow.internal.AuthorizationQueryImpl"/>
+
+	<!--<bean id="IdGenerator" class="com.baosight.ieasyflow.util.NewTransactionKeyGenerator"/>-->
+	<bean id="IdGenerator" class="com.baosight.ieasyflow.util.RandomExKeyGenerator"/>
+	
+	<bean id="EpassOrgModelAccessService" class="com.baosight.ieasyflow.auth.EpassOrgModelAccessService"/>
+	<bean id="ExecutionServiceImpl" class="com.baosight.ieasyflow.pvm.svc.ExecutionServiceImpl"/>	
+	<bean id="TaskServiceImpl" class="com.baosight.ieasyflow.pvm.svc.TaskServiceImpl"></bean>
+	<bean id="HistoryServiceImpl" class="com.baosight.ieasyflow.pvm.svc.HistoryServiceImpl"/>
+	<bean id="RepositoryServiceImpl" class="com.baosight.ieasyflow.pvm.repository.RepositoryServiceImpl"/>
+	<bean id="DelegationServiceImpl" class="com.baosight.ieasyflow.pvm.svc.DelegationServiceImpl"></bean>
+	
+	<bean id="ServiceContainer" class="com.baosight.ieasyflow.internal.ServiceContainer">
+        <property name="orgModelAccessService" ref="EpassOrgModelAccessService"/>
+    	<property name="executionService" ref="ExecutionServiceImpl"/>
+    	<property name="taskService" ref="TaskServiceImpl"/>
+    	<property name="historyService" ref="HistoryServiceImpl"/><!---->
+    	<property name="repositoryService" ref="RepositoryServiceImpl"/>
+    	<property name="delegationService" ref="DelegationServiceImpl"/>
+    </bean>
+    
+    
+    <bean id="RepositoryAccess" class="com.baosight.ieasyflow.pvm.repository.RepositoryAccessThirdImpl"/>
+
+    <bean id="UserAuthorization" class="com.baosight.ieasyflow.auth.EpassUserAuthorization"/>
+    <bean id="RoleAuthorization" class="com.baosight.ieasyflow.auth.EpassRoleAuthorization"/>
+    <bean id="PRCESS_INS_STARTERAuthorization" class="com.baosight.ieasyflow.auth.EpassProcessInsStarterAuthorization"/>
+    
+
+    <bean id="UserAccess" class="com.baosight.ieasyflow.auth.EpassUserAccess"/>
+    <bean id="RoleAccess" class="com.baosight.ieasyflow.auth.EpassRoleAccess"/>
+    <bean id="PRCESS_INS_STARTERAccess" class="com.baosight.ieasyflow.auth.EpassProcessInsStarterAccess"/>
+    
+ 
+ 	<!-- API -->
+    <bean id="WorkflowManager" class="com.baosight.ieasyflow.engine.WorkflowManager"/>
+ 	
+ 	<!--  
+ 	<bean id="ManualActivityTaskProcess" class="com.baosight.ieasyflow.internal.activity.BizManualActivityTaskProcess"/>
+ 	<bean id="StartActivityTaskProcess" class="com.baosight.ieasyflow.internal.activity.BizStartActivityTaskProcess"/>
+ 	-->
+ 	<bean id="ManualActivityTaskProcess" class="com.baosight.ieasyflow.internal.activity.ManualActivityTaskProcess"/>
+ 	<bean id="StartActivityTaskProcess" class="com.baosight.ieasyflow.internal.activity.StartActivityTaskProcess"/>
+ 	<bean id="EasyFlowExternalActivityTaskProcess" class="com.baosight.ieasyflow.internal.activity.ManualActivityTaskProcess"/>
+ 	 
+ 	 
+ 	<!-- Variable type -->
+ 	<bean id="typeSet" class="com.baosight.ieasyflow.pvm.type.DefaultTypeSet">
+ 		<property name="typeMappings">
+ 			<list>
+				<ref local="stringTypeMapping" />		
+				<ref local="longTypeMapping" />		
+				<ref local="doubleTypeMapping" />			
+			</list>
+		</property>
+ 	</bean>
+ 	
+ 	<bean id="stringTypeMapping" class="com.baosight.ieasyflow.pvm.type.TypeMapping">
+        <property name="matcher" ref="stringMatcher"/>
+    	<property name="type" ref="stringType"/>
+    </bean>
+    <bean id="stringMatcher" class="com.baosight.ieasyflow.pvm.type.matcher.ClassNameMatcher">
+    	<constructor-arg index="0" value="java.lang.String"/>
+        <!-- <property name="className" value="java.lang.String"/> -->
+    </bean>
+    <bean id="stringType" class="com.baosight.ieasyflow.pvm.type.Type">
+        <property name="name" value="string"/>
+        <property name="variableClass" value="com.baosight.ieasyflow.pvm.type.variable.StringVariable"/>
+    </bean>
+    
+    <bean id="longTypeMapping" class="com.baosight.ieasyflow.pvm.type.TypeMapping">
+        <property name="matcher" ref="longMatcher"/>
+    	<property name="type" ref="longType"/>
+    </bean>
+    <bean id="longMatcher" class="com.baosight.ieasyflow.pvm.type.matcher.ClassNameMatcher">
+    	<constructor-arg index="0" value="java.lang.Long"/>
+        <!-- <property name="className" value="java.lang.Long"/> -->
+    </bean>
+    <bean id="longType" class="com.baosight.ieasyflow.pvm.type.Type">
+        <property name="name" value="long"/>
+        <property name="variableClass" value="com.baosight.ieasyflow.pvm.type.variable.LongVariable"/>
+    </bean>
+    
+    <bean id="doubleTypeMapping" class="com.baosight.ieasyflow.pvm.type.TypeMapping">
+        <property name="matcher" ref="doubleMatcher"/>
+    	<property name="type" ref="doubleType"/>
+    </bean>
+    <bean id="doubleMatcher" class="com.baosight.ieasyflow.pvm.type.matcher.ClassNameMatcher">
+    	<constructor-arg index="0" value="java.lang.Double"/>
+        <!-- <property name="className" value="java.lang.Double"/> -->
+    </bean>
+    <bean id="doubleType" class="com.baosight.ieasyflow.pvm.type.Type">
+        <property name="name" value="string"/>
+        <property name="variableClass" value="com.baosight.ieasyflow.pvm.type.variable.DoubleVariable"/>
+    </bean>
+</beans>

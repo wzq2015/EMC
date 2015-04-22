@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 默认的静态缓存 -->
+	<bean id="localCache" class="java.util.HashMap" scope="prototype" />
+
+	<!-- 带有容量限制的静态缓存 
+	<bean id="limitedLocalCache" class="com.baosight.iplat4j.core.resource.LRULinkedHashMap"
+		scope="prototype">
+		<constructor-arg value="100000" />
+	</bean>
+	-->
+
+	<!-- 基于Hazelcast的分布式缓存
+	<bean id="distributedCache"
+		class="com.baosight.iplat4j.cache.hazelcast.CacheFactoryHazelcastImpl">
+		<property name="hazelcast" ref="hazelcast" />
+	</bean>-->
+	
+
+	<!-- 小代码缓存(可刷新) -->
+	<bean id="codesetCache" class="com.baosight.iplat4j.cache.RefreshableCache">
+		<property name="refreshCheckInterval" value="600000" /><!-- 检查刷新时间间隔 -->
+		<property name="cacheRefreshHandler">
+			<bean class="com.baosight.iplat4j.cache.impl.CodesetCacheRefreshHandler">
+				<property name="timeThreshold" value="10000" /><!-- 配置集群机器可能的时间误差 -->
+				<property name="sqlDao" ref="namedSqlDao" />
+			</bean>
+		</property>
+		<property name="targetCache" ref="localCache" />
+	</bean>
+	<!-- 按钮缓存 
+	<bean id="elemsCache" class="com.baosight.iplat4j.cache.RefreshableCache">
+		<property name="refreshCheckInterval" value="600000" />
+		<property name="cacheRefreshHandler">
+			<bean
+				class="com.baosight.iplat4j.cache.impl.ElemsCacheRefreshHandler">
+			</bean>
+		</property>
+		<property name="targetCache" ref="localCache" />
+	</bean>
+	-->
+	<!-- 页面缓存 
+	<bean id="pagesCache" class="com.baosight.iplat4j.cache.ResourceCache">
+		<property name="resourceLoadHandler">
+			<bean class="com.baosight.iplat4j.cache.impl.PagesLoadHandler" >
+				<property name="dao" ref="dao" />
+			</bean>
+		</property>
+		<property name="refreshCheckInterval" value="600000" />
+		<property name="cacheRefreshHandler">
+			<bean class="com.baosight.iplat4j.cache.impl.PagesCacheRefreshHandler">
+				<property name="timeThreshold" value="10000" />
+				<property name="sqlDao" ref="namedSqlDao" />
+			</bean>
+		</property>
+		<property name="targetCache" ref="localCache" />
+	</bean>
+	-->
+	
+	<bean id="cacheManager" class="com.baosight.iplat4j.ed.util.CacheManager"
+		init-method="init" destroy-method="destroy">
+		<!-- 指定类型的缓存 -->
+		<property name="caches">
+			<map>
+				<entry key="iplat.codeset" value-ref="codesetCache" /><!-- 小代码缓存 -->
+				<!--<entry key="iplat.pages" value-ref="pagesCache" /> 页面缓存-->
+				<!--<entry key="iplat.elems" value-ref="elemsCache" /> 按钮缓存-->
+			</map>
+		</property>
+		<!-- 默认的缓存原型/工厂 -->
+		<property name="defaultPrototype" value="localCache" />
+	</bean>
+
+</beans>

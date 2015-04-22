@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-11 10:14:27
+   		Version :  1.0.1.V20070717
+		table comment : 国家信息表
+		tableName :${platSchema}.TEEDM03 
+		 COUNTRY_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 COUNTRY_NAME  VARCHAR2, 
+		 CONTINENT_CODE  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="EEDM03">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM03">
+		SELECT
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COUNTRY_NAME	as "countryName",  <!-- 国家名称 -->
+				CONTINENT_CODE	as "continentCode" <!-- 洲代号 -->
+		FROM ${platSchema}.TEEDM03 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="countryCode">
+			COUNTRY_CODE like '%$countryCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="countryName">
+			COUNTRY_NAME like '%$countryName$%'
+		</isNotEmpty>	
+		<isNotEmpty prepend=" AND " property="funcDesc">
+			CONTINENT_CODE like '%$continentCode$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COUNTRY_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByContinent" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM03">
+		SELECT
+                COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COUNTRY_NAME	as "countryName",  <!-- 国家名称 -->
+				CONTINENT_CODE	as "continentCode" <!-- 洲代号 -->
+		FROM ${platSchema}.TEEDM03 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="continentCode">
+			CONTINENT_CODE = #continentCode#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  COUNTRY_CODE asc
+		</isEmpty>
+  		</dynamic>
+	</select>	
+	
+</sqlMap>

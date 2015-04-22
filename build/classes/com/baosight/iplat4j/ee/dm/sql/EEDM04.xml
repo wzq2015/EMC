@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-11 10:14:27
+   		Version :  1.0.1.V20070717
+		table comment : 国家信息表
+		tableName :${platSchema}.TEEDM03 
+		 COUNTRY_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 COUNTRY_NAME  VARCHAR2, 
+		 CONTINENT_CODE  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="EEDM04">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM04">
+		SELECT
+				PRODUCT_CODE	as "productCode",  <!-- 产品代号 -->
+				PRODUCT_NAME	as "productName",  <!-- 产品名称 -->
+				COMPANY_CODE	as "companyCode",  <!-- 所属公司 -->
+				PRODUCT_PRICE	as "productPrice", <!-- 价格 -->
+				ISPRODUCED		as "isproduced"    <!-- 是否生产 --> 
+		FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE like '%$productCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME like '%$productName$%'
+		</isNotEmpty>	
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>		
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  PRODUCT_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+
+	<select id="queryToDisplay" parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT
+				PRODUCT_CODE	as "id",  <!-- 产品代号 -->
+				PRODUCT_NAME	as "name",
+				COMPANY_CODE    as "info"
+		FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE like '%$productCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME like '%$productName$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  PRODUCT_CODE asc
+		</isEmpty>
+  		</dynamic>
+
+	</select>
+
+	<select id="query2" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM04">
+		SELECT
+				PRODUCT_CODE	as "productCode",	<!-- 产品代号 -->
+				PRODUCT_NAME	as "productName",	<!-- 产品名称 -->
+				COMPANY_CODE	as "companyCode",	<!-- 公司代号 -->
+				PRODUCT_PRICE	as "productPrice",	<!-- 价格 -->
+				ISPRODUCED		as "isproduced"		<!-- 是否生产 -->
+		FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE like '%$productCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME like '%$productName$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="isproduced">
+			ISPRODUCED = #isproduced#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+	        <isNotEmpty property="orderBy">
+	    		  $orderBy$
+	   		</isNotEmpty>
+	   		<isEmpty property="orderBy">
+	    		  PRODUCT_CODE asc
+			</isEmpty>
+  		</dynamic>
+	</select>
+  
+</sqlMap>

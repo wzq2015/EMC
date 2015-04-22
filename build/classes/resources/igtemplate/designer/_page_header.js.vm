@@ -1,0 +1,6 @@
+##
+## 页面的头部处理模板(js)
+##
+/**
+ * Generate time : $meta.date
+ */

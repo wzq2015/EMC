@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Rule uuid="288288be28910b040128910b915e0002">
+  <RuleToken>
+    <PredefinitionToken>
+      <VariableSetToken Symbol="CustomizedSymbol.VarBindingList">
+        <LocalVariableToken Symbol="CustomizedSymbol.VarBinding" uuid="0" varTokenRef="1" variableName="当前职工" colonTokenRef="2" bomTokenRef="3" valueTypeId="28828904262be08c01262c01dfbf0005" />
+      </VariableSetToken>
+    </PredefinitionToken>
+    <MultiConditionToken Symbol="CustomizedSymbol.ConstrainList">
+      <ConditionToken Symbol="CustomizedSymbol.Expression" valueType="bool">
+        <LogicalJudgeToken Symbol="CustomizedSymbol.Op.And" TokenRef="4" index="0" />
+        <ConditionToken Symbol="CustomizedSymbol.Expression" valueType="bool">
+          <LogicalJudgeToken Symbol="CustomizedSymbol.Op.And" TokenRef="5" index="0" />
+          <ConditionToken Symbol="CustomizedSymbol.Expression" valueType="bool">
+            <JudgeToken Symbol="CustomizedSymbol.Op.EqualTo" TokenRef="6" type="EDM#2882883b28a4a6cc0128a4a6cc860000" index="0" />
+            <ValueToken Symbol="CustomizedSymbol.Expression" valueType="EDM#2882883b28a4a6cc0128a4a6cc860000">
+              <ValueToken Symbol="CustomizedSymbol.Expression" valueType="BOM#28828904262be08c01262c01dfbf0005">
+                <ASTNode Symbol="Symbol.VarRef" TokenRef="7" varId="0" />
+              </ValueToken>
+              <MemberToken Symbol="Symbol.BomProperty" bomUuid="28828904262be08c01262c01dfbf0005" elementUuid="2882883b273c4c4501273c4d14430001" valueType="EDM#2882883b28a4a6cc0128a4a6cc860000" TokenRef="8" />
+            </ValueToken>
+            <ValueToken Symbol="CustomizedSymbol.Expression" valueType="EDM#2882883b28a4a6cc0128a4a6cc860000">
+              <ASTNode Symbol="Symbol.Enumeration" TokenRef="9" enumDomainUuid="2882883b28a4a6cc0128a4a6cc860000" enumItemUuid="2882883b28a4a9fd0128a4a9fd250000" />
+            </ValueToken>
+          </ConditionToken>
+          <ConditionToken Symbol="CustomizedSymbol.Expression" valueType="bool">
+            <JudgeToken Symbol="CustomizedSymbol.Op.EqualTo" TokenRef="10" type="int" index="0" />
+            <ValueToken Symbol="CustomizedSymbol.Expression" valueType="int">
+              <ValueToken Symbol="CustomizedSymbol.Expression" valueType="BOM#28828904262be08c01262c01dfbf0005">
+                <ASTNode Symbol="Symbol.VarRef" TokenRef="11" varId="0" />
+              </ValueToken>
+              <MemberToken Symbol="Symbol.BomProperty" bomUuid="28828904262be08c01262c01dfbf0005" elementUuid="2882883b273c4c4501273c4f3baf0003" valueType="int" TokenRef="12" />
+            </ValueToken>
+            <ValueToken Symbol="CustomizedSymbol.Expression" valueType="int">
+              <ConstantToken Symbol="CustomizedSymbol.Const.Integer" valueType="int" value="2" TokenRef="13" />
+            </ValueToken>
+          </ConditionToken>
+        </ConditionToken>
+        <ConditionToken Symbol="CustomizedSymbol.Expression" valueType="bool">
+          <JudgeToken Symbol="CustomizedSymbol.Op.EqualTo" TokenRef="14" type="EDM#2882883b28a4da6d0128a4dfd0370002" index="0" />
+          <ValueToken Symbol="CustomizedSymbol.Expression" valueType="EDM#2882883b28a4da6d0128a4dfd0370002">
+            <ValueToken Symbol="CustomizedSymbol.Expression" valueType="BOM#28828904262be08c01262c01dfbf0005">
+              <ASTNode Symbol="Symbol.VarRef" TokenRef="15" varId="0" />
+            </ValueToken>
+            <MemberToken Symbol="Symbol.BomProperty" bomUuid="28828904262be08c01262c01dfbf0005" elementUuid="288289c228a529fd0128a529fd810000" valueType="EDM#2882883b28a4da6d0128a4dfd0370002" TokenRef="16" />
+          </ValueToken>
+          <ValueToken Symbol="CustomizedSymbol.Expression" valueType="EDM#2882883b28a4da6d0128a4dfd0370002">
+            <ASTNode Symbol="Symbol.Enumeration" TokenRef="17" enumDomainUuid="2882883b28a4da6d0128a4dfd0370002" enumItemUuid="2882883b28a4da6d0128a4e05ded0003" />
+          </ValueToken>
+        </ConditionToken>
+      </ConditionToken>
+    </MultiConditionToken>
+    <MultiActionToken Symbol="CustomizedSymbol.ActionList">
+      <ActionToken Symbol="CustomizedSymbol.Action">
+        <ValueToken Symbol="CustomizedSymbol.Expression" valueType="BOM#28828904262be08c01262c01dfbf0005">
+          <ASTNode Symbol="Symbol.VarRef" TokenRef="19" varId="0" />
+        </ValueToken>
+        <ASTNode Symbol="Symbol.InstanceMethod" instanceType="BOM#28828904262be08c01262c01dfbf0005" methodUuid="2882883b273ce4f301273d0c906b0001" valueType="null" labelTokenRef0="20" labelTokenRef1="21" leftTokenRef="22" rightTokenRef="23">
+          <ValueToken Symbol="CustomizedSymbol.Expression" valueType="double">
+            <ConstantToken Symbol="CustomizedSymbol.Const.Double" valueType="double" value="0.10" TokenRef="24" />
+          </ValueToken>
+        </ASTNode>
+      </ActionToken>
+    </MultiActionToken>
+  </RuleToken>
+</Rule>

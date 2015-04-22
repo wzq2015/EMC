@@ -1,0 +1,53 @@
+<EF:EFColumn #if(${isGenFile}) x:Name="$control.Name" #else x:Name="$control.Name" #end
+    eHeader="$control.DisplayName" eColumnName="$control.BindingName"
+#if($control.EditStyle!="Date")
+    eBlockName="${control.Code}#if($control.CodeCondition.trim()!=""){$control.CodeCondition}#end#if($control.Format.trim()!="")($control.Format)#end"
+#end 
+	Width="$control.Width" eValueMemberPath="$control.ValueMemberPath"
+	#if($control.Regex.trim()!='')eRegex="$control.Regex" eValidateErrorPrompt="$control.ValidateErrorPrompt"#end
+	eDisplayMemberPath="$control.DisplayMemberPath" IsVisible="$control.IsVisible" IsReadOnly="$control.IsReadOnly"
+
+#if($control.EditStyle=="ComboTree")
+		eEditStyle="CustomView" eViewName="EDMD04" 
+		eViewInitParams="codeset=$control.Code,condition=$control.EncodedCodeCondition,format=$control.Format,bindingService=$control.BindingService,isLeafOnly=$control.IsLeafOnly,displayMemberPath=$control.DisplayMemberPath,valueMemberPath=$control.ValueMemberPath,parentMemberPath=$control.ParentMemberPath" 
+#elseif($control.EditStyle=="ComboGrid")
+		eEditStyle="CustomView" eViewName="EDMD05" 
+		eViewInitParams="codeset=$control.Code,condition=$control.EncodedCodeCondition,bindingService=$control.BindingService,displayMemberPath=$control.DisplayMemberPath,valueMemberPath=$control.ValueMemberPath" 
+#elseif($control.EditStyle=="TextArea")
+		eEditStyle="Text"
+#elseif($control.EditStyle=="NumericUpDown")
+		eEditStyle="NumericUpDown" eMaximum="$control.Maximum" eMinimum="$control.Minimum" eSmallChange="$control.SmallChange" eValueFormat="$control.ValueFormat"
+#elseif($control.EditStyle=="Date")
+		eEditStyle="$control.EditStyle" eDataFormatString="$control.Format" eDateFormat="yyyyMMddHHmmss"
+#else
+		eEditStyle="$control.EditStyle" eDateFormat="$control.Format"
+		eCheckedValue="$control.CheckedValue" eUnCheckedValue="$control.UnCheckedValue"
+		eViewName="$control.ViewName" eViewInitParams="$control.ViewInitParams" 
+#end>
+#if($control.IsCountCount!='True'&&$control.IsCountSum!='True'&&$control.IsCountAvg!='True'&&$control.IsCountMax!='True'&&$control.IsCountMin!='True'&&	$control.AggregateCaption == '' && $control.AggregateColumnName == '')
+</EF:EFColumn>
+#else
+	<EF:EFColumn.AggregateFunctions>
+	#if($control.IsCountCount == 'True')	
+		<data:CountFunction Caption="总数量:" />
+	#end
+	#if(!${isInterfacePreview})
+		#if($control.IsCountSum == 'True')
+			<data:SumFunction Caption="总和数:" />
+		#end
+		#if($control.IsCountAvg == 'True')
+			<data:AverageFunction Caption="平均数:" />
+		#end
+	#end
+	#if($control.IsCountMax == 'True')
+		<data:MaxFunction Caption="最大数:" />
+	#end
+	#if($control.IsCountMin == 'True')
+		<data:MinFunction Caption="最小数:" />
+	#end
+	#if($control.AggregateCaption != '' && $control.AggregateColumnName != '')
+		<data:MinFunction Caption="$control.AggregateCaption:" SourceField="$control.AggregateColumnName" />
+	#end
+	</EF:EFColumn.AggregateFunctions>
+</EF:EFColumn>
+#end
