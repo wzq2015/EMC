@@ -1,0 +1,29 @@
+#if($type=="EFGrid")
+#parse("resources/IOSTemplate/ios_efgrid.vm")
+#else
+#if($type!="EFButton")
+$eId = [[[$type alloc] initWithFrame:CGRectMake($x,$y,$width,$height)] autorelease];
+${eId}.eName = @"$eName";
+${eId}.eBindName = @"$eBindName";
+${eId}.eValue = @"$eValue";
+#else
+$eId  = [EFButton buttonWithType:UIButtonTypeRoundedRect];
+[$eId setFrame:CGRectMake($x,$y,$width,$height)];
+#end
+#if($eBlockName&&$eBlockName.trim().length()!=0)
+${eId}.eBlockName = @"$eBlockName";
+#end
+#if($eValuePath&&$eValuePath.trim().length()!=0)
+${eId}.eValuePath = @"$eValuePath";
+#end
+#if($eCheckedValue&&$eCheckedValue.trim().length()!=0)
+${eId}.eCheckedValue = @"$eCheckedValue";
+#end
+#if($eUnCheckedValue&&$eUnCheckedValue.trim().length()!=0)
+${eId}.eUnCheckedValue = @"$eUnCheckedValue";
+#end
+#if($onClick&&$onClick.trim().length()!=0)
+[$eId addTatget:self action: @selector($onClick :) forControlEvents: UIControlEventTouchUpInside ];
+#end
+[self addSubview: $eId];
+#end

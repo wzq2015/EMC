@@ -1,0 +1,33 @@
+<EF:EFTabItem eHeader="$control.DisplayName" Name="$control.Name" Visibility=#if($control.IsVisible=='False')"Collapsed"#else"Visible"#end>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" BorderThickness="0" Background="White">
+		#if( ${control.LayoutType} == 'Grid' )
+		<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+		    <Grid.ColumnDefinitions>
+		    #set( $columnlist = $control.ColumnWidth.split( " " ) )
+		    #foreach( ${columnWidth} in $columnlist )
+			<ColumnDefinition Width="${columnWidth}" />
+			#end
+		    </Grid.ColumnDefinitions>
+		    <Grid.RowDefinitions>
+		    #set( $rowlist = $control.RowHeight.split( " " ) )
+		    #foreach( ${rowHeight} in $rowlist )
+			<RowDefinition Height="${rowHeight}" />
+			#end
+		    </Grid.RowDefinitions>
+		#else
+	    <StackPanel Orientation="${control.LayoutType}">
+	    #end
+		#set( $regionItemControls = $control.SubControls )
+		#foreach($control in $regionItemControls)
+			#if( ${control.Type} != 'LayoutButton' )
+			#set( $regionPath = './resources/igtemplate/' + ${control.Type} + '.vm' )
+			#parse("$regionPath")
+			#end
+		#end
+		#if( ${control.LayoutType} == 'Grid' )
+	    </Grid>
+	    #else
+	    </StackPanel>
+		#end        
+    </ScrollViewer>
+</EF:EFTabItem>

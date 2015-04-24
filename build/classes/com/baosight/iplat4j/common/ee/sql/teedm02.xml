@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-14 8:50:09
+   		Version :  1.0.1.V20070717
+		table comment : 大洲信息表
+		tableName :${platSchema}.TEEDM02 
+		 CONTINENT_CODE  VARCHAR2   NOT NULL   primarykey, 
+		 CONTINENT_NAME  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="teedm02">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM02">
+		SELECT
+				CONTINENT_CODE	as "continentCode",  <!-- 洲代号 -->
+				CONTINENT_NAME	as "continentName" <!-- 洲名称 -->
+		FROM ${platSchema}.TEEDM02 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="continentCode">
+			CONTINENT_CODE = #continentCode#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  CONTINENT_CODE asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM02 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="continentCode">
+			CONTINENT_CODE = #continentCode#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="continentCode">
+			CONTINENT_CODE = #continentCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="continentName">
+			CONTINENT_NAME = #continentName#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM02 (CONTINENT_CODE,  <!-- 洲代号 -->
+										CONTINENT_NAME  <!-- 洲名称 -->
+										)		 
+		VALUES (#continentCode:VARCHAR#, #continentName:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM02 WHERE 
+			CONTINENT_CODE = #continentCode#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM02 
+		SET 
+					CONTINENT_NAME	= #continentName#  <!-- 洲名称 -->
+			WHERE 	
+			CONTINENT_CODE = #continentCode#
+	</update>
+  
+</sqlMap>

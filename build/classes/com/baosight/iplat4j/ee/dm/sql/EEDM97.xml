@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="EEDM97">
+
+<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.EEDM97">
+	SELECT
+			A.PRODUCT_CODE	as "productCode",  <!-- 产品代号 -->
+			A.PRODUCT_NAME	as "productName",  <!-- 产品名称 -->
+			A.COMPANY_CODE	as "companyCode",  <!-- 所属公司 -->
+			B.COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+			A.PRODUCT_PRICE	as "productPrice", <!-- 价格 -->
+			A.ISPRODUCED	as "isproduced"    <!-- 是否生产 --> 
+	FROM ${platSchema}.TEEDM04 A,${platSchema}.TEEDM01 B WHERE A.COMPANY_CODE=B.COMPANY_CODE 
+	<isNotEmpty prepend=" AND " property="productCode">
+		A.PRODUCT_CODE like '%$productCode$%'
+	</isNotEmpty>
+	<isNotEmpty prepend=" AND " property="productName">
+		A.PRODUCT_NAME like '%$productName$%'
+	</isNotEmpty>	
+	<isNotEmpty prepend=" AND " property="companyCode">
+		A.COMPANY_CODE = #companyCode#
+	</isNotEmpty>		
+		<dynamic prepend="ORDER BY">
+     <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+		  A.PRODUCT_CODE asc
+	</isEmpty>
+  		</dynamic>
+		
+</select>
+
+</sqlMap>

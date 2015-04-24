@@ -1,0 +1,81 @@
+#set( $H = '#' )
+
+
+
+/////////////////////////////////////////////////////
+// Auto-Generate EFGridCell File
+/////////////////////////////////////////////////////
+
+${H}import <iPlat4M_framework/iPlat4M_framework.h>
+
+
+@interface ${eName} : EFGridCell 
+{
+     #foreach( $child in $children )
+     $child.type* $child.eId; 
+     #end
+
+}
+
+
+
+#foreach( $child in $children )
+@property (nonatomic,retain) $child.type* $child.eId;
+#end
+
+@end
+
+
+
+
+${H}import <iPlat4M_framework/iPlat4M_framework.h>
+@implementation $eName 
+
+#foreach( $child in $children )
+@synthesize $child.eId;
+#end
+
+-(void) setRow:(NSMutableDictionary *)newRow 
+{
+#foreach( $child in $children )
+   #if( $child.type != "EFButton" )
+   ${child.eId}.eValue = [newRow valueForKey:@"${child.eName}"];
+   #end
+#end
+}
+
+/*************************************************
+*Grid Cell Layout
+**************************************************/
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier 
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) 
+    {
+    
+    $code
+    
+    }
+    
+    return self;
+    ##foreach( $child in $children )
+    ##parse("resources/IOSTemplate/ios_cellcontrol.vm")
+    ##end
+    
+}
+    
+    
+- (void) dealloc 
+{
+
+    #foreach( $child in $children )
+     [$child.eId release];
+    #end
+    [super dealloc];
+}
+@end 
+
+/////////////////////////////////////////////////////
+// END_OF_ Auto-Generate EFGridCell File
+/////////////////////////////////////////////////////    
+

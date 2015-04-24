@@ -1,0 +1,139 @@
+/**
+ * Generate time : $date
+ */
+package $beanPackName;
+import com.baosight.iplat4j.core.ei.EiColumn;
+import com.baosight.iplat4j.ep.DaoEPBase;
+import java.util.HashMap;
+import java.util.Map;
+#set($flag=1)
+#set($tag=1)
+#set($btag=1)
+#foreach( $key in $list )
+#if ($key.columnType == "C")
+#set($flag=$flag+1)
+#end
+#if($key.columnType == "N")
+#if($key.dataType=="BigDecimal")
+#set($btag=$btag+1)
+#end
+#set($tag=$tag+1)
+#end
+#end
+#if($flag!=1)
+import com.baosight.iplat4j.util.StringUtils;
+#end
+#if($tag!=1)
+import com.baosight.iplat4j.util.NumberUtils;
+#end
+#if($btag!=1)
+import java.math.BigDecimal;
+#end
+
+/**
+ * $beanName 
+ * table comment : $tableComment
+ */
+public class $beanName extends DaoEPBase {
+
+#foreach( $key in $list )
+#if ($key.columnType == "C")
+      private String $key.name="${key.defaultValue}";#if($key.columnComment.trim()!="")
+  /*  $key.columnComment  */
+#end
+#end
+#if($key.columnType == "N")
+#if(${key.defaultValue}=="defaultValue")
+      private $key.dataType $key.name;#if($key.columnComment.trim()!="")
+  /*  $key.columnComment  */
+#end
+#else
+      private $key.dataType $key.name=new ${key.dataType}(${key.defaultValue});#if($key.columnComment.trim()!="")
+  /*  $key.columnComment  */
+#end
+#end
+#end
+
+#end
+
+   /**
+    * initialize the metadata 
+    */
+	public void initMetaData() {
+	          EiColumn eiColumn;
+#foreach($key in $list)		
+              eiColumn = new EiColumn("$key.name");
+#if($key.primarykey == "true")
+              eiColumn.setPrimaryKey(true);
+#end
+#if($key.columnType == "N")
+              eiColumn.setType("N");
+#if($key.scale!="")
+              eiColumn.setScaleLength($key.scale);
+#end
+#end 
+              eiColumn.setFieldLength($key.fieldLength);	  
+#if($key.columnComment.trim()!="")
+              eiColumn.setDescName("$key.columnComment");
+#end
+              eiMetadata.addMeta(eiColumn);
+	   	   
+#end
+	}
+   /**
+    * the constructor
+    */
+	public $beanName() {
+		initMetaData();
+	}
+	
+#foreach($key in $list)
+   /**
+    *get the $key.name #if($key.columnComment.trim()!="")  -$key.columnComment
+#end
+    *@return the $key.name
+    */
+	 public $key.dataType get${key.tempName}(){
+	      return this.${key.name};
+	 }
+   /**
+    *set the $key.name #if($key.columnComment.trim()!="") -$key.columnComment
+#end
+    */
+	 public void set${key.tempName}($key.dataType ${key.name}){
+	      this.$key.name=$key.name;
+	 }
+#end
+   /**
+    * get the value from Map
+    */
+	public void fromMap(Map map) {
+#foreach($key in $list)
+#if($key.dataType == "Long")
+          set${key.tempName}(NumberUtils.toLong(StringUtils.toString(map.get("$key.name")), $key.name));
+#end#if($key.dataType=="Integer")
+          set${key.tempName}(NumberUtils.toInteger(StringUtils.toString(map.get("$key.name")), $key.name));
+#end#if($key.dataType=="Float")
+          set${key.tempName}(NumberUtils.toFloat(StringUtils.toString(map.get("$key.name")), $key.name));
+#end#if($key.dataType=="Double")
+          set${key.tempName}(NumberUtils.toDouble(StringUtils.toString(map.get("$key.name")), $key.name));
+#end#if($key.dataType=="BigDecimal")
+          set${key.tempName}(NumberUtils.toBigDecimal(StringUtils.toString(map.get("$key.name")), $key.name));
+#end#if($key.dataType == "String")
+          set${key.tempName}(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("$key.name")), $key.name));
+#end
+#end		
+	}
+	
+   /**
+    * set the value to Map
+    */
+	public Map toMap() {
+        Map map = new HashMap();
+#foreach($key in $list)
+	    map.put("${key.name}",StringUtils.toString(${key.name}, eiMetadata.getMeta("${key.name}")));
+#end				
+		return map;
+	
+	}
+	}

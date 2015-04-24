@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEDM00">
+	<!-- 查询 -->
+  <select id="queryDemo" parameterClass="java.util.HashMap" resultClass="com.baosight.iplat4j.common.ed.domain.TEDPI10">
+		SELECT
+			REC_CREATOR             as "rec_creator",
+			REC_CREATE_TIME         as "rec_create_time",
+			REC_REVISOR             as "rec_revisor",
+			REC_REVISE_TIME         as "rec_revise_time",
+			ARCHIVE_FLAG            as "archive_flag",
+			TREE_ENAME              as "tree_ename",
+			NODE_ENAME              as "node_ename",
+			NODE_CNAME              as "node_cname",
+			NODE_TYPE               as "node_type",
+			NODE_URL                as "node_url",
+			NODE_SORT_ID            as "node_sort_id" ,
+			NODE_PARAM	               as "node_param" ,
+			NODE_IMAGE_PATH         as "node_image_path"
+		FROM ${platSchema}.TEDPI10
+		<dynamic prepend="WHERE">
+           <isNotEmpty prepend=" AND " property="tree_ename">
+            TREE_ENAME = #tree_ename#
+           </isNotEmpty>
+          <isNotEmpty prepend=" AND " property="node_ename">
+            NODE_ENAME = #node_ename#
+           </isNotEmpty>
+        </dynamic>
+        order by TREE_ENAME, NODE_SORT_ID asc
+	</select>
+
+</sqlMap>

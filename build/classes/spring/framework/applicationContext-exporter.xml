@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!--  -->
+
+	<bean id="xlsInfoExporter" class="com.baosight.iplat4j.export.XlsInfoExporter" >
+    <property name="formatType" value="0"></property>
+	<property name="rowLimit" value="1000"></property>
+	</bean>
+	
+	<bean id="pdfInfoExporter" class="com.baosight.iplat4j.export.PdfInfoExporter" />
+	
+	<bean id="xlsDataResolver" class="com.baosight.iplat4j.export.XlsDataResolver" />
+	
+	<bean id="pdfDataResolver" class="com.baosight.iplat4j.export.PdfDataResolver" />
+	
+	
+	<bean id="xlsDataWriter" class="com.baosight.iplat4j.util.transform.impl.XlsDataWriter" />
+	
+	<bean id="txtDataWriter" class="com.baosight.iplat4j.util.transform.impl.TxtDataWriter" />
+	
+	<bean id="xlsDataParser" class="com.baosight.iplat4j.util.transform.impl.XlsDataParser" />
+	
+	<bean id="txtDataParser" class="com.baosight.iplat4j.util.transform.impl.TxtDataParser" />
+	
+	<bean id="xlsDataReader" class="com.baosight.iplat4j.util.transform.impl.XlsDataReader" />
+	
+	<bean id="xlsDataGenerator" class="com.baosight.iplat4j.util.transform.impl.XlsDataGenerator" />
+	
+	<bean id="txtDataReader" class="com.baosight.iplat4j.util.transform.impl.TxtDataReader" />
+	
+	<bean id="txtDataGenerator" class="com.baosight.iplat4j.util.transform.impl.TxtDataGenerator" />
+	
+	<bean id="ef_defaultDataWriter" class="com.baosight.iplat4j.util.transform.impl.TxtDataWriter" />
+	<bean id="ef_defaultDataParser" class="com.baosight.iplat4j.util.transform.impl.TxtDataParser" />
+	<bean id="ef_defaultDataReader" class="com.baosight.iplat4j.util.transform.impl.TxtDataReader" />
+	<bean id="ef_defaultDataGenerator" class="com.baosight.iplat4j.util.transform.impl.TxtDataGenerator" />
+	
+	<bean id="file_UploadProcess" class="com.baosight.iplat4j.upload.FileUploadProcess">
+		<property name="fileHandlers">
+			<list>			
+			  <bean class="com.baosight.iplat4j.upload.fileHandlerTest" />
+			</list>
+		</property>
+	</bean>	
+	
+
+	
+	
+	
+	
+</beans>

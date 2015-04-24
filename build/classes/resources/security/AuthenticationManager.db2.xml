@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"               
+"http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+<sqlMap namespace="AuthenToken">
+
+    <typeAlias  alias ="AuthenToken" type="com.baosight.platform.core.security.authentication.AuthenToken" />
+	
+    <resultMap id="QueryResult" class="AuthenToken">
+      <result property ="Ticket" column="ticket"  />
+      <result property ="UserName" column="user_name"  />
+      <result property ="CreateTime" column="create_time"  />
+      <result property ="LastActiveTime" column="last_active_time"  />
+      <result property ="Location" column="location"  />
+      <result property ="Role" column="role"  />
+      <result property ="Target" column="target"  />
+      <result property ="AppName" column="app_name"  />
+      <result property ="Time" column="time"  />
+      <result property ="Sign" column="sign"  />
+    </resultMap>
+
+
+    <insert id="Insert" parameterClass="AuthenToken">
+      insert into ${platSchema}.t_es_token(ticket,user_name,create_time,last_active_time,location,role,target,app_name,time,sign)
+      values(#Ticket:VARCHAR#, #UserName:VARCHAR#, #CreateTime:VARCHAR#, #LastActiveTime:VARCHAR#, #Location:VARCHAR#, #Role:VARCHAR#, #Target:VARCHAR#, #AppName:VARCHAR#, #Time:VARCHAR#, #Sign:VARCHAR#)
+    </insert>
+
+    <select id="Query" parameterClass="AuthenToken" resultMap="QueryResult">
+      select *
+      from ${platSchema}.t_es_token where 1=1
+      <dynamic prepend=" AND ">
+        <isNotNull property="Ticket">
+          ticket = #Ticket#
+        </isNotNull>
+      </dynamic>
+    </select>
+
+    <update id="Update" parameterClass="AuthenToken">
+      update ${platSchema}.t_es_token set
+      last_active_time = #LastActiveTime:VARCHAR#
+      where ticket = #Ticket#
+    </update>
+
+    <sql id="condition">
+      where 1=1
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ticket">
+          ticket  LIKE '%'||#Ticket#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserName">
+          user_name  LIKE '%'||#UserName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserName_EQ">
+          user_name = #UserName_EQ#
+        </isNotEmpty>
+      </dynamic>
+	  <dynamic prepend=" AND ">
+        <isNotEmpty property="LastActiveTime">
+          last_active_time <![CDATA[<]]> #LastActiveTime#
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="LastActiveTime_GT">
+          last_active_time <![CDATA[>]]> #LastActiveTime_GT#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <select id="QueryList" parameterClass="Map" resultMap="QueryResult">
+      select * from ${platSchema}.t_es_token
+      <include refid="condition"/>
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Ticket">
+          ticket
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserName">
+          user_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastActiveTime">
+          last_active_time
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+          $OrderValue$
+        </isNotEqual>
+      </dynamic>
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="NotSet">
+          user_name ASC
+        </isEqual>
+        <isNotEqual property="OrderKey" compareValue="NotSet">
+          <isNotEqual property="OrderKey" compareValue="UserName">
+            ,user_name ASC
+          </isNotEqual>
+        </isNotEqual>
+      </dynamic>
+    </select>
+
+    <delete id="DeleteWithCondition" parameterClass="Map">
+      delete from ${platSchema}.t_es_token
+      <include refid="condition" />
+    </delete>
+
+    <select id="Count" resultClass="int">
+      select count(1) from ${platSchema}.t_es_token
+      <include refid="condition"/>
+    </select>
+
+    <delete id="Delete" parameterClass="Map">
+      delete from ${platSchema}.t_es_token where 1=1
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ticket">
+          ticket = #Ticket#
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserName">
+          user_name = #UserName#
+        </isNotEmpty>
+      </dynamic>
+    </delete>
+
+</sqlMap>

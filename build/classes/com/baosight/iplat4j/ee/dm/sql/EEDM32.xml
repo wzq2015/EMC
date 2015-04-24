@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2010-01-25 14:30:36
+   		Version :  1.0.1.V20070717
+		table comment : EF_GRID_50列性能测试
+		tableName :${platSchema}.TEEDM32 
+		 NAME  VARCHAR2   NOT NULL   primarykey, 
+		 DISPLAY_NAME  VARCHAR2, 
+		 MODULE_TYPE  VARCHAR2, 
+		 PARENT  VARCHAR2, 
+		 APPLICATION  VARCHAR2, 
+		 VERSION  VARCHAR2, 
+		 ARCHIEVE_FLAG  NUMBER, 
+		 LOAD_ON_DEMAND  NUMBER, 
+		 CREATE_TIME  VARCHAR2, 
+		 MODIFY_TIME  VARCHAR2, 
+		 TABLE_SPACE_NAME  VARCHAR2, 
+		 TABLE_SPACE_SIZE  NUMBER, 
+		 PRICE  NUMBER, 
+		 CREATOR  VARCHAR2, 
+		 MODULE_DESC  VARCHAR2, 
+		 TYPE_FULL_NAME  VARCHAR2, 
+		 MODULE_LINK  VARCHAR2, 
+		 COL18  VARCHAR2, 
+		 COL19  VARCHAR2, 
+		 COL20  VARCHAR2, 
+		 COL21  VARCHAR2, 
+		 COL22  VARCHAR2, 
+		 COL23  VARCHAR2, 
+		 COL24  VARCHAR2, 
+		 COL25  VARCHAR2, 
+		 COL26  VARCHAR2, 
+		 COL27  VARCHAR2, 
+		 COL28  VARCHAR2, 
+		 COL29  VARCHAR2, 
+		 COL30  VARCHAR2, 
+		 COL31  VARCHAR2, 
+		 COL32  VARCHAR2, 
+		 COL33  VARCHAR2, 
+		 COL34  VARCHAR2, 
+		 COL35  VARCHAR2, 
+		 COL36  VARCHAR2, 
+		 COL37  VARCHAR2, 
+		 COL38  VARCHAR2, 
+		 COL39  VARCHAR2, 
+		 COL40  VARCHAR2, 
+		 COL41  VARCHAR2, 
+		 COL42  VARCHAR2, 
+		 COL43  VARCHAR2, 
+		 COL44  VARCHAR2, 
+		 COL45  VARCHAR2, 
+		 COL46  VARCHAR2, 
+		 COL47  VARCHAR2, 
+		 COL48  VARCHAR2, 
+		 COL49  VARCHAR2, 
+		 COL50  VARCHAR2
+	-->
+<sqlMap namespace="EEDM32">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.ee.dm.domain.Teedm32">
+		SELECT
+				NAME	as "name",  <!-- 名称 -->
+				DISPLAY_NAME	as "displayName",  <!-- 显示名称 -->
+				MODULE_TYPE	as "moduleType",  <!-- 类型 -->
+				PARENT	as "parent",  <!-- 父模块 -->
+				APPLICATION	as "application",  <!-- 应用系统 -->
+				VERSION	as "version",  <!-- 版本 -->
+				ARCHIEVE_FLAG	as "archieveFlag",  <!-- 归档标记 -->
+				LOAD_ON_DEMAND	as "loadOnDemand",  <!-- 按需加载 -->
+				CREATE_TIME	as "createTime",  <!-- 创建时间 -->
+				MODIFY_TIME	as "modifyTime",  <!-- 修改时间 -->
+				TABLE_SPACE_NAME	as "tableSpaceName",  <!-- 表空间名称 -->
+				TABLE_SPACE_SIZE	as "tableSpaceSize",  <!-- 表空间大小 -->
+				PRICE	as "price",  <!-- 模块售价 -->
+				CREATOR	as "creator",  <!-- 创建者 -->
+				MODULE_DESC	as "moduleDesc",  <!--  描述  -->
+				TYPE_FULL_NAME	as "typeFullName",  <!-- 类型全名 -->
+				MODULE_LINK	as "moduleLink",  <!-- 链接 -->
+				COL18	as "col18",  
+				COL19	as "col19",  
+				COL20	as "col20",  
+				COL21	as "col21",  
+				COL22	as "col22",  
+				COL23	as "col23",  
+				COL24	as "col24",  
+				COL25	as "col25",  
+				COL26	as "col26",  
+				COL27	as "col27",  
+				COL28	as "col28",  
+				COL29	as "col29",  
+				COL30	as "col30",  
+				COL31	as "col31",  
+				COL32	as "col32",  
+				COL33	as "col33",  
+				COL34	as "col34",  
+				COL35	as "col35",  
+				COL36	as "col36",  
+				COL37	as "col37",  
+				COL38	as "col38",  
+				COL39	as "col39",  
+				COL40	as "col40",  
+				COL41	as "col41",  
+				COL42	as "col42",  
+				COL43	as "col43",  
+				COL44	as "col44",  
+				COL45	as "col45",  
+				COL46	as "col46",  
+				COL47	as "col47",  
+				COL48	as "col48",  
+				COL49	as "col49",  
+				COL50	as "col50" 
+		FROM ${platSchema}.TEEDM32 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR like '%$creator$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  NAME asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM32 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR like '%$creator$%'
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="name">
+			NAME = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="displayName">
+			DISPLAY_NAME = #displayName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleType">
+			MODULE_TYPE = #moduleType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="parent">
+			PARENT = #parent#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="application">
+			APPLICATION = #application#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="version">
+			VERSION = #version#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="archieveFlag">
+			ARCHIEVE_FLAG = #archieveFlag#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="loadOnDemand">
+			LOAD_ON_DEMAND = #loadOnDemand#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="createTime">
+			CREATE_TIME = #createTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="modifyTime">
+			MODIFY_TIME = #modifyTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceName">
+			TABLE_SPACE_NAME = #tableSpaceName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="tableSpaceSize">
+			TABLE_SPACE_SIZE = #tableSpaceSize#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="price">
+			PRICE = #price#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="creator">
+			CREATOR = #creator#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleDesc">
+			MODULE_DESC = #moduleDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="typeFullName">
+			TYPE_FULL_NAME = #typeFullName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="moduleLink">
+			MODULE_LINK = #moduleLink#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col18">
+			COL18 = #col18#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col19">
+			COL19 = #col19#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col20">
+			COL20 = #col20#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col21">
+			COL21 = #col21#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col22">
+			COL22 = #col22#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col23">
+			COL23 = #col23#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col24">
+			COL24 = #col24#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col25">
+			COL25 = #col25#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col26">
+			COL26 = #col26#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col27">
+			COL27 = #col27#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col28">
+			COL28 = #col28#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col29">
+			COL29 = #col29#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col30">
+			COL30 = #col30#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col31">
+			COL31 = #col31#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col32">
+			COL32 = #col32#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col33">
+			COL33 = #col33#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col34">
+			COL34 = #col34#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col35">
+			COL35 = #col35#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col36">
+			COL36 = #col36#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col37">
+			COL37 = #col37#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col38">
+			COL38 = #col38#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col39">
+			COL39 = #col39#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col40">
+			COL40 = #col40#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col41">
+			COL41 = #col41#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col42">
+			COL42 = #col42#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col43">
+			COL43 = #col43#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col44">
+			COL44 = #col44#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col45">
+			COL45 = #col45#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col46">
+			COL46 = #col46#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col47">
+			COL47 = #col47#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col48">
+			COL48 = #col48#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col49">
+			COL49 = #col49#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="col50">
+			COL50 = #col50#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM32 (NAME,  <!-- 名称 -->
+										DISPLAY_NAME,  <!-- 显示名称 -->
+										MODULE_TYPE,  <!-- 类型 -->
+										PARENT,  <!-- 父模块 -->
+										APPLICATION,  <!-- 应用系统 -->
+										VERSION,  <!-- 版本 -->
+										ARCHIEVE_FLAG,  <!-- 归档标记 -->
+										LOAD_ON_DEMAND,  <!-- 按需加载 -->
+										CREATE_TIME,  <!-- 创建时间 -->
+										MODIFY_TIME,  <!-- 修改时间 -->
+										TABLE_SPACE_NAME,  <!-- 表空间名称 -->
+										TABLE_SPACE_SIZE,  <!-- 表空间大小 -->
+										PRICE,  <!-- 模块售价 -->
+										CREATOR,  <!-- 创建者 -->
+										MODULE_DESC,  <!--  描述  -->
+										TYPE_FULL_NAME,  <!-- 类型全名 -->
+										MODULE_LINK,  <!-- 链接 -->
+										COL18,
+										COL19,
+										COL20,
+										COL21,
+										COL22,
+										COL23,
+										COL24,
+										COL25,
+										COL26,
+										COL27,
+										COL28,
+										COL29,
+										COL30,
+										COL31,
+										COL32,
+										COL33,
+										COL34,
+										COL35,
+										COL36,
+										COL37,
+										COL38,
+										COL39,
+										COL40,
+										COL41,
+										COL42,
+										COL43,
+										COL44,
+										COL45,
+										COL46,
+										COL47,
+										COL48,
+										COL49,
+										COL50
+										)		 
+		VALUES (#name:VARCHAR#, #displayName:VARCHAR#, #moduleType:VARCHAR#, #parent:VARCHAR#, #application:VARCHAR#, #version:VARCHAR#, #archieveFlag:NUMERIC#, #loadOnDemand:NUMERIC#, #createTime:VARCHAR#, #modifyTime:VARCHAR#, #tableSpaceName:VARCHAR#, #tableSpaceSize:NUMERIC#, #price:NUMERIC#, #creator:VARCHAR#, #moduleDesc:VARCHAR#, #typeFullName:VARCHAR#, #moduleLink:VARCHAR#, #col18:VARCHAR#, #col19:VARCHAR#, #col20:VARCHAR#, #col21:VARCHAR#, #col22:VARCHAR#, #col23:VARCHAR#, #col24:VARCHAR#, #col25:VARCHAR#, #col26:VARCHAR#, #col27:VARCHAR#, #col28:VARCHAR#, #col29:VARCHAR#, #col30:VARCHAR#, #col31:VARCHAR#, #col32:VARCHAR#, #col33:VARCHAR#, #col34:VARCHAR#, #col35:VARCHAR#, #col36:VARCHAR#, #col37:VARCHAR#, #col38:VARCHAR#, #col39:VARCHAR#, #col40:VARCHAR#, #col41:VARCHAR#, #col42:VARCHAR#, #col43:VARCHAR#, #col44:VARCHAR#, #col45:VARCHAR#, #col46:VARCHAR#, #col47:VARCHAR#, #col48:VARCHAR#, #col49:VARCHAR#, #col50:VARCHAR#)
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM32 WHERE 
+			NAME = #name#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM32 
+		SET 
+					DISPLAY_NAME	= #displayName#,   <!-- 显示名称 -->
+					MODULE_TYPE	= #moduleType#,   <!-- 类型 -->
+					PARENT	= #parent#,   <!-- 父模块 -->
+					APPLICATION	= #application#,   <!-- 应用系统 -->
+					VERSION	= #version#,   <!-- 版本 -->
+					ARCHIEVE_FLAG	= #archieveFlag:NUMERIC#,   <!-- 归档标记 -->
+					LOAD_ON_DEMAND	= #loadOnDemand:NUMERIC#,   <!-- 按需加载 -->
+					CREATE_TIME	= #createTime#,   <!-- 创建时间 -->
+					MODIFY_TIME	= #modifyTime#,   <!-- 修改时间 -->
+					TABLE_SPACE_NAME	= #tableSpaceName#,   <!-- 表空间名称 -->
+					TABLE_SPACE_SIZE	= #tableSpaceSize:NUMERIC#,   <!-- 表空间大小 -->
+					PRICE	= #price:NUMERIC#,   <!-- 模块售价 -->
+					CREATOR	= #creator#,   <!-- 创建者 -->
+					MODULE_DESC	= #moduleDesc#,   <!--  描述  -->
+					TYPE_FULL_NAME	= #typeFullName#,   <!-- 类型全名 -->
+					MODULE_LINK	= #moduleLink#,   <!-- 链接 -->
+					COL18	= #col18#, 
+					COL19	= #col19#, 
+					COL20	= #col20#, 
+					COL21	= #col21#, 
+					COL22	= #col22#, 
+					COL23	= #col23#, 
+					COL24	= #col24#, 
+					COL25	= #col25#, 
+					COL26	= #col26#, 
+					COL27	= #col27#, 
+					COL28	= #col28#, 
+					COL29	= #col29#, 
+					COL30	= #col30#, 
+					COL31	= #col31#, 
+					COL32	= #col32#, 
+					COL33	= #col33#, 
+					COL34	= #col34#, 
+					COL35	= #col35#, 
+					COL36	= #col36#, 
+					COL37	= #col37#, 
+					COL38	= #col38#, 
+					COL39	= #col39#, 
+					COL40	= #col40#, 
+					COL41	= #col41#, 
+					COL42	= #col42#, 
+					COL43	= #col43#, 
+					COL44	= #col44#, 
+					COL45	= #col45#, 
+					COL46	= #col46#, 
+					COL47	= #col47#, 
+					COL48	= #col48#, 
+					COL49	= #col49#, 
+					COL50	= #col50#
+			WHERE 	
+			NAME = #name#
+	</update>
+  
+</sqlMap>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MenuItem项 必须设置唯一的label属性-->
+<Menu>
+	<MenuItem label="C" name="POR页面标准模式" url="" license="1">
+		<MenuItem label="CA" name="数据表格模式" url="/por2/demo/DataGridDemo/DataGridDemo.html" license="1"></MenuItem>
+		<MenuItem label="CB" name="明细表模式" url="/por2/demo/DetailGridDemo/detailGridDemo.html" license="1"></MenuItem>
+		<MenuItem label="CC" name="配置表模式" url="/por2/demo/ConfigTableDemo/ConfigTableDemo.html" license="1"></MenuItem>
+		<MenuItem label="CD" name="数据树模式" url="/por2/demo/Demo/JustTree.html" license="1"></MenuItem>
+		<MenuItem label="CE" name="数据菜单模式" url="/por2/demo/Demo/JustMenu.html" license="1"></MenuItem>
+		<MenuItem label="CF" name="主明细表模式" url="" license="1">
+			<MenuItem label="CFA" name="主明细表模式" url="/por2/demo/MasterDetailGridDemo/MasterDetailGridDemo.html" license="1"></MenuItem>
+			<MenuItem label="CFB" name="主明细表模式--明细表控件联动" url="/por2/demo/CompositeDemo/LinkWidgetDemo.html" license="1"></MenuItem>
+			<MenuItem label="CFC" name="主明细表模式--左右布局" url="/por2/demo/LayoutDemo/MasterDetail.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="CG" name="主从表模式" url="/por2/demo/MasterSubGridDemo/MasterSubGridDemo.html" license="1"></MenuItem>
+		<MenuItem label="CH" name="主从明细复合模式" url="/por2/demo/CompositeDemo/CompositeDemo.html" license="1"></MenuItem>
+		<MenuItem label="CI" name="树主明细模式" url="" license="1">
+			<MenuItem label="CIA" name="树主明细模式" url="/por2/demo/Demo/TreeDemo.html" license="1"></MenuItem>
+			<MenuItem label="CIB" name="树主明细模式--组织机构管理" url="/por2/demo/ePassOrgManageDemo/ePassOrgManageDemo.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="CJ" name="主配置表模式" url="/por2/demo/ConfigTableDemo/MasterConfigTableDemo.html" license="1"></MenuItem>
+	</MenuItem>
+	
+	<MenuItem label="E" name="标准控件" url="" license="1">
+		<MenuItem label="EA" name="弹出对话框控件" url="/por2/demo/Demo/PopPanelDemo.html" license="1"></MenuItem>
+		<MenuItem label="EB" name="区域控件" url="/por2/demo/Fieldset/fieldset.html" license="1"></MenuItem>
+		<MenuItem label="EC" name="控件演示" url="/por2/demo/Demo/WidgetDemo.html" license="1"></MenuItem>		
+	</MenuItem>
+
+	<MenuItem label="F" name="通用功能" url="" license="1">
+		<MenuItem label="FA" name="回调接口扩展" url="" license="1">
+			<MenuItem label="FAA" name="数据表格回调" url="/por2/demo/Demo/CallbackDemo.html" license="1"></MenuItem>
+			<MenuItem label="FAB" name="数据表格回调--列编辑回调应用" url="/por2/demo/Demo/CheckBoxEditDemo.html" license="1"></MenuItem>
+		</MenuItem>
+		<MenuItem label="FB" name="统一页面返回处理" url="/por2/demo/Demo/ShowMessage.html" license="1"></MenuItem>
+		<MenuItem label="FC" name="显示类型" url="/por2/demo/DataGridDemo/ColumnDemo.html" license="1"></MenuItem>
+		<MenuItem label="FD" name="性能测试" url="/por2/demo/Demo/Performance.html" license="1"></MenuItem>
+	</MenuItem>
+	
+	<MenuItem label="B" name="主页" url="/por2/demo/Main/Main.html" license="1"></MenuItem>
+</Menu>

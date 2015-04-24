@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Security">
+
+	<select id="queryPage" resultClass="java.util.HashMap">
+		SELECT 
+		form_ename as "form_ename", 
+		form_cname as "form_cname",
+		is_grade as "is_grade", 
+		is_auth as "is_auth"
+
+		FROM ${platSchema}.tedfa00 where 1=1
+		<isNotEmpty prepend=" AND " property="form_ename_e">
+			form_ename = #form_ename_e#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="form_ename">
+			form_ename like ('%$form_ename$%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="project_prefix">
+			($project_prefix$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="form_cname">
+			form_cname like ('%$form_cname$%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="grade">
+			is_grade = #grade#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="not_grade">
+			is_grade != #not_grade#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="auth">
+			is_auth = #auth#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="module_ename_1">
+			module_ename_1 = #module_ename_1#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="module_ename_2">
+			module_ename_2 = #module_ename_2#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">$orderBy$</isNotEmpty>
+			<isEmpty property="orderBy">form_ename asc</isEmpty>
+		</dynamic>
+
+	</select>
+	<select id="countPage" resultClass="int">
+		SELECT count(1) FROM ${platSchema}.tedfa00 where 1=1
+		<isNotEmpty prepend=" AND " property="form_ename_e">
+			form_ename = #form_ename_e#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="form_ename">
+			form_ename like ('%$form_ename$%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="project_prefix">
+			($project_prefix$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="form_cname">
+			form_cname like ('%$form_cname$%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="grade">
+			is_grade = #grade#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="not_grade">
+			is_grade != #not_grade#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="auth">
+			is_auth = #auth#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="module_ename_1">
+			module_ename_1 = #module_ename_1#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="module_ename_2">
+			module_ename_2 = #module_ename_2#
+		</isNotEmpty>
+
+	</select>
+
+	<select id="queryModule" resultClass="java.util.HashMap">
+		SELECT distinct module_ename_1 as "module_ename"
+
+		FROM ${platSchema}.tedfa00 where module_ename_1 != ' '
+		<isNotEmpty prepend=" AND " property="project_prefix">
+			($project_prefix$)
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">$orderBy$</isNotEmpty>
+			<isEmpty property="orderBy">module_ename_1 asc</isEmpty>
+		</dynamic>
+
+	</select>
+
+	<select id="querySubModule" resultClass="java.util.HashMap">
+		SELECT distinct 
+		concat(module_ename_1 , module_ename_2) as "module_ename", 
+		module_ename_2 
+		FROM ${platSchema}.tedfa00 where module_ename_2 != ' '
+		<isNotEmpty prepend=" AND " property="module_ename_1">
+			module_ename_1 = #module_ename_1#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">$orderBy$</isNotEmpty>
+			<isEmpty property="orderBy">module_ename_2 asc</isEmpty>
+		</dynamic>
+
+	</select>
+
+	<select id="queryButton" resultClass="java.util.HashMap">
+		SELECT 
+		FORM_ENAME as "form_ename", 
+		BUTTON_ENAME as "button_ename", 
+		REGION_ID as "region_id", 
+		BUTTON_CNAME as "button_cname", 
+		BUTTON_DESC as "button_desc", 
+		is_auth as "is_auth" 
+		FROM ${platSchema}.tedfa01
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend=" AND " property="form_ename">
+				form_ename = #form_ename#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="project_prefix">
+				($project_prefix$)
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="button_ename">
+				button_ename like ('$button_ename$%')
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="button_ename_e">
+				button_ename = #button_ename_e#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="auth">
+				is_auth = #auth#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">$orderBy$</isNotEmpty>
+			<isEmpty property="orderBy">
+				form_ename asc, region_id asc, node_sort_id asc,
+				button_ename asc
+			</isEmpty>
+		</dynamic>
+
+	</select>
+
+	<select id="countButton" resultClass="int">
+		SELECT count(1) FROM ${platSchema}.tedfa01 where 1=1
+		<isNotEmpty prepend=" AND " property="form_ename">
+			form_ename = #form_ename#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="project_prefix">
+			($project_prefix$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="button_ename">
+			button_ename like ('$button_ename$%')
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="button_ename_e">
+			button_ename = #button_ename_e#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="auth">
+			is_auth = #auth#
+		</isNotEmpty>
+	</select>
+	
+	<select id="countResourceAuth" resultClass="int">
+		select count(1) from ${platSchema}.t_es_authorization t1, ${platSchema}.t_es_userset t2  where 1 = 1 and t1.subject_name = t2.name
+		<isNotEmpty prepend=" AND " property="object_name">
+			t1.object_name = #object_name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="opt">
+			t1.opt = #opt#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="object_type">
+			t1.object_type = #object_type#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ext3">
+			t2.ext3 = #ext3#
+		</isNotEmpty>
+	</select>
+	
+	<select id="maxIndex" resultClass="int">
+		select MAX(sort_index) from ${platSchema}.t_es_authz_tree t  
+		where 1 = 1
+		<isNotEmpty prepend=" AND " property="parent_name">
+			t.parent_name = #parent_name#
+		</isNotEmpty>
+		<isEmpty prepend=" AND " property="parent_name">
+			t.parent_name is null
+		</isEmpty>
+	</select>
+	
+	<!-- <select id="queryButtonAuth" resultClass="java.util.HashMap">
+	    SELECT 
+			t.FORM_ENAME	as "form_ename",
+			t.BUTTON_ENAME	as "button_ename",
+			t.REGION_ID	as "region_id",
+			t.BUTTON_CNAME	as "button_cname",
+			t.NODE_SORT_ID	as "node_sort_id",
+			t.IS_AUTH         as "is_auth",
+			c.OBJECT_NAME   as "object_name"
+	    FROM ${platSchema}.tedfa01 t LEFT JOIN 
+	    (
+	    	select distinct object_name from ${platSchema}.t_es_authorization a,
+            (
+              select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+              from ${platSchema}.t_es_userset_member
+              start with member_name = #user# and member_type = 'TYP_ES00' 
+              connect by prior set_name = member_name
+              and member_type = 'TYP_ES01'
+              and level <![CDATA[<]]>= 5
+            ) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_ELEM' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00'
+        ) c 
+        ON concat(t.form_ename, '.' , t.button_ename) = c.object_name
+	    WHERE t.form_ename = #form_ename# 
+	    ORDER BY t.REGION_ID, t.NODE_SORT_ID
+	</select> -->
+	
+	<select id="queryButtonAuth" resultClass="java.util.HashMap">
+	    SELECT 
+			t.FORM_ENAME	as "form_ename",
+			t.BUTTON_ENAME	as "button_ename",
+			t.REGION_ID	as "region_id",
+			t.BUTTON_CNAME	as "button_cname",
+			t.NODE_SORT_ID	as "node_sort_id",
+			t.IS_AUTH         as "is_auth",
+			c.OBJECT_NAME   as "object_name"
+	    FROM ${platSchema}.tedfa01 t LEFT JOIN 
+	    (
+	    	select distinct object_name from ${platSchema}.t_es_authorization a,
+            (
+             select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  				from ${platSchema}.t_es_userset_member t1 where t1.member_name = #user#   and member_type = 'TYP_ES00'
+			union
+			select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  			from ${platSchema}.t_es_userset_member
+ 			where member_name in (select set_name
+                         from ${platSchema}.t_es_userset_member t2
+                        where t2.member_name = #user#
+                          AND t2.member_type = 'TYP_ES00')
+            ) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_ELEM' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00'
+        ) c 
+        ON concat(t.form_ename, '.' , t.button_ename) = c.object_name
+	    WHERE t.form_ename = #form_ename# 
+	    ORDER BY t.REGION_ID, t.NODE_SORT_ID
+	</select>
+	
+	<select id="queryButtonAuthByPost" resultClass="java.util.HashMap">
+	    SELECT distinct
+			t.FORM_ENAME	as "form_ename",
+			t.BUTTON_ENAME	as "button_ename",
+			t.REGION_ID	as "region_id",
+			t.BUTTON_CNAME	as "button_cname",
+			t.NODE_SORT_ID	as "node_sort_id",
+			t.IS_AUTH         as "is_auth",
+			c.OBJECT_NAME   as "object_name"
+	    FROM 
+		(
+			SELECT FORM_ENAME,BUTTON_ENAME,REGION_ID,BUTTON_CNAME,NODE_SORT_ID,IS_AUTH  
+			FROM ${platSchema}.tedfa01 WHERE form_ename = #form_ename#
+		)
+		t
+		LEFT JOIN 
+	    (
+		    select distinct object_name from ${platSchema}.t_es_authorization a
+			where subject_name=#userset# and a.subject_type='TYP_ES01' and a.object_type = 'TYP_ELEM' and a.opt = 'OPT_ES00'
+			union all
+	    	select distinct object_name from ${platSchema}.t_es_authorization a,
+            (
+              select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  				from ${platSchema}.t_es_userset_member t1 where t1.member_name = #userset#  and member_type = 'TYP_ES01'
+			union
+			select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  			from ${platSchema}.t_es_userset_member
+ 			where member_name in (select set_name
+                         from ${platSchema}.t_es_userset_member t2
+                        where t2.member_name = #userset#
+                          AND t2.member_type = 'TYP_ES01'
+            )) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_ELEM' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00' and a.object_name like ('$form_ename$.%')
+        ) c 
+        ON concat(t.form_ename , '.' , t.button_ename) = c.object_name
+	    ORDER BY t.REGION_ID, t.NODE_SORT_ID
+	</select>
+	
+	<!-- <select id="queryButtonAuthByPost" resultClass="java.util.HashMap">
+	    SELECT distinct
+			t.FORM_ENAME	as "form_ename",
+			t.BUTTON_ENAME	as "button_ename",
+			t.REGION_ID	as "region_id",
+			t.BUTTON_CNAME	as "button_cname",
+			t.NODE_SORT_ID	as "node_sort_id",
+			t.IS_AUTH         as "is_auth",
+			c.OBJECT_NAME   as "object_name"
+	    FROM ${platSchema}.tedfa01 t LEFT JOIN 
+	    (
+		    select distinct object_name from ${platSchema}.t_es_authorization a
+			where subject_name=#userset# and a.subject_type='TYP_ES01' and a.object_type = 'TYP_ELEM' and a.opt = 'OPT_ES00'
+			union all
+	    	select distinct object_name from ${platSchema}.t_es_authorization a,
+            (
+              select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+              from ${platSchema}.t_es_userset_member
+              start with member_name = #userset# and member_type = 'TYP_ES01' 
+              connect by prior set_name = member_name
+              and member_type = 'TYP_ES01'
+              and level <![CDATA[<]]>= 5
+            ) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_ELEM' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00'
+        ) c 
+        ON t.form_ename || '.' || t.button_ename = c.object_name
+	    WHERE t.form_ename = #form_ename# 
+	    ORDER BY t.REGION_ID, t.NODE_SORT_ID
+	</select>
+	 -->
+	
+	<select id="queryMenuAuth" resultClass="java.util.HashMap">
+	SELECT 
+      tree_ename      as "parent", 
+      node_ename      as "label", 
+      node_cname      as "text",
+      node_image_path as "imagePath",
+      node_type       as "leaf",
+      d.is_auth       as "is_auth",
+      c.OBJECT_NAME   as "object_name"
+    FROM ${platSchema}.tedpi10 t LEFT JOIN 
+      (
+        select distinct object_name from ${platSchema}.t_es_authorization a,
+            (              
+              select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  				from ${platSchema}.t_es_userset_member t1 where t1.member_name = #user#  and member_type = 'TYP_ES00'
+			union
+			select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  			from ${platSchema}.t_es_userset_member
+ 			where member_name in (select set_name
+                         from ${platSchema}.t_es_userset_member t2
+                        where t2.member_name = #user#
+                          AND t2.member_type = 'TYP_ES00')
+            ) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_PAGE' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00'
+        ) c 
+        ON t.node_ename = c.object_name and t.node_type=1
+    LEFT JOIN ${platSchema}.tedfa00 d ON t.node_ename = d.form_ename and t.node_type=1
+    order by tree_ename, NODE_SORT_ID asc 
+    </select>
+    
+    <select id="queryMenuAuthByProject" resultClass="java.util.HashMap">
+	SELECT 
+      t.tree_ename      as "parent", 
+      t.node_ename      as "label", 
+      t.node_cname      as "text",
+      t.node_image_path as "imagePath",
+      t.node_type       as "leaf",
+      d.is_auth       as "is_auth",
+      c.OBJECT_NAME   as "object_name"
+    FROM 
+      (      	
+      select * from ${platSchema}.tedpi10 t1 where ($project_prefix$)
+      
+      ) t LEFT JOIN 
+      (
+        select distinct object_name from ${platSchema}.t_es_authorization a,
+            (
+              select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  				from ${platSchema}.t_es_userset_member t2 where t2.member_name = #user#  and t2.member_type = 'TYP_ES00'
+			union
+			select distinct set_name as subject_name, 'TYP_ES01' as subject_type
+  			from ${platSchema}.t_es_userset_member
+ 			where member_name in (select set_name
+                         from ${platSchema}.t_es_userset_member t3
+                        where t3.member_name = #user#
+                          AND t3.member_type = 'TYP_ES00')
+            ) b
+            where a.subject_name = b.subject_name and a.object_type = 'TYP_PAGE' and 
+            a.subject_type = b.subject_type and a.opt = 'OPT_ES00'
+        ) c 
+        ON t.node_ename = c.object_name and t.node_type=1
+    LEFT JOIN ${platSchema}.tedfa00 d ON t.node_ename = d.form_ename and t.node_type=1
+    order by t.tree_ename, t.NODE_SORT_ID asc 
+    </select>
+	
+	<select id="queryHierachyAvailableParentAdministrator" resultClass="java.util.HashMap">
+		SELECT 
+	      a.parent_name      as "parent", 
+	      a.name             as "label", 
+	      a.display_name     as "text",
+	      b.org_perm_1       as "SubOrgAdminManage",
+	      b.org_perm_2       as "SubOrgResouceRange",
+	      b.org_perm_3       as "SubOrgHrogMap"
+	    FROM ${platSchema}.t_es_authz_tree a LEFT JOIN 
+	    ${platSchema}.tes13 b ON a.parent_name=b.org_code and b.org_adm=#user#
+	    order by a.name asc 
+    </select>
+	
+	<select id="queryHierachyAvailableAdministrator" resultClass="java.util.HashMap">
+		SELECT 
+	      a.parent_name      as "parent", 
+	      a.name             as "label", 
+	      a.display_name     as "text",
+	      b.org_perm_4       as "SubOrgManage",
+	      b.org_perm_5       as "RoleManage"
+	    FROM ${platSchema}.t_es_authz_tree a LEFT JOIN 
+	    ${platSchema}.tes13 b ON a.name=b.org_code and b.org_adm=#user#
+	    order by a.name asc 
+    </select>
+	
+	<select id="querySystemAdminHierachyAvailable" resultClass="java.util.HashMap">
+		SELECT 
+	      a.parent_name      as "parent", 
+	      a.name             as "label", 
+	      a.display_name     as "text",
+	      1                  as "SubOrgAdminManage",
+	      1                  as "SubOrgResouceRange",
+	      1                  as "SubOrgHrogMap",
+		  1                  as "SubOrgManage",
+		  1                  as "RoleManage",
+		  1                  as "RoleMemberManage",
+		  1                  as "RolePermissionManage"
+	    FROM ${platSchema}.t_es_authz_tree a
+	    order by a.name asc 
+    </select>
+	
+	<select id="queryHierachyAvailableRoleAdministrator" resultClass="java.util.HashMap">
+		SELECT 
+	      a.parent_name      as "parent", 
+	      a.name             as "label", 
+	      a.display_name     as "text",
+	      0                  as "leaf",
+		  1                  as "type",
+	      b.org_perm_6       as "RoleMemberManage",
+	      b.org_perm_7       as "RolePermissionManage"
+	    FROM ${platSchema}.t_es_authz_tree a LEFT JOIN 
+	    ${platSchema}.tes13 b ON a.name=b.org_code and b.org_adm=#user#
+	    order by a.name asc 
+    </select>
+	
+	<select id="queryProjectRoles" resultClass="java.util.HashMap">
+		SELECT 
+	      a.authz_node_name       as "parent", 
+	      a.role_name             as "label",
+		  a.role_name             as "id", 
+	      c.role_display_name     as "role_display_name",
+		  c.roletype_label        as "roletype_label",
+	      1                       as "leaf",
+		  2                       as "type",
+		  0                       as "RoleMemberManage",
+		  0                       as "RolePermissionManage"
+	    FROM
+		(
+			SELECT m.name as role_name,m.display_name as role_display_name,n.set_name as roletype_label 
+			from ${platSchema}.t_es_userset m ,t_es_userset_member n 
+			WHERE m.name=n.member_name and m.userset_type='Role' and m.ext3=#project#
+		) c 
+		LEFT JOIN ${platSchema}.t_es_role a 
+		on a.role_name=c.role_name
+	    order by c.roletype_label asc 
+    </select>
+
+    <select id="queryMenuRole" resultClass="java.util.HashMap">
+	SELECT
+	  t.tree_ename      as "parent", 
+      t.node_ename      as "label", 
+      t.node_cname      as "text",
+      t.node_image_path as "imagePath",
+      t.node_type       as "leaf",
+      d.is_auth       as "is_auth",
+      p.OBJECT_NAME   as "object_name"
+    FROM ${platSchema}.tedpi10 t 
+    LEFT JOIN
+    (
+	    SELECT DISTINCT object_name FROM ${platSchema}.t_es_authorization z ,
+	        (
+	          SELECT * FROM  ${platSchema}.t_es_userset_member t1 
+	          WHERE t1.set_name = #role#  and member_type = 'TYP_ES00'
+			  UNION
+			  SELECT * FROM  ${platSchema}.t_es_userset_member
+ 			  WHERE member_name = #role#
+	        )a
+	       WHERE z.subject_name = a.set_name and z.object_type = 'TYP_PAGE' and z.opt='OPT_ES00'
+    )p 
+    ON t.node_ename = p.object_name and t.node_type = 1
+    LEFT JOIN   ${platSchema}.tedfa00 d 
+    ON t.node_ename = d.form_ename and t.node_type = 1
+    ORDER BY tree_ename, NODE_SORT_ID asc 
+	</select>
+	
+	<select id="queryMenuRoleByProject" resultClass="java.util.HashMap">
+SELECT k.tree_ename      as 'parent',
+       k.node_ename      as 'label',
+       k.node_cname      as 'text',
+       k.node_image_path as 'imagePath',
+       k.node_type       as 'leaf',
+       k.is_auth         as 'is_auth',
+       k.OBJECT_NAME     as 'object_name'
+  FROM (select p.object_name,
+               t.tree_ename,
+               t.node_ename,
+               t.node_cname,
+               t.node_image_path,
+               t.node_type,
+               t.node_sort_id,
+               t.is_auth
+          from (SELECT DISTINCT object_name FROM ${platSchema}.t_es_authorization z ,
+	        (
+	          SELECT * FROM  ${platSchema}.t_es_userset_member t1 
+	          WHERE t1.set_name = #role#  and member_type = 'TYP_ES00'
+			  UNION
+			  SELECT * FROM  ${platSchema}.t_es_userset_member
+ 			  WHERE member_name = #role#
+	        )a
+	       WHERE z.subject_name = a.set_name and z.object_type = 'TYP_PAGE' and z.opt='OPT_ES00')p
+         inner JOIN (select *
+                      from (select  t1.tree_ename,
+                                    t1.node_ename,
+                                    t1.node_cname,
+                                    t1.node_image_path,
+                                    t1.node_type,
+                                    t1.node_sort_id
+                              from ${platSchema}.tedpi10 t1
+                             where ($project_prefix$)) y
+                      LEFT JOIN ${platSchema}.tedfa00 d
+                        ON y.node_ename = d.form_ename
+                       and y.node_type = 1) t
+            ON t.node_ename = p.object_name
+           and t.node_type = 1
+        union
+        select '' as object_name,
+               tt.tree_ename,
+               tt.node_ename,
+               tt.node_cname,
+               tt.node_image_path,
+               tt.node_type,
+               tt.node_sort_id,
+               tt.is_auth
+          from (select *
+                  from (select      t1.tree_ename,
+                                    t1.node_ename,
+                                    t1.node_cname,
+                                    t1.node_image_path,
+                                    t1.node_type,
+                                    t1.node_sort_id
+                          from ${platSchema}.tedpi10 t1
+                         where  ($project_prefix$)) y
+                  LEFT JOIN ${platSchema}.tedfa00 d
+                    ON y.node_ename = d.form_ename
+                   and y.node_type = 1) tt
+         where is_auth = 'false'
+            or node_type = '0') k
+ ORDER BY k.tree_ename, k.NODE_SORT_ID asc
+	</select>
+    
+    <select id="queryMenuOrg" resultClass="java.util.HashMap">
+	SELECT
+	  t.tree_ename      as "parent", 
+      t.node_ename      as "label", 
+      t.node_cname      as "text",
+      t.node_image_path as "imagePath",
+      t.node_type       as "leaf",
+      d.is_auth       as "is_auth",
+      p.OBJECT_NAME   as "object_name"
+    FROM ${platSchema}.tedpi10 t 
+    LEFT JOIN
+    (
+	    SELECT DISTINCT object_name FROM ${platSchema}.t_es_authorization z ,
+	        (
+	          SELECT * FROM  ${platSchema}.t_es_userset_member t1 
+	          WHERE t1.member_name = #user#  and member_type = 'TYP_ES00'
+			  UNION
+			  SELECT * FROM  ${platSchema}.t_es_userset_member
+ 			  WHERE member_name in 
+ 			  (
+ 			    SELECT set_name FROM ${platSchema}.t_es_userset_member t2
+                WHERE t2.member_name = #user#
+                AND t2.member_type = 'TYP_ES00'
+              )
+	        )a
+	        INNER JOIN
+	        (
+	          SELECT * FROM  ${platSchema}.t_es_role r 
+	          WHERE r.authz_node_name = #org#
+	        )b
+	        ON a.member_name = b.role_name OR a.set_name = b.role_name
+	        WHERE z.subject_name = set_name and z.object_type = 'TYP_PAGE' and z.opt='OPT_ES00'
+    )p 
+    ON t.node_ename = p.object_name and t.node_type = 1
+    LEFT JOIN   ${platSchema}.tedfa00 d 
+    ON t.node_ename = d.form_ename and t.node_type = 1
+    ORDER BY tree_ename, NODE_SORT_ID asc 
+	</select>
+	
+	
+	<select id="queryMenuOrgByProject" resultClass="java.util.HashMap">
+	SELECT k.tree_ename      as 'parent',
+       k.node_ename      as 'label',
+       k.node_cname      as 'text',
+       k.node_image_path as 'imagePath',
+       k.node_type       as 'leaf',
+       k.is_auth         as 'is_auth',
+       k.OBJECT_NAME     as 'object_name'
+  FROM (select p.object_name,
+               t.tree_ename,
+               t.node_ename,
+               t.node_cname,
+               t.node_image_path,
+               t.node_type,
+               t.node_sort_id,
+               t.is_auth
+          from (SELECT distinct object_name
+                  FROM ${platSchema}.t_es_authorization z,
+                       (SELECT *
+                          FROM ${platSchema}.t_es_userset_member t1
+                         WHERE t1.member_name = #user#
+                           and member_type = 'TYP_ES00'
+                        UNION
+                        SELECT *
+                          FROM ${platSchema}.t_es_userset_member
+                         WHERE member_name in
+                               (SELECT set_name
+                                  FROM ${platSchema}.t_es_userset_member t2
+                                 WHERE t2.member_name = #user#
+                                   AND t2.member_type = 'TYP_ES00')) a
+                 INNER JOIN (SELECT *
+                              FROM ${platSchema}.t_es_role r
+                             WHERE r.authz_node_name = #org#) b
+                    ON a.member_name = b.role_name
+                    OR a.set_name = b.role_name
+                 WHERE z.subject_name = set_name
+                   and z.object_type = 'TYP_PAGE'
+                   and z.opt = 'OPT_ES00') p
+         inner JOIN (select *
+                      from (select  t1.tree_ename,
+                                    t1.node_ename,
+                                    t1.node_cname,
+                                    t1.node_image_path,
+                                    t1.node_type,
+                                    t1.node_sort_id
+                              from ${platSchema}.tedpi10 t1
+                             where 
+							($project_prefix$)
+							)y
+                      LEFT JOIN ${platSchema}.tedfa00 d
+                        ON y.node_ename = d.form_ename
+                       and y.node_type = 1) t
+            ON t.node_ename = p.object_name
+           and t.node_type = 1
+        union
+        select '' as object_name,
+               tt.tree_ename,
+               tt.node_ename,
+               tt.node_cname,
+               tt.node_image_path,
+               tt.node_type,
+               tt.node_sort_id,
+               tt.is_auth
+          from (select *
+                  from (select      t1.tree_ename,
+                                    t1.node_ename,
+                                    t1.node_cname,
+                                    t1.node_image_path,
+                                    t1.node_type,
+                                    t1.node_sort_id
+                          from ${platSchema}.tedpi10 t1
+                         where ($project_prefix$)) y
+                  LEFT JOIN ${platSchema}.tedfa00 d
+                    ON y.node_ename = d.form_ename
+                   and y.node_type = 1) tt
+         where is_auth = 'false'
+            or node_type = '0') k
+ ORDER BY k.tree_ename, k.NODE_SORT_ID asc
+	</select>
+	
+	    <select id="queryOrgAuthWithPage" resultClass="java.util.HashMap">
+	    select distinct a.object_name
+	    from ${platSchema}.t_es_authorization a where a.subject_name in
+      	(
+           select b.role_name as "subject_name" from ${platSchema}.t_es_role b,${platSchema}.t_es_userset_member e
+           where b.authz_node_name=#orgCode# and e.member_name = #user# and e.member_type = 'TYP_ES00' and b.role_name=e.set_name
+           union
+           select c.set_name as "subject_name" from ${platSchema}.t_es_userset_member c where c.member_name in(           
+           select b.role_name as "subject_name" from ${platSchema}.t_es_role b,${platSchema}.t_es_userset_member e
+           where b.authz_node_name=#orgCode# and e.member_name = #user# and e.member_type = 'TYP_ES00' and b.role_name=e.set_name
+           ) and c.member_type='TYP_ES01'           		  
+     	) 
+	    and a.subject_type='TYP_ES01' and a.object_name=#pageLabel# 
+	    and a.object_type='TYP_PAGE' and a.opt='OPT_ES00'
+	</select>
+	
+	<select id="queryButtonAuthByOrg" resultClass="java.util.HashMap">
+	    SELECT 
+			t.FORM_ENAME	as "form_ename",
+			t.BUTTON_ENAME	as "button_ename",
+			t.REGION_ID	as "region_id",
+			t.BUTTON_CNAME	as "button_cname",
+			t.NODE_SORT_ID	as "node_sort_id",
+			t.IS_AUTH         as "is_auth",
+			c.OBJECT_NAME   as "object_name"
+	    FROM
+	   	(
+       		select FORM_ENAME,BUTTON_ENAME,REGION_ID,BUTTON_CNAME,NODE_SORT_ID,IS_AUTH  from ${platSchema}.tedfa01 WHERE form_ename = #form_ename#
+      	)
+	    t LEFT JOIN 
+	    (
+	    	select distinct a.object_name
+		    from ${platSchema}.t_es_authorization a where exists
+	      	(
+             select d.subject_name from 
+             (
+  	           select b.role_name as subject_name from ${platSchema}.t_es_role b,${platSchema}.t_es_userset_member e
+  	           where b.authz_node_name=#orgCode# and e.member_name = #user# and e.member_type = 'TYP_ES00' and b.role_name=e.set_name
+  	           union all
+  	           select c.set_name as subject_name from ${platSchema}.t_es_userset_member c where c.member_type='TYP_ES01' and exists 
+               (select b.role_name from ${platSchema}.t_es_role b,${platSchema}.t_es_userset_member e
+  	           where b.authz_node_name=#orgCode# and e.member_name = #user# and e.member_type = 'TYP_ES00' and b.role_name=e.set_name
+               and c.member_name=b.role_name
+	           )    
+             ) d where d.subject_name = a.subject_name
+	      	)
+		     and a.subject_type='TYP_ES01' and a.object_type = 'TYP_ELEM' and a.opt = 'OPT_ES00'
+			 and a.object_name like ('$form_ename$.%')
+        ) c 
+        ON t.form_ename || '.' || t.button_ename = c.object_name
+	    ORDER BY t.REGION_ID, t.NODE_SORT_ID
+	</select>
+	
+
+</sqlMap>
+

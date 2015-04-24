@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="EE50">
+
+	<select id="query" resultClass="java.util.HashMap">
+	SELECT      
+	  id    as "id",
+      name 	as "name"
+		FROM ${platSchema}.tee50 where 1=1
+		<isNotEmpty prepend=" AND " property="name">
+			name like ('%' || #name# || '%')
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+	</select>
+
+	<select id="distQuery" resultClass="java.util.HashMap">
+	SELECT      
+	  id    as "id",
+      name 	as "name"
+		FROM ${platSchema}.tee50 where 1=1
+		<isNotEmpty prepend=" AND " property="id">
+			id = #id#
+		</isNotEmpty>
+	</select>
+	
+	<update id="update">
+		UPDATE ${platSchema}.TEE50 
+		SET 
+			name	= #name#
+		WHERE 	
+			id = #id#
+	</update>	
+	
+	<select id="count1" parameterClass="java.util.HashMap"
+		resultClass="java.lang.Integer">
+		SELECT COUNT(*) FROM ${platSchema}.tee50 WHERE
+		DBMS_LOB.GETLENGTH(tempfile)>0 and id=#id#
+	</select>
+	
+</sqlMap>

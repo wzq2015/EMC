@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-18 10:18:14
+   		Version :  1.0.1.V20070727
+		table comment : 产品信息表
+		tableName :${platSchema}.TEEDM04
+		 PRODUCT_CODE  VARCHAR2   NOT NULL   primarykey,
+		 PRODUCT_NAME  VARCHAR2   NOT NULL,
+		 COMPANY_CODE  VARCHAR2   NOT NULL,
+		 PRODUCT_PRICE  VARCHAR2   NOT NULL,
+		 ISPRODUCED  VARCHAR2   NOT NULL
+	-->
+<sqlMap namespace="teedm04">
+
+	<select id="query" parameterClass="java.util.HashMap"
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM04">
+		SELECT
+				PRODUCT_CODE	as "productCode",  <!-- 产品代号 -->
+				PRODUCT_NAME	as "productName",  <!-- 产品名称 -->
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				PRODUCT_PRICE	as "productPrice",  <!-- 价格 -->
+				ISPRODUCED	as "isproduced" <!-- 是否生产 -->
+		FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE like '%$productCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME like '%$productName$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  PRODUCT_CODE asc
+		</isEmpty>
+  		</dynamic>
+
+	</select>
+
+	<select id="queryToDisplay" parameterClass="java.util.HashMap"
+			resultClass="java.util.HashMap">
+		SELECT
+				PRODUCT_CODE	as "id",  <!-- 产品代号 -->
+				PRODUCT_NAME	as "name",
+				COMPANY_CODE    as "info"
+		FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE like '%$productCode$%'
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME like '%$productName$%'
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  PRODUCT_CODE asc
+		</isEmpty>
+  		</dynamic>
+
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM ${platSchema}.TEEDM04 WHERE 1=1
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE = #productCode#
+		</isNotEmpty>
+	</select>
+
+	<!--
+		<isNotEmpty prepend=" AND " property="productCode">
+			PRODUCT_CODE = #productCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productName">
+			PRODUCT_NAME = #productName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="companyCode">
+			COMPANY_CODE = #companyCode#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="productPrice">
+			PRODUCT_PRICE = #productPrice#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="isproduced">
+			ISPRODUCED = #isproduced#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO ${platSchema}.TEEDM04 (PRODUCT_CODE,  <!-- 产品代号 -->
+										PRODUCT_NAME,  <!-- 产品名称 -->
+										COMPANY_CODE,  <!-- 公司代号 -->
+										PRODUCT_PRICE,  <!-- 价格 -->
+										ISPRODUCED  <!-- 是否生产 -->
+										)
+		VALUES (#productCode:VARCHAR#, #productName:VARCHAR#, #companyCode:VARCHAR#, #productPrice:VARCHAR#, #isproduced:VARCHAR#)
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM ${platSchema}.TEEDM04 WHERE
+			PRODUCT_CODE = #productCode#
+	</delete>
+
+	<update id="update">
+		UPDATE ${platSchema}.TEEDM04
+		SET
+					PRODUCT_NAME	= #productName#,   <!-- 产品名称 -->
+					COMPANY_CODE	= #companyCode#,   <!-- 公司代号 -->
+					PRODUCT_PRICE	= #productPrice#,   <!-- 价格 -->
+					ISPRODUCED	= #isproduced#  <!-- 是否生产 -->
+			WHERE
+			PRODUCT_CODE = #productCode#
+	</update>
+
+</sqlMap>

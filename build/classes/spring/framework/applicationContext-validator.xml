@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架之校验部分 -->
+
+  <bean class="com.baosight.iplat4j.core.validator.impl.ByteValidatorProvider"  init-method="init">
+    <property name="providerId"><value>byte</value></property>
+		<property name="msgkey"><value>validate.byte</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.DateValidatorProvider"  init-method="init">
+    <property name="providerId"><value>date</value></property>
+		<property name="msgkey"><value>validate.date</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.DoubleValidatorProvider"  init-method="init">
+    <property name="providerId"><value>double</value></property>
+		<property name="msgkey"><value>validate.double</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.EmailValidatorProvider"  init-method="init">
+    <property name="providerId"><value>email</value></property>
+		<property name="msgkey"><value>validate.email</value></property>
+  </bean>  
+  <bean class="com.baosight.iplat4j.core.validator.impl.FloatValidatorProvider"  init-method="init">
+    <property name="providerId"><value>float</value></property>
+		<property name="msgkey"><value>validate.float</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.IntValidatorProvider"  init-method="init">
+    <property name="providerId"><value>int</value></property>
+		<property name="msgkey"><value>validate.int</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.LongValidatorProvider"  init-method="init">
+    <property name="providerId"><value>long</value></property>
+		<property name="msgkey"><value>validate.long</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.MaxLengthValidatorProvider"  init-method="init">
+    <property name="providerId"><value>maxLength</value></property>
+		<property name="msgkey"><value>validate.maxLength</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.MaxValueValidatorProvider"  init-method="init">
+    <property name="providerId"><value>maxValue</value></property>
+		<property name="msgkey"><value>validate.maxValue</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.MinLengthValidatorProvider"  init-method="init">
+    <property name="providerId"><value>minLength</value></property>
+		<property name="msgkey"><value>validate.minLength</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.MinValueValidatorProvider"  init-method="init">
+    <property name="providerId"><value>minValue</value></property>
+		<property name="msgkey"><value>validate.minValue</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.RegexValidatorProvider"  init-method="init">
+    <property name="providerId"><value>regex</value></property>
+		<property name="msgkey"><value>validate.regex</value></property>
+  </bean>
+	<bean class="com.baosight.iplat4j.core.validator.impl.RequiredValidatorProvider"  init-method="init">
+    <property name="providerId"><value>required</value></property>
+		<property name="msgkey"><value>validate.required</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.ShortValidatorProvider"  init-method="init">
+    <property name="providerId"><value>short</value></property>
+		<property name="msgkey"><value>validate.short</value></property>
+  </bean>
+  <bean class="com.baosight.iplat4j.core.validator.impl.UrlValidatorProvider"  init-method="init">
+    <property name="providerId"><value>url</value></property>
+		<property name="msgkey"><value>validate.url</value></property>
+  </bean>
+  
+
+</beans>

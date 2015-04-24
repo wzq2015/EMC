@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"               
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">  
+<sqlMap	namespace="User">
+
+  <typeAlias  alias ="User" type="com.baosight.platform.core.security.user.User" />
+
+    <resultMap id="QueryResult" class="User">
+      <result property ="Name" column="name"  />
+      <result property ="DisplayName" column="display_name"  />
+      <result property ="CodedPassword" column="coded_password"  />
+      <result property ="Desc" column="desc_info"  />
+      <result property ="LastName" column="last_name"  />
+      <result property ="FirstName" column="first_name"  />
+      <result property ="MiddleName" column="middle_name"  />
+      <result property ="NickName" column="nick_name"  />
+      <result property ="Title" column="title"  />
+      <result property ="Initials" column="initials"  />
+      <result property ="FullName" column="full_name"  />
+      <result property ="Prof" column="prof"  />
+      <result property ="Position" column="position"  />
+      <result property ="Dept" column="dept"  />
+      <result property ="Account" column="account"  />
+      <result property ="IDNumber" column="id_number"  />
+      <result property ="WorkNumber" column="work_number"  />
+      <result property ="Gender" column="gender"  />
+      <result property ="Birthday" column="birthday"  />
+      <result property ="Country" column="country"  />
+      <result property ="Province" column="province"  />
+      <result property ="City" column="city"  />
+      <result property ="Street" column="street"  />
+      <result property ="Addr" column="addr"  />
+      <result property ="HomeAddr" column="home_addr"  />
+      <result property ="OfficeAddr" column="office_addr"  />
+      <result property ="BusinessAddr" column="business_addr"  />
+      <result property ="OtherAddr" column="other_addr"  />
+      <result property ="PostalCode" column="postal_code"  />
+      <result property ="PostBox" column="post_box"  />
+      <result property ="WebSite" column="web_site"  />
+      <result property ="Email" column="email"  />
+      <result property ="IM" column="im"  />
+      <result property ="Domain" column="domain"  />
+      <result property ="MainPhone" column="main_phone"  />
+      <result property ="HomePhone" column="home_phone"  />
+      <result property ="MobilePhone" column="mobile_phone"  />
+      <result property ="OfficePhone" column="office_phone"  />
+      <result property ="BusinessPhone" column="business_phone"  />
+      <result property ="OtherPhone" column="other_phone"  />
+      <result property ="Fax" column="fax"  />
+      <result property ="UserType" column="user_type"  />
+      <result property ="UserCode" column="user_code"  />
+      <result property ="OrgCode" column="org_code"  />
+      <result property ="CreateDate" column="create_date"  />
+      <result property ="ExpireDate" column="expire_date"  />
+      <result property ="PwdExpireDate" column="pwd_expire_date"  />
+      <result property ="UpdateDate" column="property_update_date" />
+      <result property ="PwdUpdateDate" column="pwd_update_date" />
+      <result property ="LastLoginDate" column="last_login_date"  />
+      <result property ="ErrorLoginDate" column="error_login_date"  />
+      <result property ="Valid" column="valid"  />
+      <result property ="Index" column="sort_index"  />
+	  <result property="Attribute" column="attribute" />
+      <result property="Property" column="property" />
+      <result property="Ext1" column="ext1" />
+      <result property="Ext2" column="ext2" />
+      <result property="Ext3" column="ext3" />
+    </resultMap>
+
+
+    <insert id="Insert" parameterClass="User">
+      insert into ${platSchema}.t_es_user(name,display_name,coded_password,desc_info,last_name,first_name,middle_name,nick_name,title,initials,full_name,prof,position,dept,account,id_number,work_number,gender,birthday,country,province,city,street,addr,home_addr,office_addr,business_addr,other_addr,postal_code,post_box,web_site,email,im,domain,main_phone,home_phone,mobile_phone,office_phone,business_phone,other_phone,fax,user_type,user_code,org_code,create_date,expire_date,pwd_expire_date,property_update_date,pwd_update_date,last_login_date,error_login_date,valid,sort_index,attribute,property,ext1,ext2,ext3)
+      values(#Name:VARCHAR#, #DisplayName:VARCHAR#, #CodedPassword:VARCHAR#, #Desc:VARCHAR#, #LastName:VARCHAR#,#FirstName:VARCHAR#,#MiddleName:VARCHAR#,#NickName:VARCHAR#,#Title:VARCHAR#,#Initials:VARCHAR#,#FullName:VARCHAR#,#Prof:VARCHAR#,#Position:VARCHAR#,#Dept:VARCHAR#,#Account:VARCHAR#,#IDNumber:VARCHAR#,#WorkNumber:VARCHAR#,#Gender:VARCHAR#,#Birthday:VARCHAR#,#Country:VARCHAR#,#Province:VARCHAR#,#City:VARCHAR#,#Street:VARCHAR#,#Addr:VARCHAR#,#HomeAddr:VARCHAR#,#OfficeAddr:VARCHAR#,#BusinessAddr:VARCHAR#,#OtherAddr:VARCHAR#,#PostalCode:VARCHAR#,#PostBox:VARCHAR#,#WebSite:VARCHAR#,#Email:VARCHAR#,#IM:VARCHAR#,#Domain:VARCHAR#,#MainPhone:VARCHAR#,#HomePhone:VARCHAR#,#MobilePhone:VARCHAR#,#OfficePhone:VARCHAR#,#BusinessPhone:VARCHAR#,#OtherPhone:VARCHAR#,#Fax:VARCHAR#,#UserType:VARCHAR#,#UserCode:VARCHAR#,#OrgCode:VARCHAR#,#CreateDate:VARCHAR#,#ExpireDate:VARCHAR#,#PwdExpireDate:VARCHAR#,#UpdateDate:VARCHAR#,#PwdUpdateDate:VARCHAR#,#LastLoginDate:VARCHAR#,#ErrorLoginDate:VARCHAR#,#Valid#,#Index#,#Attribute:VARCHAR#,#Property:VARCHAR#,#Ext1:VARCHAR#,#Ext2:VARCHAR#,#Ext3:VARCHAR#)
+    </insert>
+    
+    <update id="Update" parameterClass="User">
+      update ${platSchema}.t_es_user set
+      display_name = #DisplayName:VARCHAR#,
+      coded_password = #CodedPassword:VARCHAR#,
+      desc_info = #Desc:VARCHAR#,
+      last_name = #LastName:VARCHAR#,
+      first_name = #FirstName:VARCHAR#,
+      middle_name = #MiddleName:VARCHAR#,
+      nick_name = #NickName:VARCHAR#,
+      title = #Title:VARCHAR#,
+      initials = #Initials:VARCHAR#,
+      full_name = #FullName:VARCHAR#,
+      prof = #Prof:VARCHAR#,
+      position = #Position:VARCHAR#,
+      dept = #Dept:VARCHAR#,
+      account = #Account:VARCHAR#,
+      id_number = #IDNumber:VARCHAR#,
+      work_number = #WorkNumber:VARCHAR#,
+      gender = #Gender:VARCHAR#,
+      birthday = #Birthday:VARCHAR#,
+      country = #Country:VARCHAR#,
+      province = #Province:VARCHAR#,
+      city = #City:VARCHAR#,
+      street = #Street:VARCHAR#,
+      addr = #Addr:VARCHAR#,
+      home_addr = #HomeAddr:VARCHAR#,
+      office_addr = #OfficeAddr:VARCHAR#,
+      business_addr = #BusinessAddr:VARCHAR#,
+      other_addr = #OtherAddr:VARCHAR#,
+      postal_code = #PostalCode:VARCHAR#,
+      post_box = #PostBox:VARCHAR#,
+      web_site = #WebSite:VARCHAR#,
+      email = #Email:VARCHAR#,
+      im = #IM:VARCHAR#,
+      domain = #Domain:VARCHAR#,
+      main_phone = #MainPhone:VARCHAR#,
+      home_phone = #HomePhone:VARCHAR#,
+      mobile_phone = #MobilePhone:VARCHAR#,
+      office_phone = #OfficePhone:VARCHAR#,
+      business_phone = #BusinessPhone:VARCHAR#,
+      other_phone = #OtherPhone:VARCHAR#,
+      fax = #Fax:VARCHAR#,
+      user_type = #UserType:VARCHAR#,
+      user_code = #UserCode:VARCHAR#,
+      org_code = #OrgCode:VARCHAR#,
+      expire_date = #ExpireDate:VARCHAR#,
+      pwd_expire_date = #PwdExpireDate:VARCHAR#,
+      property_update_date = #UpdateDate:VARCHAR#,
+      pwd_update_date = #PwdUpdateDate:VARCHAR#,
+      valid = #Valid#,
+      sort_index = #Index#,
+	  attribute = #Attribute:VARCHAR#,
+      property = #Property:VARCHAR#,
+      ext1 = #Ext1:VARCHAR#,
+      ext2 = #Ext2:VARCHAR#,
+      ext3 = #Ext3:VARCHAR#
+      where name = #Name#
+    </update>
+
+    <select id="Query" parameterClass="User" resultMap="QueryResult">
+      select *
+      from ${platSchema}.t_es_user where 1=1
+      <dynamic prepend=" AND ">
+        <isNotNull property="Name">
+          name = #Name#
+        </isNotNull>
+      </dynamic>
+    </select>
+
+    <sql id="SelectUser">
+      from ${platSchema}.t_es_user where 1=1
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name  LIKE '%'||#Name#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="DisplayName">
+          display_name  LIKE '%'||#DisplayName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Desc">
+          desc  LIKE '%'||#Desc#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="LastName">
+          last_name  LIKE '%'||#LastName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="FirstName">
+          first_name  LIKE '%'||#FirstName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MiddleName">
+          middle_name  LIKE '%'||#MiddleName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="NickName">
+          nick_name  LIKE '%'||#NickName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Title">
+          title  LIKE '%'||#Title#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Initials">
+          initials  LIKE '%'||#Initials#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="FullName">
+          full_name  LIKE '%'||#FullName#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Prof">
+          prof  LIKE '%'||#Prof#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Position">
+          position  LIKE '%'||#Position#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Dept">
+          dept  LIKE '%'||#Dept#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Account">
+          account  LIKE '%'||#Account#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="IDNumber">
+          id_number  LIKE '%'||#IDNumber#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="WorkNumber">
+          work_number  LIKE '%'||#WorkNumber#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Gender">
+          gender  LIKE '%'||#Gender#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Birthday">
+          birthday  LIKE '%'||#Birthday#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Country">
+          country  LIKE '%'||#Country#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Province">
+          province  LIKE '%'||#Province#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="City">
+          city  LIKE '%'||#City#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Street">
+          street  LIKE '%'||#Street#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Addr">
+          addr  LIKE '%'||#Addr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="HomeAddr">
+          home_addr  LIKE '%'||#HomeAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OfficeAddr">
+          office_addr  LIKE '%'||#OfficeAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="BusinessAddr">
+          business_addr  LIKE '%'||#BusinessAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OtherAddr">
+          other_addr  LIKE '%'||#OtherAddr#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PostalCode">
+          postal_code  LIKE '%'||#PostalCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PostBox">
+          post_box  LIKE '%'||#PostBox#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="WebSite">
+          web_site  LIKE '%'||#WebSite#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Email">
+          email  LIKE '%'||#Email#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="IM">
+          im  LIKE '%'||#IM#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Domain">
+          domain  LIKE '%'||#Domain#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MainPhone">
+          main_phone  LIKE '%'||#MainPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="HomePhone">
+          home_phone  LIKE '%'||#HomePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="MobilePhone">
+          mobile_phone  LIKE '%'||#MobilePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OfficePhone">
+          office_phone  LIKE '%'||#OfficePhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="BusinessPhone">
+          business_phone  LIKE '%'||#BusinessPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OtherPhone">
+          other_phone  LIKE '%'||#OtherPhone#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Fax">
+          fax  LIKE '%'||#Fax#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserType">
+          user_type  LIKE '%'||#UserType#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UserCode">
+          user_code  LIKE '%'||#UserCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="OrgCode">
+          org_code  LIKE '%'||#OrgCode#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="CreateDate">
+          create_date  LIKE '%'||#CreateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="ExpireDate">
+          expire_date  LIKE '%'||#ExpireDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PwdExpireDate">
+          pwd_expire_date  LIKE '%'||#PwdExpireDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="UpdateDate">
+          property_update_date  LIKE '%'||#UpdateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="PwdUpdateDate">
+          pwd_update_date  LIKE '%'||#PwdUpdateDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="LastLoginDate">
+          last_login_date  LIKE '%'||#LastLoginDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="ErrorLoginDate">
+          error_login_date  LIKE '%'||#ErrorLoginDate#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Valid">
+          valid  LIKE '%'||#Valid#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Index">
+          sort_index  LIKE '%'||#Index#||'%'
+        </isNotEmpty>
+      </dynamic>
+	  <dynamic prepend=" AND ">
+        <isNotEmpty property="Attribute">
+          attribute  LIKE '%'||#Attribute#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Property">
+          property  LIKE '%'||#Property#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext1">
+          ext1  LIKE '%'||#Ext1#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext2">
+          ext2  LIKE '%'||#Ext2#||'%'
+        </isNotEmpty>
+      </dynamic>
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Ext3">
+          ext3  LIKE '%'||#Ext3#||'%'
+        </isNotEmpty>
+      </dynamic>
+	  <dynamic prepend=" AND ">
+	        <isNotEmpty property="OrgCode_Equal">
+	          org_code  = #OrgCode_Equal#
+	        </isNotEmpty>
+      </dynamic>
+	  <dynamic prepend=" AND ">
+	        <isNotEmpty property="OrgCode_Start">
+	          org_code  LIKE #OrgCode_Start#||'%'
+	        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <select id="QueryList" parameterClass="Map" resultMap="QueryResult">
+      select *
+      <include refid="SelectUser"/>
+      order by
+      <dynamic prepend=" ">
+        <isEqual property="OrderKey" compareValue="Name">
+           name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="DisplayName">
+           display_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Desc">
+          desc
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastName">
+          last_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FirstName">
+          first_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MiddleName">
+          middle_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="NickName">
+          nick_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Title">
+          title
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Initials">
+          initials
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="FullName">
+          full_name
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Prof">
+          prof
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Position">
+          position
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Dept">
+          dept
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Account">
+          account
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IDNumber">
+          id_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WorkNumber">
+          work_number
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Gender">
+          gender
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Birthday">
+          birthday
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Country">
+          country
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Province">
+          province
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="City">
+          city
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Street">
+          street
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Addr">
+          addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomeAddr">
+          home_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficeAddr">
+          office_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessAddr">
+          business_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherAddr">
+          other_addr
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostalCode">
+          postal_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PostBox">
+          post_box
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="WebSite">
+          web_site
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Email">
+          email
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="IM">
+          im
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Domain">
+          domain
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MainPhone">
+          main_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="HomePhone">
+          home_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="MobilePhone">
+          mobile_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OfficePhone">
+          office_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="BusinessPhone">
+          business_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OtherPhone">
+          other_phone
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Fax">
+          fax
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserType">
+          user_type
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UserCode">
+          user_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="OrgCode">
+          org_code
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="CreateDate">
+          create_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ExpireDate">
+          expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdExpireDate">
+          pwd_expire_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="UpdateDate">
+          property_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="PwdUpdateDate">
+          pwd_update_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="LastLoginDate">
+          last_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="ErrorLoginDate">
+          error_login_date
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Valid">
+          valid
+        </isEqual>
+		<isEqual property="OrderKey" compareValue="Attribute">
+          attribute
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Property">
+          property
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext1">
+          ext1
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext2">
+          ext2
+        </isEqual>
+        <isEqual property="OrderKey" compareValue="Ext3">
+          ext3
+        </isEqual>
+        <isNotEqual property="OrderValue" compareValue="NotSet">
+            $OrderValue$,
+          </isNotEqual>
+      </dynamic>
+      sort_index DESC
+      <dynamic prepend=" ">
+        <isNotEqual property="OrderKey" compareValue="Name">
+          ,name ASC
+        </isNotEqual>
+      </dynamic>
+    </select>
+
+    <delete id="Delete" parameterClass="User">
+      delete from ${platSchema}.t_es_user where 1=1
+      <dynamic prepend=" AND ">
+        <isNotEmpty property="Name">
+          name = #Name#
+        </isNotEmpty>
+      </dynamic>
+    </delete>
+
+    <select id="Count" resultClass="int">
+      select count(1) <include refid="SelectUser"/>
+    </select>
+
+</sqlMap>

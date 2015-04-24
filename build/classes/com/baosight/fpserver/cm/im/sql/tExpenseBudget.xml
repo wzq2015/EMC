@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_expense_budget 
+		 f_expense_budget_id  INTEGER   NOT NULL   primarykey, 
+		 f_expense_type_id  INTEGER   NOT NULL, 
+		 f_expense_budget_year  VARCHAR, 
+		 f_expense_budget_index  INTEGER, 
+		 f_expense_budget_plannedvalue  DOUBLE
+	-->
+<sqlMap namespace="tExpenseBudget">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseBudget">
+		SELECT
+				f_expense_budget_id	as "f_expenseBudgetId",  
+				f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_budget_year	as "f_expenseBudgetYear",  
+				f_expense_budget_index	as "f_expenseBudgetIndex",  
+				f_expense_budget_plannedvalue	as "f_expenseBudgetPlannedvalue" 
+		FROM .t_expense_budget WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetId">
+			f_expense_budget_id = #f_expenseBudgetId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_budget_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryJoin" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseBudgetEx">
+		SELECT
+				f_emcproject_id	as "f_emcprojectId",  
+				f_expense_type_name	as "f_expenseTypeName",
+				f_expense_budget_id	as "f_expenseBudgetId",  
+				B.f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_budget_year	as "f_expenseBudgetYear",  
+				f_expense_budget_index	as "f_expenseBudgetIndex",  
+				f_expense_budget_plannedvalue	as "f_expenseBudgetPlannedvalue" 
+		FROM .t_expense_budget B,t_expense_type T
+		WHERE B.f_expense_type_id = T.f_expense_type_id
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeId">
+			B.f_expense_type_id = #f_expenseTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetYear">
+			f_expense_budget_year = #f_expenseBudgetYear#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetIndex">
+			f_expense_budget_index = #f_expenseBudgetIndex#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_budget_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryExpenseBudgetByTypeIdsAndIndexes" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseBudget">
+		SELECT
+				f_expense_budget_id	as "f_expenseBudgetId",  
+				f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_budget_year	as "f_expenseBudgetYear",  
+				f_expense_budget_index	as "f_expenseBudgetIndex",  
+				f_expense_budget_plannedvalue	as "f_expenseBudgetPlannedvalue"  
+		FROM .t_expense_budget 
+		WHERE 1=1 
+		<isNotEmpty prepend=" AND " property="expenseTypeIds">
+			f_expense_type_id in ($expenseTypeIds$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetYear">
+			f_expense_budget_year = #f_expenseBudgetYear#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetIndexes">
+			f_expense_budget_index in ($f_expenseBudgetIndexes$) 
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_budget_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_expense_budget WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetId">
+			f_expense_budget_id = #f_expenseBudgetId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetId">
+			f_expense_budget_id = #f_expenseBudgetId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeId">
+			f_expense_type_id = #f_expenseTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetYear">
+			f_expense_budget_year = #f_expenseBudgetYear#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetIndex">
+			f_expense_budget_index = #f_expenseBudgetIndex#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseBudgetPlannedvalue">
+			f_expense_budget_plannedvalue = #f_expenseBudgetPlannedvalue#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_expense_budget (f_expense_budget_id,
+										f_expense_type_id,
+										f_expense_budget_year,
+										f_expense_budget_index,
+										f_expense_budget_plannedvalue
+										)		 
+	    VALUES (#f_expenseBudgetId#, #f_expenseTypeId#, #f_expenseBudgetYear#, #f_expenseBudgetIndex#, #f_expenseBudgetPlannedvalue#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_expense_budget WHERE 
+			f_expense_budget_id = #f_expenseBudgetId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_expense_budget 
+		SET 
+					f_expense_type_id	= #f_expenseTypeId#,   
+					f_expense_budget_year	= #f_expenseBudgetYear#,   
+					f_expense_budget_index	= #f_expenseBudgetIndex#,   
+					f_expense_budget_plannedvalue	= #f_expenseBudgetPlannedvalue#  
+			WHERE 	
+			f_expense_budget_id = #f_expenseBudgetId#
+	</update>
+	
+	
+</sqlMap>

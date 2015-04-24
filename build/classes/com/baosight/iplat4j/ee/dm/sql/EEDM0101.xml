@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2008-07-07 10:03:28
+   		Version :  1.0.1.V20070717
+		table comment : 公司信息表
+		tableName :${platSchema}.TEEDM01 
+		 CODE  VARCHAR2   NOT NULL   primarykey, 
+		 NAME  VARCHAR2, 
+		 TELEPHONE  VARCHAR2, 
+		 ADDRESS  VARCHAR2, 
+		 COUNTRY  VARCHAR2, 
+		 EDATE  VARCHAR2
+	-->
+<sqlMap namespace="EEDM0101">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.iplat4j.common.ee.domain.TEEDM01">
+		SELECT
+				COMPANY_CODE	as "companyCode",  <!-- 公司代号 -->
+				COMPANY_NAME	as "companyName",  <!-- 公司名称 -->
+				COMPANY_TEL		as "companyTel",  <!-- 公司电话 -->
+				COMPANY_ADDR	as "companyAddr",  <!-- 公司地址 -->
+				COUNTRY_CODE	as "countryCode",  <!-- 国家代号 -->
+				COMPANY_DATE	as "companyDate" <!-- 成立日期 -->
+		FROM ${platSchema}.TEEDM01 WHERE 1=1
+		<isNotEmpty property="dyQueryFlag">
+			<isNotEmpty prepend="AND" property="dyQueryString">
+			$dyQueryString$
+			</isNotEmpty>
+		</isNotEmpty>
+		<isEmpty property="dyQueryFlag">
+			<isNotEmpty prepend=" AND " property="companyCode">
+				COMPANY_CODE like '%$companyCode$%'
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="companyName">
+			COMPANY_NAME like '%$companyName$%'
+			</isNotEmpty>	
+			<isNotEmpty prepend=" AND " property="countryCode">
+				COUNTRY_CODE like '%$countryCode$%'
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="companyStartDate">
+				COMPANY_DATE >= #companyStartDate#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="companyEndDate">
+				COMPANY_DATE <![CDATA[<]]>= #companyEndDate#
+			</isNotEmpty>		
+		</isEmpty>
+		<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+         <!-- <isEmpty property="orderBy">
+    		  COMPANY_CODE asc
+   		 </isEmpty>
+   		  -->
+  		</dynamic>
+	</select>
+
+
+ 
+</sqlMap>

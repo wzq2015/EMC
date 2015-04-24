@@ -1,0 +1,146 @@
+##
+## 从条件模型中生成查询
+## _cond_block 条件定义块
+## _cond_name 条件名称
+##
+#if($meta.getBlock("sql")!="")
+#set($_cond_block=$meta.getBlock("sql"))
+#set($_cond_name=${meta.methodName})
+#end
+	<select id="$_cond_name" parameterClass="java.util.HashMap" resultClass="${meta.package}.${meta.modelEname}">
+		SELECT
+#set($_i=0)
+#set($_data_count = $meta.getBlock(".crud$data").getRows().size())
+#foreach( $_data_field in $meta.getBlock(".crud$data").getRows() )
+#if($_data_field.exprField.trim() != "")
+			$_data_field.exprField as "$_data_field.fieldName"#set($_i=$_i+1)#if($_i<$_data_count),#end#if($_data_field.fieldCname.trim()!="") <!--  $_data_field.fieldCname  -->
+#end
+#else
+#if($_data_field.tableNickName.trim() != "")
+			${_data_field.tableNickName}.$_data_field.fieldEname as "$_data_field.fieldName"#set($_i=$_i+1)#if($_i<$_data_count),#end#if($_data_field.fieldCname.trim()!="") <!--  $_data_field.fieldCname  -->
+#end
+#else
+			$_data_field.fieldEname as "$_data_field.fieldName"#set($_i=$_i+1)#if($_i<$_data_count),#end#if($_data_field.fieldCname.trim()!="") <!--  $_data_field.fieldCname  -->
+#end
+#end
+#end
+#end
+		FROM $meta.getBlock(".crud$data").queryTableName WHERE 1=1
+#foreach( $_cond_field in $_cond_block.getRows() )
+##
+## 条件
+##
+#if($_cond_field.condTypeFlag == "0")
+#if($_cond_field.specialFlag == "1")
+#set($_start_date = "${_cond_field.fieldName}Start")
+#set($_end_date = "${_cond_field.fieldName}End")
+#if($_cond_field.specialCond == "datespan[]")
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_start_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname >= #${_start_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_end_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname <![CDATA[<]]>= #${_end_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+#elseif($_cond_field.specialCond == "datespan(]")
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_start_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname > #${_start_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_end_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname <![CDATA[<]]>= #${_end_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+#elseif($_cond_field.specialCond == "datespan[)")
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_start_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname >= #${_start_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_end_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname <![CDATA[<]]> #${_end_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+#elseif($_cond_field.specialCond == "datespan()")
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_start_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname > #${_start_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_end_date">
+					$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname <![CDATA[<]]> #${_end_date}# $_cond_field.operatePtback
+		</isNotEmpty>
+#else
+		<dynamic prepend=" $_cond_field.operateLogic ">
+			$_cond_field.operatePtfront $_cond_field.specialCond $_cond_field.operatePtback
+		</dynamic>
+#end
+#else
+		<isNotEmpty prepend=" $_cond_field.operateLogic " property="$_cond_field.fieldName">
+#if($_cond_field.tableNickName.trim() != "")
+#set($_table_alias = "${_cond_field.tableNickName}.")
+#else
+#set($_table_alias = "")
+#end
+#if($_cond_field.operateSymbol == "eq")
+#set($_cond_content = "= #${_cond_field.fieldName}#")
+#elseif($_cond_field.operateSymbol == "gt")
+#set($_cond_content = "> #${_cond_field.fieldName}#")
+#elseif($_cond_field.operateSymbol == "lt")
+#set($_cond_content = "< #${_cond_field.fieldName}#")
+#elseif($_cond_field.operateSymbol == "ne")
+#set($_cond_content = "<> #${_cond_field.fieldName}#")
+#elseif($_cond_field.operateSymbol == "like")
+#set($_cond_content = "like '%'||#${_cond_field.fieldName}#||'%'")
+#else
+#set($_cond_content = "= #${_cond_field.fieldName}#")
+#end
+			$_cond_field.operatePtfront ${_table_alias}$_cond_field.fieldEname $_cond_content $_cond_field.operatePtback
+		</isNotEmpty>
+#end
+#end
+#end
+##
+## 分组
+##
+#set($_group_set = false)
+#foreach( $_cond_field in $_cond_block.getRows() )
+#if($_cond_field.condTypeFlag == "1")
+#if($_cond_field.tableNickName.trim() != "")
+#set($_table_alias = "${_cond_field.tableNickName}.")
+#else
+#set($_table_alias = "")
+#end
+#if(!$_group_set)
+#set($_group_set = true)
+		<dynamic prepend=" GROUP BY ">
+			  ${_table_alias}${_cond_field.fieldEname}
+#else
+			, ${_table_alias}${_cond_field.fieldEname}
+#end
+#end
+#end
+#if($_group_set)
+		</dynamic>
+#end
+##
+## 排序
+##
+		<dynamic prepend=" ORDER BY ">
+			<isNotEmpty property="orderBy">
+				$orderBy$
+			</isNotEmpty>
+#set($_order_set = false)
+#foreach( $_cond_field in $_cond_block.getRows() )
+#if($_cond_field.condTypeFlag == "2")
+#if($_cond_field.tableNickName.trim() != "")
+#set($_table_alias = "${_cond_field.tableNickName}.")
+#else
+#set($_table_alias = "")
+#end
+#if(!$_order_set)
+#set($_order_set = true)
+			<isEmpty property="orderBy">
+				  ${_table_alias}${_cond_field.fieldEname} $_cond_field.orderType
+#else
+				, ${_table_alias}${_cond_field.fieldEname} $_cond_field.orderType
+#end
+#end
+#end
+#if($_order_set)
+			</isEmpty>
+#end
+		</dynamic>
+	</select>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-12-25 14:47:46
+   		Version :  1.0.1.V20070717
+		tableName :.t_expense_detail 
+		 f_expense_detail_id  INTEGER   NOT NULL   primarykey, 
+		 f_expense_type_id  INTEGER   NOT NULL, 
+		 f_expense_detail_time  VARCHAR, 
+		 f_expense_detail_value  DOUBLE, 
+		 f_expense_detail_desc  VARCHAR
+	-->
+<sqlMap namespace="tExpenseDetail">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseDetail">
+		SELECT
+				f_expense_detail_id	as "f_expenseDetailId",  
+				f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_detail_time	as "f_expenseDetailTime",  
+				f_expense_detail_value	as "f_expenseDetailValue",  
+				f_expense_detail_desc	as "f_expenseDetailDesc" 
+		FROM .t_expense_detail WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expenseDetailId">
+			f_expense_detail_id = #f_expenseDetailId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_detail_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryJoin" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseDetailEx">
+		SELECT
+				f_expense_detail_id	as "f_expenseDetailId",  
+				D.f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_type_name	as "f_expenseTypeName",
+				f_emcproject_id	as "f_emcprojectId",
+				f_expense_detail_time	as "f_expenseDetailTime",  
+				f_expense_detail_value	as "f_expenseDetailValue", 
+				f_expense_detail_desc as "f_expenseDetailDesc" 
+		FROM .t_expense_detail D,t_expense_type T 
+		WHERE D.f_expense_type_id = T.f_expense_type_id
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeId">
+			D.f_expense_type_id = #f_expenseTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_expense_detail_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_expense_detail_time &lt;= #endTime#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_detail_id asc
+		</isEmpty>
+  		</dynamic>
+	</select>
+	
+	<select id="queryExpenseDetailByTypeIdsAndTime" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpenseDetail">
+		SELECT
+				f_expense_detail_id	as "f_expenseDetailId",  
+				f_expense_type_id	as "f_expenseTypeId",  
+				f_expense_detail_time	as "f_expenseDetailTime",  
+				f_expense_detail_value	as "f_expenseDetailValue",
+				f_expense_detail_desc	as "f_expenseDetailDesc"  
+		FROM .t_expense_detail WHERE 1=1 
+		<isNotEmpty prepend=" AND " property="expenseTypeIds">
+			f_expense_type_id in ($expenseTypeIds$)
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_expense_detail_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_expense_detail_time &lt;= #endTime#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expense_detail_id asc
+		</isEmpty>
+  		</dynamic>
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_expense_detail WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expenseDetailId">
+			f_expense_detail_id = #f_expenseDetailId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_expenseDetailId">
+			f_expense_detail_id = #f_expenseDetailId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeId">
+			f_expense_type_id = #f_expenseTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseDetailTime">
+			f_expense_detail_time = #f_expenseDetailTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseDetailValue">
+			f_expense_detail_value = #f_expenseDetailValue#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseDetailDesc">
+			f_expense_detail_desc = #f_expenseDetailDesc#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_expense_detail (f_expense_detail_id,
+										f_expense_type_id,
+										f_expense_detail_time,
+										f_expense_detail_value,
+										f_expense_detail_desc
+										)		 
+	    VALUES (#f_expenseDetailId#, #f_expenseTypeId#, #f_expenseDetailTime#, #f_expenseDetailValue#, #f_expenseDetailDesc#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_expense_detail WHERE 
+			f_expense_detail_id = #f_expenseDetailId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_expense_detail 
+		SET 
+					f_expense_type_id	= #f_expenseTypeId#,   
+					f_expense_detail_time	= #f_expenseDetailTime#,   
+					f_expense_detail_value	= #f_expenseDetailValue#,   
+					f_expense_detail_desc	= #f_expenseDetailDesc#  
+			WHERE 	
+			f_expense_detail_id = #f_expenseDetailId#
+	</update>
+  
+</sqlMap>

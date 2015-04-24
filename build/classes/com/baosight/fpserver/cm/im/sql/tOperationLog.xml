@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-12-19 16:32:39
+   		Version :  1.0.1.V20070717
+		tableName :.t_operation_log 
+		 f_operation_log_id  INTEGER   NOT NULL   primarykey, 
+		 f_emcproject_id  INTEGER   NOT NULL, 
+		 f_operation_time  VARCHAR   NOT NULL, 
+		 f_operation_type  INTEGER   NOT NULL, 
+		 f_operation_content  VARCHAR, 
+		 f_user_name  VARCHAR, 
+		 f_operation_clientip  VARCHAR
+	-->
+<sqlMap namespace="tOperationLog">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TOperationLog">
+		SELECT
+				f_operation_log_id	as "f_operationLogId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_operation_time	as "f_operationTime",  
+				f_operation_type	as "f_operationType",  
+				f_operation_content	as "f_operationContent",  
+				f_user_name	as "f_userName",  
+				f_operation_clientip	as "f_operationClientip" 
+		FROM .t_operation_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_operationLogId">
+			f_operation_log_id = #f_operationLogId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_operation_log_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryByProjectId" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TOperationLog">
+		SELECT
+				f_operation_log_id	as "f_operationLogId",  
+				f_emcproject_id	as "f_emcprojectId",  
+				f_operation_time	as "f_operationTime",  
+				f_operation_type	as "f_operationType",  
+				f_operation_content	as "f_operationContent",  
+				f_user_name	as "f_userName",  
+				f_operation_clientip	as "f_operationClientip" 
+		FROM .t_operation_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_operation_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_operation_time &lt;= #endTime#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_operation_log_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_operation_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_operationLogId">
+			f_operation_log_id = #f_operationLogId#
+		</isNotEmpty>
+	</select>
+	
+	<select id="countbyProjectId" resultClass="int">
+		SELECT COUNT(*) FROM .t_operation_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="startTime">
+			f_operation_time &gt;= #startTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="endTime">
+			f_operation_time &lt;= #endTime#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_operationLogId">
+			f_operation_log_id = #f_operationLogId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_operationTime">
+			f_operation_time = #f_operationTime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_operationType">
+			f_operation_type = #f_operationType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_operationContent">
+			f_operation_content = #f_operationContent#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_userName">
+			f_user_name = #f_userName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_operationClientip">
+			f_operation_clientip = #f_operationClientip#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_operation_log (f_operation_log_id,
+										f_emcproject_id,
+										f_operation_time,
+										f_operation_type,
+										f_operation_content,
+										f_user_name,
+										f_operation_clientip
+										)		 
+	    VALUES (#f_operationLogId#, #f_emcprojectId#, #f_operationTime#, #f_operationType#, #f_operationContent#, #f_userName#, #f_operationClientip#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_operation_log WHERE 
+			f_operation_log_id = #f_operationLogId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_operation_log 
+		SET 
+					f_emcproject_id	= #f_emcprojectId#,   
+					f_operation_time	= #f_operationTime#,   
+					f_operation_type	= #f_operationType#,   
+					f_operation_content	= #f_operationContent#,   
+					f_user_name	= #f_userName#,   
+					f_operation_clientip	= #f_operationClientip#  
+			WHERE 	
+			f_operation_log_id = #f_operationLogId#
+	</update>
+  
+</sqlMap>

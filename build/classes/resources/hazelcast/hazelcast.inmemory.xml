@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-basic.xsd"
+	xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<queue name="jobQueue-*">
+		<backing-map-ref>jobQueueMap</backing-map-ref>
+	</queue>
+
+	<map name="jobQueueMap">
+		<backup-count>1</backup-count>
+	</map>
+
+	<map name="concurrentcount">
+		<backup-count>1</backup-count>
+	</map>
+	
+	<map name="lastUpdateTime">
+		<backup-count>0</backup-count>
+	</map>
+
+</hazelcast>

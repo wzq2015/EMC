@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Menu>
+	<MenuItem label="A" name="大数据量数据表格" url="/por2/demo/Demo/Performance.html" license="1"></MenuItem>
+	<MenuItem label="B" name="树主从表" url="/por2/demo/study/mastersubs.html" license="1"></MenuItem>
+	<MenuItem label="C" name="DataWrapper加载" url="/por2/demo/study/dwtest.html" license="1"></MenuItem>
+</Menu>

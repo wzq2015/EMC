@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="EEDM54">
+
+	<select id="queryNodes"
+			resultClass="java.util.HashMap">
+		SELECT
+				NODE_ENAME	as "label",  <!-- 节点编号 -->
+				NODE_CNAME	as "text",  <!-- 节点中文名 -->
+				TREE_ENAME	as "parent",  <!-- 父节点编号 -->
+				NODE_TYPE	as "leaf" <!-- 节点类型 -->
+		FROM ${platSchema}.TEEDM54
+		 <dynamic prepend="WHERE">
+	     	 <isNotEmpty prepend=" AND " property="label">
+				NODE_CNAME = #label#
+	   		 </isNotEmpty>
+    	</dynamic>
+   		 order by TREE_ENAME asc
+	</select>
+</sqlMap>

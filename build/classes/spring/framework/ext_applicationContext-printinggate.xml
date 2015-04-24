@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- printing user
+	<bean id="ptrDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@10.66.3.105:1521:erpdvlp" />
+		<property name="username" value="printing" />
+		<property name="password" value="printing" />
+	</bean>
+	  -->
+	<bean id="ptrDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/appDS"/>
+	</bean>
+	
+	<bean id="printingGateDao" class="com.baosight.printing.gate.dao.PrintingGateDao">
+		<property name="dataSource"  ref="ptrDataSource"/>
+	</bean>
+	
+	<bean id="printingGateService" class="com.baosight.printing.gate.PrintingGateService">
+		<property name="printingGateDao" ref="printingGateDao"/>
+	</bean>
+	
+	
+	
+</beans>

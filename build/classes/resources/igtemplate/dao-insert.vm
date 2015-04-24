@@ -1,0 +1,30 @@
+	<!-- $service.result-0-methodCname -->
+	<insert id="$service.result-0-methodEname">
+		INSERT INTO $service.field-0-tableName (
+#set($items = $service.getBlock("field").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+			$item.fieldName#if($index < $count - 1),#end
+
+#set($index = $index + 1)
+#end
+		)      
+		VALUES (
+#set($items = $service.getBlock("field").rows)
+#set($count = $items.size())
+#set($index = 0)
+#foreach($item in $items)
+#set($type = "VARCHAR")
+#if($item.fieldType == "N")
+#set($type = "NUMERIC")
+#end
+#set($splitter = ",")
+#if($index == $count - 1)
+#set($splitter = "")
+#end
+			#$item.fieldColumnName: $type#$splitter
+#set($index = $index + 1)
+#end
+		)
+	</insert>

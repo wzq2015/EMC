@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- 框架message相关设置 -->
+
+	<!-- system resource's db implement -->
+	<bean id="iplat4j_resourceProvider" class="com.baosight.iplat4j.core.resource.impl.DbResourceProvider" init-method="init">
+		<property name="namedSqlDao" ref="namedSqlDao"/>
+		<property name="resproviderTableName" value="${platSchema}.ted10" />
+		<property name="loadOnDemand" value="false" />
+		<property name="cacheCapacity" value="1000" />
+		<property name="preLoadResources">
+			<map>
+				<entry key="message">
+					<value>ef.*,ep.*</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 框架message之properties属性文件实现 -->
+	<!-- 
+	<bean class="com.baosight.iplat4j.core.resource.impl.PropertiesResourceProviderImpl"  init-method="init">
+        <property name="providerId"><value>message</value></property>
+		<property name="refreshDelay"><value>30000</value></property>
+		<property name="propertieFiles">
+			<list>
+				<value>classpath*:resources/messages/**/*.properties</value>
+			</list>
+		</property>
+		<property name="convertSuffix"><value>chinese,chinese_zh,japanese_jp</value></property>
+		<property name="fileEncode"><value>ISO-8859-1</value></property>
+		<property name="encode"><value>UTF-8</value></property>
+    </bean>
+     -->
+	
+	<!-- 框架message之数据库实现 -->
+	<!--
+	<bean id="messageResourceProvider" class="com.baosight.iplat4j.core.resource.impl.DbMessageProviderImpl"  init-method="init">
+        <property name="providerId"><value>message</value></property>
+		<property name="refreshDelay"><value>500</value></property>
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+		<property name="table" value="messages"/>
+		<property name="keyColumn" value="key"/>
+		<property name="valueColumn" value="value"/>
+		<property name="localeColumn" value="locale"/>
+		<property name="statusColumn" value="status"/>
+    </bean>
+    -->
+
+</beans>

@@ -1,0 +1,44 @@
+#if($item.conditionContent.trim() != "")
+<dynamic prepend=" $item.conditionLink ">
+			$item.conditionContent
+		</dynamic>
+#else
+#if($item.tableAlias.trim() == "")
+#set($table_alias = $item.tableName)
+#else
+#set($table_alias = $item.tableAlias)
+#end
+#set($operator = $item.operator.trim())
+#if($operator == "<")
+#set($operator = "<![CDATA[<]]>")
+#end
+#if($operator == "<=")
+#set($operator = "<![CDATA[<=]]>")
+#end
+#if($operator == "<>")
+#set($operator = "<![CDATA[<>]]>")
+#end
+#if($item.conditionValue.trim() != "")
+<dynamic prepend=" $item.conditionLink ">
+#if($item.fieldType == "N")
+			${table_alias}.${item.fieldName} $operator $item.conditionValue
+#else
+			${table_alias}.${item.fieldName} $operator '$item.conditionValue'
+#end
+		</dynamic>
+#else
+<isNotEmpty prepend=" $item.conditionLink " property="$item.fieldColumnName">
+#if($item.operator.trim().toLowerCase() == "like")
+			${table_alias}.${item.fieldName} $operator '%'||#$item.fieldColumnName#||'%'
+#elseif($item.operator.trim().toLowerCase() == "like%")
+			${table_alias}.${item.fieldName} like #$item.fieldColumnName#||'%'
+#elseif($item.operator.trim().toLowerCase() == "%like")
+			${table_alias}.${item.fieldName} like '%'||#$item.fieldColumnName#
+#elseif($item.operator.trim().toLowerCase() == "in")
+			${table_alias}.${item.fieldName} $operator $${item.fieldColumnName}$
+#else
+			${table_alias}.${item.fieldName} $operator #$item.fieldColumnName#
+#end
+		</isNotEmpty>
+#end
+#end

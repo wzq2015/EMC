@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+<!-- 框架converter相关设置 -->
+	
+	<!-- string to date 的converter实现 -->
+	<bean id="dateConverter" class="com.baosight.iplat4j.util.converter.DateConverter"  init-method="init">
+        <!-- <constructor-arg index="0" value="2007-03-26"/>
+        <constructor-arg index="1" value="yyyy-MM-dd"/> -->
+		<property name="formats">
+			<list>
+				<value>yyyy-MM-dd</value>
+				<value>yyyy-MM-dd HH:mm:ss</value>
+				<value>yyyyMMdd</value>
+				<value>yyyyMMddHHmmss</value>
+			</list>
+		</property>
+		
+		<!-- 解析缺省值的缺省格式,如果缺省值设为currentdate,则无需该参数 
+		<property name="defaultFormat" value="yyyy-MM-dd"/> -->
+		
+		<!-- 无法正确解析时的缺省值,如果设为currentdate,则取当前时间,
+		     否则与defaultFormat配套进行解析作为默认值,如果不设,则没有默认值,抛出异常 -->
+		<property name="defaultStr" value="currentdate"/>
+    </bean>
+</beans>

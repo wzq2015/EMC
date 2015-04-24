@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2013-08-27 11:17:21
+   		Version :  1.0.1.V20070717
+		tableName :.t_report_template_history 
+		 f_report_template_history_id  INTEGER   NOT NULL   primarykey, 
+		 f_report_template_history_path  VARCHAR, 
+		 f_report_template_history_modifiedtime  VARCHAR, 
+		 f_report_template_id  INTEGER   NOT NULL
+	-->
+<sqlMap namespace="tReportTemplateHistory">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TReportTemplateHistory">
+		SELECT
+				f_report_template_history_id	as "f_reportTemplateHistoryId",  
+				f_report_template_history_path	as "f_reportTemplateHistoryPath",  
+				f_report_template_history_modifiedtime	as "f_reportTemplateHistoryModifiedtime",  
+				f_report_template_id	as "f_reportTemplateId" 
+		FROM .t_report_template_history WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportTemplateHistoryId">
+			f_report_template_history_id = #f_reportTemplateHistoryId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_report_template_history_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_report_template_history WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_reportTemplateHistoryId">
+			f_report_template_history_id = #f_reportTemplateHistoryId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_reportTemplateHistoryId">
+			f_report_template_history_id = #f_reportTemplateHistoryId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateHistoryPath">
+			f_report_template_history_path = #f_reportTemplateHistoryPath#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateHistoryModifiedtime">
+			f_report_template_history_modifiedtime = #f_reportTemplateHistoryModifiedtime#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_reportTemplateId">
+			f_report_template_id = #f_reportTemplateId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_report_template_history (f_report_template_history_id,
+										f_report_template_history_path,
+										f_report_template_history_modifiedtime,
+										f_report_template_id
+										)		 
+	    VALUES (#f_reportTemplateHistoryId#, #f_reportTemplateHistoryPath#, #f_reportTemplateHistoryModifiedtime#, #f_reportTemplateId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_report_template_history WHERE 
+			f_report_template_history_id = #f_reportTemplateHistoryId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_report_template_history 
+		SET 
+					f_report_template_history_path	= #f_reportTemplateHistoryPath#,   
+					f_report_template_history_modifiedtime	= #f_reportTemplateHistoryModifiedtime#,   
+					f_report_template_id	= #f_reportTemplateId#  
+			WHERE 	
+			f_report_template_history_id = #f_reportTemplateHistoryId#
+	</update>
+  
+</sqlMap>

@@ -1,0 +1,6 @@
+#if($item.tableAlias.trim() == "")
+#set($table_alias = $item.tableName)
+#else
+#set($table_alias = $item.tableAlias)
+#end
+${table_alias}.$item.fieldName

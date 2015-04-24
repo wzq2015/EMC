@@ -1,0 +1,57 @@
+##
+## 渲染单记录区域按钮js的通用模板
+## 调用时需要设置以下参数
+## $_region_id 区域的ID
+## $_grid_id 提交的grid的ID, 如果为空，表示页面上没有grid
+#set($_Q = '"')
+#set($_block_name = ".opt$" + "${_region_id}")
+#set($_block_meta = $meta.getBlock("${_block_name}").getBlockMeta().getMetas())
+## 区域类型 0: 查询  1: 单记录  2: 多记录
+#set($_region_type = $meta.getBlock("${_block_name}").regionType)
+#foreach( $_button in $_block_meta)
+/**
+ * 点击$_button.cname按钮
+ */
+button_${_button.ename}_onclick = function () {
+#if(!$_button.code || $_button.code.trim() == "")
+#set($_button_serviceEname = $meta.utility.getValue($_button.serviceEname, $meta.formEname))
+#set($_button_methodEname = $meta.utility.getValue($_button.methodEname, $_button.ename))
+## 如果是多记录区域，不需要验证
+#if($_region_type == "2")
+	efgrid.submitForm("${_grid_id}", "$meta.moduleEname1.toLowerCase()", "$_button_serviceEname", "$_button_methodEname", true);	
+## 如果是查询区域， 提交查询
+#elseif($_region_type == "0")
+#if($_button.validateGroup.trim() != "")
+	if (efvalidateFormInGroup(ef.get("$meta.formEname"),"$_button.validateGroup.trim()")) {
+#else
+	if (efvalidateDiv("${_region_id}")) {
+#end
+#if("" != $_grid_id)
+		efgrid.submitInqu("${_grid_id}", "$meta.moduleEname1.toLowerCase()", "$_button_serviceEname", "$_button_methodEname");
+#else
+		ef.get("serviceName").value = "$_button_serviceEname";
+		ef.get("methodName").value = "$_button_methodEname";
+		efform.submit(document.forms[0]);
+#end
+	}
+## 如果是单记录区域
+#else
+#if($_button.validateGroup.trim() != "")
+	if (efvalidateFormInGroup(ef.get("$meta.formEname"),"$_button.validateGroup.trim()")) {
+#else
+	if (efvalidateDiv("${_region_id}")) {
+#end
+#if("" != $_grid_id)
+		efgrid.submitForm("${_grid_id}", "$meta.moduleEname1.toLowerCase()", "$_button_serviceEname", "$_button_methodEname", true);
+#else
+		ef.get("serviceName").value = "$_button_serviceEname";
+		ef.get("methodName").value = "$_button_methodEname";
+		efform.submit(document.forms[0]);
+#end
+	}
+#end
+#else
+	$_button.code
+#end
+}
+#end

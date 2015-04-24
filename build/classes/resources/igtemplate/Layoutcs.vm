@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Baosight.Platform.Core;
+using Baosight.Platform.Core.UI.Controls;
+using System.Windows.Browser;
+
+namespace Baosight.${appSystemName}.${moduleName}.UI
+{
+    public partial class ${viewName} : EFView
+    {
+        public ${viewName}()
+        {
+            InitializeComponent();
+        }
+        
+#set ($SubControls = ${top.SubControls})
+#parse("./resources/igtemplate/Eventcs.vm") 
+    #foreach( ${button} in ${buttons})
+        
+        #if( ${button.Name} == 'QUERY' )
+	public void On${button.Name}ButtonClick(object sender, RoutedEventArgs e)
+        {
+             /** 先需要将下面这个类添加到工程中，其中 EEMDExtensions 类名可以是任何名称
+             public static partial class EEMDExtensions 
+             {
+                public static bool ValidateField(this FrameworkElement element)
+                {
+                    bool result = true;
+
+                    List<EFDataField> dataFields = element.GetChildObjects<EFDataField>(null);
+                    foreach (EFDataField field in dataFields)
+                    {
+                        if (field.Visibility == Visibility.Visible)
+                        {
+                            result = field.Validate() && result;
+                        }
+                    }
+                    return result;
+                }
+             }
+             *  ===========下面为具体的验证代码=============
+             *  其中 this.INQU 的INQU为对应的EFRegion(查询区域)的 Name属性值
+            if (!this.INQU.ValidateField())
+            {
+                var _msgEIInfo = new EIInfo();
+                _msgEIInfo.Status = -1;
+                _msgEIInfo.Msg = "验证不合法...";
+                this.Initialize(_msgEIInfo);
+                return;
+            }
+            **/
+
+            this.Submit(OperationMode.Query, eServiceName, "query", DataRange.All);
+            
+            /** 如果是单明细模式，请去掉如下的注释，其中 detailForm 为单表的Name属性值
+            this.detailForm.ExecuteQuery();
+            **/
+        }
+        #elseif( ${button.Name} == 'INSERT' )
+	public void On${button.Name}ButtonClick(object sender, RoutedEventArgs e)
+        {
+        	/** 判断操作前是否全部选中： this.grid 中grid为对应的XAML中EFGrid的 Name 属性值，根据不同的页面会有不同值，注意变换
+            if (this.grid.GetCheckedItems().Count == 0)
+            {
+                EFWindow.Alert("没有选中任何记录...");
+                return;
+            }
+            **/
+            base.OnInsertButtonClick(sender, e);
+            /** 如果是单明细模式，请去掉如下的注释
+            this.Submit(OperationMode.Insert, eServiceName, "insert", DataRange.DirtyItems);
+            **/
+        }
+        #elseif( ${button.Name} == 'UPDATE' )
+	public void On${button.Name}ButtonClick(object sender, RoutedEventArgs e)
+        {
+        	/** 判断操作前是否全部选中： this.grid 中grid为对应的XAML中EFGrid的 Name 属性值，根据不同的页面会有不同值，注意变换
+            if (this.grid.GetCheckedItems().Count == 0)
+            {
+                EFWindow.Alert("没有选中任何记录...");
+                return;
+            }
+            **/
+            base.OnUpdateButtonClick(sender, e);
+            /** 如果是单明细模式，请去掉如下的注释
+            this.Submit(OperationMode.Update, eServiceName, "update", DataRange.DirtyItems);
+            **/
+        }
+        #elseif( ${button.Name} == 'DELETE' )
+	public void On${button.Name}ButtonClick(object sender, RoutedEventArgs e)
+        {
+        	/** 判断操作前是否全部选中： this.grid 中grid为对应的XAML中EFGrid的 Name 属性值，根据不同的页面会有不同值，注意变换
+            if (this.grid.GetCheckedItems().Count == 0)
+            {
+                EFWindow.Alert("没有选中任何记录...");
+                return;
+            }
+            
+			if (HtmlPage.Window.Confirm("确定删除吗?"))
+            {
+                base.OnDeleteButtonClick(sender, e);
+            }
+            
+            **/        
+            base.OnDeleteButtonClick(sender, e);
+        }
+        #else
+    public void On${button.Name}ButtonClick(object sender, RoutedEventArgs e)
+        {
+        	/** 判断操作前是否全部选中： this.grid 中grid为对应的XAML中EFGrid的 Name 属性值，根据不同的页面会有不同值，注意变换
+            if (this.grid.GetCheckedItems().Count == 0)
+            {
+                EFWindow.Alert("没有选中任何记录...");
+                return;
+            }
+            **/
+        }
+		#end
+        
+    #end}
+
+}

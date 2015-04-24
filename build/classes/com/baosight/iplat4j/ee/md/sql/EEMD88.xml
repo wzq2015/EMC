@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EEMD88">
+
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM JXGL_B_MATERTAL t
+		WHERE 1=1
+			AND t.JZGLMATERIAL_ID = #jzglmaterialId#
+	</delete>	
+	
+	<!-- 新增 -->
+	<insert id="insert">
+		INSERT INTO JXGL_B_MATERTAL (
+			JZGLMATERIAL_ID,
+			SM_NAME,
+			SM_TYPE,
+			TYPE_SPEC
+		)      
+		VALUES (
+			#jzglmaterialId: NUMERIC#,
+			#smName: VARCHAR#,
+			#smType: VARCHAR#,
+			#typeSpec: VARCHAR#
+		)
+	</insert>	
+	
+	<!-- 查询 -->
+	<select id="query" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT
+			t.JZGLMATERIAL_ID as "jzglmaterialId",	
+			t.SM_NAME as "smName",	
+			t.SM_TYPE as "smType",	
+			t.TYPE_SPEC as "typeSpec"	
+		FROM JXGL_B_MATERTAL t 
+		WHERE 1=1
+		<isNotEmpty prepend=" AND " property="jzglmaterialId">
+			t.JZGLMATERIAL_ID = #jzglmaterialId#
+		</isNotEmpty>
+		<dynamic prepend="ORDER BY">
+			<isNotEmpty property="orderBy">
+		    	$orderBy$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<!-- 修改 -->
+	<update id="update">
+		UPDATE  JXGL_B_MATERTAL t
+        SET
+			SM_NAME = #smName#,
+			SM_TYPE = #smType#,
+			TYPE_SPEC = #typeSpec#
+		WHERE 1=1
+			AND t.JZGLMATERIAL_ID = #jzglmaterialId#
+	</update>	
+	
+
+</sqlMap>
