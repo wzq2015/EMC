@@ -1,5 +1,5 @@
   /**
-   * Generate time : 2013-10-28 14:14:56
+   * Generate time : 2015-04-30 11:33:18
    * Version : 1.0.1.V20070717
    */
 package com.baosight.fpserver.cm.im.domain;
@@ -38,6 +38,7 @@ public class TEmcproject extends DaoEPBase {
 	private String f_emcprojectCustomerpmEmail = " ";		
 	private String f_emcprojectCustomerpmPhonenumber = " ";		
 	private String f_emcprojectInitpage = " ";		
+	private Integer f_emcprojectStatus = new Integer(0);		
 
 	/**
 	 * initialize the metadata 
@@ -131,6 +132,10 @@ public class TEmcproject extends DaoEPBase {
 	eiMetadata.addMeta(eiColumn);
 	
 	eiColumn = new EiColumn("f_emcprojectInitpage");
+	eiColumn.setDescName(" ");
+	eiMetadata.addMeta(eiColumn);
+	
+	eiColumn = new EiColumn("f_emcprojectStatus");
 	eiColumn.setDescName(" ");
 	eiMetadata.addMeta(eiColumn);
 	
@@ -474,6 +479,21 @@ public class TEmcproject extends DaoEPBase {
 	}
 	
 	/**
+	 * get the f_emcprojectStatus 
+	 * @return the f_emcprojectStatus
+	 */
+	public Integer getF_emcprojectStatus() {
+		return this.f_emcprojectStatus;
+	}
+	
+	/**
+	 * set the f_emcprojectStatus 
+	 */
+	public void setF_emcprojectStatus(Integer f_emcprojectStatus) {
+		this.f_emcprojectStatus = f_emcprojectStatus;
+	}
+	
+	/**
 	 * get the value from Map
 	 */
 	public void fromMap(Map map) {
@@ -500,6 +520,7 @@ public class TEmcproject extends DaoEPBase {
 		setF_emcprojectCustomerpmEmail(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("f_emcprojectCustomerpmEmail")), f_emcprojectCustomerpmEmail));
 		setF_emcprojectCustomerpmPhonenumber(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("f_emcprojectCustomerpmPhonenumber")), f_emcprojectCustomerpmPhonenumber));
 		setF_emcprojectInitpage(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("f_emcprojectInitpage")), f_emcprojectInitpage));
+		setF_emcprojectStatus(NumberUtils.toInteger(StringUtils.toString(map.get("f_emcprojectStatus")), f_emcprojectStatus));
 	}
 	
 	/**
@@ -530,6 +551,7 @@ public class TEmcproject extends DaoEPBase {
 			map.put("f_emcprojectCustomerpmEmail",StringUtils.toString(f_emcprojectCustomerpmEmail, eiMetadata.getMeta("f_emcprojectCustomerpmEmail")));	
 			map.put("f_emcprojectCustomerpmPhonenumber",StringUtils.toString(f_emcprojectCustomerpmPhonenumber, eiMetadata.getMeta("f_emcprojectCustomerpmPhonenumber")));	
 			map.put("f_emcprojectInitpage",StringUtils.toString(f_emcprojectInitpage, eiMetadata.getMeta("f_emcprojectInitpage")));	
+			map.put("f_emcprojectStatus",StringUtils.toString(f_emcprojectStatus, eiMetadata.getMeta("f_emcprojectStatus")));	
 			
 		return map;
 	

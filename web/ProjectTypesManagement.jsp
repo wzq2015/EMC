@@ -11,7 +11,9 @@
 	<script type="text/javascript" src="./jqueryeasyui/locale/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" src="./EmcCommon.js"></script>
 	<script type="text/javascript" src="./EF/EF.js"></script>
-	<script type="text/javascript" src="./SystemInfoManagement.js"></script>
+	<script type="text/javascript" src="./ProjectTypesManagement.js"></script>
+	<script type="text/javascript" src="./EnergySavingTypeTemplate.js"></script>
+	<script type="text/javascript" src="./ExpenseTypeTemplate.js"></script>
 	<style type="text/css">
 		.desctitle {
 			height:30px;
@@ -34,131 +36,85 @@
 			<a href="#" class="easyui-linkbutton" onclick="addNode()">增加</a>
 			<a href="#" class="easyui-linkbutton" onclick="editNode()">编辑</a>
 			<a href="#" class="easyui-linkbutton" onclick="deleteNode()">删除</a>
-			<!-- 
-			<a id="btnAddSubCompanyNode" href="#" class="easyui-linkbutton" data-options="disabled:true" onclick="addNode('addSubCompanyNode')">增加子公司</a>
-			 -->
 		</div>
 		<ul id="tree" class="easyui-tree" dnd="true"></ul>
 	</div>
 	<div data-options="region:'center',split:true" title="详细信息">
-		<div id="divArea" style="padding:30px;display:none;">
-			<div class="desctitle">项目类型信息</div>
-			<div class="descitem">
-				<label>项目类型名称:</label><input id="txtAreaName"/><br/>
-				<!-- 
-				<label>区域描述:</label><input id="txtAreaDesc"/><br/>
-				 -->
-				<div style="padding:6px;padding-left:120px;">
-					<a id="btnSaveArea" href="#" class="easyui-linkbutton" onclick="updateArea()">保存</a>&nbsp&nbsp
-					<a id="btnCancelSaveArea" href="#" class="easyui-linkbutton" onclick="cancelUpdate('area')">取消</a>
+		<input type="hidden" id="f_typeTemplateId" />
+		<!-- 标签页面或者选项卡 -->
+		<div id="divProjectTypes" class="easyui-tabs" fit="true" style="display:none;">
+			<div title="项目类型基本信息" style="padding:10px;">
+				<div class="descitem">
+					<label>项目类型名称:</label><input id="txtProjectTypeName"/><br/>
+					<label>项目类型描述:</label><input id="txtProjectTypeDesc"/><br/>
+					<div style="padding:6px;padding-left:120px;">
+						<a id="btnSaveProjectType" href="#" class="easyui-linkbutton" onclick="updateProjectType()">保存</a>&nbsp&nbsp
+						<a id="btnCancelSaveProjectType" href="#" class="easyui-linkbutton" onclick="cancelUpdate('projectType')">取消</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id="divCompany" style="padding:30px;display:none;">
-			<div class="desctitle">类型模版信息</div>
-			<div id="tt" class="easyui-tabs" style="width:500px;height:250px;"> 
-				<div title="Tab1" style="padding:20px;display:none;">基本信息</div> 
-				<div title="Tab2" closable="true" style="overflow:auto;padding:20px;display:none;">节能量类型模版</div> 
-				<div title="Tab3" iconCls="icon-reload" closable="true" style="padding:20px;display:none;">费用类型模版</div> 
-			</div>
-			<div class="descitem">
-				<label>公司名称:</label><input id="txtCompanyName"/><br/>
-				<label>公司描述:</label><input id="txtCompanyDesc"/><br/>
-				<label>公司地址:</label><input id="txtCompanyAddress"/><br/>
-				<label>邮政编码:</label><input id="txtZipCode"/><br/>
-				<label>公司账号:</label><input id="txtCompanyAccount"/><br/>
-				<label>公司税号:</label><input id="txtTaxNumber"/><br/>
-				<label>公司开户行:</label><input id="txtBank"/><br/>
-				<label>组织机构代码:</label><input id="txtOrgCode"/><br/>
-				<div style="padding:6px;padding-left:120px;">
-					<a id="btnSaveCompany" href="#" class="easyui-linkbutton" onclick="updateCompany()">保存</a>&nbsp&nbsp
-					<a id="btnCancelSaveCompany" href="#" class="easyui-linkbutton" onclick="cancelUpdate('company')">取消</a>
+			<div id="energysavingTypeTemplate" title="节能量类型模版" style="padding:10px;">
+				<table id="datagrid" class="easyui-datagrid" title="节能量类型模版列表" data-options="singleSelect:true,pagination:true,toolbar:toolbar,fit:true,fitColumns:true">
+        			<thead>
+            			<tr>
+                			<th data-options="field:'f_energysavingTypeName',width:160,editor:'text'">节能量类型名称</th>
+                			<th data-options="field:'f_energysavingTypeDesc',width:160,editor:'text'">节能量类型描述</th>
+                			<th data-options="field:'f_energysavingTypeFormula',width:240">节能量计算公式</th>
+                			<th data-options="field:'action',width:160,formatter:actionformat">操作</th>
+            			</tr>
+        			</thead>
+    			</table>
+    
+    			<div id="dlgformula" class="easyui-dialog" style="width:550px;height:550px;padding:10px;" closed="true" buttons="#dlgformulaButtons">
+    				<textarea id="txtformula" rows="5" cols="70" wrap="virtual"></textarea>
+    				<div style="padding:5px;">
+	        			<a href="#" class="easyui-linkbutton" onclick="insertFormula('+')">+</a>
+    	    			<a href="#" class="easyui-linkbutton" onclick="insertFormula('-')">-</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('*')">*</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('/')">/</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('%')">%</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('(')">(</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula(')')">)</a>
+        				<br/>
+        				<br/>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.abs(x)')">abs</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.pow(x, y)')">pow</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.log(x)')">log</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('x.toFixed(n)')">Fixed</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.sin(x)')">sin</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.cos(x)')">cos</a>
+        				<a href="#" class="easyui-linkbutton" onclick="insertFormula('Math.tan(x)')">tan</a>
+    				</div>
+    			</div>
+    			<div id="dlgformulaButtons">
+					<a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveFormula()">确定</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlgformula').dialog('close')">取消</a>
 				</div>
 			</div>
-		</div>
-		<div id="divEmcproject" style="padding:30px;display:none;">
-			<div class="desctitle">EMC项目信息</div>
-			<div class="descitem">
-				<label>项目名称:</label><input id="txtProjectName"/><br/>
-				<label>项目描述:</label><input id="txtProjectDesc"/><br/>
-				<label>项目地址:</label><input id="txtProjectAddress"/><br/>
-				<label>建设日期:</label><input class="easyui-datebox" id="txtConstructDate"/><br/>
-				<label>竣工日期:</label><input class="easyui-datebox" id="txtCommissionDate"/><br/>
-				<label>项目责任人:</label><input id="txtProjectRes"/><br/>
-				<label>建设单位:</label><input id="txtConstructUnit"/><br/>
-				<label>开始日期:</label><input class="easyui-datebox" id="txtStartDate"/><br/>
-				<label>结束日期:</label><input class="easyui-datebox" id="txtEndDate"/><br/>
-				<label>项目结算周期数：</label><input id="txtTotalCycleNumber"/><br/>
-				<label>负责人电子邮件：</label><input id="txtResEmail"/><br/>
-				<label>负责人电话：</label><input id="txtResPhone"/><br/>
-				<label>客户项目经理：</label><input id="txtCustomerPM"/><br/>
-				<label>客户项目经理Email：</label><input id="txtCustomerPMEmail"/><br/>
-				<label>客户项目经理电话：</label><input id="txtCustomerPMPhone"/><br/>
-				<label>初始监控画面：</label><input id="txtInitPage"/><br/>
-				<div style="padding:6px;padding-left:120px;">
-					<a id="btnSaveProject" href="#" class="easyui-linkbutton" onclick="updateProject()">保存</a>&nbsp&nbsp
-					<a id="btnCancelSaveProject" href="#" class="easyui-linkbutton" onclick="cancelUpdate('project')">取消</a>
-				</div>
+			<div id="expenseTypetemplate" title="费用类型模版" style="padding:10px;">
+				<table id="datagrid1" class="easyui-datagrid" title="费用类型模版列表" data-options="singleSelect:true,toolbar:toolbar1,pagination:true,pageSize:10,fit:true,fitColumns:true">
+        			<thead>
+            			<tr>
+                			<th data-options="field:'f_expenseTypeName',width:240,editor:'text'">费用类型模版名称</th>
+                			<th data-options="field:'f_expenseTypeDesc',width:360,editor:'text'">费用类型模版描述</th>
+                			<th data-options="field:'action',width:240,formatter:actionformat1">操作</th>
+            			</tr>
+        			</thead>
+    			</table>
 			</div>
 		</div>
 	</div>
 </div>
-
-<div id="dlgArea" class="easyui-dialog" title="新建区域" style="width:400px;height:280px;padding:10px 20px" closed="true" buttons="#dlgAreaButtons">
-	<div class="desctitle">区域信息</div>
+<div id="dlgProjectType" class="easyui-dialog" title="新建项目类型" style="width:400px;height:280px;padding:10px 20px" closed="true" buttons="#dlgProjecttypeButtons">
+	<div class="desctitle">项目类型信息</div>
 	<div class="descitem">
-		<label>区域名称:</label><input id="txtNewAreaName"/><br/>
-		<label>区域描述:</label><input id="txtNewAreaDesc"/>
+		<label>项目类型名称:</label><input id="txtNewProjectTypeName"/>
+		<label>项目类型描述:</label><input id="txtNewProjectTypeDesc"/>
 	</div>
 </div>
-<div id="dlgAreaButtons">
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="insertArea()">确定</a>
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlgArea').dialog('close')">取消</a>
+<div id="dlgProjecttypeButtons">
+	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="insertProjectType()">确定</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlgProjectType').dialog('close')">取消</a>
 </div>
-
-<div id="dlgCompany" class="easyui-dialog" title="新建公司" style="width:400px;height:380px;padding:10px 20px" closed="true" buttons="#dlgCompanyButtons">
-	<div class="desctitle">公司信息</div>
-	<div class="descitem">
-		<label>公司名称:</label><input id="txtNewCompanyName"/><br/>
-		<label>公司描述:</label><input id="txtNewCompanyDesc"/><br/>
-		<label>公司地址:</label><input id="txtNewCompanyAddress"/><br/>
-		<label>邮政编码:</label><input id="txtNewZipCode"/><br/>
-		<label>公司账号:</label><input id="txtNewCompanyAccount"/><br/>
-		<label>公司税号:</label><input id="txtNewTaxNumber"/><br/>
-		<label>公司开户行:</label><input id="txtNewBank"/><br/>
-		<label>组织机构代码:</label><input id="txtNewOrgCode"/>
-	</div>
-</div>
-<div id="dlgCompanyButtons">
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="insertCompany()">确定</a>
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlgCompany').dialog('close')">取消</a>
-</div>
-
-<div id="dlgProject" class="easyui-dialog" title="新建项目" style="width:400px;height:580px;padding:10px 20px" closed="true" buttons="#dlgProjectButtons">
-	<div class="desctitle">EMC项目信息</div>
-	<div class="descitem">
-		<label>项目名称:</label><input id="txtNewProjectName"/><br/>
-		<label>项目描述:</label><input id="txtNewProjectDesc"/><br/>
-		<label>项目地址:</label><input id="txtNewProjectAddress"/><br/>
-		<label>建设日期:</label><input class="easyui-datebox" id="txtNewConstructDate"/><br/>
-		<label>竣工日期:</label><input class="easyui-datebox" id="txtNewCommissionDate"/><br/>
-		<label>项目责任人:</label><input id="txtNewProjectRes"/><br/>
-		<label>建设单位:</label><input id="txtNewConstructUnit"/><br/>
-		<label>开始日期:</label><input class="easyui-datebox" id="txtNewStartDate"/><br/>
-		<label>结束日期:</label><input class="easyui-datebox" id="txtNewEndDate"/><br/>
-		<label>项目期数：</label><input id="txtNewTotalCycleNumber"/><br/>
-		<label>负责人电子邮件：</label><input id="txtNewResEmail"/><br/>
-		<label>负责人电话：</label><input id="txtNewResPhone"/><br/>
-		<label>客户项目经理：</label><input id="txtNewCustomerPM"/><br/>
-		<label>客户项目经理Email：</label><input id="txtNewCustomerPMEmail"/><br/>
-		<label>客户项目经理电话：</label><input id="txtNewCustomerPMPhone"/><br/>
-		<label>初始监控画面：</label><input id="txtNewInitPage"/><br/>
-	</div>
-</div>
-<div id="dlgProjectButtons">
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="insertProject()">确定</a>
-	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlgProject').dialog('close')">取消</a>
-</div>
-
 </body>
 </html>

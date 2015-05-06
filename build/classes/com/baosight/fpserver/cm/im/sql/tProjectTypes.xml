@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 	<!--      table information
-		Generate time : 2015-04-27 10:39:51
+		Generate time : 2015-04-29 9:55:13
    		Version :  1.0.1.V20070717
 		tableName :.t_project_types 
 		 f_project_type_id  INTEGER   NOT NULL   primarykey, 
 		 f_project_type_name  VARCHAR   NOT NULL, 
-		 f_project_type_status  INTEGER   NOT NULL
+		 f_project_type_status  INTEGER   NOT NULL, 
+		 f_project_type_desc  VARCHAR
 	-->
 <sqlMap namespace="tProjectTypes">
 
@@ -15,10 +16,14 @@
 		SELECT
 				f_project_type_id	as "f_projectTypeId",  
 				f_project_type_name	as "f_projectTypeName",  
-				f_project_type_status	as "f_projectTypeStatus" 
+				f_project_type_status as "f_projectTypeStatus",  
+				f_project_type_desc	as "f_projectTypeDesc" 
 		FROM .t_project_types WHERE 1=1
 		<isNotEmpty prepend=" AND " property="f_projectTypeId">
 			f_project_type_id = #f_projectTypeId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_projectTypeStatus">
+			f_project_type_status = #f_projectTypeStatus#
 		</isNotEmpty>
 			<dynamic prepend="ORDER BY">
          <isNotEmpty property="orderBy">
@@ -48,14 +53,18 @@
 		<isNotEmpty prepend=" AND " property="f_projectTypeStatus">
 			f_project_type_status = #f_projectTypeStatus#
 		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_projectTypeDesc">
+			f_project_type_desc = #f_projectTypeDesc#
+		</isNotEmpty>
 	-->
 
 	<insert id="insert">
 		INSERT INTO .t_project_types (f_project_type_id,
 										f_project_type_name,
-										f_project_type_status
+										f_project_type_status,
+										f_project_type_desc
 										)		 
-	    VALUES (#f_projectTypeId#, #f_projectTypeName#, #f_projectTypeStatus#) 
+	    VALUES (#f_projectTypeId#, #f_projectTypeName#, #f_projectTypeStatus#, #f_projectTypeDesc#) 
 	</insert>
   
 	<delete id="delete">
@@ -67,7 +76,8 @@
 		UPDATE .t_project_types 
 		SET 
 					f_project_type_name	= #f_projectTypeName#,   
-					f_project_type_status	= #f_projectTypeStatus#  
+					f_project_type_status	= #f_projectTypeStatus#,   
+					f_project_type_desc	= #f_projectTypeDesc#  
 			WHERE 	
 			f_project_type_id = #f_projectTypeId#
 	</update>

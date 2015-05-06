@@ -211,7 +211,7 @@
 					    <ul class="sub_nav_01">
 					    <li><a href="#" onclick="openForm('CM01')">系统信息编码管理</a></li>
 					    <li><a href="#" onclick="openForm('CM92')">项目位置设置</a></li>
-					    <li><a href="#" onclick="openForm('')">项目类型管理</a></li>
+					    <li><a href="#" onclick="openForm('PT01')">项目类型管理</a></li>
 					    </ul>
 				    </li>
 				</ul>
