@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-04-27 16:27:23
+   		Version :  1.0.1.V20070717
+		tableName :.t_type_template 
+		 f_type_template_id  INTEGER   NOT NULL   primarykey, 
+		 f_type_template_name  VARCHAR   NOT NULL, 
+		 f_type_template_desc  VARCHAR, 
+		 f_project_type_id  INTEGER   NOT NULL
+	-->
+<sqlMap namespace="tTypeTemplate">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TTypeTemplate">
+		SELECT
+				f_type_template_id	as "f_typeTemplateId",  
+				f_type_template_name	as "f_typeTemplateName",  
+				f_type_template_desc	as "f_typeTemplateDesc",  
+				f_project_type_id	as "f_projectTypeId" 
+		FROM .t_type_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_projectTypeId">
+			f_project_type_id = #f_projectTypeId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_type_template_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_type_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateName">
+			f_type_template_name = #f_typeTemplateName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateDesc">
+			f_type_template_desc = #f_typeTemplateDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_projectTypeId">
+			f_project_type_id = #f_projectTypeId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_type_template (f_type_template_id,
+										f_type_template_name,
+										f_type_template_desc,
+										f_project_type_id
+										)		 
+	    VALUES (#f_typeTemplateId#, #f_typeTemplateName#, #f_typeTemplateDesc#, #f_projectTypeId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_type_template WHERE 
+			f_type_template_id = #f_typeTemplateId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_type_template 
+		SET 
+					f_type_template_name	= #f_typeTemplateName#,   
+					f_type_template_desc	= #f_typeTemplateDesc#,   
+					f_project_type_id	= #f_projectTypeId#  
+			WHERE 	
+			f_project_type_id = #f_projectTypeId#
+	</update>
+  
+</sqlMap>

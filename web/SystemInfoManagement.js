@@ -164,6 +164,9 @@ updateProjectParentIdCallback = {
 function onTreeClick(node) {
 	showDiv(node.attributes.type);
 	$('#btnAddSubCompanyNode').linkbutton('disable');
+	$('#pType').val("");
+//	jQuery("#txtNewProjectType").empty();
+	jQuery("#txtProjectType").empty();
 	
 	var info = new EiInfo();
 	if (node.attributes.type == 'area') {
@@ -264,10 +267,15 @@ queryEmcprojectCallback = {
 		$('#txtCustomerPMEmail').val(row[metas.f_emcprojectCustomerpmEmail.pos]);
 		$('#txtCustomerPMPhone').val(row[metas.f_emcprojectCustomerpmPhonenumber.pos]);
 		$('#txtInitPage').val(row[metas.f_emcprojectInitpage.pos]);
+		$('#pType').val(row[metas.f_emcprojectType.pos]);
 		
 		$('#divEmcproject input').attr("disabled", true);
+		$('#divEmcproject select').attr("disabled", true);
 		$('#btnSaveProject').linkbutton('disable');
     	$('#btnCancelSaveProject').linkbutton('disable');
+    	
+    	var info = new EiInfo();
+		EiCommunicator.send("CMIMEmcproject", "queryProjectTypes", info, projectTypesCallback);
 	},
     onFail : function(eMsg){
 		$.messager.alert('错误','获取项目信息失败');
@@ -283,27 +291,59 @@ function addNode(addType) {
 	if (node.attributes.type == 'root') {
 		$('#dlgArea').dialog('open');
 		$('#dlgArea input').val("");
-	}
-	else if (node.attributes.type == 'area') {
+	}else if (node.attributes.type == 'area') {
 		$('#dlgCompany').dialog('open');
 		$('#dlgCompany input').val("");
-	}
-	else if (node.attributes.type == 'company') {
+	}else if (node.attributes.type == 'company') {
 		if (addType == "addSubCompanyNode") {
 			$('#dlgCompany').dialog('open');
 			$('#dlgCompany input').val("");
-		}
-		else {
+		}else {
 			$('#dlgProject').dialog('open');
 			$('#dlgProject input').val("");
 			$('#txtNewConstructDate').datebox('clear');
 			$('#txtNewCommissionDate').datebox('clear');
 			$('#txtNewStartDate').datebox('clear');
 			$('#txtNewEndDate').datebox('clear');
+			jQuery("#txtNewProjectType").empty();
+			var info = new EiInfo();
+			EiCommunicator.send("CMIMEmcproject", "queryProjectTypes", info, projectTypesCallback);
 		}
-	}
-	else if (node.attributes.type == 'emcproject') {
+	}else if (node.attributes.type == 'emcproject') {
 		$.messager.alert('提示','选中节点为项目节点，无法增加子节点');
+	}
+}
+
+projectTypesCallback = {
+	onSuccess : function(eiInfo) {
+		if (eiInfo.get("errorcode") == "-1") {
+			$.messager.alert('错误','项目类型异常，请检查项目类型！');
+			return;
+		}
+		var resultBlock = eiInfo.blocks.result;
+		var metas = resultBlock.meta.metas;
+		var pType = $('#pType').val();
+		if(pType == null || pType == ""){
+			$("#txtNewProjectType").prepend("<option value='-1'>---请选择---</option>");
+			if(resultBlock.rows.length > 0){
+				for(var i=0; i<resultBlock.rows.length; i++){
+					var row = resultBlock.rows[i];
+					jQuery("#txtNewProjectType").append("<option value='"+row[metas.f_projectTypeId.pos]+"'>"+row[metas.f_projectTypeName.pos]+"</option>"); 
+				}
+			}
+		}else{
+			$("#txtProjectType").prepend("<option value='-1'>---请选择---</option>");
+			if(resultBlock.rows.length > 0){
+				for(var i=0; i<resultBlock.rows.length; i++){
+					var row = resultBlock.rows[i];
+					jQuery("#txtProjectType").append("<option value='"+row[metas.f_projectTypeId.pos]+"'>"+row[metas.f_projectTypeName.pos]+"</option>");
+				}
+				jQuery("#txtProjectType").val(pType);
+			}
+		}
+	},
+    onFail : function(eMsg) {
+		$.messager.alert('错误','项目类型异常，请检查项目类型！');
 	}
 }
 
@@ -388,6 +428,7 @@ function insertCompany() {
 
 function insertProject() {
 	var projectName = $('#txtNewProjectName').val();
+	var projectType = $('#txtNewProjectType').val();
 	if (projectName == "") {
 		$.messager.alert('警告','项目名称不能为空');
 		return;
@@ -410,6 +451,11 @@ function insertProject() {
 		return;
 	}
 	
+	if(projectType == -1){
+		$.messager.alert('警告','请选择项目类型！');
+		return;
+	}
+	
 	var info = new EiInfo();
 	
 	info.set("f_companyId", node.attributes.logicid);
@@ -429,6 +475,7 @@ function insertProject() {
 	info.set("f_emcprojectCustomerpmEmail", $('#txtNewCustomerPMEmail').val());
 	info.set("f_emcprojectCustomerpmPhonenumber", $('#txtNewCustomerPMPhone').val());
 	info.set("f_emcprojectInitpage", $('#txtNewInitPage').val());
+	info.set("f_emcprojectType", projectType);
 	
 	EiCommunicator.send("CMIMEmcproject", "insertProject", info, insertCallback);
 }
@@ -557,6 +604,7 @@ function updateCompany() {
 function updateProject() {
 	var node = $('#tree').tree('getSelected');
 	var projectName = $('#txtProjectName').val();
+	var projectType = $('#txtProjectType').val();
 	if (projectName == "") {
 		$.messager.alert('警告','EMC项目名称不能为空');
 		return;
@@ -578,6 +626,11 @@ function updateProject() {
 		return;
 	}
 	
+	if(projectType == -1){
+		$.messager.alert('警告','请选择项目类型！');
+		return;
+	}
+	
 	var info = new EiInfo();
 	info.set("f_emcprojectId", node.attributes.logicid);
 	info.set("f_emcprojectName", $('#txtProjectName').val());
@@ -596,6 +649,7 @@ function updateProject() {
 	info.set("f_emcprojectCustomerpmEmail", $('#txtCustomerPMEmail').val());
 	info.set("f_emcprojectCustomerpmPhonenumber", $('#txtCustomerPMPhone').val());
 	info.set("f_emcprojectInitpage", $('#txtInitPage').val());
+	info.set("f_emcprojectType", projectType);
 	EiCommunicator.send("CMIMEmcproject", "updateProject", info, updateCallback);
 }
 
@@ -643,8 +697,7 @@ function deleteNode() {
 	var info = new EiInfo();
 	if (node.attributes.type == 'root') {
 		$.messager.alert('提示','根节点无法删除');
-	}
-	else if (node.attributes.type == 'area') {
+	}else if (node.attributes.type == 'area') {
 		$.messager.confirm('确认', '是否确认删除区域节点？', 
 			function(result) {
 				if (result) {
@@ -653,8 +706,7 @@ function deleteNode() {
 				}
 			}
 		);
-	}
-	else if (node.attributes.type == 'company') {
+	}else if (node.attributes.type == 'company') {
 		$.messager.confirm('确认', '是否确认删除公司节点？', 
 			function(result) {
 				if (result) {
@@ -663,8 +715,7 @@ function deleteNode() {
 				}
 			}
 		);
-	}
-	else if (node.attributes.type == 'emcproject') {
+	}else if (node.attributes.type == 'emcproject') {
 		$.messager.confirm('确认', '是否确认删除EMC项目节点？', 
 			function(result) {
 				if (result) {

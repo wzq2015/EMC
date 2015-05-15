@@ -25,6 +25,9 @@
             display:inline-block;
             width:120px;
         }
+        .descitem select {
+            width:150px;
+        }
 	</style>
 </head>
 <body>
@@ -70,7 +73,13 @@
 		<div id="divEmcproject" style="padding:30px;display:none;">
 			<div class="desctitle">EMC项目信息</div>
 			<div class="descitem">
+				<input type="hidden" id="pType"/>
 				<label>项目名称:</label><input id="txtProjectName"/><br/>
+				<label>项目类型:</label>
+				<select id="txtProjectType">
+					
+				</select>
+				<br/>
 				<label>项目描述:</label><input id="txtProjectDesc"/><br/>
 				<label>项目地址:</label><input id="txtProjectAddress"/><br/>
 				<label>建设日期:</label><input class="easyui-datebox" id="txtConstructDate"/><br/>
@@ -129,6 +138,11 @@
 	<div class="desctitle">EMC项目信息</div>
 	<div class="descitem">
 		<label>项目名称:</label><input id="txtNewProjectName"/><br/>
+		<label>项目类型:</label>
+		<select id="txtNewProjectType">
+			
+		</select>
+		<br/>
 		<label>项目描述:</label><input id="txtNewProjectDesc"/><br/>
 		<label>项目地址:</label><input id="txtNewProjectAddress"/><br/>
 		<label>建设日期:</label><input class="easyui-datebox" id="txtNewConstructDate"/><br/>

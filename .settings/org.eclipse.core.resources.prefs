@@ -1,4 +1,4 @@
-#Tue Mar 31 23:13:56 CST 2015
+#Thu May 07 09:35:41 CST 2015
 eclipse.preferences.version=1
 encoding//src/com/baosight/fpserver/cm/im/service/ServiceCMIMImage.java=UTF-8
 encoding//src/com/baosight/iplat4j/common/ee/domain=UTF-8
@@ -45,4 +45,5 @@ encoding//web/ShowReport.js=UTF-8
 encoding//web/SystemInfoManagement.js=UTF-8
 encoding//web/exlogin-2.0.css=UTF-8
 encoding//web/indexReal-3.0.js=UTF-8
+encoding/<project>=UTF-8
 encoding/web=UTF-8

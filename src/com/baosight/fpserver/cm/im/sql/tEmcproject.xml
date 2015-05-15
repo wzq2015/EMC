@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 	<!--      table information
-		Generate time : 2013-10-28 14:14:56
+		Generate time : 2015-04-30 11:33:18
    		Version :  1.0.1.V20070717
 		tableName :.t_emcproject 
 		 f_emcproject_id  INTEGER   NOT NULL   primarykey, 
@@ -19,13 +19,14 @@
 		 f_emcproject_enddate  VARCHAR, 
 		 f_emcproject_cycletype  INTEGER, 
 		 f_emcproject_totalcyclenumber  INTEGER, 
-		 f_emcproject_type  INTEGER, 
+		 f_emcproject_type  INTEGER   NOT NULL, 
 		 f_emcproject_res_email  VARCHAR, 
 		 f_emcproject_res_phonenumber  VARCHAR, 
 		 f_emcproject_customerpm  VARCHAR, 
 		 f_emcproject_customerpm_email  VARCHAR, 
 		 f_emcproject_customerpm_phonenumber  VARCHAR, 
-		 f_emcproject_initpage  VARCHAR
+		 f_emcproject_initpage  VARCHAR, 
+		 f_emcproject_status  INTEGER   NOT NULL
 	-->
 <sqlMap namespace="tEmcproject">
 
@@ -53,50 +54,20 @@
 				f_emcproject_customerpm	as "f_emcprojectCustomerpm",  
 				f_emcproject_customerpm_email	as "f_emcprojectCustomerpmEmail",  
 				f_emcproject_customerpm_phonenumber	as "f_emcprojectCustomerpmPhonenumber",  
-				f_emcproject_initpage	as "f_emcprojectInitpage" 
+				f_emcproject_initpage	as "f_emcprojectInitpage",  
+				f_emcproject_status	as "f_emcprojectStatus" 
 		FROM .t_emcproject WHERE 1=1
 		<isNotEmpty prepend=" AND " property="f_emcprojectId">
 			f_emcproject_id = #f_emcprojectId#
 		</isNotEmpty>
-			<dynamic prepend="ORDER BY">
-         <isNotEmpty property="orderBy">
-    		  $orderBy$
-   		 </isNotEmpty>
-   		<isEmpty property="orderBy">
-    		  f_emcproject_id asc
-		</isEmpty>
-  		</dynamic>
-			
-	</select>
-	
-	<select id="queryByName" parameterClass="java.util.HashMap" 
-			resultClass="com.baosight.fpserver.cm.im.domain.TEmcproject">
-		SELECT
-				f_emcproject_id	as "f_emcprojectId",  
-				f_company_id	as "f_companyId",  
-				f_emcproject_name	as "f_emcprojectName",  
-				f_emcproject_desc	as "f_emcprojectDesc",  
-				f_emcproject_address	as "f_emcprojectAddress",  
-				f_emcproject_lon	as "f_emcprojectLon",  
-				f_emcproject_lat	as "f_emcprojectLat",  
-				f_emcproject_constructdate	as "f_emcprojectConstructdate",  
-				f_emcproject_commissioningdate	as "f_emcprojectCommissioningdate",  
-				f_emcproject_responsible	as "f_emcprojectResponsible",  
-				f_emcproject_constructunit	as "f_emcprojectConstructunit",  
-				f_emcproject_startdate	as "f_emcprojectStartdate",  
-				f_emcproject_enddate	as "f_emcprojectEnddate",  
-				f_emcproject_cycletype	as "f_emcprojectCycletype",  
-				f_emcproject_totalcyclenumber	as "f_emcprojectTotalcyclenumber",  
-				f_emcproject_type	as "f_emcprojectType",  
-				f_emcproject_res_email	as "f_emcprojectResEmail",  
-				f_emcproject_res_phonenumber	as "f_emcprojectResPhonenumber",  
-				f_emcproject_customerpm	as "f_emcprojectCustomerpm",  
-				f_emcproject_customerpm_email	as "f_emcprojectCustomerpmEmail",  
-				f_emcproject_customerpm_phonenumber	as "f_emcprojectCustomerpmPhonenumber",
-				f_emcproject_initpage   as "f_emcprojectInitpage" 
-		FROM .t_emcproject WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_emcprojectStatus">
+			f_emcproject_status = #f_emcprojectStatus#
+		</isNotEmpty>
 		<isNotEmpty prepend=" AND " property="f_emcprojectName">
 			f_emcproject_name = #f_emcprojectName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectType">
+			f_emcproject_type = #f_emcprojectType#
 		</isNotEmpty>
 			<dynamic prepend="ORDER BY">
          <isNotEmpty property="orderBy">
@@ -183,6 +154,9 @@
 		<isNotEmpty prepend=" AND " property="f_emcprojectInitpage">
 			f_emcproject_initpage = #f_emcprojectInitpage#
 		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectStatus">
+			f_emcproject_status = #f_emcprojectStatus#
+		</isNotEmpty>
 	-->
 
 	<insert id="insert">
@@ -207,19 +181,28 @@
 										f_emcproject_customerpm,
 										f_emcproject_customerpm_email,
 										f_emcproject_customerpm_phonenumber,
-										f_emcproject_initpage
+										f_emcproject_initpage,
+										f_emcproject_status
 										)		 
-	    VALUES (#f_emcprojectId#, #f_companyId#, #f_emcprojectName#, #f_emcprojectDesc#, #f_emcprojectAddress#, #f_emcprojectLon#, #f_emcprojectLat#, #f_emcprojectConstructdate#, #f_emcprojectCommissioningdate#, #f_emcprojectResponsible#, #f_emcprojectConstructunit#, #f_emcprojectStartdate#, #f_emcprojectEnddate#, #f_emcprojectCycletype#, #f_emcprojectTotalcyclenumber#, #f_emcprojectType#, #f_emcprojectResEmail#, #f_emcprojectResPhonenumber#, #f_emcprojectCustomerpm#, #f_emcprojectCustomerpmEmail#, #f_emcprojectCustomerpmPhonenumber#, #f_emcprojectInitpage#) 
+	    VALUES (#f_emcprojectId#, #f_companyId#, #f_emcprojectName#, #f_emcprojectDesc#, #f_emcprojectAddress#, #f_emcprojectLon#, #f_emcprojectLat#, #f_emcprojectConstructdate#, #f_emcprojectCommissioningdate#, #f_emcprojectResponsible#, #f_emcprojectConstructunit#, #f_emcprojectStartdate#, #f_emcprojectEnddate#, #f_emcprojectCycletype#, #f_emcprojectTotalcyclenumber#, #f_emcprojectType#, #f_emcprojectResEmail#, #f_emcprojectResPhonenumber#, #f_emcprojectCustomerpm#, #f_emcprojectCustomerpmEmail#, #f_emcprojectCustomerpmPhonenumber#, #f_emcprojectInitpage#, #f_emcprojectStatus#) 
 	</insert>
   
 	<delete id="delete">
 		DELETE FROM .t_emcproject WHERE 
 			f_emcproject_id = #f_emcprojectId#
 	</delete>
+	
+	<delete id="delete1">
+		UPDATE .t_emcproject 
+		SET
+					f_emcproject_status  = 1 
+		WHERE 
+		f_emcproject_id = #f_emcprojectId#
+	</delete>
 
 	<update id="update">
 		UPDATE .t_emcproject 
-		SET 
+		SET 		 
 					f_emcproject_name	= #f_emcprojectName#,   
 					f_emcproject_desc	= #f_emcprojectDesc#,   
 					f_emcproject_address	= #f_emcprojectAddress#,   
@@ -228,8 +211,7 @@
 					f_emcproject_responsible	= #f_emcprojectResponsible#,   
 					f_emcproject_constructunit	= #f_emcprojectConstructunit#,   
 					f_emcproject_startdate	= #f_emcprojectStartdate#,   
-					f_emcproject_enddate	= #f_emcprojectEnddate#,   
-					f_emcproject_cycletype	= #f_emcprojectCycletype#,   
+					f_emcproject_enddate	= #f_emcprojectEnddate#,      
 					f_emcproject_totalcyclenumber	= #f_emcprojectTotalcyclenumber#,   
 					f_emcproject_type	= #f_emcprojectType#,   
 					f_emcproject_res_email	= #f_emcprojectResEmail#,   
@@ -237,24 +219,7 @@
 					f_emcproject_customerpm	= #f_emcprojectCustomerpm#,   
 					f_emcproject_customerpm_email	= #f_emcprojectCustomerpmEmail#,   
 					f_emcproject_customerpm_phonenumber	= #f_emcprojectCustomerpmPhonenumber#,   
-					f_emcproject_initpage	= #f_emcprojectInitpage#  
-			WHERE 	
-			f_emcproject_id = #f_emcprojectId#
-	</update>
-	
-	<update id="updatePos">
-		UPDATE t_emcproject 
-		SET 
-					f_emcproject_lon	= #f_emcprojectLon#,   
-					f_emcproject_lat	= #f_emcprojectLat#  
-			WHERE 	
-			f_emcproject_id = #f_emcprojectId#
-	</update>
-	
-	<update id="updateParentId">
-		UPDATE t_emcproject 
-		SET 
-					f_company_id	= #f_companyId#
+					f_emcproject_initpage	= #f_emcprojectInitpage#   
 			WHERE 	
 			f_emcproject_id = #f_emcprojectId#
 	</update>

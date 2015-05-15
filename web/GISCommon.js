@@ -5,11 +5,72 @@ var callback = undefined;
 var SHADOW_Z_INDEX = 10;
 var MARKER_Z_INDEX = 11;
 var ALARM_Z_INDEX = 12;
+var projectTypesNodes = [];
 
-function GetTreeRootNode(getRootNodeCallback) {
-	callback = getRootNodeCallback;
+function GetTreeRootNode() {
 	var info = new EiInfo();
 	EiCommunicator.send("CMIMArea", "queryAreas", info, queryAreasCallback);
+}
+
+function GetTreeRootNodeByProjectType() {
+	var info = new EiInfo();
+	EiCommunicator.send("CMIMProjectTypes", "queryProjectTypes", info, queryProjectTypesCallback);
+}
+
+queryProjectTypesCallback = {
+	onSuccess : function(eiInfo) {
+		if (eiInfo.get("errorcode") == "-1") {
+			$.messager.alert('错误','获取项目类型信息失败');
+			return;
+		}
+		var resultBlock = eiInfo.blocks.result;
+		var metas = resultBlock.meta.metas;
+	    for (var i=0; i<resultBlock.rows.length; i++) {
+	    	var row = resultBlock.rows[i];
+	    	var node = {
+	    					id: row[metas.f_projectTypeId.pos],
+	    					text: row[metas.f_projectTypeName.pos],
+	    					attributes: {type:'projectType', logicid:row[metas.f_projectTypeId.pos]},
+	    					children:[],
+	    					iconCls:'icon-add'
+	    			   };
+	        projectTypesNodes.push(node);
+	    }
+	    
+	    var info = new EiInfo();
+	    EiCommunicator.send("CMIMEmcproject", "queryEmcprojects", info, queryProjectCallback);
+	},
+    onFail : function(eMsg){ $.messager.alert('错误','获取项目类型信息失败'); }
+}
+
+queryProjectCallback = {
+	onSuccess : function(eiInfo) {
+		if (eiInfo.get("errorcode") == "-1") {
+			$.messager.alert('错误','获取项目失败');
+			return;
+		}
+		var resultBlock = eiInfo.blocks.result;
+		var metas = resultBlock.meta.metas;
+    	for(var i=0; i<resultBlock.rows.length; i++) {
+	    	var row = eiInfo.blocks.result.rows[i];
+	    	var node = {
+	    					id: row[metas.f_emcprojectId.pos],
+	    					text: row[metas.f_emcprojectName.pos],
+	    					attributes: {type: 'emcproject', logicid: row[metas.f_emcprojectId.pos], parentId: row[metas.f_emcprojectType.pos]},
+	    			   };
+	    	
+	    	projectNodes.push(node);
+	    	for (var j=0; j<projectTypesNodes.length; j++) {
+	    		if (projectTypesNodes[j].attributes.logicid == node.attributes.parentId) {
+	    			projectTypesNodes[j].children.push(node);
+	    		}
+	    	}
+	    }
+    	getTreeDataByProjectType();
+	},
+    onFail : function(eMsg){
+		$.messager.alert('错误','获取项目失败');
+	}
 }
 
 queryAreasCallback = {
@@ -104,16 +165,7 @@ queryProjectsCallback = {
 	    		}
 	    	}
 	    }
-	    
-	    var rootNode = [{id:0, text:"根节点", attributes: {type: 'root'}, children:areaNodes, iconCls:'icon-add'}];
-	    callback(rootNode);
-		$('#tt').tree('loadData', rootNode);
-		$('#tt').tree({ onClick: 
-					function(node) {
-						if (node.attributes.type == 'emcproject')
-							centerProject(node.attributes.logicid);
-   					}		      
-   				});
+	    getTreeData();
 	},
     onFail : function(eMsg) {
 		$.messager.alert('错误','获取项目信息失败');

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-04-29 16:38:41
+   		Version :  1.0.1.V20070717
+		tableName :.t_expensetype_template 
+		 f_expensetype_template_id  INTEGER   NOT NULL   primarykey, 
+		 f_expense_type_name  VARCHAR   NOT NULL, 
+		 f_expense_type_desc  VARCHAR, 
+		 f_type_template_id  INTEGER   NOT NULL
+	-->
+<sqlMap namespace="tExpensetypeTemplate">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TExpensetypeTemplate">
+		SELECT
+				f_expensetype_template_id	as "f_expensetypeTemplateId",  
+				f_expense_type_name	as "f_expenseTypeName",  
+				f_expense_type_desc	as "f_expenseTypeDesc",  
+				f_type_template_id	as "f_typeTemplateId" 
+		FROM .t_expensetype_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expensetypeTemplateId">
+			f_expensetype_template_id = #f_expensetypeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_expensetype_template_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_expensetype_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_expensetypeTemplateId">
+			f_expensetype_template_id = #f_expensetypeTemplateId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_expensetypeTemplateId">
+			f_expensetype_template_id = #f_expensetypeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeName">
+			f_expense_type_name = #f_expenseTypeName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_expenseTypeDesc">
+			f_expense_type_desc = #f_expenseTypeDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_expensetype_template (f_expensetype_template_id,
+										f_expense_type_name,
+										f_expense_type_desc,
+										f_type_template_id
+										)		 
+	    VALUES (#f_expensetypeTemplateId#, #f_expenseTypeName#, #f_expenseTypeDesc#, #f_typeTemplateId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_expensetype_template WHERE 
+			f_expensetype_template_id = #f_expensetypeTemplateId#
+	</delete>
+	
+	<delete id="empty">
+		DELETE FROM .t_expensetype_template WHERE 
+			f_type_template_id = #f_typeTemplateId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_expensetype_template 
+		SET 
+					f_expense_type_name	= #f_expenseTypeName#,   
+					f_expense_type_desc	= #f_expenseTypeDesc#,   
+					f_type_template_id	= #f_typeTemplateId#  
+			WHERE 	
+			f_expensetype_template_id = #f_expensetypeTemplateId#
+	</update>
+  
+</sqlMap>

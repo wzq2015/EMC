@@ -58,6 +58,12 @@
     <body>
 		<div class="easyui-layout" fit="true">
 			<div data-options="region:'west',split:true,collapsible:false" title="项目树" style="width:350px;">
+				<div style="padding:5px">
+					<h3>按
+					<a href="#" class="easyui-linkbutton" onclick="getTreeData()">地区</a>
+					<a href="#" class="easyui-linkbutton" onclick="getTreeDataByProjectType()">项目类型</a>
+					选择项目树。</h3>
+				</div>
 				<ul id="tt" class="easyui-tree"></ul>
 			</div>
 			<div data-options="region:'center',split:true" title="地图">

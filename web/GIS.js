@@ -369,16 +369,33 @@ function showProjectsStatuses(eiInfo) {
 }
 
 function getTreeData() {
-	GetTreeRootNode(getTreeRootNodeCallback);
+	if(areaNodes.length > 0){
+		var rootNode = [{id:0, text:"根节点", attributes: {type: 'root'}, children:areaNodes, iconCls:'icon-add'}];
+		$('#tt').tree('loadData', rootNode);
+		$('#tt').tree({ onClick: function(node) {
+			if (node.attributes.type == 'emcproject'){
+				centerProject(node.attributes.logicid);
+			}
+   		}
+   		});
+	}else{
+		GetTreeRootNode();
+	}
 }
 
-function getTreeRootNodeCallback(rootNode) {
-	$('#tt').tree('loadData', rootNode);
-	$('#tt').tree({ onClick: function(node) {
-								if (node.attributes.type == 'emcproject')
-									centerProject(node.attributes.logicid);
-   							 }
-   				  });
+function getTreeDataByProjectType(){
+	if(projectTypesNodes.length > 0){
+    	var rootNode = [{id:0, text:"根节点", attributes: {type: 'root'}, children:projectTypesNodes, iconCls:'icon-add'}];
+		$('#tt').tree('loadData', rootNode);
+		$('#tt').tree({ onClick: function(node) {
+			if (node.attributes.type == 'emcproject'){
+				centerProject(node.attributes.logicid);
+			}
+   		}		      
+   		});
+	}else{
+		GetTreeRootNodeByProjectType();
+	}
 }
 
 function centerProject(id) {

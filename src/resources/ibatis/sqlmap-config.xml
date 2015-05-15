@@ -19,7 +19,7 @@
 	<sqlMap resource="resources/security/ConfigManagerForOracle.xml" />
 	<sqlMap resource="resources/security/DynamicAuthorizationManagerForOracle.xml" />
 	-->  
-  <!--  db2Ê¹ÓÃ
+  <!--  db2Ê¹ï¿½ï¿½
 	<sqlMap resource="com/baosight/iplat4j/ea/sql/eareceiveMessage.db2.xml" />
 	<sqlMap resource="com/baosight/iplat4j/ea/sql/easendMessage.db2.xml" />
 	-->  
@@ -44,4 +44,9 @@
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tSystemLog.xml"/>  
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpenseBudget.xml"/>  
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEmcprojectAuth.xml"/>
+  
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tProjectTypes.xml"/>
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tTypeTemplate.xml"/>
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEnergysavingtypeTemplate.xml"/>
+  <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpensetypeTemplate.xml"/>
 </sqlMapConfig>

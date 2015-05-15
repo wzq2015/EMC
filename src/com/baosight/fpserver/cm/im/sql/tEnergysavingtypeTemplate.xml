@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-04-29 15:27:41
+   		Version :  1.0.1.V20070717
+		tableName :.t_energysavingtype_template 
+		 f_energysavingtype_template_id  INTEGER   NOT NULL   primarykey, 
+		 f_energysaving_type_name  VARCHAR   NOT NULL, 
+		 f_energysaving_type_desc  VARCHAR, 
+		 f_energysaving_type_formula  VARCHAR   NOT NULL, 
+		 f_type_template_id  INTEGER   NOT NULL
+	-->
+<sqlMap namespace="tEnergysavingtypeTemplate">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergysavingtypeTemplate">
+		SELECT
+				f_energysavingtype_template_id	as "f_energysavingtypeTemplateId",  
+				f_energysaving_type_name	as "f_energysavingTypeName",  
+				f_energysaving_type_desc	as "f_energysavingTypeDesc",  
+				f_energysaving_type_formula	as "f_energysavingTypeFormula",  
+				f_type_template_id	as "f_typeTemplateId" 
+		FROM .t_energysavingtype_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingtypeTemplateId">
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energysavingtype_template_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_energysavingtype_template WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energysavingtypeTemplateId">
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_energysavingtypeTemplateId">
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeName">
+			f_energysaving_type_name = #f_energysavingTypeName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeDesc">
+			f_energysaving_type_desc = #f_energysavingTypeDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energysavingTypeFormula">
+			f_energysaving_type_formula = #f_energysavingTypeFormula#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_typeTemplateId">
+			f_type_template_id = #f_typeTemplateId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_energysavingtype_template (f_energysavingtype_template_id,
+										f_energysaving_type_name,
+										f_energysaving_type_desc,
+										f_type_template_id
+										)		 
+	    VALUES (#f_energysavingtypeTemplateId#, #f_energysavingTypeName#, #f_energysavingTypeDesc#, #f_typeTemplateId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_energysavingtype_template WHERE 
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+	</delete>
+	
+	<delete id="empty">
+		DELETE FROM .t_energysavingtype_template WHERE 
+			f_type_template_id = #f_typeTemplateId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_energysavingtype_template 
+		SET 
+					f_energysaving_type_name	= #f_energysavingTypeName#,   
+					f_energysaving_type_desc	= #f_energysavingTypeDesc#,      
+					f_type_template_id	= #f_typeTemplateId#  
+			WHERE 	
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+	</update>
+	
+	<update id="updateFormula">
+		UPDATE .t_energysavingtype_template 
+		SET 
+					f_energysaving_type_formula	= #f_energysavingTypeFormula#
+			WHERE 	
+			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
+	</update>
+  
+</sqlMap>
