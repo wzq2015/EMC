@@ -1,8 +1,12 @@
 var toolbar = 
 	[
 		{ text:'增加', iconCls:'icon-add', handler:insert },
+<<<<<<< HEAD
 		{ text:'编辑公式', iconCls:'icon-save', handler:editformula },
 		{ text:'清空', iconCls:'icon-cancel', handler:empty }
+=======
+		{ text:'编辑公式', iconCls:'icon-save', handler:editformula }
+>>>>>>> origin/master
 	];
 
 function actionformat(val, row, index) {
@@ -74,6 +78,7 @@ function insert() {
 	}
 }
 
+<<<<<<< HEAD
 function empty() {
 	var typeTemplateId = $('#f_typeTemplateId').val();
 	if(typeTemplateId == null){
@@ -90,6 +95,8 @@ function empty() {
 		});
 }
 
+=======
+>>>>>>> origin/master
 function saverow() {
     if (editIndex == undefined) { 
     	return;

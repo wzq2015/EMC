@@ -71,11 +71,14 @@
 		DELETE FROM .t_expensetype_template WHERE 
 			f_expensetype_template_id = #f_expensetypeTemplateId#
 	</delete>
+<<<<<<< HEAD
 	
 	<delete id="empty">
 		DELETE FROM .t_expensetype_template WHERE 
 			f_type_template_id = #f_typeTemplateId#
 	</delete>
+=======
+>>>>>>> origin/master
 
 	<update id="update">
 		UPDATE .t_expensetype_template 

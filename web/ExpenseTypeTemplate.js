@@ -1,7 +1,11 @@
 var toolbar1 = 
 	[
+<<<<<<< HEAD
 		{ text:'增加', iconCls:'icon-add', handler:insert1},
 		{ text:'清空', iconCls:'icon-cancel', handler:empty1 }
+=======
+		{ text:'增加', iconCls:'icon-add', handler:insert1}
+>>>>>>> origin/master
 	];
 
 var editIndex1 = undefined;
@@ -67,6 +71,7 @@ function insert1() {
 	}	
 }
 
+<<<<<<< HEAD
 function empty1() {
 	var typeTemplateId = $('#f_typeTemplateId').val();
 	if(typeTemplateId == null){
@@ -83,6 +88,8 @@ function empty1() {
 		});
 }
 
+=======
+>>>>>>> origin/master
 function saverow1() {
     if (editIndex1 == undefined) { 
     	return;

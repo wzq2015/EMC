@@ -60,6 +60,7 @@
 		<isNotEmpty prepend=" AND " property="f_emcprojectId">
 			f_emcproject_id = #f_emcprojectId#
 		</isNotEmpty>
+<<<<<<< HEAD
 		<isNotEmpty prepend=" AND " property="f_emcprojectStatus">
 			f_emcproject_status = #f_emcprojectStatus#
 		</isNotEmpty>
@@ -69,6 +70,8 @@
 		<isNotEmpty prepend=" AND " property="f_emcprojectType">
 			f_emcproject_type = #f_emcprojectType#
 		</isNotEmpty>
+=======
+>>>>>>> origin/master
 			<dynamic prepend="ORDER BY">
          <isNotEmpty property="orderBy">
     		  $orderBy$
@@ -202,10 +205,17 @@
 
 	<update id="update">
 		UPDATE .t_emcproject 
+<<<<<<< HEAD
 		SET 		 
+=======
+		SET 
+					f_company_id	= #f_companyId#,   
+>>>>>>> origin/master
 					f_emcproject_name	= #f_emcprojectName#,   
 					f_emcproject_desc	= #f_emcprojectDesc#,   
 					f_emcproject_address	= #f_emcprojectAddress#,   
+					f_emcproject_lon	= #f_emcprojectLon#,   
+					f_emcproject_lat	= #f_emcprojectLat#,   
 					f_emcproject_constructdate	= #f_emcprojectConstructdate#,   
 					f_emcproject_commissioningdate	= #f_emcprojectCommissioningdate#,   
 					f_emcproject_responsible	= #f_emcprojectResponsible#,   
@@ -219,7 +229,12 @@
 					f_emcproject_customerpm	= #f_emcprojectCustomerpm#,   
 					f_emcproject_customerpm_email	= #f_emcprojectCustomerpmEmail#,   
 					f_emcproject_customerpm_phonenumber	= #f_emcprojectCustomerpmPhonenumber#,   
+<<<<<<< HEAD
 					f_emcproject_initpage	= #f_emcprojectInitpage#   
+=======
+					f_emcproject_initpage	= #f_emcprojectInitpage#,   
+					f_emcproject_status	= #f_emcprojectStatus#  
+>>>>>>> origin/master
 			WHERE 	
 			f_emcproject_id = #f_emcprojectId#
 	</update>
