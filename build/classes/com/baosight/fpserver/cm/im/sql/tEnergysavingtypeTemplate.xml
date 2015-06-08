@@ -76,11 +76,20 @@
 		DELETE FROM .t_energysavingtype_template WHERE 
 			f_energysavingtype_template_id = #f_energysavingtypeTemplateId#
 	</delete>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 	
 	<delete id="empty">
 		DELETE FROM .t_energysavingtype_template WHERE 
 			f_type_template_id = #f_typeTemplateId#
 	</delete>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 	<update id="update">
 		UPDATE .t_energysavingtype_template 

@@ -214,7 +214,10 @@
 					    <li><a href="#" onclick="openForm('CM01')">系统信息编码管理</a></li>
 					    <li><a href="#" onclick="openForm('CM92')">项目位置设置</a></li>
 					    <li><a href="#" onclick="openForm('PT01')">项目类型管理</a></li>
+<<<<<<< HEAD
 					    <li><a href="#" onclick="openForm('PT03')">项目事件管理</a></li>
+=======
+>>>>>>> origin/master
 					    </ul>
 				    </li>
 				</ul>

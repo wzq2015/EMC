@@ -1,6 +1,13 @@
 package com.baosight.fpserver.cm.im.service;
 
+<<<<<<< HEAD
 import com.baosight.fpserver.cm.im.domain.TEnergysavingtypeTemplate;
+=======
+<<<<<<< HEAD
+import com.baosight.fpserver.cm.im.domain.TEnergysavingtypeTemplate;
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 import com.baosight.fpserver.cm.im.domain.TExpenseType;
 import com.baosight.fpserver.cm.im.domain.TExpensetypeTemplate;
 import com.baosight.iplat4j.core.ei.EiConstant;
@@ -89,6 +96,10 @@ public class ServiceCMIMExpenseTypeTemplates extends ServiceEPBase {
 		
 		return outInfo;
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 	
 	public EiInfo emptyExpenseTypeTemplates(EiInfo info){
 		EiInfo outInfo = new EiInfo();
@@ -108,4 +119,9 @@ public class ServiceCMIMExpenseTypeTemplates extends ServiceEPBase {
 		
 		return outInfo;
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 }

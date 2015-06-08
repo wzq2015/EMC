@@ -49,7 +49,10 @@
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tTypeTemplate.xml"/>
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEnergysavingtypeTemplate.xml"/>
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tExpensetypeTemplate.xml"/>
+<<<<<<< HEAD
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEventLog.xml"/>
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tmpEventTable.xml"/>
   <sqlMap resource="com/baosight/fpserver/cm/im/sql/tEnergyConsumption.xml"/>
+=======
+>>>>>>> origin/master
 </sqlMapConfig>

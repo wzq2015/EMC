@@ -45,9 +45,25 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 			energysavingTypeTemplate.setF_typeTemplateId(Integer.parseInt(info.get("f_typeTemplateId").toString()));
 			energysavingTypeTemplate.setF_energysavingTypeName(info.get("f_energysavingTypeName").toString());
 			energysavingTypeTemplate.setF_energysavingTypeDesc(info.get("f_energysavingTypeDesc").toString());
+<<<<<<< HEAD
 			this.dao.insert("tEnergysavingtypeTemplate.insert", energysavingTypeTemplate);
 			
 //			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + energysavingType.getF_energysavingTypeName());
+=======
+<<<<<<< HEAD
+			this.dao.insert("tEnergysavingtypeTemplate.insert", energysavingTypeTemplate);
+			
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + energysavingType.getF_energysavingTypeName());
+=======
+//			energysavingTypeTemplate.setF_energysavingTypeFormula(info.get("f_energysavingTypeFormula").toString());
+//			try{
+//				energysavingType.setF_energysavingTypeTargetvalue(Double.parseDouble(info.get("f_energysavingTypeTargetvalue").toString()));
+//			}catch (Exception e){}
+			this.dao.insert("tEnergysavingtypeTemplate.insert", energysavingTypeTemplate);
+			
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "Ôö¼Ó½ÚÄÜÁ¿ÀàÐÍ" + energysavingType.getF_energysavingTypeName());
+>>>>>>> origin/master
+>>>>>>> origin/master
 //			this.dao.insert("tOperationLog.insert", log);
 		}catch(Exception e){
 			outInfo.set("errorcode", "-1");
@@ -67,7 +83,15 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 			
 			this.dao.update("tEnergysavingtypeTemplate.update", energysavingTypeTemplate);
 			
+<<<<<<< HEAD
 //			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + energysavingType.getF_energysavingTypeName());
+=======
+<<<<<<< HEAD
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + energysavingType.getF_energysavingTypeName());
+=======
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ÐÞ¸Ä½ÚÄÜÁ¿ÀàÐÍ" + energysavingType.getF_energysavingTypeName());
+>>>>>>> origin/master
+>>>>>>> origin/master
 //			this.dao.insert("tOperationLog.insert", log);
 		}catch(Exception e){
 			outInfo.set("errorcode", "-1");
@@ -84,7 +108,15 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 			energysavingTypeTemplate.setF_energysavingTypeFormula(info.get("f_energysavingTypeFormula").toString());
 			this.dao.update("tEnergysavingtypeTemplate.updateFormula", energysavingTypeTemplate);
 			
+<<<<<<< HEAD
 //			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹«Ê½");
+=======
+<<<<<<< HEAD
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹«Ê½");
+=======
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "ÐÞ¸Ä½ÚÄÜÁ¿¼ÆËã¹«Ê½");
+>>>>>>> origin/master
+>>>>>>> origin/master
 //			this.dao.insert("tOperationLog.insert", log);
 		}catch(Exception e){
 			outInfo.set("errorcode", "-1");
@@ -123,7 +155,15 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 			
 			outInfo = super.delete(info, true);
 			
+<<<<<<< HEAD
 //			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+=======
+<<<<<<< HEAD
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+=======
+//			TOperationLog log = OperationLogHelper.GenerateOperationLog(2, "É¾³ý½ÚÄÜÁ¿ÀàÐÍ");
+>>>>>>> origin/master
+>>>>>>> origin/master
 //			this.dao.insert("tOperationLog.insert", log);
 		}catch(Exception e){
 			outInfo.set("errorcode", "-1");
@@ -131,6 +171,10 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 		
 		return outInfo;
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 	
 	public EiInfo emptyEnergysavingTypeTemplates(EiInfo info){
 		EiInfo outInfo = new EiInfo();
@@ -150,4 +194,9 @@ public class ServiceCMIMEnergysavingTypeTemplates extends ServiceEPBase {
 		
 		return outInfo;
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 }
