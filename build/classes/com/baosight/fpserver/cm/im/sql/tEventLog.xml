@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-05-29 10:25:53
+   		Version :  1.0.1.V20070717
+		tableName :.t_event_log 
+		 f_event_log_id  INTEGER   NOT NULL   primarykey, 
+		 f_event_log_name  VARCHAR   NOT NULL, 
+		 f_event_log_date  VARCHAR   NOT NULL, 
+		 f_event_log_desc  VARCHAR   NOT NULL, 
+		 f_event_log_remind_date  VARCHAR, 
+		 f_event_log_type  INTEGER   NOT NULL, 
+		 f_event_log_belong_id  INTEGER   NOT NULL, 
+		 f_event_log_remind_switch  INTEGER
+	-->
+<sqlMap namespace="tEventLog">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEventLog">
+		SELECT
+				f_event_log_id	as "f_eventLogId",  
+				f_event_log_name	as "f_eventLogName",  
+				f_event_log_date	as "f_eventLogDate",  
+				f_event_log_desc	as "f_eventLogDesc",  
+				f_event_log_remind_date	as "f_eventLogRemindDate",  
+				f_event_log_type	as "f_eventLogType",  
+				f_event_log_belong_id	as "f_eventLogBelongId",  
+				f_event_log_remind_switch	as "f_eventLogRemindSwitch" 
+		FROM .t_event_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_eventLogId">
+			f_event_log_id = #f_eventLogId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogBelongId">
+			f_event_log_belong_id = #f_eventLogBelongId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogType">
+			f_event_log_type = #f_eventLogType#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_event_log_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_event_log WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_eventLogId">
+			f_event_log_id = #f_eventLogId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_eventLogId">
+			f_event_log_id = #f_eventLogId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogName">
+			f_event_log_name = #f_eventLogName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogDate">
+			f_event_log_date = #f_eventLogDate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogDesc">
+			f_event_log_desc = #f_eventLogDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogRemindDate">
+			f_event_log_remind_date = #f_eventLogRemindDate#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogType">
+			f_event_log_type = #f_eventLogType#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogBelongId">
+			f_event_log_belong_id = #f_eventLogBelongId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_eventLogRemindSwitch">
+			f_event_log_remind_switch = #f_eventLogRemindSwitch#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_event_log (f_event_log_id,
+										f_event_log_name,
+										f_event_log_date,
+										f_event_log_desc,
+										f_event_log_remind_date,
+										f_event_log_type,
+										f_event_log_belong_id,
+										f_event_log_remind_switch
+										)		 
+	    VALUES (#f_eventLogId#, #f_eventLogName#, #f_eventLogDate#, #f_eventLogDesc#, #f_eventLogRemindDate#, #f_eventLogType#, #f_eventLogBelongId#, #f_eventLogRemindSwitch#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_event_log WHERE 
+			f_event_log_id = #f_eventLogId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_event_log 
+		SET 
+					f_event_log_name	= #f_eventLogName#,   
+					f_event_log_date	= #f_eventLogDate#,   
+					f_event_log_desc	= #f_eventLogDesc#,   
+					f_event_log_remind_date	= #f_eventLogRemindDate#,   
+					f_event_log_type	= #f_eventLogType#,   
+					f_event_log_belong_id	= #f_eventLogBelongId#,   
+					f_event_log_remind_switch	= #f_eventLogRemindSwitch#  
+			WHERE 	
+			f_event_log_id = #f_eventLogId#
+	</update>
+  
+</sqlMap>

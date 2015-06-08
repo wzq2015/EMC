@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-06-03 17:06:52
+   		Version :  1.0.1.V20070717
+		tableName :.tmp_event_table 
+		 eid  INTEGER, 
+		 ename  VARCHAR, 
+		 edesc  VARCHAR, 
+		 etype  INTEGER, 
+		 e_belong_id  INTEGER, 
+		 ptid  INTEGER, 
+		 ptname  VARCHAR, 
+		 belong_pname  VARCHAR, 
+		 e_belong_name  VARCHAR
+	-->
+<sqlMap namespace="tmpEventTable">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TmpEventTable">
+		SELECT
+				eid	as "eid",  
+				ename	as "ename",  
+				edesc	as "edesc",  
+				etype	as "etype",  
+				e_belong_id	as "e_belongId",  
+				ptid	as "ptid",  
+				ptname	as "ptname",  
+				belong_pname	as "belongPname",  
+				e_belong_name	as "e_belongName" 
+		FROM .tmp_event_table WHERE 1=1
+		<isNotEmpty prepend=" AND " property="projectType">
+			ptid = #projectType#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .tmp_event_table WHERE 1=1
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="eid">
+			eid = #eid#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ename">
+			ename = #ename#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="edesc">
+			edesc = #edesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="etype">
+			etype = #etype#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="e_belongId">
+			e_belong_id = #e_belongId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ptid">
+			ptid = #ptid#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="ptname">
+			ptname = #ptname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="belongPname">
+			belong_pname = #belongPname#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="e_belongName">
+			e_belong_name = #e_belongName#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .tmp_event_table (eid,
+										ename,
+										edesc,
+										etype,
+										e_belong_id,
+										ptid,
+										ptname,
+										belong_pname,
+										e_belong_name
+										)		 
+	    VALUES (#eid#, #ename#, #edesc#, #etype#, #e_belongId#, #ptid#, #ptname#, #belongPname#, #e_belongName#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .tmp_event_table WHERE 
+	</delete>
+
+	<update id="update">
+		UPDATE .tmp_event_table 
+		SET 
+		eid	= #eid#,   
+					ename	= #ename#,   
+					edesc	= #edesc#,   
+					etype	= #etype#,   
+					e_belong_id	= #e_belongId#,   
+					ptid	= #ptid#,   
+					ptname	= #ptname#,   
+					belong_pname	= #belongPname#,   
+					e_belong_name	= #e_belongName#  
+			WHERE 	
+	</update>
+	
+	<procedure id="callEventLogProcedure">
+    	{call mydb.procedure_EventLog()}
+	</procedure>
+  
+</sqlMap>

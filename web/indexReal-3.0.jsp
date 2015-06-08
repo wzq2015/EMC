@@ -173,6 +173,7 @@
 					    <li><a href="#" onclick="openForm('CM16')">节能量结果图表查询</a></li>
 					    </ul>
 				    </li>
+				    <li class="mainlevel" id="menuEnergyConsumptionManagement"><a href="#" onclick="openForm('PT04')">能耗工艺参数管理</a></li>
 				    <li class="mainlevel" id="menuExpenseManagement"><a href="#">费用管理</a>
 					    <ul class="sub_nav_01">
 					    <li><a href="#" onclick="openForm('CM21')">费用类型管理</a></li>
@@ -195,6 +196,7 @@
 					    <li><a href="#" onclick="openForm('CM33')">固定报表查询</a></li>
 					    </ul>
 				    </li>
+				    <li class="mainlevel" id="menuEventLogManagement"><a href="#" onclick="openForm('PT02')">事件记录管理</a></li>
 				    <li class="mainlevel" id="mainlevel_01"><a href="#" onclick="efChangeProject()">切换项目</a></li>
 				    <li id="menuAuthorization" class="mainlevel" style="display:none"><a href="#">系统授权</a>
 					    <ul class="sub_nav_01">
@@ -211,7 +213,8 @@
 					    <ul class="sub_nav_01">
 					    <li><a href="#" onclick="openForm('CM01')">系统信息编码管理</a></li>
 					    <li><a href="#" onclick="openForm('CM92')">项目位置设置</a></li>
-					    <li><a href="#" onclick="openForm('')">项目类型管理</a></li>
+					    <li><a href="#" onclick="openForm('PT01')">项目类型管理</a></li>
+					    <li><a href="#" onclick="openForm('PT03')">项目事件管理</a></li>
 					    </ul>
 				    </li>
 				</ul>

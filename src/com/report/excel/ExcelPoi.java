@@ -30,8 +30,8 @@ public class ExcelPoi
 	private String _dbServerUrl = "";
 	private String _dbUser = "";
 	private String _dbPassword = "";
-	private final int MAX_TEMPLETE_ROW_COUNT = 30;
-	private final int MAX_TEMPLETE_COL_COUNT = 30;
+	private final int MAX_TEMPLETE_ROW_COUNT = 50;
+	private final int MAX_TEMPLETE_COL_COUNT = 50;
 	
 	private ArrayList<DataSetDefinition> dataSetDefinitionList = new ArrayList<DataSetDefinition>();
 	
@@ -261,7 +261,10 @@ public class ExcelPoi
 					if (index1 > -1)
 					{
 						String fieldName = cellContent.substring(index + 1, index1);
-						cellContent = cellContent.replace("$"+fieldName+"$" , rs.getString(fieldName));
+						if (rs.getString(fieldName) != null)
+							cellContent = cellContent.replace("$"+fieldName+"$" , rs.getString(fieldName));
+						else
+							cellContent = "";
 					}
 				}
 			}

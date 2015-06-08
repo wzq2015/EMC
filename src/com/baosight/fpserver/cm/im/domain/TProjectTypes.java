@@ -1,5 +1,5 @@
   /**
-   * Generate time : 2015-04-27 10:39:51
+   * Generate time : 2015-04-29 9:55:13
    * Version : 1.0.1.V20070717
    */
 package com.baosight.fpserver.cm.im.domain;
@@ -19,6 +19,7 @@ public class TProjectTypes extends DaoEPBase {
 	private Integer f_projectTypeId = new Integer(0);		
 	private String f_projectTypeName = " ";		
 	private Integer f_projectTypeStatus = new Integer(0);		
+	private String f_projectTypeDesc = " ";		
 
 	/**
 	 * initialize the metadata 
@@ -36,6 +37,10 @@ public class TProjectTypes extends DaoEPBase {
 	eiMetadata.addMeta(eiColumn);
 	
 	eiColumn = new EiColumn("f_projectTypeStatus");
+	eiColumn.setDescName(" ");
+	eiMetadata.addMeta(eiColumn);
+	
+	eiColumn = new EiColumn("f_projectTypeDesc");
 	eiColumn.setDescName(" ");
 	eiMetadata.addMeta(eiColumn);
 	
@@ -94,6 +99,21 @@ public class TProjectTypes extends DaoEPBase {
 	}
 	
 	/**
+	 * get the f_projectTypeDesc 
+	 * @return the f_projectTypeDesc
+	 */
+	public String getF_projectTypeDesc() {
+		return this.f_projectTypeDesc;
+	}
+	
+	/**
+	 * set the f_projectTypeDesc 
+	 */
+	public void setF_projectTypeDesc(String f_projectTypeDesc) {
+		this.f_projectTypeDesc = f_projectTypeDesc;
+	}
+	
+	/**
 	 * get the value from Map
 	 */
 	public void fromMap(Map map) {
@@ -101,6 +121,7 @@ public class TProjectTypes extends DaoEPBase {
 		setF_projectTypeId(NumberUtils.toInteger(StringUtils.toString(map.get("f_projectTypeId")), f_projectTypeId));
 		setF_projectTypeName(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("f_projectTypeName")), f_projectTypeName));
 		setF_projectTypeStatus(NumberUtils.toInteger(StringUtils.toString(map.get("f_projectTypeStatus")), f_projectTypeStatus));
+		setF_projectTypeDesc(StringUtils.defaultIfEmpty(StringUtils.toString(map.get("f_projectTypeDesc")), f_projectTypeDesc));
 	}
 	
 	/**
@@ -112,6 +133,7 @@ public class TProjectTypes extends DaoEPBase {
 			map.put("f_projectTypeId",StringUtils.toString(f_projectTypeId, eiMetadata.getMeta("f_projectTypeId")));	
 			map.put("f_projectTypeName",StringUtils.toString(f_projectTypeName, eiMetadata.getMeta("f_projectTypeName")));	
 			map.put("f_projectTypeStatus",StringUtils.toString(f_projectTypeStatus, eiMetadata.getMeta("f_projectTypeStatus")));	
+			map.put("f_projectTypeDesc",StringUtils.toString(f_projectTypeDesc, eiMetadata.getMeta("f_projectTypeDesc")));	
 			
 		return map;
 	

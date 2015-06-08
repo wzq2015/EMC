@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	<!--      table information
+		Generate time : 2015-06-05 11:19:16
+   		Version :  1.0.1.V20070717
+		tableName :.t_energy_consumption 
+		 f_energy_consumption_id  INTEGER   NOT NULL   primarykey, 
+		 f_energy_consumption_name  VARCHAR   NOT NULL, 
+		 f_energy_consumption_desc  VARCHAR, 
+		 f_energy_consumption_formula  VARCHAR   NOT NULL, 
+		 f_energy_consumption_targetvalue  DOUBLE, 
+		 f_emcproject_id  INTEGER   NOT NULL
+	-->
+<sqlMap namespace="tEnergyConsumption">
+
+	<select id="query" parameterClass="java.util.HashMap" 
+			resultClass="com.baosight.fpserver.cm.im.domain.TEnergyConsumption">
+		SELECT
+				f_energy_consumption_id	as "f_energyConsumptionId",  
+				f_energy_consumption_name	as "f_energyConsumptionName",  
+				f_energy_consumption_desc	as "f_energyConsumptionDesc",  
+				f_energy_consumption_formula	as "f_energyConsumptionFormula",  
+				f_energy_consumption_targetvalue	as "f_energyConsumptionTargetvalue",  
+				f_emcproject_id	as "f_emcprojectId" 
+		FROM .t_energy_consumption WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionId">
+			f_energy_consumption_id = #f_energyConsumptionId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  f_energy_consumption_id asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+
+	<select id="count" resultClass="int">
+		SELECT COUNT(*) FROM .t_energy_consumption WHERE 1=1
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionId">
+			f_energy_consumption_id = #f_energyConsumptionId#
+		</isNotEmpty>
+	</select>
+	
+	<!--  
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionId">
+			f_energy_consumption_id = #f_energyConsumptionId#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionName">
+			f_energy_consumption_name = #f_energyConsumptionName#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionDesc">
+			f_energy_consumption_desc = #f_energyConsumptionDesc#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionFormula">
+			f_energy_consumption_formula = #f_energyConsumptionFormula#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_energyConsumptionTargetvalue">
+			f_energy_consumption_targetvalue = #f_energyConsumptionTargetvalue#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="f_emcprojectId">
+			f_emcproject_id = #f_emcprojectId#
+		</isNotEmpty>
+	-->
+
+	<insert id="insert">
+		INSERT INTO .t_energy_consumption (f_energy_consumption_id,
+										f_energy_consumption_name,
+										f_energy_consumption_desc,
+										f_energy_consumption_formula,
+										f_energy_consumption_targetvalue,
+										f_emcproject_id
+										)		 
+	    VALUES (#f_energyConsumptionId#, #f_energyConsumptionName#, #f_energyConsumptionDesc#, #f_energyConsumptionFormula#, #f_energyConsumptionTargetvalue#, #f_emcprojectId#) 
+	</insert>
+  
+	<delete id="delete">
+		DELETE FROM .t_energy_consumption WHERE 
+			f_energy_consumption_id = #f_energyConsumptionId#
+	</delete>
+
+	<update id="update">
+		UPDATE .t_energy_consumption 
+		SET 
+					f_energy_consumption_name	= #f_energyConsumptionName#,   
+					f_energy_consumption_desc	= #f_energyConsumptionDesc#,  
+					f_energy_consumption_targetvalue	= #f_energyConsumptionTargetvalue#
+			WHERE 	
+			f_energy_consumption_id = #f_energyConsumptionId#
+	</update>
+	
+	<update id="updateFormula">
+		UPDATE .t_energy_consumption 
+		SET 
+					f_energy_consumption_formula	= #f_energyConsumptionFormula#
+			WHERE 	
+			f_energy_consumption_id = #f_energyConsumptionId#
+	</update>
+  
+</sqlMap>

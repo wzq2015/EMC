@@ -284,6 +284,8 @@ function setPageType(type) {
 		$('#menuExpenseManagement').css("display", "block");
 		$('#menuLogManagement').css("display", "block");
 		$('#menuReportQuery').css("display", "block");
+		$('#menuEventLogManagement').css("display", "block");
+		$('#menuEnergyConsumptionManagement').css("display", "block");
 	}
 	else if (type == "gis") {
 		parent.document.mainFrame.location = "GIS.jsp";
@@ -294,6 +296,8 @@ function setPageType(type) {
 		$('#menuExpenseManagement').css("display", "none");
 		$('#menuLogManagement').css("display", "none");
 		$('#menuReportQuery').css("display", "none");
+		$('#menuEventLogManagement').css("display", "none");
+		$('#menuEnergyConsumptionManagement').css("display", "none");
 	}
 }
 
